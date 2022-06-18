@@ -19,15 +19,21 @@ int main()
     glBindVertexArray(vao);
 
     vec2 vector2(1.0f, 2.0f);
+    vector2.add(vec2(5, 2)).add(vec2(1, 1));
 
-    while (!window.closed())
-    {
-        window.clear();
+    vec2 a(1.0f, 2.0f);
+    vec2 b(2, 4);
+    vec2 c = a + b;
 
-        std::cout << vector2 << std::endl;
+    std::cout << vector2 << std::endl;
+    std::cout << c << std::endl; \
 
-        window.update();
-    }
+        while (!window.closed())
+        {
+            window.clear();
+
+            window.update();
+        }
 
     return 0;
 }

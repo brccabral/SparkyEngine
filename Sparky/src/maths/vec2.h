@@ -19,6 +19,8 @@ namespace sparky
             vec2& divide(const vec2& other);
 
             friend std::ostream& operator<<(std::ostream& stream, const vec2& vector);
+
+            friend vec2& operator+(vec2 left, const vec2& right);
         };
 
     } // namespace maths

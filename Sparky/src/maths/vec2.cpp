@@ -44,6 +44,11 @@ namespace sparky
             stream << "vec2(" << vector.x << ", " << vector.y << ")";
             return stream;
         }
+
+        vec2& operator+(vec2 left, const vec2& right)
+        {
+            return left.add(right);
+        }
     } // namespace maths
 
 } // namespace sparky
