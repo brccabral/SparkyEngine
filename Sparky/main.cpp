@@ -3,11 +3,13 @@
 #include <iostream>
 
 #include "src/graphics/window.h"
+#include "src/maths/vec2.h"
 
 int main()
 {
     using namespace sparky;
     using namespace graphics;
+    using namespace maths;
 
     Window window("Sparky!", 960, 540);
     glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
@@ -16,15 +18,13 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    double x, y;
+    vec2 vector2(1.0f, 2.0f);
 
     while (!window.closed())
     {
         window.clear();
 
-        window.getMousePosition(x, y);
-
-        std::cout << "x: " << x << " y: " << y << std::endl;
+        std::cout << vector2 << std::endl;
 
         window.update();
     }
