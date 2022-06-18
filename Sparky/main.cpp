@@ -25,15 +25,20 @@ int main()
     vec2 b(2, 4);
     vec2 c = a + b;
 
+    vec2 g(3, 7);
+    vec2 h(4, 9);
+    g -= h;
+
     std::cout << vector2 << std::endl;
-    std::cout << c << std::endl; \
+    std::cout << c << std::endl;
+    std::cout << g << std::endl;
 
-        while (!window.closed())
-        {
-            window.clear();
+    while (!window.closed())
+    {
+        window.clear();
 
-            window.update();
-        }
+        window.update();
+    }
 
     return 0;
 }

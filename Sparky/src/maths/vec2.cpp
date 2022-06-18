@@ -64,6 +64,26 @@ namespace sparky
         {
             return left.divide(right);
         }
+
+        vec2& vec2::operator+=(const vec2& other)
+        {
+            return add(other);
+        }
+
+        vec2& vec2::operator-=(const vec2& other)
+        {
+            return subtract(other);
+        }
+
+        vec2& vec2::operator*=(const vec2& other)
+        {
+            return multiply(other);
+        }
+
+        vec2& vec2::operator/=(const vec2& other)
+        {
+            return divide(other);
+        }
     } // namespace maths
 
 } // namespace sparky
