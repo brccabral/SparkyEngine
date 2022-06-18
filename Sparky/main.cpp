@@ -18,20 +18,29 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    vec2 vector2(1.0f, 2.0f);
-    vector2.add(vec2(5, 2)).add(vec2(1, 1));
-
     vec2 a(1.0f, 2.0f);
     vec2 b(2, 4);
-    vec2 c = a + b;
 
     vec2 g(3, 7);
     vec2 h(4, 9);
-    g -= h;
-
-    std::cout << vector2 << std::endl;
-    std::cout << c << std::endl;
     std::cout << g << std::endl;
+    std::cout << h << std::endl;
+    g -= h;
+    std::cout << g << std::endl;
+
+    vec2 k(1.0f, 2.0f);
+
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << k << std::endl;
+    std::cout << (a != b) << std::endl;
+    std::cout << (a == k) << std::endl;
+
+    vec2 c = a + b + g;
+    // c.x = 100.0f;
+
+    std::cout << a << std::endl;
+    std::cout << c << std::endl;
 
     while (!window.closed())
     {

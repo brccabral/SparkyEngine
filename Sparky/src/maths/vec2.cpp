@@ -45,24 +45,25 @@ namespace sparky
             return stream;
         }
 
-        vec2& operator+(vec2& left, const vec2& right)
+        vec2 operator+(const vec2& left, const vec2& right)
         {
-            return left.add(right);
+            return vec2(left.x + right.x, left.y + right.y);
         }
 
-        vec2& operator-(vec2& left, const vec2& right)
+        vec2
+            operator-(const vec2& left, const vec2& right)
         {
-            return left.subtract(right);
+            return vec2(left.x - right.x, left.y - right.y);
         }
 
-        vec2& operator*(vec2& left, const vec2& right)
+        vec2 operator*(const vec2& left, const vec2& right)
         {
-            return left.multiply(right);
+            return vec2(left.x * right.x, left.y * right.y);
         }
 
-        vec2& operator/(vec2& left, const vec2& right)
+        vec2 operator/(const vec2& left, const vec2& right)
         {
-            return left.divide(right);
+            return vec2(left.x / right.x, left.y / right.y);
         }
 
         vec2& vec2::operator+=(const vec2& other)
@@ -83,6 +84,16 @@ namespace sparky
         vec2& vec2::operator/=(const vec2& other)
         {
             return divide(other);
+        }
+
+        bool vec2::operator==(const vec2& other)
+        {
+            return x == other.x && y == other.y;
+        }
+
+        bool vec2::operator!=(const vec2& other)
+        {
+            return x != other.x || y != other.y;
         }
     } // namespace maths
 
