@@ -1,5 +1,6 @@
 #pragma once
 
+#include <GL/glew.h> // need to include before GLFW
 #include <GLFW/glfw3.h>
 
 namespace sparky

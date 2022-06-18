@@ -1,3 +1,4 @@
+#include <GL/glew.h> // need to include before GLFW
 #include <GLFW/glfw3.h>
 #include <iostream>
 
@@ -11,7 +12,7 @@ int main()
     Window window("Sparky!", 960, 540);
     glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
-    std::cout << glGetString(GL_VERSION) << std::endl;
+    // std::cout << glGetString(GL_VERSION) << std::endl;
 
     while (!window.closed())
     {
