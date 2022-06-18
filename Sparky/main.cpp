@@ -3,9 +3,7 @@
 #include <iostream>
 
 #include "src/graphics/window.h"
-#include "src/maths/vec2.h"
-#include "src/maths/vec3.h"
-#include "src/maths/vec4.h"
+#include "src/maths/maths.h"
 
 int main()
 {
