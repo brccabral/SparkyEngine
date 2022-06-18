@@ -34,6 +34,7 @@ namespace sparky
 
             static bool isKeyPressed(unsigned int keycode);
             static bool isMousePressed(unsigned int keycode);
+            static void getMousePosition(double& x, double& y);
 
         private:
             bool init();
@@ -41,6 +42,7 @@ namespace sparky
             // key_callback is friend so it can access private members
             friend void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
             friend void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+            friend void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
         };
     }
 }

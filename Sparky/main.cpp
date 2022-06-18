@@ -16,12 +16,15 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
+    double x, y;
+
     while (!window.closed())
     {
         window.clear();
 
-        std::cout << "Key A: " << window.isKeyPressed(GLFW_KEY_A) << std::endl;
-        std::cout << "Mouse Left: " << window.isMousePressed(GLFW_MOUSE_BUTTON_LEFT) << std::endl;
+        window.getMousePosition(x, y);
+
+        std::cout << "x: " << x << " y: " << y << std::endl;
 
         window.update();
     }
