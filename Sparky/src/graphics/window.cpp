@@ -13,10 +13,6 @@ namespace sparky
         void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
         void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
 
-        bool Window::m_Keys[MAX_KEYS];
-        bool Window::m_MouseButtons[MAX_BUTTONS];
-        double Window::m_MouseX, Window::m_MouseY;
-
         Window::Window(const char* title, int width, int height)
         {
             m_Title = title;
@@ -86,7 +82,7 @@ namespace sparky
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         }
 
-        bool Window::isKeyPressed(unsigned int keycode)
+        bool Window::isKeyPressed(unsigned int keycode) const
         {
             if (keycode >= MAX_KEYS)
                 return false;
@@ -94,7 +90,7 @@ namespace sparky
             return m_Keys[keycode];
         }
 
-        bool Window::isMousePressed(unsigned int button)
+        bool Window::isMousePressed(unsigned int button) const
         {
             if (button >= MAX_BUTTONS)
                 return false;
@@ -103,7 +99,7 @@ namespace sparky
         }
 
         // returns by param reference the values from MouseX and Y
-        void Window::getMousePosition(double& x, double& y)
+        void Window::getMousePosition(double& x, double& y) const
         {
             x = m_MouseX;
             y = m_MouseY;

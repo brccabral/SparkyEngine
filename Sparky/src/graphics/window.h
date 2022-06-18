@@ -18,9 +18,9 @@ namespace sparky
             GLFWwindow* m_Window;
             bool m_Closed;
 
-            static bool m_Keys[MAX_KEYS];
-            static bool m_MouseButtons[MAX_BUTTONS];
-            static double m_MouseX, m_MouseY;
+            bool m_Keys[MAX_KEYS];
+            bool m_MouseButtons[MAX_BUTTONS];
+            double m_MouseX, m_MouseY;
 
         public:
             Window(const char* title, int width, int height);
@@ -32,9 +32,9 @@ namespace sparky
             inline int getWidth() const { return m_Width; };
             inline int getHeight() const { return m_Height; };
 
-            static bool isKeyPressed(unsigned int keycode);
-            static bool isMousePressed(unsigned int keycode);
-            static void getMousePosition(double& x, double& y);
+            bool isKeyPressed(unsigned int keycode) const;
+            bool isMousePressed(unsigned int keycode) const;
+            void getMousePosition(double& x, double& y) const;
 
         private:
             bool init();
