@@ -41,7 +41,7 @@ namespace sparky
 
         bool Window::closed() const
         {
-            return glfwWindowShouldClose(m_Window);
+            return glfwWindowShouldClose(m_Window) == 1;
         }
 
         void Window::update() const
