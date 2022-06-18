@@ -33,12 +33,14 @@ namespace sparky
             inline int getHeight() const { return m_Height; };
 
             static bool isKeyPressed(unsigned int keycode);
+            static bool isMousePressed(unsigned int keycode);
 
         private:
             bool init();
 
             // key_callback is friend so it can access private members
             friend void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+            friend void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
         };
     }
 }

@@ -10,6 +10,7 @@ namespace sparky
 
         // keyboard input callback from GLFW
         void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+        void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
         bool Window::m_Keys[MAX_KEYS];
         bool Window::m_MouseButtons[MAX_BUTTONS];
@@ -54,6 +55,7 @@ namespace sparky
             glfwSetWindowUserPointer(m_Window, this);
             glfwSetWindowSizeCallback(m_Window, window_resize);
             glfwSetKeyCallback(m_Window, key_callback);
+            glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 
             if (glewInit() != GLEW_OK) // glewInit needs to be after glfwMakeContextCurrent
             {
@@ -90,6 +92,14 @@ namespace sparky
             return m_Keys[keycode];
         }
 
+        bool Window::isMousePressed(unsigned int button)
+        {
+            if (button >= MAX_BUTTONS)
+                return false;
+
+            return m_MouseButtons[button];
+        }
+
         void window_resize(GLFWwindow* window, int width, int height)
         {
             glViewport(0, 0, width, height);
@@ -99,6 +109,12 @@ namespace sparky
         {
             Window* win = (Window*)glfwGetWindowUserPointer(window);
             win->m_Keys[key] = action != GLFW_RELEASE;
+        }
+
+        void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+        {
+            Window* win = (Window*)glfwGetWindowUserPointer(window);
+            win->m_MouseButtons[button] = action != GLFW_RELEASE;
         }
     }
 }

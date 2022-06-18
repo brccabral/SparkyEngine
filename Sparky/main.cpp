@@ -20,7 +20,8 @@ int main()
     {
         window.clear();
 
-        std::cout << window.isKeyPressed(GLFW_KEY_A) << std::endl;
+        std::cout << "Key A: " << window.isKeyPressed(GLFW_KEY_A) << std::endl;
+        std::cout << "Mouse Left: " << window.isMousePressed(GLFW_MOUSE_BUTTON_LEFT) << std::endl;
 
         window.update();
     }
