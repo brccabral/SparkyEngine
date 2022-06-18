@@ -4,6 +4,8 @@
 
 #include "src/graphics/window.h"
 #include "src/maths/vec2.h"
+#include "src/maths/vec3.h"
+#include "src/maths/vec4.h"
 
 int main()
 {
@@ -18,29 +20,20 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    vec2 a(1.0f, 2.0f);
-    vec2 b(2, 4);
-
-    vec2 g(3, 7);
-    vec2 h(4, 9);
-    std::cout << g << std::endl;
-    std::cout << h << std::endl;
-    g -= h;
-    std::cout << g << std::endl;
-
-    vec2 k(1.0f, 2.0f);
+    vec3 a(2, 3, 4);
+    vec3 b(2, 1, -4);
+    vec3 c = a + b;
 
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    std::cout << k << std::endl;
-    std::cout << (a != b) << std::endl;
-    std::cout << (a == k) << std::endl;
-
-    vec2 c = a + b + g;
-    // c.x = 100.0f;
-
-    std::cout << a << std::endl;
     std::cout << c << std::endl;
+
+    vec4 d(2, 3, 4, 9);
+    vec4 e(2, 1, -4, 2);
+    vec4 f = d + e;
+    std::cout << d << std::endl;
+    std::cout << e << std::endl;
+    std::cout << f << std::endl;
 
     while (!window.closed())
     {
