@@ -20,7 +20,7 @@ int main()
     {
         window.clear();
 
-        glDrawArrays(GL_ARRAY_BUFFER, 0, 6);
+        std::cout << window.isKeyPressed(GLFW_KEY_A) << std::endl;
 
         window.update();
     }
