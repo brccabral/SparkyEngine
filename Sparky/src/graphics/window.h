@@ -18,6 +18,7 @@ namespace sparky
             Window(const char* title, int width, int height);
             ~Window();
             void update() const;
+            void clear() const;
             bool closed() const;
 
         private:

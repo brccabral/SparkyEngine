@@ -13,7 +13,7 @@ int main()
 
     while (!window.closed())
     {
-        glClear(GL_COLOR_BUFFER_BIT);
+        window.clear();
         window.update();
     }
 
