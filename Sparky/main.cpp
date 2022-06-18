@@ -15,6 +15,7 @@ int main()
 
     while (!window.closed())
     {
+        std::cout << window.getWidth() << ", " << window.getHeight() << std::endl;
         window.clear();
         glBegin(GL_TRIANGLES);
         glVertex2f(-0.5f, -0.5f);

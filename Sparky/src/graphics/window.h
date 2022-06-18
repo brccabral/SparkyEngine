@@ -17,9 +17,12 @@ namespace sparky
         public:
             Window(const char* title, int width, int height);
             ~Window();
-            void update() const;
+            void update();
             void clear() const;
             bool closed() const;
+
+            inline int getWidth() const { return m_Width; };
+            inline int getHeight() const { return m_Height; };
 
         private:
             bool init();

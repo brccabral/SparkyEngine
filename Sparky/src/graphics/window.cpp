@@ -44,9 +44,10 @@ namespace sparky
             return glfwWindowShouldClose(m_Window) == 1;
         }
 
-        void Window::update() const
+        void Window::update()
         {
             glfwPollEvents();
+            glfwGetFramebufferSize(m_Window, &m_Width, &m_Height);
             glfwSwapBuffers(m_Window);
         }
 
