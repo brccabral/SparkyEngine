@@ -21,7 +21,9 @@ int main()
     mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
     Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+    Shader shader2("src/shaders/basic.vert", "src/shaders/basic.frag");
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
+    shader2.setUniform("light_pos", vec2(4.0f, 1.5f));
 
     TileLayer layer(&shader);
     for (float y = -9.0f; y < 9.0f; y+=0.1)
@@ -30,6 +32,11 @@ int main()
             layer.add(new Sprite(x, y, 0.09f, 0.09f, maths::vec4(rand()%1000 / 1000.0f, 0, 1, 1)));
         }
     }
+
+
+    TileLayer layer2(&shader2);
+    layer2.add(new Sprite(-2,-2,4,4, maths::vec4(1, 0, 1, 1)));
+
 
     double x, y;
 
@@ -41,8 +48,12 @@ int main()
         window.clear();
         window.getMousePosition(x, y);
         shader.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+        shader.enable();
+        shader2.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+        shader2.enable();
 
         layer.render();
+        layer2.render();
 
         window.update();
 
