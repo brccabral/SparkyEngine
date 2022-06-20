@@ -42,6 +42,8 @@ int main()
     shader.setUniformMat4("ml_matrix", mat4::translation(vec3(2, 2, 0)));
     shader.setUniformMat4("ml_matrix", mat4::rotation(45.0f, vec3(0, 0, 1)));
 
+    shader.setUniform4f("colour", vec4(0.8f, 0.8f, 0.8f, 1.0f));
+
     while (!window.closed())
     {
         window.clear();
