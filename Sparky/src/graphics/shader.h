@@ -20,12 +20,12 @@ namespace sparky::graphics
         void enable() const;
         void disable() const;
 
-        void setUniformMat4(const GLchar* name, const maths::mat4& matrix);
-        void setUniform1i(const GLchar* name, int value);
-        void setUniform1f(const GLchar* name, float value);
-        void setUniform2f(const GLchar* name, const maths::vec2& vector);
-        void setUniform3f(const GLchar* name, const maths::vec3& vector);
-        void setUniform4f(const GLchar* name, const maths::vec4& vector);
+        void setUniform(const GLchar* name, const maths::mat4& matrix);
+        void setUniform(const GLchar* name, int value);
+        void setUniform(const GLchar* name, float value);
+        void setUniform(const GLchar* name, const maths::vec2& vector);
+        void setUniform(const GLchar* name, const maths::vec3& vector);
+        void setUniform(const GLchar* name, const maths::vec4& vector);
 
     private:
         GLuint load();
