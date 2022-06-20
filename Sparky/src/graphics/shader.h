@@ -7,7 +7,7 @@ namespace sparky::graphics
 {
     class Shader
     {
-    private:
+    public:
         GLuint m_ShaderID; // shader ID given by openGl
         const char* m_vertPath;
         const char* m_fragPath;
