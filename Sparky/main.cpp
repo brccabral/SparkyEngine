@@ -8,7 +8,6 @@
 #include "src/maths/maths.h"
 
 #include "src/graphics/shader.h"
-#include "src/graphics/simple2drenderer.h"
 
 #include "src/graphics/sprite.h"
 #include "src/graphics/batchrenderer2d.h"
