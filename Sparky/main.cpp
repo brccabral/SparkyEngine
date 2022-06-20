@@ -5,6 +5,7 @@
 #include "src/graphics/window.h"
 #include "src/maths/maths.h"
 #include "src/utils/fileutils.h"
+#include "src/graphics/shader.h"
 
 int main()
 {
@@ -19,8 +20,7 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    std::string file = read_file("main.cpp");
-    std::cout << file << std::endl;
+    Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 
     while (!window.closed())
     {
