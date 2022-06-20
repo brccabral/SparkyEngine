@@ -24,7 +24,12 @@ int main()
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
 
     TileLayer layer(&shader);
-    layer.add(new Sprite(0,0,2,2,maths::vec4(0.8f, 0.2f, 0.8f, 1.0f)));
+    for (float y = -9.0f; y < 9.0f; y+=0.1)
+    {
+        for (float x = -16.0f; x < 16.0f; x += 0.1) {
+            layer.add(new Sprite(x, y, 0.09f, 0.09f, maths::vec4(rand()%1000 / 1000.0f, 0, 1, 1)));
+        }
+    }
 
     double x, y;
 
