@@ -44,9 +44,13 @@ int main()
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
     shader.setUniform("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
+    double x, y;
+
     while (!window.closed())
     {
         window.clear();
+        window.getMousePosition(x, y);
+        shader.setUniform("light_pos", vec2((float)(x * 16.0f / 960.0f - 4.0f), (float)(9.0f - y * 9.0f / 540.0f - 3.0f)));
 
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
