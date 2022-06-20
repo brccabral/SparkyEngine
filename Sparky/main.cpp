@@ -19,13 +19,13 @@ int main()
     // draw two triangles to form a rectangle
     GLfloat vertices[] = {
         // draw one triangle on top left
-        4, 3, 0,
-        12, 3, 0,
-        4, 6, 0,
+        0, 0, 0,
+        8, 0, 0,
+        0, 3, 0,
         // draw one triangle on bottom right
-        4, 6, 0,
-        12, 6, 0,
-        12, 3, 0 };
+        0, 3, 0,
+        8, 3, 0,
+        8, 0, 0 };
 
     GLuint vbo;
     glGenBuffers(1, &vbo);
@@ -39,9 +39,9 @@ int main()
 
     mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
     shader.setUniformMat4("pr_matrix", ortho);
-    shader.setUniformMat4("ml_matrix", mat4::translation(vec3(2, 2, 0)));
-    shader.setUniformMat4("ml_matrix", mat4::rotation(45.0f, vec3(0, 0, 1)));
+    shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
 
+    shader.setUniform2f("light_pos", vec2(8.0f, 4.5f));
     shader.setUniform4f("colour", vec4(0.8f, 0.8f, 0.8f, 1.0f));
 
     while (!window.closed())
