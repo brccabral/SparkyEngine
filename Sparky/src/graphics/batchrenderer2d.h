@@ -3,6 +3,7 @@
 // Instead of having a queue that renders sprites one by one
 // add all sprites to one batch buffer and render them all at once
 
+#include <cstddef>
 #include "renderer2d.h"
 #include "renderable2d.h"
 #include "buffers/indexbuffer.h"

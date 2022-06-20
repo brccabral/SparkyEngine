@@ -1,17 +1,12 @@
-#include <GL/glew.h> // need to include before GLFW
-#include <GLFW/glfw3.h>
 #include <iostream>
 #include <vector>
 #include <time.h>
 
 #include "src/graphics/window.h"
 #include "src/maths/maths.h"
-
 #include "src/graphics/shader.h"
-
 #include "src/graphics/sprite.h"
 #include "src/graphics/batchrenderer2d.h"
-
 #include "src/utils/timer.h"
 
 int main()
