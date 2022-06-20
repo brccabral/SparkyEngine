@@ -4,6 +4,7 @@
 
 #include "src/graphics/window.h"
 #include "src/maths/maths.h"
+#include "src/utils/fileutils.h"
 
 int main()
 {
@@ -18,21 +19,8 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    mat4 position = mat4::translation(vec3(2, 3, 4));
-    position *= mat4::identity();
-
-    vec4& column0 = position.columns[3]; // gets the same address
-    vec4 column1 = position.columns[3]; // copy = gets the values, but different address
-    std::cout << column0 << std::endl;
-    std::cout << column1 << std::endl;
-    std::cout << position.elements[12] << std::endl;
-    std::cout << position.elements[13] << std::endl;
-    std::cout << position.elements[14] << std::endl;
-    std::cout << position.elements[15] << std::endl;
-    std::cout << &column0.x << std::endl;
-    std::cout << &column1.x << std::endl;
-    std::cout << &position.elements[12] << std::endl;
-    std::cout << &position.columns[3].x << std::endl;
+    std::string file = read_file("main.cpp");
+    std::cout << file << std::endl;
 
     while (!window.closed())
     {
