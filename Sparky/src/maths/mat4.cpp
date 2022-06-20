@@ -108,15 +108,15 @@ namespace sparky
 
             // [row + col * size]
             result.elements[0 + 0 * 4] = x * x * omc + c;
-            result.elements[1 + 0 * 4] = y * x * omc - z * s;
-            result.elements[2 + 0 * 4] = x * z * omc + y * s;
-
-            result.elements[0 + 1 * 4] = x * y * omc - z * s;
-            result.elements[1 + 1 * 4] = y * y * omc + c;
-            result.elements[2 + 1 * 4] = y * z * omc - x * s;
-
+            result.elements[0 + 1 * 4] = x * y * omc + z * s;
             result.elements[0 + 2 * 4] = x * z * omc - y * s;
+
+            result.elements[1 + 0 * 4] = y * x * omc - z * s;
+            result.elements[1 + 1 * 4] = y * y * omc + c;
             result.elements[1 + 2 * 4] = y * z * omc + x * s;
+
+            result.elements[2 + 0 * 4] = x * z * omc + y * s;
+            result.elements[2 + 1 * 4] = y * z * omc - x * s;
             result.elements[2 + 2 * 4] = z * z * omc + c;
 
             return result;

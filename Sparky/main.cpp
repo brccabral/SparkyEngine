@@ -43,10 +43,14 @@ int main()
     Timer time;
     float timer = 0.0f;
     unsigned int frames = 0;
-    //Timer timer;
     while (!window.closed())
     {
-        //timer.reset();
+        // this is to show that mat4 has problems
+        mat4 mat = mat4::translation(vec3(5, 5, 5));
+        mat = mat * mat4::rotation(time.elapsed() * 50.0f, vec3(0, 0, 1));
+        mat = mat * mat4::translation(vec3(-5, -5, -5));
+        shader.setUniform("ml_matrix", mat);
+
         window.clear();
         window.getMousePosition(x, y);
         shader.setUniform("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
@@ -67,7 +71,6 @@ int main()
             printf("%d fps\n", frames);
             frames = 0;
         }
-        //printf("%f ms\n", timer.elapsed());
     }
 
     return 0;
