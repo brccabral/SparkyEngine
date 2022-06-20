@@ -4,6 +4,7 @@
 // add all sprites to one batch buffer and render them all at once
 
 #include "renderer2d.h"
+#include "renderable2d.h"
 #include "buffers/indexbuffer.h"
 
 namespace sparky::graphics
@@ -29,7 +30,7 @@ namespace sparky::graphics
         BatchRederer2D();
         ~BatchRederer2D();
 
-        void submit(Renderable2D* renderable) override;
+        void submit(const Renderable2D* renderable) override;
         void flush() override;
 
     private:

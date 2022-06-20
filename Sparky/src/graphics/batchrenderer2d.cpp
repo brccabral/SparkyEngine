@@ -26,7 +26,7 @@ namespace sparky::graphics
         glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)0);
 
         // get the color position based on VertexData
-        glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)(3 * GL_FLOAT));
+        glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)(3 * sizeof(GLfloat)));
         glEnableVertexAttribArray(SHADER_COLOR_INDEX);
 
         glBindBuffer(GL_ARRAY_BUFFER, 0); // bind and unbind costs a lot
@@ -53,6 +53,6 @@ namespace sparky::graphics
         glBindVertexArray(0);
     };
 
-    void BatchRederer2D::submit(Renderable2D* renderable) {};
+    void BatchRederer2D::submit(const Renderable2D* renderable) {};
     void BatchRederer2D::flush() {};
 }

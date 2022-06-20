@@ -1,16 +1,16 @@
-#include "renderable2d.h"
+#include "static_sprite.h"
 
 namespace sparky::graphics
 {
-    Renderable2D::Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color)
-        : m_Position(position), m_Size(size), m_Color(color)
+    StaticSprite::StaticSprite(float x, float y, float width, float height, const maths::vec4 color, Shader& shader)
+        : Renderable2D(maths::vec3(x, y, 0), maths::vec2(width, height), color), m_Shader(shader)
     {
         m_VertexArray = new VertexArray();
         GLfloat vertices[] = {
             0, 0, 0,
-            0, size.y, 0,
-            size.x, size.y, 0,
-            size.x, 0, 0 };
+            0, height, 0,
+            width, height, 0,
+            width, 0, 0 };
 
         GLfloat colors[] = {
             color.x, color.y, color.z, color.w,
@@ -24,5 +24,10 @@ namespace sparky::graphics
         GLushort indices[] = { 0, 1, 2, 2, 3, 0 };
         m_IndexBuffer = new IndexBuffer(indices, 6);
     };
-    Renderable2D::~Renderable2D() {};
+
+    StaticSprite::~StaticSprite()
+    {
+        delete m_VertexArray;
+        delete m_IndexBuffer;
+    }
 }

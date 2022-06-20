@@ -3,15 +3,15 @@
 namespace sparky::graphics
 {
 
-    void Simple2Drenderer::submit(Renderable2D* renderable)
+    void Simple2Drenderer::submit(const Renderable2D* renderable)
     {
-        m_RendererQueue.push_back(renderable);
+        m_RendererQueue.push_back((StaticSprite*)renderable);
     };
     void Simple2Drenderer::flush()
     {
         while (!m_RendererQueue.empty())
         {
-            const Renderable2D* renderable = m_RendererQueue.front();
+            const StaticSprite* renderable = m_RendererQueue.front();
             renderable->getVAO()->bind();
             renderable->getIBO()->bind();
 

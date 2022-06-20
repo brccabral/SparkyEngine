@@ -2,16 +2,17 @@
 
 #include <deque>
 #include "renderer2d.h"
+#include "static_sprite.h"
 
 namespace sparky::graphics
 {
     class Simple2Drenderer : public Renderer2D
     {
     private:
-        std::deque<const Renderable2D*> m_RendererQueue;
+        std::deque<const StaticSprite*> m_RendererQueue;
 
     public:
-        void submit(Renderable2D* renderable) override;
+        void submit(const Renderable2D* renderable) override;
         void flush() override;
     };
 } // namespace sparky::graphics
