@@ -34,8 +34,7 @@ namespace sparky::graphics
         // create triangle indices
         // t1 = 0,1,2, 2,3,0
         // t2 = 4,5,6, 6,7,4
-        // GLuint *indices = new GLuint[RENDERER_INDICES_SIZE];
-        GLuint indices[RENDERER_INDICES_SIZE];
+        GLuint *indices = new GLuint[RENDERER_INDICES_SIZE]; // moving to HEAP we can load more sprites on Windows
         int offset = 0;
         for (int i = 0; i < RENDERER_INDICES_SIZE - 6; i += 6)
         {

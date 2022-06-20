@@ -31,11 +31,11 @@ int main()
 
     srand(time(NULL));
     std::vector<Renderable2D*> sprites;
-    for (float y = 0; y < 9.0f; y+=0.6)
+    for (float y = 0; y < 9.0f; y+=0.05)
     {
-        for (float x = 0; x < 16.0f; x+=0.6)
+        for (float x = 0; x < 16.0f; x+=0.05)
         {
-            sprites.push_back(new Sprite(x, y, 0.54f, 0.54f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+            sprites.push_back(new Sprite(x, y, 0.04f, 0.04f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
         }
     }
 
