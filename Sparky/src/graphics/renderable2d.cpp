@@ -2,15 +2,15 @@
 
 namespace sparky::graphics
 {
-    Renderable2D::Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color)
-        : m_Position(position), m_Size(size), m_Color(color)
+    Renderable2D::Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color, Shader& shader)
+        : m_Position(position), m_Size(size), m_Color(color), m_Shader(shader)
     {
         m_VertexArray = new VertexArray();
         GLfloat vertices[] = {
             0, 0, 0,
-            0, position.y, 0,
-            position.x, position.y, 0,
-            position.x, 0, 0 };
+            0, size.y, 0,
+            size.x, size.y, 0,
+            size.x, 0, 0 };
 
         GLfloat colors[] = {
             color.x, color.y, color.z, color.w,

@@ -94,12 +94,12 @@ namespace sparky::graphics
         glUseProgram(0);
     }
 
-    GLint Shader::getUniformLocation(const GLchar* name)
+    GLint Shader::getUniformLocation(const GLchar* name) const
     {
         return glGetUniformLocation(m_ShaderID, name);
     };
 
-    void Shader::setUniform(const GLchar* name, const maths::mat4& matrix)
+    void Shader::setUniform(const GLchar* name, const maths::mat4& matrix) const
     {
         glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.elements);
     };

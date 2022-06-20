@@ -20,7 +20,7 @@ namespace sparky::graphics
         void enable() const;
         void disable() const;
 
-        void setUniform(const GLchar* name, const maths::mat4& matrix);
+        void setUniform(const GLchar* name, const maths::mat4& matrix) const;
         void setUniform(const GLchar* name, int value);
         void setUniform(const GLchar* name, float value);
         void setUniform(const GLchar* name, const maths::vec2& vector);
@@ -30,6 +30,6 @@ namespace sparky::graphics
     private:
         GLuint load();
 
-        GLint getUniformLocation(const GLchar* name);
+        GLint getUniformLocation(const GLchar* name) const;
     };
 } // namespace sparky::graphics

@@ -11,6 +11,9 @@
 #include "src/graphics/buffers/indexbuffer.h"
 #include "src/graphics/buffers/vertexarray.h"
 
+#include "src/graphics/renderer2d.h"
+#include "src/graphics/simple2drenderer.h"
+
 int main()
 {
     using namespace sparky;
@@ -57,6 +60,9 @@ int main()
     shader.setUniform("pr_matrix", ortho);
     shader.setUniform("ml_matrix", mat4::translation(vec3(4, 3, 0)));
 
+    Renderable2D sprite(vec3(5, 5, 0), vec2(4, 4), vec4(1, 0, 1, 1), shader);
+    Simple2Drenderer renderer;
+
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
     shader.setUniform("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
@@ -68,19 +74,8 @@ int main()
         window.getMousePosition(x, y);
         shader.setUniform("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
 
-        sprite1.bind();
-        ibo.bind();
-        shader.setUniform("ml_matrix", mat4::translation(vec3(4, 3, 0)));
-        glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
-        ibo.unbind();
-        sprite1.unbind();
-
-        sprite2.bind();
-        ibo.bind();
-        shader.setUniform("ml_matrix", mat4::translation(vec3(0, 0, 0)));
-        glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
-        ibo.unbind();
-        sprite2.unbind();
+        renderer.submit(&sprite);
+        renderer.flush();
 
         window.update();
     }
