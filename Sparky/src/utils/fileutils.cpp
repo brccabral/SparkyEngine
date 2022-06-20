@@ -9,10 +9,9 @@ namespace sparky
         FILE* file = fopen(filepath, "rt"); // rt = read as text (line ending is like text file)
         fseek(file, 0, SEEK_END);
 
-        unsigned long length = ftell(file); // get number of bytes
-        char* data = new char[length + 1];  // allocate in HEAP
+        unsigned long length = ftell(file);  // get number of bytes
+        char* data = new char[length + 1](); // allocate in HEAP, () puts 0 in all array
 
-        memset(data, 0, length + 1);  // set all to 0
         fseek(file, 0, SEEK_SET);     // go back to beginning
         fread(data, 1, length, file); // read file and put in data, 1 byte = sizeof(char)
         fclose(file);
