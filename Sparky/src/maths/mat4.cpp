@@ -42,11 +42,11 @@ namespace sparky
             // [row + col * size]
             result.elements[0 + 0 * 4] = 2.0f / (right - left);
             result.elements[1 + 1 * 4] = 2.0f / (top - bottom);
-            result.elements[2 + 2 * 4] = -2.0f / (far - near);
+            result.elements[2 + 2 * 4] = 2.0f / (near - far);
 
-            result.elements[0 + 3 * 4] = -(right + left) / (right - left);
-            result.elements[1 + 3 * 4] = -(top + bottom) / (top - bottom);
-            result.elements[2 + 3 * 4] = -(far + near) / (far - near);
+            result.elements[0 + 3 * 4] = (left + right) / (left - right);
+            result.elements[1 + 3 * 4] = (bottom + top) / (bottom - top);
+            result.elements[2 + 3 * 4] = (far + near) / (far - near);
 
             return result;
         };
@@ -57,8 +57,8 @@ namespace sparky
 
             float q = 1.0f / tan(toRadians(0.5f * fov));
             float a = q / aspectRatio;
-            float b = -(far + near) / (far - near);
-            float c = -(2.0f * far * near) / (far - near);
+            float b = (near + far) / (near - far);
+            float c = (2.0f * near * far) / (near - far);
 
             // [row + col * size]
             result.elements[0 + 0 * 4] = a;
@@ -108,15 +108,15 @@ namespace sparky
 
             // [row + col * size]
             result.elements[0 + 0 * 4] = x * x * omc + c;
-            result.elements[1 + 0 * 4] = y * x * omc + z * s;
-            result.elements[2 + 0 * 4] = x * x * omc - y * s;
+            result.elements[1 + 0 * 4] = y * x * omc - z * s;
+            result.elements[2 + 0 * 4] = x * z * omc + y * s;
 
             result.elements[0 + 1 * 4] = x * y * omc - z * s;
             result.elements[1 + 1 * 4] = y * y * omc + c;
-            result.elements[2 + 1 * 4] = y * z * omc + x * s;
+            result.elements[2 + 1 * 4] = y * z * omc - x * s;
 
-            result.elements[0 + 2 * 4] = x * z * omc + y * s;
-            result.elements[1 + 2 * 4] = y * z * omc - x * s;
+            result.elements[0 + 2 * 4] = x * z * omc - y * s;
+            result.elements[1 + 2 * 4] = y * z * omc + x * s;
             result.elements[2 + 2 * 4] = z * z * omc + c;
 
             return result;

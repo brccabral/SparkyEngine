@@ -35,10 +35,10 @@ int main()
 
     vao.addBuffer(vbo, 0);
 
+    mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
+
     Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
     shader.enable();
-
-    mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
     shader.setUniform("pr_matrix", ortho);
     shader.setUniform("ml_matrix", mat4::translation(vec3(4, 3, 0)));
 
@@ -51,10 +51,13 @@ int main()
     {
         window.clear();
         window.getMousePosition(x, y);
-        shader.setUniform("light_pos", vec2((float)(x * 16.0f / 960.0f - 4.0f), (float)(9.0f - y * 9.0f / 540.0f - 3.0f)));
+        shader.setUniform("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
 
         vao.bind();
         ibo.bind();
+        shader.setUniform("ml_matrix", mat4::translation(vec3(4, 3, 0)));
+        glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
+        shader.setUniform("ml_matrix", mat4::translation(vec3(0, 0, 0)));
         glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
         ibo.unbind();
         vao.unbind();
