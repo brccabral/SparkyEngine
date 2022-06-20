@@ -19,7 +19,7 @@ namespace sparky::graphics
 #define SHADER_VERTEX_INDEX 0
 #define SHADER_COLOR_INDEX 1
 
-    class BatchRederer2D : public Renderer2D
+    class BatchRenderer2D : public Renderer2D
     {
     private:
         GLuint m_VAO;
@@ -30,8 +30,8 @@ namespace sparky::graphics
         VertexData* m_Buffer;
 
     public:
-        BatchRederer2D();
-        ~BatchRederer2D();
+        BatchRenderer2D();
+        ~BatchRenderer2D();
 
         void begin();
         void submit(const Renderable2D* renderable) override;

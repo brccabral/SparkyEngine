@@ -39,7 +39,7 @@ int main()
         }
     }
 
-    BatchRederer2D renderer;
+    BatchRenderer2D renderer;
 
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
     shader.setUniform("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));

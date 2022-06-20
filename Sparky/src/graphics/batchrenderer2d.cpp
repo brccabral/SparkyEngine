@@ -2,17 +2,17 @@
 
 namespace sparky::graphics
 {
-    BatchRederer2D::BatchRederer2D()
+    BatchRenderer2D::BatchRenderer2D()
     {
         init();
     };
-    BatchRederer2D::~BatchRederer2D()
+    BatchRenderer2D::~BatchRenderer2D()
     {
         delete m_IBO;
         glDeleteBuffers(1, &m_VBO);
     }
 
-    void BatchRederer2D::init()
+    void BatchRenderer2D::init()
     {
         glGenVertexArrays(1, &m_VAO);
         glGenBuffers(1, &m_VBO);
@@ -54,14 +54,14 @@ namespace sparky::graphics
         glBindVertexArray(0);
     };
 
-    void BatchRederer2D::begin()
+    void BatchRenderer2D::begin()
     {
         glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
         m_Buffer = (VertexData*)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
     };
 
     // submit will create a rectangle
-    void BatchRederer2D::submit(const Renderable2D* renderable)
+    void BatchRenderer2D::submit(const Renderable2D* renderable)
     {
         // indices 0,1,2, 2,3,0
         const maths::vec3& position = renderable->getPosition();
@@ -86,13 +86,13 @@ namespace sparky::graphics
 
         m_IndexCount += 6;
     };
-    void BatchRederer2D::end()
+    void BatchRenderer2D::end()
     {
         glUnmapBuffer(GL_ARRAY_BUFFER);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     };
 
-    void BatchRederer2D::flush()
+    void BatchRenderer2D::flush()
     {
         glBindVertexArray(m_VAO);
         m_IBO->bind();
