@@ -18,20 +18,8 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    vec3 a(2, 3, 4);
-    vec3 b(2, 1, -4);
-    vec3 c = a + b;
-
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << c << std::endl;
-
-    vec4 d(2, 3, 4, 9);
-    vec4 e(2, 1, -4, 2);
-    vec4 f = d + e;
-    std::cout << d << std::endl;
-    std::cout << e << std::endl;
-    std::cout << f << std::endl;
+    mat4 position = mat4::translation(vec3(2, 3, 4));
+    position *= mat4::identity();
 
     while (!window.closed())
     {
