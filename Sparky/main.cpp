@@ -39,6 +39,8 @@ int main()
 
     mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
     shader.setUniformMat4("pr_matrix", ortho);
+    shader.setUniformMat4("ml_matrix", mat4::translation(vec3(2, 2, 0)));
+    shader.setUniformMat4("ml_matrix", mat4::rotation(45.0f, vec3(0, 0, 1)));
 
     while (!window.closed())
     {
