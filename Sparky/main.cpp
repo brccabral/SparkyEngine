@@ -31,11 +31,11 @@ int main()
 
     srand(time(NULL));
     std::vector<Renderable2D*> sprites;
-    for (float y = 0; y < 9.0f; y++)
+    for (float y = 0; y < 9.0f; y+=0.6)
     {
-        for (float x = 0; x < 16.0f; x++)
+        for (float x = 0; x < 16.0f; x+=0.6)
         {
-            sprites.push_back(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+            sprites.push_back(new Sprite(x, y, 0.54f, 0.54f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
         }
     }
 
@@ -49,8 +49,10 @@ int main()
     Timer time;
     float timer = 0.0f;
     unsigned int frames = 0;
+    //Timer timer;
     while (!window.closed())
     {
+        //timer.reset();
         window.clear();
         window.getMousePosition(x, y);
         shader.setUniform("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
@@ -71,6 +73,7 @@ int main()
             printf("%d fps\n", frames);
             frames = 0;
         }
+        //printf("%f ms\n", timer.elapsed());
     }
 
     return 0;
