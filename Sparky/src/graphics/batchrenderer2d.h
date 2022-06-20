@@ -26,11 +26,15 @@ namespace sparky::graphics
         IndexBuffer* m_IBO;
         GLsizei m_IndexCount;
 
+        VertexData* m_Buffer;
+
     public:
         BatchRederer2D();
         ~BatchRederer2D();
 
+        void begin();
         void submit(const Renderable2D* renderable) override;
+        void end();
         void flush() override;
 
     private:
