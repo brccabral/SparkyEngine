@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vec3.h"
+#include "vec4.h"
 
 namespace sparky
 {
@@ -8,7 +9,12 @@ namespace sparky
     {
         struct mat4
         {
-            float elements[16]; // 4*4
+            // both "float elements" and "vec4 columns" represent the same memory address
+            union
+            {
+                float elements[16]; // 4*4
+                vec4 columns[4];
+            };
 
             mat4();
             mat4(float diagonal);
