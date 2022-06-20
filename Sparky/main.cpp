@@ -20,8 +20,10 @@ int main()
 
     mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
-    Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-    Shader shader2("src/shaders/basic.vert", "src/shaders/basic.frag");
+    Shader *s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+    Shader *s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+    Shader& shader = *s;
+    Shader& shader2 = *s2;
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
     shader2.setUniform("light_pos", vec2(4.0f, 1.5f));
 
