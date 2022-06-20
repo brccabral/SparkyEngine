@@ -34,7 +34,8 @@ namespace sparky::graphics
         // create triangle indices
         // t1 = 0,1,2, 2,3,0
         // t2 = 4,5,6, 6,7,4
-        GLushort indices[RENDERER_INDICES_SIZE];
+        // GLuint *indices = new GLuint[RENDERER_INDICES_SIZE];
+        GLuint indices[RENDERER_INDICES_SIZE];
         int offset = 0;
         for (int i = 0; i < RENDERER_INDICES_SIZE - 6; i += 6)
         {
@@ -96,7 +97,7 @@ namespace sparky::graphics
         glBindVertexArray(m_VAO);
         m_IBO->bind();
 
-        glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_SHORT, NULL);
+        glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, NULL);
 
         m_IBO->unbind();
         glBindVertexArray(0);

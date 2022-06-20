@@ -29,11 +29,12 @@ int main()
 
     srand(time(NULL));
     std::vector<Renderable2D*> sprites;
-    for (float y = 0; y < 9.0f; y++)
+    // On Windows I can't increase amount of sprites
+    for (float y = 0; y < 9.0f; y += 0.1)
     {
-        for (float x = 0; x < 16.0f; x++)
+        for (float x = 0; x < 16.0f; x += 0.1)
         {
-            sprites.push_back(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+            sprites.push_back(new Sprite(x, y, 0.08f, 0.08f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
         }
     }
 
