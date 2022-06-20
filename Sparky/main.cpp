@@ -10,6 +10,8 @@
 #include "src/utils/timer.h"
 #include "src/graphics/layers/tilelayer.h"
 
+#define TEST_50K_SPRITE 0
+
 int main()
 {
     using namespace sparky;
@@ -28,12 +30,21 @@ int main()
     shader2.setUniform("light_pos", vec2(4.0f, 1.5f));
 
     TileLayer layer(&shader);
+#if TEST_50K_SPRITE
     for (float y = -9.0f; y < 9.0f; y+=0.1)
     {
         for (float x = -16.0f; x < 16.0f; x += 0.1) {
             layer.add(new Sprite(x, y, 0.09f, 0.09f, maths::vec4(rand()%1000 / 1000.0f, 0, 1, 1)));
         }
     }
+#else
+    for (float y = -9.0f; y < 9.0f; y++)
+    {
+        for (float x = -16.0f; x < 16.0f; x++) {
+            layer.add(new Sprite(x, y, 0.9f, 0.9f, maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+        }
+    }
+#endif
 
 
     TileLayer layer2(&shader2);
