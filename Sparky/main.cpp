@@ -42,9 +42,10 @@ int main()
 	{
 		for (float x = -16.0f; x < 16.0f; x++)
 		{
-			// layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0,
-			// 1, 1))); layer.add(new Sprite(x, y, 0.9f, 0.9f, texture));
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 3]));
+			if (rand() % 4 == 0)
+				layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+			else
+				layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 3]));
 		}
 	}
 
