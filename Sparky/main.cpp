@@ -35,11 +35,11 @@ int main()
 
     TileLayer layer(&shader);
 
-    for (float y = -9.0f; y < 9.0f; y += 0.1)
+    for (float y = -9.0f; y < 9.0f; y++)
     {
-        for (float x = -16.0f; x < 16.0f; x += 0.1)
+        for (float x = -16.0f; x < 16.0f; x++)
         {
-            layer.add(new Sprite(x, y, 0.09f, 0.09f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+            layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
         }
     }
 
