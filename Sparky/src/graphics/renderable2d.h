@@ -12,7 +12,8 @@ namespace sparky::graphics
     struct VertexData
     {
         maths::vec3 vertex;
-        // maths::vec4 color;
+        maths::vec2 uv; // texture coordinates
+        unsigned int tid;
         unsigned int color;
     };
 

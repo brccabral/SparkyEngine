@@ -25,9 +25,12 @@ namespace sparky::graphics
         glEnableVertexAttribArray(SHADER_VERTEX_INDEX);
         glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid *)0);
 
+        glEnableVertexAttribArray(SHADER_UV_INDEX);
+        glVertexAttribPointer(SHADER_UV_INDEX, 2, GL_FLOAT, GL_TRUE, RENDERER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::uv)));
+
         // get the color position based on VertexData
-        glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDERER_VERTEX_SIZE, (const GLvoid *)(offsetof(VertexData, VertexData::color)));
         glEnableVertexAttribArray(SHADER_COLOR_INDEX);
+        glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDERER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::color)));
 
         glBindBuffer(GL_ARRAY_BUFFER, 0); // bind and unbind costs a lot
 
