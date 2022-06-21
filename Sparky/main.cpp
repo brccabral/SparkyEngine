@@ -13,6 +13,7 @@
 #include "src/graphics/batchrenderer2d.h"
 #include "src/graphics/layers/tilelayer.h"
 #include "src/graphics/layers/group.h"
+#include "src/graphics/texture.h"
 
 #define TEST_50K_SPRITE 0
 
@@ -58,6 +59,7 @@ int main()
     TileLayer layer2(&shader2);
     layer2.add(new Sprite(-2,-2,4,4, vec4(1, 0, 1, 1)));
 
+    Texture texture("test.png");
 
     double x, y;
 
