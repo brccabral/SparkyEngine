@@ -2,13 +2,15 @@
 
 #include <Windows.h>
 
-namespace sparky {
+namespace sparky
+{
 
 	class Timer
 	{
 	private:
 		LARGE_INTEGER m_Start;
 		double m_Frequency;
+
 	public:
 		Timer()
 		{
@@ -30,7 +32,6 @@ namespace sparky {
 			unsigned __int64 cycles = current.QuadPart - m_Start.QuadPart;
 			return (float)(cycles * m_Frequency);
 		}
-
 	};
 
 }

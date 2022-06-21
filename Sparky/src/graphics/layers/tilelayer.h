@@ -3,13 +3,17 @@
 #include "layer.h"
 #include "../BatchRenderer2D.h"
 
-namespace sparky { namespace graphics {
-
-	class TileLayer : public Layer
+namespace sparky
+{
+	namespace graphics
 	{
-	public:
-		TileLayer(Shader* shader);
-		~TileLayer();
-	};
 
-} }
+		class TileLayer : public Layer
+		{
+		public:
+			TileLayer(Shader *shader);
+			~TileLayer();
+		};
+
+	}
+}

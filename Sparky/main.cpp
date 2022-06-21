@@ -36,10 +36,10 @@ int main()
 
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
-	Shader* s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-	Shader* s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-	Shader& shader = *s;
-	Shader& shader2 = *s2;
+	Shader *s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Shader *s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Shader &shader = *s;
+	Shader &shader2 = *s2;
 	shader.enable();
 	shader2.enable();
 	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
@@ -56,11 +56,11 @@ int main()
 		}
 	}
 #else
-	// 
+	//
 	Group *group = new Group(mat4::translation(vec3(-15.0f, 5.0f, 0.0f)));
 	group->add(new Sprite(0, 0, 6, 3, vec4(1, 1, 1, 1)));
-	
-	Group* button = new Group(mat4::translation(vec3(0.5f, 0.5f, 0.0f)));
+
+	Group *button = new Group(mat4::translation(vec3(0.5f, 0.5f, 0.0f)));
 	button->add(new Sprite(0, 0, 5.0f, 2.0f, vec4(1, 0, 1, 1)));
 	button->add(new Sprite(0.5f, 0.5f, 3.0f, 1.0f, vec4(0.2f, 0.3f, 0.8f, 1)));
 	group->add(button);
@@ -69,7 +69,7 @@ int main()
 #endif
 
 	TileLayer layer2(&shader2);
-	layer2.add(new Sprite(-2,-2,4,4, vec4(1, 0, 1, 1)));
+	layer2.add(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
 	glActiveTexture(GL_TEXTURE0);
 	Texture texture("test.png");
 	texture.bind();
@@ -83,14 +83,14 @@ int main()
 	while (!window.closed())
 	{
 		window.clear();
-/*		double x, y;
-		window.getMousePosition(x, y);
-		shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
-		//shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
-		//shader.setUniform2f("light_pos", vec2(-8, -3));
-		shader2.enable();
-		layer.render();*/
-	//	layer2.render();
+		/*		double x, y;
+				window.getMousePosition(x, y);
+				shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+				//shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+				//shader.setUniform2f("light_pos", vec2(-8, -3));
+				shader2.enable();
+				layer.render();*/
+		//	layer2.render();
 
 		glBegin(GL_QUADS);
 		glTexCoord2f(0, 0);
@@ -112,7 +112,7 @@ int main()
 			frames = 0;
 		}
 	}
-	
+
 	return 0;
 }
 #endif

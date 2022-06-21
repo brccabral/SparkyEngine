@@ -5,20 +5,25 @@
 
 #include "buffer.h"
 
-namespace sparky { namespace graphics {
-
-	class VertexArray
+namespace sparky
+{
+	namespace graphics
 	{
-	private:
-		GLuint m_ArrayID;
-		std::vector<Buffer*> m_Buffers;
-	public:
-		VertexArray();
-		~VertexArray();
 
-		void addBuffer(Buffer* buffer, GLuint index);
-		void bind() const;
-		void unbind() const;
-	};
+		class VertexArray
+		{
+		private:
+			GLuint m_ArrayID;
+			std::vector<Buffer *> m_Buffers;
 
-} }
+		public:
+			VertexArray();
+			~VertexArray();
+
+			void addBuffer(Buffer *buffer, GLuint index);
+			void bind() const;
+			void unbind() const;
+		};
+
+	}
+}
