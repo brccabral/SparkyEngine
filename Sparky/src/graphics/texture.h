@@ -1,13 +1,14 @@
 #pragma once
 
+#include <FreeImage.h>
 #include <string>
 #include <GL/glew.h>
-#include <FreeImage.h>
-#include "../utils/imageload.h"
+#include "../utils/ImageLoad.h"
 
-namespace sparky::graphics
-{
-	class Texture {
+namespace sparky { namespace graphics{
+
+	class Texture
+	{
 	private:
 		std::string m_FileName;
 		GLuint m_TID;
@@ -18,9 +19,10 @@ namespace sparky::graphics
 		void bind() const;
 		void unbind() const;
 
-		inline unsigned int getWidth() { return m_Width; };
-		inline unsigned int getHeight() { return m_Height; };
+		inline const unsigned int getWidth() const { return m_Width; }
+		inline const unsigned int getHeight() const { return m_Height; }
 	private:
 		GLuint load();
 	};
-}
+
+} }
