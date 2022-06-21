@@ -2,11 +2,13 @@
 
 #include <GL/glew.h>
 #include "../maths/maths.h"
-#include "static_sprite.h"
 #include <vector>
+
 
 namespace sparky::graphics
 {
+    class Renderable2D;
+
     class Renderer2D
     {
     protected:

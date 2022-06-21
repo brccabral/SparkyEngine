@@ -9,6 +9,7 @@
 #include "src/graphics/batchrenderer2d.h"
 #include "src/utils/timer.h"
 #include "src/graphics/layers/tilelayer.h"
+#include "src/graphics/layers/group.h"
 
 #define TEST_50K_SPRITE 0
 
@@ -26,7 +27,7 @@ int main()
     Shader *s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
     Shader& shader = *s;
     Shader& shader2 = *s2;
-    shader.setUniform("light_pos", vec2(4.0f, 1.5f));
+    //shader.setUniform("light_pos", vec2(4.0f, 1.5f));
     shader2.setUniform("light_pos", vec2(4.0f, 1.5f));
 
     TileLayer layer(&shader);
@@ -38,12 +39,10 @@ int main()
         }
     }
 #else
-    for (float y = -9.0f; y < 9.0f; y++)
-    {
-        for (float x = -16.0f; x < 16.0f; x++) {
-            layer.add(new Sprite(x, y, 0.9f, 0.9f, maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
-        }
-    }
+    Group *group = new Group(maths::mat4::translation(vec3(-15.0f, 5.0f, 0.0f)));
+    group->add(new Sprite(0, 0, 6, 3, maths::vec4(1, 1, 1, 1)));
+    group->add(new Sprite(0.5f, 0.5f, 5.0f, 2.0f, maths::vec4(1, 0, 1, 1)));
+    layer.add(group);
 #endif
 
 
@@ -60,13 +59,13 @@ int main()
     {
         window.clear();
         window.getMousePosition(x, y);
-        shader.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+        //shader.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
         shader.enable();
         shader2.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
         shader2.enable();
 
         layer.render();
-        layer2.render();
+        //layer2.render();
 
         window.update();
 

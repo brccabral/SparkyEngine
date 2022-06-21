@@ -5,6 +5,7 @@
 #include "buffers/vertexarray.h"
 #include "../maths/maths.h"
 #include "shader.h"
+#include "renderer2d.h"
 
 namespace sparky::graphics
 {
@@ -21,11 +22,17 @@ namespace sparky::graphics
         maths::vec3 m_Position;
         maths::vec2 m_Size;
         maths::vec4 m_Color;
+        
+        Renderable2D() {};
 
     public:
         Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color);
 
         virtual ~Renderable2D();
+
+        virtual void submit(Renderer2D *renderer)const {
+            renderer->submit(this);
+        };
 
     public:
         inline const maths::vec3& getPosition() const { return m_Position; };
