@@ -1,34 +1,29 @@
 #pragma once
 
-#include <FreeImage.h>
 #include <string>
 #include <GL/glew.h>
-#include "../utils/ImageLoad.h"
+#include <FreeImage.h>
+#include "../utils/imageload.h"
 
-namespace sparky
+namespace sparky::graphics
 {
-	namespace graphics
+	class Texture
 	{
+	private:
+		std::string m_FileName;
+		GLuint m_TID;
+		GLsizei m_Width, m_Height;
 
-		class Texture
-		{
-		private:
-			std::string m_FileName;
-			GLuint m_TID;
-			GLsizei m_Width, m_Height;
+	public:
+		Texture(const std::string &filename);
+		~Texture();
+		void bind() const;
+		void unbind() const;
 
-		public:
-			Texture(const std::string &filename);
-			~Texture();
-			void bind() const;
-			void unbind() const;
+		inline unsigned int getWidth() { return m_Width; };
+		inline unsigned int getHeight() { return m_Height; };
 
-			inline const unsigned int getWidth() const { return m_Width; }
-			inline const unsigned int getHeight() const { return m_Height; }
-
-		private:
-			GLuint load();
-		};
-
-	}
+	private:
+		GLuint load();
+	};
 }
