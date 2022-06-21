@@ -12,19 +12,19 @@
 
 namespace sparky
 {
-    class Timer
-    {
-    private:
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-        LARGE_INTEGER m_Start;
-#else
-        struct timespec m_Start;
-#endif
-        double m_Frequency;
+	class Timer
+	{
+	private:
+	#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+		LARGE_INTEGER m_Start;
+	#else
+		struct timespec m_Start;
+	#endif
+		double m_Frequency;
 
-    public:
-        Timer();
-        void reset();
-        float elapsed();
-    };
+	public:
+		Timer();
+		void reset();
+		float elapsed();
+	};
 } // namespace sparky

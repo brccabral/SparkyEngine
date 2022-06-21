@@ -3,7 +3,9 @@
 namespace sparky::graphics
 {
 	Group::Group(const maths::mat4 &transform)
-		: m_TransformationMatrix(transform){};
+		: m_TransformationMatrix(transform)
+	{
+	};
 
 	void Group::add(Renderable2D *renderable)
 	{

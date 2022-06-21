@@ -4,9 +4,9 @@
 
 namespace sparky::graphics
 {
-    class Sprite : public Renderable2D
-    {
-    public:
-        Sprite(float x, float y, float width, float height, const maths::vec4 color);
-    };
+	class Sprite : public Renderable2D
+	{
+	public:
+		Sprite(float x, float y, float width, float height, const maths::vec4 color);
+	};
 }

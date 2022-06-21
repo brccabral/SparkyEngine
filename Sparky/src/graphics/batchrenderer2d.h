@@ -20,26 +20,26 @@ namespace sparky::graphics
 #define SHADER_UV_INDEX 1
 #define SHADER_COLOR_INDEX 2
 
-    class BatchRenderer2D : public Renderer2D
-    {
-    private:
-        GLuint m_VAO;
-        GLuint m_VBO;
-        IndexBuffer *m_IBO;
-        GLsizei m_IndexCount;
+	class BatchRenderer2D : public Renderer2D
+	{
+	private:
+		GLuint m_VAO;
+		GLuint m_VBO;
+		IndexBuffer *m_IBO;
+		GLsizei m_IndexCount;
 
-        VertexData *m_Buffer;
+		VertexData *m_Buffer;
 
-    public:
-        BatchRenderer2D();
-        ~BatchRenderer2D();
+	public:
+		BatchRenderer2D();
+		~BatchRenderer2D();
 
-        void begin() override;
-        void submit(const Renderable2D *renderable) override;
-        void end() override;
-        void flush() override;
+		void begin() override;
+		void submit(const Renderable2D *renderable) override;
+		void end() override;
+		void flush() override;
 
-    private:
-        void init();
-    };
+	private:
+		void init();
+	};
 } // namespace sparky::graphics

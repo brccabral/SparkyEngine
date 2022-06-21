@@ -8,8 +8,8 @@ namespace sparky::graphics
 		m_TID = load();
 	};
 
-	Texture::~Texture(){
-
+	Texture::~Texture()
+	{
 	};
 	GLuint Texture::load()
 	{
