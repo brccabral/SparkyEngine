@@ -106,7 +106,7 @@ namespace sparky::graphics
 	};
 	void Shader::setUniform(const GLchar *name, int *value, int count)
 	{
-		glUniform1d(getUniformLocation(name), count);
+          glUniform1iv(getUniformLocation(name), count, value);
 	};
 	void Shader::setUniform(const GLchar *name, float value)
 	{

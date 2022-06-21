@@ -34,14 +34,17 @@ int main()
 
 	TileLayer layer(&shader);
 
+	// PNG needs to be saved without background, 8 bit per channel (RGB)
 	Texture *texture = new Texture("test.png");
+	Texture *texture2 = new Texture("test2.png");
 
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
 		for (float x = -16.0f; x < 16.0f; x++)
 		{
 			//layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, texture));
+			//layer.add(new Sprite(x, y, 0.9f, 0.9f, texture));
+			layer.add(new Sprite(x, y, 0.9f, 0.9f, rand() % 2 == 0 ? texture : texture2));
 		}
 	}
 
@@ -55,7 +58,7 @@ int main()
 
 	double x, y;
 
-	//Timer time;
+	Timer time;
 	float timer = 0.0f;
 	unsigned int frames = 0;
 	while (!window.closed())
@@ -68,15 +71,16 @@ int main()
 		window.update();
 
 		frames++;
-		/*if (time.elapsed() - timer > 1.0f)
+		if (time.elapsed() - timer > 1.0f)
 		{
 			timer += 1.0f;
 			printf("%d fps\n", frames);
 			frames = 0;
-		}*/
+		}
 	}
 
 	delete texture;
+	delete texture2;
 	return 0;
 }
 #else
