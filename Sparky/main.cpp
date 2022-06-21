@@ -3,15 +3,15 @@
 #include <GL/glew.h>
 
 #if 1
-#include "src/graphics/window.h"
 #include "src/graphics/shader.h"
+#include "src/graphics/window.h"
 #include "src/maths/maths.h"
 // timer.h needs to come before FreeImage, which is inside batchrenderer2d.h
 // timer uses LARGE_INTEGER, which uses DWORD, which FreeImage overrides
 #include "src/utils/timer.h"
 #include "src/graphics/batchrenderer2d.h"
-#include "src/graphics/sprite.h"
 #include "src/graphics/layers/tilelayer.h"
+#include "src/graphics/sprite.h"
 
 #include "src/graphics/layers/group.h"
 #include "src/graphics/texture.h"
@@ -23,7 +23,7 @@ int main()
 	using namespace maths;
 
 	Window window("Sparky!", 960, 540);
-	// 
+	//
 
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
@@ -35,26 +35,25 @@ int main()
 	TileLayer layer(&shader);
 
 	// PNG needs to be saved without background, 8 bit per channel (RGB)
-	Texture *texture = new Texture("test.png");
-	Texture *texture2 = new Texture("test2.png");
+	Texture *textures[] = { new Texture("test.png"), new Texture("test2.png"),
+						   new Texture("test3.png") };
 
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
 		for (float x = -16.0f; x < 16.0f; x++)
 		{
-			//layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
-			//layer.add(new Sprite(x, y, 0.9f, 0.9f, texture));
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, rand() % 2 == 0 ? texture : texture2));
+			// layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0,
+			// 1, 1))); layer.add(new Sprite(x, y, 0.9f, 0.9f, texture));
+			layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 3]));
 		}
 	}
 
-	GLint texIDs[] = {
-		0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-	};
+	GLint texIDs[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 	shader.enable();
 	shader.setUniform("textures", texIDs, 10);
-	shader.setUniform("pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+	shader.setUniform(
+		"pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
 	double x, y;
 
@@ -65,7 +64,8 @@ int main()
 	{
 		window.clear();
 		window.getMousePosition(x, y);
-		shader.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+		shader.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f),
+			(float)(9.0f - y * 18.0f / 540.0f)));
 		layer.render();
 
 		window.update();
@@ -79,8 +79,10 @@ int main()
 		}
 	}
 
-	delete texture;
-	delete texture2;
+	for (Texture *tex : textures)
+	{
+		delete tex;
+	};
 	return 0;
 }
 #else
@@ -135,7 +137,8 @@ int main()
 		BYTE *pixel = (BYTE *)bits;
 		for (int x = 0; x < width; x++)
 		{
-			std::cout << +pixel[FI_RGBA_RED] << " " << +pixel[FI_RGBA_GREEN] << " " << +pixel[FI_RGBA_BLUE] << " " << std::endl;
+			std::cout << +pixel[FI_RGBA_RED] << " " << +pixel[FI_RGBA_GREEN] << " "
+				<< +pixel[FI_RGBA_BLUE] << " " << std::endl;
 			pixel += 3;
 		}
 		bits += pitch;
@@ -159,5 +162,5 @@ int main()
 	FreeImage_Unload(dib);
 
 	return 0;
-	}
+}
 #endif
