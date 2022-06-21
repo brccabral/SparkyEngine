@@ -8,7 +8,7 @@
 #include "src/maths/maths.h"
 #include "src/graphics/batchrenderer2d.h"
 #include "src/graphics/sprite.h"
-#include "src/utils/timer.h"
+//#include "src/utils/timer.h"
 // needs to come before FreeImage
 // timer uses LARGE_INTEGER, which uses DWORD, which FreeImage overrides
 // #include <FreeImage.h>       // needs to come after timer
@@ -48,13 +48,17 @@ int main()
 	Texture texture("test.png");
 	texture.bind();
 
+	GLint texIDs[] = {
+		0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+	};
+
 	shader.enable();
-	shader.setUniform("tex", 0);
+	shader.setUniform("textures", texIDs, 10);
 	shader.setUniform("pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
 	double x, y;
 
-	Timer time;
+	//Timer time;
 	float timer = 0.0f;
 	unsigned int frames = 0;
 	while (!window.closed())
@@ -67,12 +71,12 @@ int main()
 		window.update();
 
 		frames++;
-		if (time.elapsed() - timer > 1.0f)
+		/*if (time.elapsed() - timer > 1.0f)
 		{
 			timer += 1.0f;
 			printf("%d fps\n", frames);
 			frames = 0;
-		}
+		}*/
 	}
 
 	return 0;
@@ -153,5 +157,5 @@ int main()
 	FreeImage_Unload(dib);
 
 	return 0;
-}
+	}
 #endif

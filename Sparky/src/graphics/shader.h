@@ -1,6 +1,8 @@
 #pragma once
 
 #include <GL/glew.h>
+#include <vector>
+#include <iostream>
 #include "../utils/fileutils.h"
 #include "../maths/maths.h"
 
@@ -23,7 +25,9 @@ namespace sparky::graphics
 
 		void setUniform(const GLchar *name, const maths::mat4 &matrix);
 		void setUniform(const GLchar *name, int value);
+		void setUniform(const GLchar *name, int *value, int count);
 		void setUniform(const GLchar *name, float value);
+		void setUniform(const GLchar *name, float *value, int count);
 		void setUniform(const GLchar *name, const maths::vec2 &vector);
 		void setUniform(const GLchar *name, const maths::vec3 &vector);
 		void setUniform(const GLchar *name, const maths::vec4 &vector);

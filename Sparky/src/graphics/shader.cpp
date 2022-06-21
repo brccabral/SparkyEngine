@@ -1,7 +1,4 @@
 #include "shader.h"
-#include <vector>
-#include <iostream>
-#include "../maths/maths.h"
 
 namespace sparky::graphics
 {
@@ -107,9 +104,17 @@ namespace sparky::graphics
 	{
 		glUniform1i(getUniformLocation(name), value);
 	};
+	void Shader::setUniform(const GLchar *name, int *value, int count)
+	{
+		glUniform1d(getUniformLocation(name), count);
+	};
 	void Shader::setUniform(const GLchar *name, float value)
 	{
 		glUniform1f(getUniformLocation(name), value);
+	};
+	void Shader::setUniform(const GLchar *name, float *value, int count)
+	{
+		glUniform1fv(getUniformLocation(name), count, value);
 	};
 	void Shader::setUniform(const GLchar *name, const maths::vec2 &vector)
 	{

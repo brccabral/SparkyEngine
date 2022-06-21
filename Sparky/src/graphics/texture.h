@@ -22,6 +22,7 @@ namespace sparky::graphics
 
 		inline unsigned int getWidth() { return m_Width; };
 		inline unsigned int getHeight() { return m_Height; };
+		inline unsigned int getID() { return m_TID; };
 
 	private:
 		GLuint load();
