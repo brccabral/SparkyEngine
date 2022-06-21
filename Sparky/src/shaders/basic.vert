@@ -14,7 +14,6 @@ uniform mat4 ml_matrix;
 
 void main()
 {
-    gl_Position = pr_matrix * gl_Position;
-    //vs_out.position = ml_matrix * position;
-    //vs_out.color = color;
+    gl_Position = pr_matrix * gl_Vertex;
+    gl_TexCoord[0]=gl_MultiTexCoord0;
 }

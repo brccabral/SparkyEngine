@@ -31,10 +31,13 @@ int main()
     Shader *s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
     Shader& shader = *s;
     Shader& shader2 = *s2;
+    shader.enable();
+    shader2.enable();
     shader.setUniform("light_pos", vec2(4.0f, 1.5f));
-    //shader2.setUniform("light_pos", vec2(4.0f, 1.5f));
+    shader2.setUniform("light_pos", vec2(4.0f, 1.5f));
 
     TileLayer layer(&shader);
+
 #if TEST_50K_SPRITE
     for (float y = -9.0f; y < 9.0f; y+=0.1)
     {
@@ -59,12 +62,13 @@ int main()
 
     TileLayer layer2(&shader2);
     layer2.add(new Sprite(-2,-2,4,4, vec4(1, 0, 1, 1)));
+    glActiveTexture(GL_TEXTURE0);
 
     Texture texture("test.png");
     texture.bind();
 
-    shader.enable();
     shader.setUniform("tex", 0);
+    shader.setUniform("pr_matrix", maths::mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
     double x, y;
 
@@ -83,14 +87,14 @@ int main()
         //layer2.render();
 
         glBegin(GL_QUADS);
-        glTexCoord2f(0, 0);
-        glVertex2f(0, 0);
-        glTexCoord2f(0, 1);
-        glVertex2f(0, 4);
-        glTexCoord2f(1, 1);
-        glVertex2f(4, 4);
-        glTexCoord2f(1, 0);
-        glVertex2f(4, 0);
+        glTexCoord2f(0.0f, 0.0f);
+        glVertex2f(0.0f, 0.0f);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex2f(0.0f, 4.0f);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex2f(4.0f, 4.0f);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex2f(4.0f, 0.0f);
         glEnd();
 
         window.update();
