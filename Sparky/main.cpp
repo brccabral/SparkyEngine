@@ -35,19 +35,25 @@ int main()
     for (float y = -9.0f; y < 9.0f; y+=0.1)
     {
         for (float x = -16.0f; x < 16.0f; x += 0.1) {
-            layer.add(new Sprite(x, y, 0.09f, 0.09f, maths::vec4(rand()%1000 / 1000.0f, 0, 1, 1)));
+            layer.add(new Sprite(x, y, 0.09f, 0.09f, vec4(rand()%1000 / 1000.0f, 0, 1, 1)));
         }
     }
 #else
-    Group *group = new Group(maths::mat4::translation(vec3(-15.0f, 5.0f, 0.0f)));
-    group->add(new Sprite(0, 0, 6, 3, maths::vec4(1, 1, 1, 1)));
-    group->add(new Sprite(0.5f, 0.5f, 5.0f, 2.0f, maths::vec4(1, 0, 1, 1)));
+    mat4 transform = mat4::translation(vec3(-15.0f, 5.0f, 0.0f)) * mat4::rotation(45.0f, vec3(0, 0, 1));
+    Group *group = new Group(transform);
+    group->add(new Sprite(0, 0, 6, 3, vec4(1, 1, 1, 1)));
+
+    Group* button = new Group(mat4::translation(vec3(0.5, 0.5, 0.0f)) * mat4::rotation(-90.0f, vec3(0, 0, 1)));
+    button->add(new Sprite(0.0f, 0.0f, 5.0f, 2.0f, vec4(1, 0, 1, 1)));
+    button->add(new Sprite(0.5f, 0.5f, 3.0f, 1.0f, vec4(0.2f, 0.3f, 0.8f, 1)));
+    group->add(button);
+
     layer.add(group);
 #endif
 
 
     TileLayer layer2(&shader2);
-    layer2.add(new Sprite(-2,-2,4,4, maths::vec4(1, 0, 1, 1)));
+    layer2.add(new Sprite(-2,-2,4,4, vec4(1, 0, 1, 1)));
 
 
     double x, y;
