@@ -6,12 +6,11 @@
 #include "src/graphics/window.h"
 #include "src/graphics/shader.h"
 #include "src/maths/maths.h"
+// timer.h needs to come before FreeImage, which is inside batchrenderer2d.h
+// timer uses LARGE_INTEGER, which uses DWORD, which FreeImage overrides
+#include "src/utils/timer.h"
 #include "src/graphics/batchrenderer2d.h"
 #include "src/graphics/sprite.h"
-//#include "src/utils/timer.h"
-// needs to come before FreeImage
-// timer uses LARGE_INTEGER, which uses DWORD, which FreeImage overrides
-// #include <FreeImage.h>       // needs to come after timer
 #include "src/graphics/layers/tilelayer.h"
 
 #include "src/graphics/layers/group.h"
@@ -35,18 +34,16 @@ int main()
 
 	TileLayer layer(&shader);
 
+	Texture *texture = new Texture("test.png");
+
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
 		for (float x = -16.0f; x < 16.0f; x++)
 		{
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+			//layer.add(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+			layer.add(new Sprite(x, y, 0.9f, 0.9f, texture));
 		}
 	}
-
-	glActiveTexture(GL_TEXTURE0);
-
-	Texture texture("test.png");
-	texture.bind();
 
 	GLint texIDs[] = {
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -79,6 +76,7 @@ int main()
 		}*/
 	}
 
+	delete texture;
 	return 0;
 }
 #else

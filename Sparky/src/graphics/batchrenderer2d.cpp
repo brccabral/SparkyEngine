@@ -83,7 +83,7 @@ namespace sparky::graphics
 			{
 				if (m_TextureSlots[i] == tid)
 				{
-					ts = (float)i;
+					ts = (float)(i + 1);
 					found = true;
 					break;
 				}

@@ -2,7 +2,6 @@
 
 #include <string>
 #include <GL/glew.h>
-#include <FreeImage.h>
 #include "../utils/imageload.h"
 
 namespace sparky::graphics
