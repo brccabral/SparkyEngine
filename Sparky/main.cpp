@@ -130,6 +130,20 @@ int main() {
 
     std::cout << width << ", " << height << std::endl;
 
+    unsigned int bitsPerPixel = FreeImage_GetBPP(dib);
+
+    // prints the colors Bottom to Top, Left to Right
+    unsigned int pitch = FreeImage_GetPitch(dib);
+    for (int y = 0; y < height; y++) {
+        BYTE* pixel = (BYTE*)bits;
+        for (int x = 0; x < width; x++)
+        {
+            std::cout << +pixel[FI_RGBA_RED] << " " << +pixel[FI_RGBA_GREEN] << " " << +pixel[FI_RGBA_BLUE] << " " << std::endl;
+            pixel += 3;
+        }
+        bits += pitch;
+    }
+
     ////if this texture ID is in use, unload the current texture
     //if (m_texID.find(texID) != m_texID.end())
     //    glDeleteTextures(1, &(m_texID[texID]));
@@ -145,7 +159,7 @@ int main() {
     //    border, image_format, GL_UNSIGNED_BYTE, bits);
 
     ////Free FreeImage's copy of the data
-    //FreeImage_Unload(dib);
+    FreeImage_Unload(dib);
 
     return 0;
 }
