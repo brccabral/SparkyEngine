@@ -113,8 +113,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Inline|x64'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
-    <IncludePath>D:\CPP_Win\ExternalSources\glew-2.1.0\include;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\x64;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\lib-vc2022;$(LibraryPath);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>D:\CPP_Win\ExternalSources\FreeImage\Dist\x64;D:\CPP_Win\ExternalSources\glew-2.1.0\include;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>D:\CPP_Win\ExternalSources\FreeImage\Dist\x64;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\x64;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\lib-vc2022;$(LibraryPath);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -219,7 +219,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FreeImage.lib;glew32s.lib;glfw3.lib;opengl32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

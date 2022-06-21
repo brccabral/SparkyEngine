@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <time.h>
 #include <FreeImage.h>
+#include <GL/glew.h>
 
+#if 0
 #include "src/graphics/window.h"
 #include "src/maths/maths.h"
 #include "src/graphics/shader.h"
@@ -14,7 +15,6 @@
 
 #define TEST_50K_SPRITE 0
 
-#if 0
 int main()
 {
     using namespace sparky;
@@ -88,8 +88,7 @@ int main()
 
     return 0;
 }
-#endif
-
+#else
 int main() {
     const char* filename = "test.png";
 
@@ -150,3 +149,4 @@ int main() {
 
     return 0;
 }
+#endif
