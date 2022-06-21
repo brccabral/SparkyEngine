@@ -23,7 +23,7 @@ namespace sparky::graphics
         maths::vec2 m_Size;
         maths::vec4 m_Color;
         
-        Renderable2D() {};
+        Renderable2D() = default;
 
     public:
         Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color);
