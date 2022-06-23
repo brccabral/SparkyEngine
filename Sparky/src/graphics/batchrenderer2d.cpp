@@ -160,4 +160,9 @@ namespace sparky::graphics
 		glBindVertexArray(0);
 		m_IndexCount = 0;
 	}
+
+	void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, maths::vec4 color)
+	{
+
+	};
 }

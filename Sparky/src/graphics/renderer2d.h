@@ -43,5 +43,7 @@ namespace sparky::graphics
 		virtual void submit(const Renderable2D *renderable) = 0;
 		virtual void end() {};
 		virtual void flush() = 0;
+
+		virtual void drawString(const std::string &text, maths::vec3 position, maths::vec4 color) {};
 	};
 } // namespace sparky::graphics

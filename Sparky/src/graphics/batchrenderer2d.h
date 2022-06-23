@@ -8,6 +8,8 @@
 #include "renderable2d.h"
 #include "buffers/indexbuffer.h"
 #include <vector>
+#include <string.h>
+#include "../../ext/freetype-gl/freetype-gl.h"
 
 namespace sparky::graphics
 {
@@ -42,6 +44,8 @@ namespace sparky::graphics
 		void submit(const Renderable2D *renderable) override;
 		void end() override;
 		void flush() override;
+
+		void drawString(const std::string &text, maths::vec3 position, maths::vec4 color) override;
 
 	private:
 		void init();

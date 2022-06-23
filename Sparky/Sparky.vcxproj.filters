@@ -264,6 +264,9 @@
     <ClCompile Include="ext\freetype-gl\vertex-buffer.c">
       <Filter>Source Files\ext\freetype-gl</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\maths\vec3.h">
@@ -412,6 +415,9 @@
     </ClInclude>
     <ClInclude Include="ext\freetype-gl\vertex-buffer.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\label.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
