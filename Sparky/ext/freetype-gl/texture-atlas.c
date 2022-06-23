@@ -48,7 +48,7 @@ texture_atlas_new( const size_t width,
     // sampling texture
     ivec3 node = {{1,1,width-2}};
 
-    assert( (depth == 1) || (depth == 3) || (depth == 4) );
+    assert( (depth == 1) || (depth == 2) || (depth == 3) || (depth == 4) );
     if( self == NULL)
     {
         freetype_gl_error( Out_Of_Memory );

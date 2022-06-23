@@ -1,8 +1,8 @@
 #include "indexbuffer.h"
 
-namespace sparky::graphics
-{
-	IndexBuffer::IndexBuffer(GLushort *data, GLsizei count)
+namespace sparky { namespace graphics {
+
+	IndexBuffer::IndexBuffer(GLushort* data, GLsizei count)
 		: m_Count(count)
 	{
 		glGenBuffers(1, &m_BufferID);
@@ -10,7 +10,8 @@ namespace sparky::graphics
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(GLushort), data, GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
-	IndexBuffer::IndexBuffer(GLuint *data, GLsizei count)
+
+	IndexBuffer::IndexBuffer(GLuint* data, GLsizei count)
 		: m_Count(count)
 	{
 		glGenBuffers(1, &m_BufferID);
@@ -18,10 +19,11 @@ namespace sparky::graphics
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(GLuint), data, GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
+
 	IndexBuffer::~IndexBuffer()
 	{
 		glDeleteBuffers(1, &m_BufferID);
-	};
+	}
 
 	void IndexBuffer::bind() const
 	{
@@ -32,4 +34,6 @@ namespace sparky::graphics
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
-}
+
+
+} }

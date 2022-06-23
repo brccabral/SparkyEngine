@@ -1,8 +1,8 @@
 #include "buffer.h"
 
-namespace sparky::graphics
-{
-	Buffer::Buffer(GLfloat *data, GLsizei count, GLuint componentCount)
+namespace sparky { namespace graphics {
+
+	Buffer::Buffer(GLfloat* data, GLsizei count, GLuint componentCount)
 		: m_ComponentCount(componentCount)
 	{
 		glGenBuffers(1, &m_BufferID);
@@ -10,6 +10,7 @@ namespace sparky::graphics
 		glBufferData(GL_ARRAY_BUFFER, count * sizeof(GLfloat), data, GL_STATIC_DRAW);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
+
 	Buffer::~Buffer()
 	{
 		glDeleteBuffers(1, &m_BufferID);
@@ -24,4 +25,6 @@ namespace sparky::graphics
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
-}
+
+
+} }

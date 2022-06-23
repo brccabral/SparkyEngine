@@ -1,15 +1,17 @@
 #include "label.h"
 
-namespace sparky::graphics
-{
+namespace sparky { namespace graphics {
+
 	Label::Label(std::string text, float x, float y, maths::vec4 color)
-		: Renderable2D(), m_Text(text)
+		: Renderable2D(), text(text), position(m_Position)
 	{
 		m_Position = maths::vec3(x, y, 0.0f);
 		m_Color = color;
-	};
-	void Label::submit(Renderer2D *renderer) const
+	}
+
+	void Label::submit(Renderer2D* renderer) const
 	{
-		renderer->drawString(m_Text, m_Position, m_Color);
-	};
-}
+		renderer->drawString(text, position, m_Color);
+	}
+
+} }

@@ -1,19 +1,21 @@
 #include "texture.h"
 
-namespace sparky::graphics
-{
-	Texture::Texture(const std::string &filename)
+namespace sparky { namespace graphics {
+
+	Texture::Texture(const std::string& filename)
 		: m_FileName(filename)
 	{
 		m_TID = load();
-	};
+	}
 
 	Texture::~Texture()
 	{
-	};
+
+	}
+
 	GLuint Texture::load()
 	{
-		BYTE *pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height);
+		BYTE* pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height);
 
 		GLuint result;
 		glGenTextures(1, &result);
@@ -26,14 +28,16 @@ namespace sparky::graphics
 		// delete[] pixels;
 
 		return result;
-	};
+	}
 
 	void Texture::bind() const
 	{
 		glBindTexture(GL_TEXTURE_2D, m_TID);
-	};
+	}
+
 	void Texture::unbind() const
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
-	};
-}
+	}
+
+} }

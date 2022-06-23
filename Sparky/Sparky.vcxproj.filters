@@ -419,6 +419,9 @@
     <ClInclude Include="src\graphics\label.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\maths\maths_func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\basic.frag" />

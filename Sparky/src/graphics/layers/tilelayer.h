@@ -1,14 +1,15 @@
 #pragma once
 
 #include "layer.h"
-#include "../batchrenderer2d.h"
+#include "../BatchRenderer2D.h"
 
-namespace sparky::graphics
-{
+namespace sparky { namespace graphics {
+
 	class TileLayer : public Layer
 	{
 	public:
-		TileLayer(Shader *shader);
+		TileLayer(Shader* shader);
 		~TileLayer();
 	};
-}
+
+} }

@@ -9,18 +9,19 @@ uniform mat4 pr_matrix;
 uniform mat4 vw_matrix = mat4(1.0);
 uniform mat4 ml_matrix = mat4(1.0);
 
-out DATA {
-    vec4 position;
-    vec2 uv;
-    float tid;
-    vec4 color;
+out DATA
+{
+	vec4 position;
+	vec2 uv;
+	float tid;
+	vec4 color;
 } vs_out;
 
 void main()
 {
-    gl_Position = pr_matrix * vw_matrix * ml_matrix * position;
-    vs_out.position = ml_matrix * position;
-    vs_out.uv = uv;
-    vs_out.tid = tid;
-    vs_out.color = color;
+	gl_Position = pr_matrix * vw_matrix * ml_matrix * position;
+	vs_out.position = ml_matrix * position;
+	vs_out.uv = uv;
+	vs_out.tid = tid;
+	vs_out.color = color;
 }

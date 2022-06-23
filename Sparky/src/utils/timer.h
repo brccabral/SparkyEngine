@@ -1,30 +1,36 @@
 #pragma once
 
-// include OS specific timing library
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-// Windows
 #include <Windows.h>
-#else
-// Linux
-#include <time.h>
-#include <stdint.h>
-#endif
 
-namespace sparky
-{
+namespace sparky {
+
 	class Timer
 	{
 	private:
-	#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 		LARGE_INTEGER m_Start;
-	#else
-		struct timespec m_Start;
-	#endif
 		double m_Frequency;
-
 	public:
-		Timer();
-		void reset();
-		float elapsed();
+		Timer()
+		{
+			LARGE_INTEGER frequency;
+			QueryPerformanceFrequency(&frequency);
+			m_Frequency = 1.0 / frequency.QuadPart;
+			QueryPerformanceCounter(&m_Start);
+		}
+
+		void reset()
+		{
+			QueryPerformanceCounter(&m_Start);
+		}
+
+		float elapsed()
+		{
+			LARGE_INTEGER current;
+			QueryPerformanceCounter(&current);
+			unsigned __int64 cycles = current.QuadPart - m_Start.QuadPart;
+			return (float)(cycles * m_Frequency);
+		}
+
 	};
-} // namespace sparky
+
+}
