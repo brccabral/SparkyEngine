@@ -45,7 +45,7 @@ namespace sparky::graphics
 		inline const maths::vec4 &getColor() const { return m_Color; };
 		inline const std::vector<maths::vec2> &getUV() const { return m_UV; };
 
-		inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); };
+		inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; };
 
 	private:
 		void setUVDefaults();
