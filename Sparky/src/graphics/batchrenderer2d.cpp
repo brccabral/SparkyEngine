@@ -40,7 +40,7 @@ namespace sparky::graphics
 		// t2 = 4,5,6, 6,7,4
 		GLuint *indices = new GLuint[RENDERER_INDICES_SIZE]; // moving to HEAP we can load more sprites on Windows
 		int offset = 0;
-		for (int i = 0; i < RENDERER_INDICES_SIZE - 6; i += 6)
+		for (int i = 0; i < RENDERER_INDICES_SIZE; i += 6)
 		{
 			indices[i] = offset + 0;
 			indices[i + 1] = offset + 1;
@@ -55,6 +55,11 @@ namespace sparky::graphics
 
 		m_IBO = new IndexBuffer(indices, RENDERER_INDICES_SIZE);
 		glBindVertexArray(0);
+
+		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 1);
+		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 20, "arial.ttf");
+
+		ftgl::texture_font_get_glyph(m_FTFont, "A");
 	};
 
 	void BatchRenderer2D::begin()
@@ -163,6 +168,55 @@ namespace sparky::graphics
 
 	void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, maths::vec4 color)
 	{
+		using namespace ftgl;
+
+		float ts = 0.0f;
+
+		bool found = false;
+		for (int i = 0; i < m_TextureSlots.size(); i++)
+		{
+			if (m_TextureSlots[i] == m_FTAtlas->id)
+			{
+				ts = (float)(i + 1);
+				found = true;
+				break;
+			}
+		}
+		if (!found)
+		{
+			// openGL has a limit to hold 32 textures
+			// if we have more than that, flush (draw)
+			// what we have in memory and add more starting from 0
+			if (m_TextureSlots.size() >= 32)
+			{
+				end();
+				flush();
+				begin();
+			}
+			m_TextureSlots.push_back(m_FTAtlas->id);
+			ts = (float)(m_TextureSlots.size());
+		}
+		m_Buffer->vertex = maths::vec3(-8, -8, 0);
+		m_Buffer->uv = maths::vec2(0, 1);
+		m_Buffer->tid = ts;
+		m_Buffer++;
+
+		m_Buffer->vertex = maths::vec3(-8, 8, 0);
+		m_Buffer->uv = maths::vec2(0, 0);
+		m_Buffer->tid = ts;
+		m_Buffer++;
+
+		m_Buffer->vertex = maths::vec3(8, 8, 0);
+		m_Buffer->uv = maths::vec2(1, 0);
+		m_Buffer->tid = ts;
+		m_Buffer++;
+
+		m_Buffer->vertex = maths::vec3(8, -8, 0);
+		m_Buffer->uv = maths::vec2(1, 1);
+		m_Buffer->tid = ts;
+		m_Buffer++;
+
+		m_IndexCount += 6;
 
 	};
 }

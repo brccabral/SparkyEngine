@@ -36,6 +36,9 @@ namespace sparky::graphics
 
 		std::vector<GLuint> m_TextureSlots;
 
+		ftgl::texture_atlas_t *m_FTAtlas; // big map of font, all characters
+		ftgl::texture_font_t *m_FTFont;
+
 	public:
 		BatchRenderer2D();
 		~BatchRenderer2D();

@@ -33,6 +33,9 @@ namespace sparky::graphics
 		{
 			renderable->submit(m_Renderer);
 		}
+
+		m_Renderer->drawString("", maths::vec3(0, 0, 0), maths::vec4(0, 0, 0, 0));
+
 		m_Renderer->end();
 		m_Renderer->flush();
 	};
