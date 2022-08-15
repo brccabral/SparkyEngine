@@ -1,24 +1,24 @@
-/****************************************************************************
- *
- * winfnt.h
- *
- *   FreeType font driver for Windows FNT/FON files
- *
- * Copyright (C) 1996-2019 by
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- * Copyright 2007 Dmitry Timoshkov for Codeweavers
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  winfnt.h                                                               */
+/*                                                                         */
+/*    FreeType font driver for Windows FNT/FON files                       */
+/*                                                                         */
+/*  Copyright 1996-2001, 2002, 2003, 2004, 2007 by                         */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*  Copyright 2007 Dmitry Timoshkov for Codeweavers                        */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
 
-#ifndef WINFNT_H_
-#define WINFNT_H_
+#ifndef __WINFNT_H__
+#define __WINFNT_H__
 
 
 #include <ft2build.h>
@@ -28,6 +28,9 @@
 
 FT_BEGIN_HEADER
 
+#ifdef FT_CONFIG_OPTION_PIC
+#error "this module does not support PIC yet"
+#endif
 
   typedef struct  WinMZ_HeaderRec_
   {
@@ -150,6 +153,9 @@ FT_BEGIN_HEADER
     FT_FaceRec     root;
     FNT_Font       font;
 
+    FT_CharMap     charmap_handle;
+    FT_CharMapRec  charmap;  /* a single charmap per face */
+
   } FNT_FaceRec, *FNT_Face;
 
 
@@ -159,7 +165,7 @@ FT_BEGIN_HEADER
 FT_END_HEADER
 
 
-#endif /* WINFNT_H_ */
+#endif /* __WINFNT_H__ */
 
 
 /* END */

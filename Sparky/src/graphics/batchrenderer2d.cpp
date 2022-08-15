@@ -57,9 +57,11 @@ namespace sparky::graphics
 		glBindVertexArray(0);
 
 		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 1);
-		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 80, "arial.ttf");
+		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 20, "arial.ttf");
 
-		ftgl::texture_font_get_glyph(m_FTFont, "A");
+		const std::string text = "A";
+		char c = text[0];
+		ftgl::texture_font_get_glyph(m_FTFont, c);
 	};
 
 	void BatchRenderer2D::begin()
@@ -194,32 +196,32 @@ namespace sparky::graphics
 			ts = (float)(m_TextureSlots.size());
 		}
 		int r = 1 * 255.0f;
-		int g = color.y * 255.0f;
-		int b = color.z * 255.0f;
-		int a = color.w * 255.0f;
+		int g = 1 * 255.0f;
+		int b = 0 * 255.0f;
+		int a = 1 * 255.0f;
 
 		unsigned int col = a << 24 | b << 16 | g << 8 | r;
 
-		m_Buffer->vertex = maths::vec3(-8,-8,0);
-		m_Buffer->uv = maths::vec2(0, 0);
-		m_Buffer->tid = ts;
-		m_Buffer->color = col;
-		m_Buffer++;
-
-		m_Buffer->vertex = maths::vec3(-8, 8, 0);
+		m_Buffer->vertex = maths::vec3(-8, -8, 0);
 		m_Buffer->uv = maths::vec2(0, 1);
 		m_Buffer->tid = ts;
 		m_Buffer->color = col;
 		m_Buffer++;
 
+		m_Buffer->vertex = maths::vec3(-8, 8, 0);
+		m_Buffer->uv = maths::vec2(0, 0);
+		m_Buffer->tid = ts;
+		m_Buffer->color = col;
+		m_Buffer++;
+
 		m_Buffer->vertex = maths::vec3(8, 8, 0);
-		m_Buffer->uv = maths::vec2(1, 1);
+		m_Buffer->uv = maths::vec2(1, 0);
 		m_Buffer->tid = ts;
 		m_Buffer->color = col;
 		m_Buffer++;
 
 		m_Buffer->vertex = maths::vec3(8, -8, 0);
-		m_Buffer->uv = maths::vec2(1, 0);
+		m_Buffer->uv = maths::vec2(1, 1);
 		m_Buffer->tid = ts;
 		m_Buffer->color = col;
 		m_Buffer++;

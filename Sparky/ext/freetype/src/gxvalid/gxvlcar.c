@@ -1,42 +1,41 @@
-/****************************************************************************
- *
- * gxvlcar.c
- *
- *   TrueTypeGX/AAT lcar table validation (body).
- *
- * Copyright (C) 2004-2019 by
- * suzuki toshiya, Masatake YAMATO, Red Hat K.K.,
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  gxvlcar.c                                                              */
+/*                                                                         */
+/*    TrueTypeGX/AAT lcar table validation (body).                         */
+/*                                                                         */
+/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-/****************************************************************************
- *
- * gxvalid is derived from both gxlayout module and otvalid module.
- * Development of gxlayout is supported by the Information-technology
- * Promotion Agency(IPA), Japan.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/* gxvalid is derived from both gxlayout module and otvalid module.        */
+/* Development of gxlayout is supported by the Information-technology      */
+/* Promotion Agency(IPA), Japan.                                           */
+/*                                                                         */
+/***************************************************************************/
 
 
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  gxvlcar
+#define FT_COMPONENT  trace_gxvlcar
 
 
   /*************************************************************************/
@@ -66,7 +65,7 @@
   /*************************************************************************/
 
   static void
-  gxv_lcar_partial_validate( FT_Short       partial,
+  gxv_lcar_partial_validate( FT_UShort      partial,
                              FT_UShort      glyph,
                              GXV_Validator  gxvalid )
   {
@@ -75,7 +74,7 @@
     if ( GXV_LCAR_DATA( format ) != 1 )
       goto Exit;
 
-    gxv_ctlPoint_validate( glyph, (FT_UShort)partial, gxvalid );
+    gxv_ctlPoint_validate( glyph, partial, gxvalid );
 
   Exit:
     GXV_EXIT;
@@ -114,7 +113,7 @@
     +------ lcar --------------------+
     |                                |
     |      +===============+         |
-    |      | lookup header |         |
+    |      | looup header  |         |
     |      +===============+         |
     |      | BinSrchHeader |         |
     |      +===============+         |
@@ -203,7 +202,7 @@
     GXV_INIT;
 
     GXV_LIMIT_CHECK( 4 + 2 );
-    version = FT_NEXT_LONG( p );
+    version = FT_NEXT_ULONG( p );
     GXV_LCAR_DATA( format ) = FT_NEXT_USHORT( p );
 
     if ( version != 0x00010000UL)

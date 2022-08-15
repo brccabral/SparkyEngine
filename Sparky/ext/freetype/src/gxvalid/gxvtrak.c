@@ -1,42 +1,41 @@
-/****************************************************************************
- *
- * gxvtrak.c
- *
- *   TrueTypeGX/AAT trak table validation (body).
- *
- * Copyright (C) 2004-2019 by
- * suzuki toshiya, Masatake YAMATO, Red Hat K.K.,
- * David Turner, Robert Wilhelm, and Werner Lemberg.
- *
- * This file is part of the FreeType project, and may only be used,
- * modified, and distributed under the terms of the FreeType project
- * license, LICENSE.TXT.  By continuing to use, modify, or distribute
- * this file you indicate that you have read the license and
- * understand and accept it fully.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/*  gxvtrak.c                                                              */
+/*                                                                         */
+/*    TrueTypeGX/AAT trak table validation (body).                         */
+/*                                                                         */
+/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+/*                                                                         */
+/*  This file is part of the FreeType project, and may only be used,       */
+/*  modified, and distributed under the terms of the FreeType project      */
+/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+/*  this file you indicate that you have read the license and              */
+/*  understand and accept it fully.                                        */
+/*                                                                         */
+/***************************************************************************/
 
-/****************************************************************************
- *
- * gxvalid is derived from both gxlayout module and otvalid module.
- * Development of gxlayout is supported by the Information-technology
- * Promotion Agency(IPA), Japan.
- *
- */
+/***************************************************************************/
+/*                                                                         */
+/* gxvalid is derived from both gxlayout module and otvalid module.        */
+/* Development of gxlayout is supported by the Information-technology      */
+/* Promotion Agency(IPA), Japan.                                           */
+/*                                                                         */
+/***************************************************************************/
 
 
 #include "gxvalid.h"
 #include "gxvcommn.h"
 
 
-  /**************************************************************************
-   *
-   * The macro FT_COMPONENT is used in trace mode.  It is an implicit
-   * parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log
-   * messages during execution.
-   */
+  /*************************************************************************/
+  /*                                                                       */
+  /* The macro FT_COMPONENT is used in trace mode.  It is an implicit      */
+  /* parameter of the FT_TRACE() and FT_ERROR() macros, used to print/log  */
+  /* messages during execution.                                            */
+  /*                                                                       */
 #undef  FT_COMPONENT
-#define FT_COMPONENT  gxvtrak
+#define FT_COMPONENT  trace_gxvtrak
 
 
   /*************************************************************************/
@@ -49,7 +48,7 @@
 
     /*
      * referred track table format specification:
-     * https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6trak.html
+     * http://developer.apple.com/fonts/TTRefMan/RM06/Chap6trak.html
      * last update was 1996.
      * ----------------------------------------------
      * [MINIMUM HEADER]: GXV_TRAK_SIZE_MIN
@@ -111,7 +110,7 @@
 
     GXV_LIMIT_CHECK( nTracks * ( 4 + 2 + 2 ) );
 
-    for ( i = 0; i < nTracks; i++ )
+    for ( i = 0; i < nTracks; i ++ )
     {
       p = table + i * ( 4 + 2 + 2 );
       track     = FT_NEXT_LONG( p );
@@ -125,7 +124,7 @@
 
       gxv_sfntName_validate( nameIndex, 256, 32767, gxvalid );
 
-      for ( j = i; j < nTracks; j++ )
+      for ( j = i; j < nTracks; j ++ )
       {
          p = table + j * ( 4 + 2 + 2 );
          t = FT_NEXT_LONG( p );
@@ -135,7 +134,7 @@
       }
     }
 
-    gxvalid->subtable_length = (FT_ULong)( p - table );
+    gxvalid->subtable_length = p - table;
     GXV_EXIT;
   }
 
@@ -162,8 +161,7 @@
     nSizes          = FT_NEXT_USHORT( p );
     sizeTableOffset = FT_NEXT_ULONG( p );
 
-    gxv_odtect_add_range( table, (FT_ULong)( p - table ),
-                          "trackData header", odtect );
+    gxv_odtect_add_range( table, p - table, "trackData header", odtect );
 
     /* validate trackTable */
     gxv_trak_trackTable_validate( p, limit, nTracks, gxvalid );
