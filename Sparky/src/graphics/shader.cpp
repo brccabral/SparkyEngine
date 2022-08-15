@@ -3,7 +3,7 @@
 namespace sparky::graphics
 {
 	Shader::Shader(const char *vertPath, const char *fragPath)
-		: m_vertPath(vertPath), m_fragPath(fragPath)
+		: m_VertPath(vertPath), m_FragPath(fragPath)
 	{
 		m_ShaderID = load();
 	};
@@ -23,10 +23,10 @@ namespace sparky::graphics
 		// read GL files
 		// need to store the result before using it
 		// or the read_file will delete from memory
-		std::string vertSouceString = read_file(m_vertPath);
-		std::string fragSouceString = read_file(m_fragPath);
-		const char *vertSource = vertSouceString.c_str();
-		const char *fragSource = fragSouceString.c_str();
+		std::string vertSourceString = FileUtils::read_file(m_VertPath);
+		std::string fragSourceString = FileUtils::read_file(m_FragPath);
+		const char *vertSource = vertSourceString.c_str();
+		const char *fragSource = fragSourceString.c_str();
 
 		// send GL file to openGL and compile
 		glShaderSource(vertex, 1, &vertSource, NULL);

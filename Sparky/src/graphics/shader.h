@@ -11,8 +11,8 @@ namespace sparky::graphics
 	class Shader
 	{
 	private:
-		const char *m_vertPath;
-		const char *m_fragPath;
+		const char *m_VertPath;
+		const char *m_FragPath;
 
 	public:
 		Shader(const char *vertPath, const char *fragPath);

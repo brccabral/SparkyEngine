@@ -19,9 +19,9 @@ namespace sparky::graphics
 		void bind() const;
 		void unbind() const;
 
-		inline unsigned int getWidth() { return m_Width; };
-		inline unsigned int getHeight() { return m_Height; };
-		inline unsigned int getID() { return m_TID; };
+		inline const unsigned int getWidth() const { return m_Width; };
+		inline const unsigned int getHeight() const { return m_Height; };
+		inline const unsigned int getID() const { return m_TID; };
 
 	private:
 		GLuint load();

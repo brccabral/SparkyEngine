@@ -4,5 +4,9 @@
 
 namespace sparky
 {
-	std::string read_file(const std::string &filepath);
+	class FileUtils
+	{
+	public:
+		static std::string read_file(const std::string &filepath);
+	};
 } // namespace sparky

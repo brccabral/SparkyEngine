@@ -15,8 +15,7 @@ namespace sparky::graphics
 			renderable->getVAO()->bind();
 			renderable->getIBO()->bind();
 
-			Shader shader = renderable->getShader();
-			shader.setUniform("ml_matrix", maths::mat4::translation(renderable->getPosition()));
+			renderable->getShader().setUniform("ml_matrix", maths::mat4::translation(renderable->getPosition()));
 			glDrawElements(GL_TRIANGLES, renderable->getIBO()->getCount(), GL_UNSIGNED_SHORT, nullptr);
 
 			renderable->getIBO()->unbind();

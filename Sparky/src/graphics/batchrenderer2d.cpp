@@ -108,15 +108,14 @@ namespace sparky::graphics
 				ts = (float)(m_TextureSlots.size());
 			}
 		}
-		else
-		{
-			int r = color.x * 255.0f;
-			int g = color.y * 255.0f;
-			int b = color.z * 255.0f;
-			int a = color.w * 255.0f;
 
-			c = a << 24 | b << 16 | g << 8 | r;
-		}
+		int r = color.x * 255.0f;
+		int g = color.y * 255.0f;
+		int b = color.z * 255.0f;
+		int a = color.w * 255.0f;
+
+		c = a << 24 | b << 16 | g << 8 | r;
+		
 		m_Buffer->vertex = *m_TransformationBack * position;
 		m_Buffer->uv = uv[0];
 		m_Buffer->tid = ts;

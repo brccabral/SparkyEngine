@@ -23,7 +23,7 @@ namespace sparky::graphics
 
 	public:
 		// apply parent transformation to child
-		void push(const maths::mat4 matrix, bool do_override = false)
+		void push(const maths::mat4 &matrix, bool do_override = false)
 		{
 			if (do_override)
 				m_TransformationStack.push_back(matrix);
