@@ -56,7 +56,7 @@ namespace sparky::graphics
 		m_IBO = new IndexBuffer(indices, RENDERER_INDICES_SIZE);
 		glBindVertexArray(0);
 
-		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 1);
+		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 2);
 		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 80, "arial.ttf");
 
 	};

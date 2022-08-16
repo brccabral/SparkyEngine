@@ -52,7 +52,7 @@ texture_atlas_new( const size_t width,
     // sampling texture
     ivec3 node = {{1,1,width-2}};
 
-	assert((depth == 1) || (depth == 2) || (depth == 3) || (depth == 4));
+	assert((depth == 1) || (depth == 2) || (depth == 3) || (depth == 4)); // depth 2 was added by Cherno
     if( self == NULL)
     {
         fprintf( stderr,
@@ -126,7 +126,7 @@ texture_atlas_set_region( texture_atlas_t * self,
     charsize = sizeof(char);
     for( i=0; i<height; ++i )
     {
-		if (depth == 2)
+		if (depth == 2) // depth 2 was added by Cherno
 		{
 			row = self->data + ((y + i) * self->width + x) * charsize * depth;
 			src = data + (i * stride) * charsize;
@@ -350,7 +350,7 @@ texture_atlas_upload( texture_atlas_t * self )
         glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, self->width, self->height,
                       0, GL_RGB, GL_UNSIGNED_BYTE, self->data );
     }
-	else if (self->depth == 2)
+	else if (self->depth == 2) // depth 2 was added by Cherno
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE_ALPHA, self->width, self->height,
 			0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, self->data);
