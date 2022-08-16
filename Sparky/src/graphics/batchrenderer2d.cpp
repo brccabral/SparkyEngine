@@ -199,8 +199,11 @@ namespace sparky::graphics
 
 		unsigned int col = a << 24 | b << 16 | g << 8 | r;
 
+		// scale to the size of our window
 		float scaleX = 960.0f / 32.0f;
 		float scaleY = 540.0f / 18.0f;
+
+		// position is const, we need separated variable to move chars
 		float x = position.x;
 
 		for (char i = 0; i < text.length(); i++)
@@ -209,6 +212,13 @@ namespace sparky::graphics
 			ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(m_FTFont, c);
 			if (glyph != NULL)
 			{
+				// space between chars
+				if (i > 0) {
+					float kerning = ftgl::texture_glyph_get_kerning(glyph, text.at(i - 1));
+					x += kerning / scaleX;
+				}
+
+				// get char position on screen x/y/u/v
 				float x0 = x + glyph->offset_x / scaleX;
 				float y0 = position.y + glyph->offset_y / scaleY;
 				float x1 = x0 + glyph->width / scaleX;
@@ -219,6 +229,7 @@ namespace sparky::graphics
 				float u1 = glyph->s1;
 				float v1 = glyph->t1;
 
+				// add to buffer
 				m_Buffer->vertex = maths::vec3(x0, y0, 0);
 				m_Buffer->uv = maths::vec2(u0, v0);
 				m_Buffer->tid = ts;
@@ -245,6 +256,7 @@ namespace sparky::graphics
 
 				m_IndexCount += 6;
 
+				// move to next char position
 				x += glyph->advance_x / scaleX;
 			}
 		}
