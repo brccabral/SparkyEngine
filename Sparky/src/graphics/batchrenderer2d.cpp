@@ -59,10 +59,6 @@ namespace sparky::graphics
 		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 1);
 		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 80, "arial.ttf");
 
-		for (char g = 'A'; g < 'z'; g++)
-		{
-			ftgl::texture_font_get_glyph(m_FTFont, g);
-		}
 	};
 
 	void BatchRenderer2D::begin()
@@ -118,7 +114,7 @@ namespace sparky::graphics
 		int a = color.w * 255.0f;
 
 		c = a << 24 | b << 16 | g << 8 | r;
-		
+
 		m_Buffer->vertex = *m_TransformationBack * position;
 		m_Buffer->uv = uv[0];
 		m_Buffer->tid = ts;
@@ -196,38 +192,63 @@ namespace sparky::graphics
 			m_TextureSlots.push_back(m_FTAtlas->id);
 			ts = (float)(m_TextureSlots.size());
 		}
-		int r = 1 * 255.0f;
-		int g = 1 * 255.0f;
-		int b = 0 * 255.0f;
-		int a = 1 * 255.0f;
+		int r = color.x * 255.0f;
+		int g = color.y * 255.0f;
+		int b = color.z * 255.0f;
+		int a = color.w * 255.0f;
 
 		unsigned int col = a << 24 | b << 16 | g << 8 | r;
 
-		m_Buffer->vertex = maths::vec3(-8, -8, 0);
-		m_Buffer->uv = maths::vec2(0, 1);
-		m_Buffer->tid = ts;
-		m_Buffer->color = col;
-		m_Buffer++;
+		float scaleX = 960.0f / 32.0f;
+		float scaleY = 540.0f / 18.0f;
+		float x = position.x;
 
-		m_Buffer->vertex = maths::vec3(-8, 8, 0);
-		m_Buffer->uv = maths::vec2(0, 0);
-		m_Buffer->tid = ts;
-		m_Buffer->color = col;
-		m_Buffer++;
+		for (char i = 0; i < text.length(); i++)
+		{
+			char c = text.at(i);
+			ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(m_FTFont, c);
+			if (glyph != NULL)
+			{
+				float x0 = x + glyph->offset_x / scaleX;
+				float y0 = position.y + glyph->offset_y / scaleY;
+				float x1 = x0 + glyph->width / scaleX;
+				float y1 = y0 - glyph->height / scaleY;
 
-		m_Buffer->vertex = maths::vec3(8, 8, 0);
-		m_Buffer->uv = maths::vec2(1, 0);
-		m_Buffer->tid = ts;
-		m_Buffer->color = col;
-		m_Buffer++;
+				float u0 = glyph->s0;
+				float v0 = glyph->t0;
+				float u1 = glyph->s1;
+				float v1 = glyph->t1;
 
-		m_Buffer->vertex = maths::vec3(8, -8, 0);
-		m_Buffer->uv = maths::vec2(1, 1);
-		m_Buffer->tid = ts;
-		m_Buffer->color = col;
-		m_Buffer++;
+				m_Buffer->vertex = maths::vec3(x0, y0, 0);
+				m_Buffer->uv = maths::vec2(u0, v0);
+				m_Buffer->tid = ts;
+				m_Buffer->color = col;
+				m_Buffer++;
 
-		m_IndexCount += 6;
+				m_Buffer->vertex = maths::vec3(x0, y1, 0);
+				m_Buffer->uv = maths::vec2(u0, v1);
+				m_Buffer->tid = ts;
+				m_Buffer->color = col;
+				m_Buffer++;
+
+				m_Buffer->vertex = maths::vec3(x1, y1, 0);
+				m_Buffer->uv = maths::vec2(u1, v1);
+				m_Buffer->tid = ts;
+				m_Buffer->color = col;
+				m_Buffer++;
+
+				m_Buffer->vertex = maths::vec3(x1, y0, 0);
+				m_Buffer->uv = maths::vec2(u1, v0);
+				m_Buffer->tid = ts;
+				m_Buffer->color = col;
+				m_Buffer++;
+
+				m_IndexCount += 6;
+
+				x += glyph->advance_x / scaleX;
+			}
+		}
+
 
 	};
 }
