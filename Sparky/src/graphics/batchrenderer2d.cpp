@@ -57,7 +57,7 @@ namespace sparky::graphics
 		glBindVertexArray(0);
 
 		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 2);
-		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 32, "arial.ttf");
+		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 32, "SourceCodePro-Light.ttf");
 
 	};
 
