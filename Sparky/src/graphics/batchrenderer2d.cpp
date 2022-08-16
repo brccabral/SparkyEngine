@@ -231,25 +231,25 @@ namespace sparky::graphics
 				float v1 = glyph->t1;
 
 				// add to buffer
-				m_Buffer->vertex = maths::vec3(x0, y0, 0);
+				m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y0, 0);
 				m_Buffer->uv = maths::vec2(u0, v0);
 				m_Buffer->tid = ts;
 				m_Buffer->color = col;
 				m_Buffer++;
 
-				m_Buffer->vertex = maths::vec3(x0, y1, 0);
+				m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y1, 0);
 				m_Buffer->uv = maths::vec2(u0, v1);
 				m_Buffer->tid = ts;
 				m_Buffer->color = col;
 				m_Buffer++;
 
-				m_Buffer->vertex = maths::vec3(x1, y1, 0);
+				m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y1, 0);
 				m_Buffer->uv = maths::vec2(u1, v1);
 				m_Buffer->tid = ts;
 				m_Buffer->color = col;
 				m_Buffer++;
 
-				m_Buffer->vertex = maths::vec3(x1, y0, 0);
+				m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y0, 0);
 				m_Buffer->uv = maths::vec2(u1, v0);
 				m_Buffer->tid = ts;
 				m_Buffer->color = col;
