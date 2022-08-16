@@ -72,8 +72,8 @@ int main()
 	{
 		window.clear();
 		window.getMousePosition(x, y);
-		shader.setUniform("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f),
-			(float)(9.0f - y * 18.0f / 540.0f)));
+		shader.setUniform("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f),
+			(float)(9.0f - y * 18.0f / window.getHeight())));
 		layer.render();
 
 		window.update();
@@ -85,8 +85,6 @@ int main()
 			fps->text = std::to_string(frames) + " fps";
 			printf("%d fps\n", frames);
 			frames = 0;
-
-			std::cout << window.getWidth() << "," << window.getHeight() << std::endl;
 		}
 	}
 
