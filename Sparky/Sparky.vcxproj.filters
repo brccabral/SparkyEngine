@@ -87,9 +87,6 @@
     <ClCompile Include="ext\freetype-gl\vector.c">
       <Filter>Source Files\ext</Filter>
     </ClCompile>
-    <ClCompile Include="src\utils\fileutils.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\shader.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
@@ -106,9 +103,6 @@
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\timer.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="src\utils\imageload.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\batchrenderer2d.cpp">
