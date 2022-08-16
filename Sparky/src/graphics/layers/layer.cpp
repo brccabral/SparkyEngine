@@ -30,10 +30,7 @@ namespace sparky::graphics
 		m_Shader->enable();
 		m_Renderer->begin();
 		for (const Renderable2D *renderable : m_Renderables)
-		{
 			renderable->submit(m_Renderer);
-		}
-		m_Renderer->drawString("ABab?", maths::vec3(0, 0, 0), maths::vec4(0, 1, 1, 1));
 
 		m_Renderer->end();
 		m_Renderer->flush();

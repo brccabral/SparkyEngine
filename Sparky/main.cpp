@@ -52,7 +52,7 @@ int main()
 
 	Group *g = new Group(maths::mat4::translation(maths::vec3(-15.8f, 7.0f, 0.0f)));
 	Label *fps = new Label("", 0.4f, 0.4f, maths::vec4(0.8f, 0.8f, 0.8f, 1.0f));
-	g->add(new Sprite(0, 0, 5, 1.5f, maths::vec4(0.3f, 0.3f, 0.3f, 0.5f)));
+	g->add(new Sprite(0, 0, 6.0f, 1.5f, maths::vec4(0.3f, 0.3f, 0.3f, 0.9f)));
 	g->add(fps);
 	layer.add(g);
 
