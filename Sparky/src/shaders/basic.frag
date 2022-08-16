@@ -5,7 +5,8 @@ layout (location = 0) out vec4 color;
 uniform vec4 colour;
 uniform vec2 light_pos;
 
-in DATA {
+in DATA
+{
     vec4 position;
     vec2 uv;
     float tid;

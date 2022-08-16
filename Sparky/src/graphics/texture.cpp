@@ -11,6 +11,7 @@ namespace sparky::graphics
 	Texture::~Texture()
 	{
 	};
+
 	GLuint Texture::load()
 	{
 		BYTE *pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height);

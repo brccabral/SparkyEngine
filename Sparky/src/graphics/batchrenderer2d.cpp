@@ -6,6 +6,7 @@ namespace sparky::graphics
 	{
 		init();
 	};
+
 	BatchRenderer2D::~BatchRenderer2D()
 	{
 		delete m_IBO;
@@ -141,6 +142,7 @@ namespace sparky::graphics
 
 		m_IndexCount += 6;
 	};
+
 	void BatchRenderer2D::end()
 	{
 		glUnmapBuffer(GL_ARRAY_BUFFER);

@@ -5,7 +5,7 @@
 
 namespace sparky::graphics
 {
-	class Label: public Renderable2D
+	class Label : public Renderable2D
 	{
 	public:
 		std::string text;

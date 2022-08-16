@@ -11,6 +11,7 @@ namespace sparky
 			this->z = z;
 			this->w = w;
 		}
+
 		vec4 &vec4::add(const vec4 &other)
 		{
 			x += other.x;
@@ -19,6 +20,7 @@ namespace sparky
 			w += other.w;
 			return *this;
 		}
+
 		vec4 &vec4::subtract(const vec4 &other)
 		{
 			x -= other.x;
@@ -27,6 +29,7 @@ namespace sparky
 			w -= other.w;
 			return *this;
 		}
+
 		vec4 &vec4::multiply(const vec4 &other)
 		{
 			x *= other.x;
@@ -35,6 +38,7 @@ namespace sparky
 			w *= other.w;
 			return *this;
 		}
+
 		vec4 &vec4::divide(const vec4 &other)
 		{
 			x /= other.x;
