@@ -4,8 +4,7 @@ namespace sparky
 {
 	namespace graphics
 	{
-		// callback from GLFW to resize window
-		void window_resize(GLFWwindow *window, int width, int height);
+		void window_resize(GLFWwindow *window, int width, int height);;
 
 		// keyboard input callback from GLFW
 		void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
@@ -115,6 +114,9 @@ namespace sparky
 		void window_resize(GLFWwindow *window, int width, int height)
 		{
 			glViewport(0, 0, width, height);
+			Window *win = (Window *)glfwGetWindowUserPointer(window);
+			win->m_Width = width;
+			win->m_Height = height;
 		};
 
 		void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)

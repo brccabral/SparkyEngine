@@ -85,6 +85,8 @@ int main()
 			fps->text = std::to_string(frames) + " fps";
 			printf("%d fps\n", frames);
 			frames = 0;
+
+			std::cout << window.getWidth() << "," << window.getHeight() << std::endl;
 		}
 	}
 
