@@ -57,11 +57,19 @@ namespace sparky::graphics
 		glBindVertexArray(0);
 
 		m_FTAtlas = ftgl::texture_atlas_new(512, 512, 1);
-		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 20, "arial.ttf");
+		m_FTFont = ftgl::texture_font_new_from_file(m_FTAtlas, 80, "arial.ttf");
 
-		const std::string text = "A";
-		char c = text[0];
+		const std::string text = "ABab?";
+		char a = text[0];
+		char b = text[1];
+		char c = text[2];
+		char d = text[3];
+		char i = text[4];
+		ftgl::texture_font_get_glyph(m_FTFont, a);
+		ftgl::texture_font_get_glyph(m_FTFont, b);
 		ftgl::texture_font_get_glyph(m_FTFont, c);
+		ftgl::texture_font_get_glyph(m_FTFont, d);
+		ftgl::texture_font_get_glyph(m_FTFont, i);
 	};
 
 	void BatchRenderer2D::begin()
