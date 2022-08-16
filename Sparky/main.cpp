@@ -50,7 +50,7 @@ int main()
 		}
 	}
 
-	Label *fps = new Label("fps", 0, 0, maths::vec4(1, 1, 1, 1));
+	Label *fps = new Label("", -15.0f, 8.0f, maths::vec4(1, 1, 1, 1));
 	layer.add(fps);
 
 	GLint texIDs[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
