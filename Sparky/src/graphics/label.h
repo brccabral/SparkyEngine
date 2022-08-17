@@ -1,7 +1,8 @@
 #pragma once
 
-#include "renderable2d.h"
 #include <string.h>
+#include "renderable2d.h"
+#include "font_manager.h"
 
 namespace sparky::graphics
 {
@@ -14,6 +15,10 @@ namespace sparky::graphics
 		Font *m_Font;
 	public:
 		Label(std::string text, float x, float y, Font *font, unsigned int color);
+		Label(std::string text, float x, float y, const std::string &fontname, unsigned int color);
+		Label(std::string text, float x, float y, const std::string &fontname, unsigned int size, unsigned int color);
 		void submit(Renderer2D *renderer) const override;
+
+		void validatefont(const std::string &name, unsigned int size = -1);
 	};
 }

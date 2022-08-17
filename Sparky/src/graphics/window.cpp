@@ -19,6 +19,8 @@ namespace sparky
 			if (!init())
 				glfwTerminate();
 
+			FontManager::add(new Font("SourceSansPro", "SourceSansPro-Light.ttf", 32));
+
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
 				m_Keys[i] = false;
