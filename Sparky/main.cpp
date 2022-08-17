@@ -70,6 +70,7 @@ int main()
 	Timer time;
 	float timer = 0.0f;
 	unsigned int frames = 0;
+	float t = 0.0f;
 	while (!window.closed())
 	{
 		window.clear();
@@ -77,6 +78,14 @@ int main()
 		shader.setUniform("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f),
 			(float)(9.0f - y * 18.0f / window.getHeight())));
 		layer.render();
+
+		t += 0.001f;
+		const std::vector<Renderable2D *> &rs = layer.getRenderables();
+		for (int i = 0; i < rs.size(); i++)
+		{
+			float c = sin(t) / 2 + 0.5f;
+			rs[i]->setColor(maths::vec4(c, 0, 1, 1));
+		}
 
 		window.update();
 
