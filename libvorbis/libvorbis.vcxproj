@@ -117,6 +117,8 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -210,6 +212,7 @@
     <ClCompile Include="src\analysis.c" />
     <ClCompile Include="src\bitrate.c" />
     <ClCompile Include="src\block.c" />
+    <ClCompile Include="src\codebook.c" />
     <ClCompile Include="src\envelope.c" />
     <ClCompile Include="src\floor0.c" />
     <ClCompile Include="src\floor1.c" />
@@ -222,6 +225,7 @@
     <ClCompile Include="src\psy.c" />
     <ClCompile Include="src\registry.c" />
     <ClCompile Include="src\res0.c" />
+    <ClCompile Include="src\sharedbook.c" />
     <ClCompile Include="src\smallft.c" />
     <ClCompile Include="src\synthesis.c" />
     <ClCompile Include="src\tone.c" />
