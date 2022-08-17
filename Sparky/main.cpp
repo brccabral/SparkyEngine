@@ -1,6 +1,9 @@
 
 #if 1
 
+// Need to install OpenAL https://openal.org/ , use Windows Installer https://openal.org/downloads/
+// it will install OpenAL32.dll into System32 and SysWow64
+
 #include "gorilla/ga.h"
 #include "gorilla/gau.h"
 #include <stdio.h>
