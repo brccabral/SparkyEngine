@@ -4,12 +4,11 @@
 // add all sprites to one batch buffer and render them all at once
 
 #include <cstddef>
+#include <vector>
+#include <string.h>
 #include "renderer2d.h"
 #include "renderable2d.h"
 #include "buffers/indexbuffer.h"
-#include <vector>
-#include <string.h>
-#include "../../ext/freetype-gl/freetype-gl.h"
 
 namespace sparky::graphics
 {
@@ -36,9 +35,6 @@ namespace sparky::graphics
 
 		std::vector<GLuint> m_TextureSlots;
 
-		ftgl::texture_atlas_t *m_FTAtlas;
-		ftgl::texture_font_t *m_FTFont;
-
 	public:
 		BatchRenderer2D();
 		~BatchRenderer2D();
@@ -48,7 +44,7 @@ namespace sparky::graphics
 		void end() override;
 		void flush() override;
 
-		void drawString(const std::string &text, maths::vec3 position, unsigned int color) override;
+		void drawString(const std::string &text, maths::vec3 position, const Font font, unsigned int color) override;
 
 	private:
 		void init();

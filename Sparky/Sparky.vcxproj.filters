@@ -135,6 +135,9 @@
     <ClCompile Include="src\graphics\static_sprite.cpp">
       <Filter>Source Files\graphics\renderables</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\batchrenderer2d.h">
@@ -229,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="src\graphics\label.h">
       <Filter>Header Files\graphics\renderables</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\font.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,9 @@
 #pragma once
 
-#include <GL/glew.h>
-#include "../maths/maths.h"
 #include <vector>
+#include <GL/glew.h>
+#include "font.h"
+#include "../maths/maths.h"
 
 namespace sparky::graphics
 {
@@ -44,6 +45,6 @@ namespace sparky::graphics
 		virtual void end() {};
 		virtual void flush() = 0;
 
-		virtual void drawString(const std::string &text, maths::vec3 position, unsigned int color) {};
+		virtual void drawString(const std::string &text, maths::vec3 position, const Font font, unsigned int color) {};
 	};
 } // namespace sparky::graphics
