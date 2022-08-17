@@ -10,7 +10,7 @@ namespace sparky::graphics
 	private:
 		static std::vector<Font *> m_Fonts;
 
-		FontManager();
+		FontManager() {};
 	
 	public:
 		static void add(Font *font);
