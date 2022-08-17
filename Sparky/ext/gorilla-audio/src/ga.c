@@ -1,6 +1,8 @@
 #include "gorilla/ga.h"
 #include "gorilla/ga_internal.h"
 
+#define ENABLE_OPENAL
+
 #ifdef ENABLE_OPENAL
 #include "gorilla/devices/ga_openal.h"
 #endif /* ENABLE_OPENAL */
