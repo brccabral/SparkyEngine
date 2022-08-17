@@ -106,6 +106,5 @@ int main()
 		delete tex;
 	};
 
-	FontManager::clean();
 	return 0;
 }

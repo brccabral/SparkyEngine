@@ -38,6 +38,7 @@ namespace sparky
 
 		Window::~Window()
 		{
+			FontManager::clean();
 			glfwTerminate();
 		}
 
