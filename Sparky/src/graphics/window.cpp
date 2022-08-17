@@ -84,15 +84,14 @@ namespace sparky
 		void Window::update()
 		{
 			for (int i = 0; i < MAX_KEYS; i++)
-			{
 				m_KeyTyped[i] = m_Keys[i] && !m_KeyState[i];
-				m_KeyState[i] = m_Keys[i];
-			}
+
+			memcpy(m_KeyState, m_Keys, MAX_KEYS);
+
 			for (int i = 0; i < MAX_BUTTONS; i++)
-			{
 				m_MouseClicked[i] = m_MouseButtons[i] && !m_MouseState[i];
-				m_MouseState[i] = m_MouseButtons[i];
-			}
+
+			memcpy(m_MouseState, m_MouseButtons, MAX_BUTTONS);
 
 			GLenum error = glGetError();
 			if (error != GL_NO_ERROR)
