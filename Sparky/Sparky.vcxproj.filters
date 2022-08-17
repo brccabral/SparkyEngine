@@ -300,6 +300,12 @@
     <ClCompile Include="ext\freetype\src\smooth\smooth.c">
       <Filter>Source Files\ext\freetype</Filter>
     </ClCompile>
+    <ClCompile Include="src\audio\sound_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio\sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\batchrenderer2d.h">
@@ -448,6 +454,12 @@
     </ClInclude>
     <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisfile.h">
       <Filter>Header Files\ext\vorbis</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio\sound_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio\sound.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
