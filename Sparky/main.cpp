@@ -55,7 +55,7 @@ int main()
 	}
 
 	Group *g = new Group(maths::mat4::translation(maths::vec3(-15.8f, 7.0f, 0.0f)));
-	Label *fps = new Label("", 0.4f, 0.4f, "Source1SansPro", 0xffffffff);
+	Label *fps = new Label("", 0.4f, 0.4f, 0xffffffff);
 	g->add(new Sprite(0, 0, 6.0f, 1.5f, 0x505050dd));
 	g->add(fps);
 	layer.add(g);
