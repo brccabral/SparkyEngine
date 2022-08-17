@@ -20,7 +20,11 @@ namespace sparky
 				glfwTerminate();
 
 			for (int i = 0; i < MAX_KEYS; i++)
+			{
 				m_Keys[i] = false;
+				m_KeyState[i] = false;
+				m_KeyTyped[i] = false;
+			}
 
 			for (int i = 0; i < MAX_BUTTONS; i++)
 				m_MouseButtons[i] = false;
@@ -75,6 +79,12 @@ namespace sparky
 
 		void Window::update()
 		{
+			for (int i = 0; i < MAX_KEYS; i++)
+			{
+				m_KeyTyped[i] = m_Keys[i] && !m_KeyState[i];
+				m_KeyState[i] = m_Keys[i];
+			}
+
 			GLenum error = glGetError();
 			if (error != GL_NO_ERROR)
 				std::cout << "OpenGL Error: " << error << std::endl;
@@ -94,6 +104,14 @@ namespace sparky
 				return false;
 
 			return m_Keys[keycode];
+		}
+
+		bool Window::isKeyTyped(unsigned int keycode) const
+		{
+			if (keycode >= MAX_KEYS)
+				return false;
+
+			return m_KeyTyped[keycode];
 		}
 
 		bool Window::isMousePressed(unsigned int button) const

@@ -76,6 +76,12 @@ int main()
 			(float)(9.0f - y * 18.0f / window.getHeight())));
 		layer.render();
 
+		if (window.isKeyTyped(GLFW_KEY_K))
+			std::cout << "K" << std::endl;
+
+		if (window.isKeyTyped(GLFW_KEY_K))
+			std::cout << "Again" << std::endl;
+
 		window.update();
 
 		frames++;
@@ -171,5 +177,5 @@ int main()
 	FreeImage_Unload(dib);
 
 	return 0;
-}
+	}
 #endif

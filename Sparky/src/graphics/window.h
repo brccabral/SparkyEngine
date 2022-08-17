@@ -21,6 +21,8 @@ namespace sparky
 
 			bool m_Keys[MAX_KEYS];
 			bool m_MouseButtons[MAX_BUTTONS];
+			bool m_KeyState[MAX_KEYS];
+			bool m_KeyTyped[MAX_KEYS];
 			double m_MouseX, m_MouseY;
 
 		public:
@@ -34,6 +36,7 @@ namespace sparky
 			inline int getHeight() const { return m_Height; };
 
 			bool isKeyPressed(unsigned int keycode) const;
+			bool isKeyTyped(unsigned int keycode) const;
 			bool isMousePressed(unsigned int keycode) const;
 			void getMousePosition(double &x, double &y) const;
 
