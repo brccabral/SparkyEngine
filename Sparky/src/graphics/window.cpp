@@ -27,7 +27,11 @@ namespace sparky
 			}
 
 			for (int i = 0; i < MAX_BUTTONS; i++)
+			{
 				m_MouseButtons[i] = false;
+				m_MouseState[i] = false;
+				m_MouseClicked[i] = false;
+			}
 		}
 
 		Window::~Window()
@@ -84,6 +88,11 @@ namespace sparky
 				m_KeyTyped[i] = m_Keys[i] && !m_KeyState[i];
 				m_KeyState[i] = m_Keys[i];
 			}
+			for (int i = 0; i < MAX_BUTTONS; i++)
+			{
+				m_MouseClicked[i] = m_MouseButtons[i] && !m_MouseState[i];
+				m_MouseState[i] = m_MouseButtons[i];
+			}
 
 			GLenum error = glGetError();
 			if (error != GL_NO_ERROR)
@@ -112,6 +121,14 @@ namespace sparky
 				return false;
 
 			return m_KeyTyped[keycode];
+		}
+
+		bool Window::isMouseClicked(unsigned int button) const
+		{
+			if (button >= MAX_BUTTONS)
+				return false;
+
+			return m_MouseClicked[button];
 		}
 
 		bool Window::isMousePressed(unsigned int button) const

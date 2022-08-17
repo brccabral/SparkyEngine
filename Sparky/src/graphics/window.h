@@ -20,9 +20,11 @@ namespace sparky
 			bool m_Closed;
 
 			bool m_Keys[MAX_KEYS];
-			bool m_MouseButtons[MAX_BUTTONS];
 			bool m_KeyState[MAX_KEYS];
 			bool m_KeyTyped[MAX_KEYS];
+			bool m_MouseButtons[MAX_BUTTONS];
+			bool m_MouseState[MAX_BUTTONS];
+			bool m_MouseClicked[MAX_BUTTONS];
 			double m_MouseX, m_MouseY;
 
 		public:
@@ -38,6 +40,7 @@ namespace sparky
 			bool isKeyPressed(unsigned int keycode) const;
 			bool isKeyTyped(unsigned int keycode) const;
 			bool isMousePressed(unsigned int keycode) const;
+			bool isMouseClicked(unsigned int keycode) const;
 			void getMousePosition(double &x, double &y) const;
 
 		private:
