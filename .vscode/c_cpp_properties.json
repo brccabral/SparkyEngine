@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "D:\\CPP_Win\\ExternalSources\\glew-2.1.0\\include",
-                "D:\\CPP_Win\\ExternalSources\\glfw-3.3.7.bin.WIN64\\include"
+                "D:\\CPP_Win\\ExternalSources\\glfw-3.3.7.bin.WIN64\\include",
+                "D:\\CPP_Win\\ExternalSources\\FreeImage\\Dist\\x64"
             ],
             "defines": [
                 "_DEBUG",
