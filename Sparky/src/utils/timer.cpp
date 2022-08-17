@@ -1,5 +1,26 @@
 #include "timer.h"
 
+#if STD_CHRONO
+
+namespace sparky
+{
+	Timer::Timer()
+	{
+		reset();
+	}
+
+	void Timer::reset()
+	{
+		m_Start = HighResolutionClock::now();
+	}
+
+	float Timer::elapsed()
+	{
+		return std::chrono::duration_cast<milliseconds_type>(HighResolutionClock::now() - m_Start).count() / 1000.0f;
+	}
+}
+
+#else
 namespace sparky
 {
 	Timer::Timer()
@@ -41,3 +62,4 @@ namespace sparky
 	#endif
 	};
 }
+#endif
