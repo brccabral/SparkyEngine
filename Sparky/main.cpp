@@ -76,18 +76,6 @@ int main()
 			(float)(9.0f - y * 18.0f / window.getHeight())));
 		layer.render();
 
-		if (window.isKeyTyped(GLFW_KEY_K))
-			std::cout << "K" << std::endl;
-
-		if (window.isKeyTyped(GLFW_KEY_K))
-			std::cout << "Again" << std::endl;
-
-		if (window.isMouseClicked(GLFW_MOUSE_BUTTON_LEFT))
-			std::cout << "Clicked" << std::endl;
-
-		if (window.isMouseClicked(GLFW_MOUSE_BUTTON_LEFT))
-			std::cout << "Also" << std::endl;
-
 		window.update();
 
 		frames++;
