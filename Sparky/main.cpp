@@ -94,8 +94,15 @@ int main()
 			rs[i]->setColor(maths::vec4(c, 0, 1, 1));
 		}
 
-		if(window.isKeyTyped(GLFW_KEY_P))
+		if (window.isKeyTyped(GLFW_KEY_P))
 			SoundManager::get("Evacuate")->play();
+
+		if (window.isKeyTyped(GLFW_KEY_UP))
+			SoundManager::get("Evacuate")->setGain(SoundManager::get("Evacuate")->getGain() + 0.05f);
+
+		if (window.isKeyTyped(GLFW_KEY_DOWN))
+			SoundManager::get("Evacuate")->setGain(SoundManager::get("Evacuate")->getGain() - 0.05f);
+
 		SoundManager::update();
 		window.update();
 

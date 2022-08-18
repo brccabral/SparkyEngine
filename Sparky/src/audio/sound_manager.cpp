@@ -36,7 +36,7 @@ namespace sparky::audio
 
 	void SoundManager::clean()
 	{
-		for (int i = 0; i < m_Sounds.size(); i++)
+		for (unsigned int i = 0; i < m_Sounds.size(); i++)
 			delete m_Sounds[i];
 
 		gau_manager_destroy(m_Manager);
