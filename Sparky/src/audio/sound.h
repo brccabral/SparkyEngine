@@ -16,7 +16,6 @@ namespace sparky::audio
 		ga_Handle *m_Handle;
 
 		float m_Gain;
-		bool m_Playing;
 
 	public:
 		Sound(const std::string &name, const std::string &filename);
@@ -32,7 +31,7 @@ namespace sparky::audio
 
 		inline const std::string &getName() const { return m_Name; }
 		inline const std::string &getFilename() const { return m_Filename; }
-		inline const bool isPlaying() const { return m_Playing; }
+		gc_int32 isPlaying();
 
 		friend void setFlagAndDestroyOnFinish(ga_Handle *in_handle, void *in_context);
 		friend void loopOnFinish(ga_Handle *in_handle, void *in_context);

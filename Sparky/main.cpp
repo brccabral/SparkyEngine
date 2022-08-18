@@ -102,10 +102,10 @@ int main()
 			SoundManager::get("Evacuate")->stop();
 
 		if (window.isKeyTyped(GLFW_KEY_UP))
-			SoundManager::get("BomDia")->setGain(SoundManager::get("BomDia")->getGain() + 0.05f);
+			SoundManager::get("Evacuate")->setGain(SoundManager::get("Evacuate")->getGain() + 0.05f);
 
 		if (window.isKeyTyped(GLFW_KEY_DOWN))
-			SoundManager::get("BomDia")->setGain(SoundManager::get("BomDia")->getGain() - 0.05f);
+			SoundManager::get("Evacuate")->setGain(SoundManager::get("Evacuate")->getGain() - 0.05f);
 
 		SoundManager::update();
 		window.update();
@@ -117,6 +117,7 @@ int main()
 			fps->text = std::to_string(frames) + " fps";
 			printf("%d fps\n", frames);
 			frames = 0;
+			std::cout << SoundManager::get("Evacuate")->isPlaying() << std::endl;
 		}
 	}
 
