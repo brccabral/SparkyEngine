@@ -9,7 +9,13 @@ namespace sparky::audio
 	Sound::Sound(const std::string &name, const std::string &filename)
 		: m_Name(name), m_Filename(filename), m_Handle(nullptr), m_Gain(1.0f), m_Position(0)
 	{
-		m_Sound = gau_load_sound_file(filename.c_str(), "wav");
+		std::vector<std::string> split = split_string(filename, '.');
+		if (split.size() < 2)
+		{
+			std::cout << "[Sound] Invalid filename '" << filename << "'!" << std::endl;
+			return;
+		}
+		m_Sound = gau_load_sound_file(filename.c_str(), split.back().c_str());
 	}
 
 	Sound::~Sound()

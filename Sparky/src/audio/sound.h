@@ -4,6 +4,7 @@
 #include <iostream>
 #include "gorilla/ga.h"
 #include "gorilla/gau.h"
+#include "../utils/stringutils.h"
 
 namespace sparky::audio
 {
