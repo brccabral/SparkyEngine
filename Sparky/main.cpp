@@ -96,7 +96,10 @@ int main()
 		}
 
 		if (window.isKeyTyped(GLFW_KEY_P))
-			SoundManager::get("BomDia")->loop();
+			SoundManager::get("Evacuate")->play();
+
+		if (window.isKeyTyped(GLFW_KEY_S))
+			SoundManager::get("Evacuate")->stop();
 
 		if (window.isKeyTyped(GLFW_KEY_UP))
 			SoundManager::get("BomDia")->setGain(SoundManager::get("BomDia")->getGain() + 0.05f);

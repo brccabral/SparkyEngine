@@ -7,7 +7,7 @@ namespace sparky::audio
 	void loopOnFinish(ga_Handle *in_handle, void *in_context);
 
 	Sound::Sound(const std::string &name, const std::string &filename)
-		: m_Name(name), m_Filename(filename), m_Handle(nullptr), m_Gain(1.0f)
+		: m_Name(name), m_Filename(filename), m_Handle(nullptr), m_Gain(1.0f), m_Playing(false)
 	{
 		m_Sound = gau_load_sound_file(filename.c_str(), "wav");
 	}
@@ -23,6 +23,7 @@ namespace sparky::audio
 		m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &setFlagAndDestroyOnFinish, &quit, NULL);
 		m_Handle->sound = this;
 		ga_handle_play(m_Handle);
+		m_Playing = true;
 	};
 
 	void Sound::loop()
@@ -31,20 +32,27 @@ namespace sparky::audio
 		m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &loopOnFinish, &quit, NULL);
 		m_Handle->sound = this;
 		ga_handle_play(m_Handle);
+		m_Playing = true;
 	};
 
 	void Sound::pause()
 	{
-
+		m_Playing = false;
 	};
 
 	void Sound::stop()
 	{
-
+		ga_handle_stop(m_Handle);
+		m_Playing = false;
 	};
 
 	void Sound::setGain(float gain)
 	{
+		if (!m_Playing)
+		{
+			std::cout << "ERROR: Sound not playing, cannot set gain!" << std::endl;
+			return;
+		}
 		if (gain > 1.0f)
 			gain = 1.0f;
 
@@ -65,12 +73,14 @@ namespace sparky::audio
 		gc_int32 *flag = (gc_int32 *)(in_context);
 		*flag = 1;
 		ga_handle_destroy(in_handle);
+		Sound *sound = (Sound *)in_handle->sound;
+		sound->m_Playing = false;
 	}
 
 	void loopOnFinish(ga_Handle *in_handle, void *in_context)
 	{
+		ga_handle_destroy(in_handle);
 		Sound *sound = (Sound *)in_handle->sound;
 		sound->loop();
-		ga_handle_destroy(in_handle);
 	}
 }

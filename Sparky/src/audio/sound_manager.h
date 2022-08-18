@@ -2,7 +2,6 @@
 
 #include <string>
 #include <vector>
-#include <stdio.h>
 #include "sound.h"
 
 namespace sparky::audio
