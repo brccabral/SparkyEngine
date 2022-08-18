@@ -72,7 +72,7 @@ int main()
 
 	SoundManager::add(new Sound("Evacuate", "Evacuate.wav"));
 	SoundManager::add(new Sound("BomDia", "BomDia.ogg"));
-	std::string currentSound = "BomDia";
+	std::string currentSound = "Evacuate";
 
 	double x, y;
 

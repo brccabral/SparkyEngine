@@ -7,7 +7,7 @@ namespace sparky::audio
 	void loopOnFinish(ga_Handle *in_handle, void *in_context);
 
 	Sound::Sound(const std::string &name, const std::string &filename)
-		: m_Name(name), m_Filename(filename), m_Handle(nullptr), m_Gain(1.0f), m_Position(0)
+		: m_Name(name), m_Filename(filename), m_Handle(nullptr), m_Gain(1.0f), m_Position(0), m_Sound(nullptr)
 	{
 		std::vector<std::string> split = split_string(filename, '.');
 		if (split.size() < 2)
@@ -29,20 +29,20 @@ namespace sparky::audio
 
 	void Sound::play()
 	{
-		if (isPlaying())
-			stop();
+		// TODO
+		// creates new handles in the background, but doesn't keep track of all handles created
+		// need some kind of stack to manage all handles
 		gc_int32 quit = 0;
 		m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &setFlagAndDestroyOnFinish, &quit, NULL);
 		m_Handle->sound = this;
+		m_Position = 0;
+		ga_handle_seek(m_Handle, m_Position);
 		ga_handle_play(m_Handle);
 		setGain(m_Gain);
-		m_Position = 0;
 	};
 
 	void Sound::loop()
 	{
-		if (isPlaying())
-			stop();
 		gc_int32 quit = 0;
 		m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &loopOnFinish, &quit, NULL);
 		m_Handle->sound = this;
@@ -83,7 +83,7 @@ namespace sparky::audio
 			return;
 
 		ga_handle_stop(m_Handle);
-		ga_handle_destroy(m_Handle);
+		//ga_handle_destroy(m_Handle);
 		m_Position = 0;
 	};
 
