@@ -15,7 +15,11 @@ namespace sparky::audio
 			std::cout << "[Sound] Invalid filename '" << filename << "'!" << std::endl;
 			return;
 		}
+
 		m_Sound = gau_load_sound_file(filename.c_str(), split.back().c_str());
+
+		if (m_Sound == nullptr)
+			std::cout << "[Sound] Could not load file '" << filename << "'!" << std::endl;
 	}
 
 	Sound::~Sound()
@@ -60,7 +64,7 @@ namespace sparky::audio
 			m_Position = ga_handle_tell(m_Handle, GA_TELL_PARAM_CURRENT);
 			ga_handle_stop(m_Handle);
 		}
-		else if(m_Position)
+		else if (m_Position)
 		{
 			ga_handle_seek(m_Handle, m_Position);
 			ga_handle_play(m_Handle);
@@ -107,7 +111,7 @@ namespace sparky::audio
 
 		m_Gain = gain;
 
-		if(m_Handle)
+		if (m_Handle)
 			ga_handle_setParamf(m_Handle, GA_HANDLE_PARAM_GAIN, gain);
 	}
 
@@ -115,7 +119,7 @@ namespace sparky::audio
 	{
 		if (!m_Handle)
 			return m_Gain;
-		
+
 		ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &m_Gain);
 		return m_Gain;
 	}
