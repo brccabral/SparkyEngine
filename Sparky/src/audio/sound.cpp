@@ -23,6 +23,13 @@ namespace sparky::audio
 		m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &setFlagAndDestroyOnFinish, &quit, NULL);
 		m_Handle->sound = this;
 		ga_handle_play(m_Handle);
+
+		while (!quit)
+		{
+			gau_manager_update(SoundManager::m_Manager);
+			printf("%d / %d\n", ga_handle_tell(m_Handle, GA_TELL_PARAM_CURRENT), ga_handle_tell(m_Handle, GA_TELL_PARAM_TOTAL));
+			gc_thread_sleep(1);
+		}
 	};
 
 	void Sound::loop()

@@ -1,65 +1,6 @@
-
-#if 1
-
 // Need to install OpenAL https://openal.org/ , use Windows Installer https://openal.org/downloads/
 // it will install OpenAL32.dll into System32 and SysWow64
 
-#include "gorilla/ga.h"
-#include "gorilla/gau.h"
-#include <stdio.h>
-#include <string>
-
-static void setFlagAndDestroyOnFinish(ga_Handle *in_handle, void *in_context)
-{
-	gc_int32 *flag = (gc_int32 *)(in_context);
-	*flag = 1;
-	ga_handle_destroy(in_handle);
-}
-
-int main()
-{
-	gau_Manager *mgr;
-	ga_Mixer *mixer;
-	ga_Sound *sound;
-	ga_Handle *handle;
-	gau_SampleSourceLoop *loopSrc = 0;
-	gau_SampleSourceLoop **pLoopSrc = &loopSrc;
-	gc_int32 loop = 0;
-	gc_int32 quit = 0;
-
-	/* Initialize library + manager */
-	gc_initialize(0);
-	mgr = gau_manager_create();
-	mixer = gau_manager_mixer(mgr);
-
-	/* Create and play shared sound */
-	if (!loop)
-		pLoopSrc = 0;
-	std::string filename = "Evacuate.wav";
-	sound = gau_load_sound_file(filename.c_str(), "wav");
-	handle = gau_create_handle_sound(mixer, sound, &setFlagAndDestroyOnFinish, &quit, pLoopSrc);
-	ga_handle_play(handle);
-
-	/* Bounded mix/queue/dispatch loop */
-	while (!quit)
-	{
-		gau_manager_update(mgr);
-		printf("%d / %d\n", ga_handle_tell(handle, GA_TELL_PARAM_CURRENT), ga_handle_tell(handle, GA_TELL_PARAM_TOTAL));
-		gc_thread_sleep(1);
-	}
-
-	/* Clean up sound */
-	ga_sound_release(sound);
-
-	/* Clean up library + manager */
-	gau_manager_destroy(mgr);
-	gc_shutdown();
-
-	return 0;
-}
-#else
-// #include <iostream>
-// #include <vector>
 #include <GL/glew.h>
 
 #include "src/graphics/shader.h"
@@ -77,12 +18,14 @@ int main()
 #include "src/graphics/label.h"
 
 #include "src/graphics/font_manager.h"
+#include "src/audio/sound_manager.h"
 
 int main()
 {
 	using namespace sparky;
 	using namespace graphics;
 	using namespace maths;
+	using namespace audio;
 
 	Window window("Sparky!", 960, 540);
 	//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -127,6 +70,9 @@ int main()
 	shader.setUniform(
 		"pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
+	SoundManager::add(new Sound("Evacuate", "Evacuate.wav"));
+	SoundManager::get("Evacuate")->play();
+
 	double x, y;
 
 	Timer time;
@@ -168,4 +114,3 @@ int main()
 
 	return 0;
 }
-#endif
