@@ -19,6 +19,7 @@ namespace sparky::audio
 		static void init();
 		static void add(Sound *sound);
 		static Sound *get(const std::string &name);
+		static void update();
 		static void clean();
 	};
 }

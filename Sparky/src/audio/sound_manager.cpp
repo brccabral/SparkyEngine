@@ -29,6 +29,11 @@ namespace sparky::audio
 		return nullptr;
 	}
 
+	void SoundManager::update()
+	{
+		gau_manager_update(SoundManager::m_Manager);
+	}
+
 	void SoundManager::clean()
 	{
 		for (int i = 0; i < m_Sounds.size(); i++)

@@ -89,12 +89,13 @@ int main()
 
 		t += 0.001f;
 		const std::vector<Renderable2D *> &rs = layer.getRenderables();
-		for (int i = 0; i < rs.size(); i++)
+		for (unsigned int i = 0; i < rs.size(); i++)
 		{
 			float c = sin(t) / 2 + 0.5f;
 			rs[i]->setColor(maths::vec4(c, 0, 1, 1));
 		}
 
+		SoundManager::update();
 		window.update();
 
 		frames++;
