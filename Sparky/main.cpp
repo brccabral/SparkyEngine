@@ -70,7 +70,6 @@ int main()
 	shader.setUniform(
 		"pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
-	SoundManager::add(new Sound("Evacuate", "Evacuate.wav"));
 	SoundManager::add(new Sound("BomDia", "BomDia.ogg"));
 	std::string currentSound = "Evacuate";
 
