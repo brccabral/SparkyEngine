@@ -69,7 +69,11 @@ namespace sparky::audio
 
 	void Sound::stop()
 	{
+		if (!m_Handle)
+			return;
+
 		ga_handle_stop(m_Handle);
+		ga_handle_destroy(m_Handle);
 		m_Position = 0;
 	};
 
@@ -104,9 +108,8 @@ namespace sparky::audio
 	float Sound::getGain()
 	{
 		if (!m_Handle)
-		{
 			return m_Gain;
-		}
+		
 		ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &m_Gain);
 		return m_Gain;
 	}
