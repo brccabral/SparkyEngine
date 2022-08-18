@@ -27,7 +27,10 @@ namespace sparky::audio
 
 	void Sound::loop()
 	{
-
+		gc_int32 quit = 0;
+		m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &loopOnFinish, &quit, NULL);
+		m_Handle->sound = this;
+		ga_handle_play(m_Handle);
 	};
 
 	void Sound::pause()

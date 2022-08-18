@@ -71,6 +71,7 @@ int main()
 		"pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
 	SoundManager::add(new Sound("Evacuate", "Evacuate.wav"));
+	SoundManager::add(new Sound("BomDia", "BomDia.wav"));
 
 	double x, y;
 
@@ -95,13 +96,13 @@ int main()
 		}
 
 		if (window.isKeyTyped(GLFW_KEY_P))
-			SoundManager::get("Evacuate")->play();
+			SoundManager::get("BomDia")->loop();
 
 		if (window.isKeyTyped(GLFW_KEY_UP))
-			SoundManager::get("Evacuate")->setGain(SoundManager::get("Evacuate")->getGain() + 0.05f);
+			SoundManager::get("BomDia")->setGain(SoundManager::get("BomDia")->getGain() + 0.05f);
 
 		if (window.isKeyTyped(GLFW_KEY_DOWN))
-			SoundManager::get("Evacuate")->setGain(SoundManager::get("Evacuate")->getGain() - 0.05f);
+			SoundManager::get("BomDia")->setGain(SoundManager::get("BomDia")->getGain() - 0.05f);
 
 		SoundManager::update();
 		window.update();
