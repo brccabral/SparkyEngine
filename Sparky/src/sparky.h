@@ -4,6 +4,7 @@
 #include "graphics/layers/layer.h"
 #include "graphics/batchrenderer2d.h"
 #include "graphics/sprite.h"
+#include "graphics/label.h"
 
 #include "maths/maths.h"
 
@@ -82,13 +83,13 @@ namespace sparky
 				frames++;
 				if (m_Timer->elapsed() - timer > 1.0f)
 				{
+					m_FramesPerSecond = frames;
+					m_UpdatesPerSecond = updates;
+
 					tick();
 
 					timer += 1.0f;
 					printf("%d fps\n", frames);
-
-					m_FramesPerSecond = frames;
-					m_UpdatesPerSecond = updates;
 
 					frames = 0;
 					updates = 0;
