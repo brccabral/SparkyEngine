@@ -10,7 +10,6 @@
 // timer uses LARGE_INTEGER, which uses DWORD, which FreeImage overrides
 #include "src/utils/timer.h"
 #include "src/graphics/batchrenderer2d.h"
-#include "src/graphics/layers/tilelayer.h"
 #include "src/graphics/sprite.h"
 
 #include "src/graphics/layers/group.h"
@@ -19,6 +18,9 @@
 
 #include "src/graphics/font_manager.h"
 #include "src/audio/sound_manager.h"
+
+
+#include "tilelayer.h"
 
 int main()
 {

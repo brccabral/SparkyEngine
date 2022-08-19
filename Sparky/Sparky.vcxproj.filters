@@ -82,6 +82,12 @@
     <Filter Include="Header Files\maths">
       <UniqueIdentifier>{6dab726d-89fa-46b5-8026-32dd33d0a4f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\audio">
+      <UniqueIdentifier>{69042150-ddaf-4a0c-9ff4-d50ee38abec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\audio">
+      <UniqueIdentifier>{f3c05943-dcff-4dab-a500-6fbf68dd8a3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -130,12 +136,6 @@
       <Filter>Source Files\graphics\buffers</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\layers\group.cpp">
-      <Filter>Source Files\graphics\layers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\layers\layer.cpp">
-      <Filter>Source Files\graphics\layers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\layers\tilelayer.cpp">
       <Filter>Source Files\graphics\layers</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\label.cpp">
@@ -300,10 +300,16 @@
     <ClCompile Include="ext\freetype\src\smooth\smooth.c">
       <Filter>Source Files\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\audio\sound_manager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\graphics\layers\layer.cpp">
+      <Filter>Source Files\graphics\layers</Filter>
     </ClCompile>
     <ClCompile Include="src\audio\sound.cpp">
+      <Filter>Source Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio\sound_manager.cpp">
+      <Filter>Source Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="tilelayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -358,12 +364,6 @@
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\vertexarray.h">
       <Filter>Header Files\graphics\buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\layers\layer.h">
-      <Filter>Header Files\graphics\layers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\layers\tilelayer.h">
-      <Filter>Header Files\graphics\layers</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\layers\group.h">
       <Filter>Header Files\graphics\layers</Filter>
@@ -455,13 +455,19 @@
     <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisfile.h">
       <Filter>Header Files\ext\vorbis</Filter>
     </ClInclude>
-    <ClInclude Include="src\audio\sound_manager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\graphics\layers\layer.h">
+      <Filter>Header Files\graphics\layers</Filter>
     </ClInclude>
     <ClInclude Include="src\audio\sound.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio\sound_manager.h">
+      <Filter>Header Files\audio</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\stringutils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="tilelayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
