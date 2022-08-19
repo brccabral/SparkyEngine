@@ -40,6 +40,7 @@ public:
 	void tick() override
 	{
 		fps->text = std::to_string(getFPS()) + " fps";
+		std::cout << getUPS() << " ups, " << getFPS() << " fps" << std::endl;
 	}
 
 	void render() override

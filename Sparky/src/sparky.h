@@ -89,7 +89,6 @@ namespace sparky
 					tick();
 
 					timer += 1.0f;
-					printf("%d fps\n", frames);
 
 					frames = 0;
 					updates = 0;
