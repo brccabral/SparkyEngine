@@ -19,6 +19,11 @@ namespace sparky::graphics
 		return nullptr;
 	}
 
+	Font *FontManager::get()
+	{
+		return m_Fonts[0];
+	}
+
 	Font *FontManager::get(const std::string &name, unsigned int size)
 	{
 		for (Font *font : m_Fonts)

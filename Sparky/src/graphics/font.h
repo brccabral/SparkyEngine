@@ -2,6 +2,7 @@
 
 #include <string>
 #include "../../ext/freetype-gl/freetype-gl.h"
+#include "../maths/maths.h"
 
 namespace sparky::graphics
 {
@@ -13,6 +14,8 @@ namespace sparky::graphics
 		unsigned int m_Size;
 		std::string m_Filename;
 		std::string m_Name;
+
+		maths::vec2 m_Scale;
 	public:
 		Font(std::string name, std::string filename, unsigned int size);
 
@@ -22,5 +25,8 @@ namespace sparky::graphics
 		inline const std::string &getName() const { return m_Name; }
 		inline const std::string &getFilename() const { return m_Filename; }
 		inline const unsigned int &getSize() const { return m_Size; }
+
+		void setScale(float x, float y);
+		inline const maths::vec2 &getScale() const { return m_Scale; }
 	};
 }

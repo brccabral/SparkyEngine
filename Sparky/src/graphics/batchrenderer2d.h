@@ -45,7 +45,7 @@ namespace sparky::graphics
 		void end() override;
 		void flush() override;
 
-		void drawString(const std::string &text, maths::vec3 position, const Font font, unsigned int color) override;
+		void drawString(const std::string &text, maths::vec3 position, const Font &font, unsigned int color) override;
 
 	private:
 		void init();

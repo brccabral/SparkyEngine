@@ -156,7 +156,7 @@ namespace sparky::graphics
 		m_TextureSlots.clear();
 	}
 
-	void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, const Font font, unsigned int color)
+	void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, const Font &font, unsigned int color)
 	{
 		float ts = 0.0f;
 
@@ -186,8 +186,7 @@ namespace sparky::graphics
 		}
 
 		// scale to the size of our window
-		float scaleX = 960.0f / 32.0f;
-		float scaleY = 540.0f / 18.0f;
+		const maths::vec2 &scale = font.getScale();
 
 		// position is const, we need separated variable to move chars
 		float x = position.x;
@@ -202,14 +201,14 @@ namespace sparky::graphics
 				if (i > 0)
 				{
 					float kerning = ftgl::texture_glyph_get_kerning(glyph, text.at(i - 1));
-					x += kerning / scaleX;
+					x += kerning / scale.x;
 				}
 
 				// get char position on screen x/y/u/v
-				float x0 = x + glyph->offset_x / scaleX;
-				float y0 = position.y + glyph->offset_y / scaleY;
-				float x1 = x0 + glyph->width / scaleX;
-				float y1 = y0 - glyph->height / scaleY;
+				float x0 = x + glyph->offset_x / scale.x;
+				float y0 = position.y + glyph->offset_y / scale.y;
+				float x1 = x0 + glyph->width / scale.x;
+				float y1 = y0 - glyph->height / scale.y;
 
 				float u0 = glyph->s0;
 				float v0 = glyph->t0;
@@ -243,8 +242,8 @@ namespace sparky::graphics
 
 				m_IndexCount += 6;
 
-				// move to next char position
-				x += glyph->advance_x / scaleX;
+				// move to next char position.
+				x += glyph->advance_x / scale.x;
 			}
 		}
 	};
