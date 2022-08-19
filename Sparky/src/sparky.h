@@ -1,6 +1,7 @@
 #pragma once
 
 #include "graphics/window.h"
+#include "utils/timer.h"
 
 namespace sparky
 {
@@ -8,14 +9,18 @@ namespace sparky
 	{
 	private:
 		graphics::Window *m_Window;
+		Timer *m_Timer;
+		unsigned int m_FramesPerSecond, m_UpdatesPerSecond;
 	protected:
 		Sparky()
+			: m_FramesPerSecond(0), m_UpdatesPerSecond(0), m_Window(nullptr), m_Timer(nullptr)
 		{
 
 		}
 
 		virtual ~Sparky()
 		{
+			delete m_Timer;
 			delete m_Window;
 		}
 
@@ -39,10 +44,46 @@ namespace sparky
 		virtual void update() = 0;
 		// Runs as fast as possible (unless vsync is enabled)
 		virtual void render() = 0;
+
+		const unsigned int getFPS() const { return m_FramesPerSecond; };
+		const unsigned int getUPS() const { return m_UpdatesPerSecond; };
+
 	private:
 		void run()
 		{
-			
+			m_Timer = new Timer();
+			float timer = 0.0f;
+			float updateTimer = 0.0f;
+			float updateTick = 1.0f / 60.0f;
+
+			unsigned int frames = 0;
+			unsigned int updates = 0;
+			while (!m_Window->closed())
+			{
+				m_Window->clear();
+				if (m_Timer->elapsed() - updateTimer > updateTick)
+				{
+					update();
+					updates++;
+					updateTimer += updateTick;
+				}
+
+				render();
+				m_Window->update();
+
+				frames++;
+				if (m_Timer->elapsed() - timer > 1.0f)
+				{
+					timer += 1.0f;
+					printf("%d fps\n", frames);
+
+					m_FramesPerSecond = frames;
+					m_UpdatesPerSecond = updates;
+
+					frames = 0;
+					updates = 0;
+				}
+			}
 		}
 	};
 }
