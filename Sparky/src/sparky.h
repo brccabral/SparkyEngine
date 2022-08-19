@@ -86,12 +86,12 @@ namespace sparky
 					m_FramesPerSecond = frames;
 					m_UpdatesPerSecond = updates;
 
-					tick();
-
 					timer += 1.0f;
 
 					frames = 0;
 					updates = 0;
+
+					tick();
 				}
 			}
 		}
