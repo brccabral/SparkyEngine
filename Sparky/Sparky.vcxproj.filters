@@ -108,9 +108,6 @@
     <ClCompile Include="src\graphics\shader.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\simple2drenderer.cpp">
-      <Filter>Source Files\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\texture.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
@@ -142,9 +139,6 @@
       <Filter>Source Files\graphics\renderables</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\sprite.cpp">
-      <Filter>Source Files\graphics\renderables</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\static_sprite.cpp">
       <Filter>Source Files\graphics\renderables</Filter>
     </ClCompile>
     <ClCompile Include="ext\freetype-gl\platform.c">
@@ -323,9 +317,6 @@
     <ClInclude Include="src\graphics\shader.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\simple2drenderer.h">
-      <Filter>Header Files\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\graphics\texture.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
@@ -369,9 +360,6 @@
       <Filter>Header Files\graphics\layers</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\sprite.h">
-      <Filter>Header Files\graphics\renderables</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\static_sprite.h">
       <Filter>Header Files\graphics\renderables</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\renderable2d.h">
