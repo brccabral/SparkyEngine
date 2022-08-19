@@ -60,11 +60,13 @@ namespace sparky
 			glfwSetCursorPosCallback(m_Window, cursor_position_callback);
 			glfwSwapInterval(0);
 
+		#ifndef SPARKY_EMSCRIPTEN
 			if (glewInit() != GLEW_OK) // glewInit needs to be after glfwMakeContextCurrent
 			{
 				std::cout << "Failed to initialize GLEW!" << std::endl;
 				return false;
 			}
+		#endif
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

@@ -1,7 +1,13 @@
 #pragma once
 
 #include <vector>
-#include <GL/glew.h>
+
+#ifdef SPARKY_EMSCRIPTEN
+#define GLFW_INCLUDE_ES3
+#include <GLFW/glfw3.h>
+#else
+#include <GL/glew.h> // need to include before GLFW
+#endif
 
 #include "buffer.h"
 
