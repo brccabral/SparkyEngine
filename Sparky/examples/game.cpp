@@ -1,3 +1,4 @@
+#if 1
 #include "../src/sparky.h"
 
 using namespace sparky;
@@ -54,3 +55,4 @@ int main()
 	game.start();
 	return 0;
 }
+#endif
