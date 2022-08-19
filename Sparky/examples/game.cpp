@@ -11,6 +11,7 @@ private:
 	Window *window;
 	Layer *layer;
 	Label *fps;
+	Sprite *sprite;
 public:
 	Game()
 		:window(nullptr), layer(nullptr), fps(nullptr)
@@ -31,7 +32,8 @@ public:
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
 		layer = new Layer(new BatchRenderer2D(), new Shader("src/shaders/basic.vert", "src/shaders/basic.frag"), mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 		layer->add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff));
-		layer->add(new Sprite(6.0f, 3.0f, 4, 4, new Texture("test.png")));
+		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("test.png"));
+		layer->add(sprite);
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps);
@@ -46,6 +48,19 @@ public:
 	void render() override
 	{
 		layer->render();
+	}
+
+	void update() override
+	{
+		float speed = 0.5f;
+		if (window->isKeyPressed(GLFW_KEY_UP))
+			sprite->position.y += speed;
+		if (window->isKeyPressed(GLFW_KEY_DOWN))
+			sprite->position.y -= speed;
+		if (window->isKeyPressed(GLFW_KEY_RIGHT))
+			sprite->position.x += speed;
+		if (window->isKeyPressed(GLFW_KEY_LEFT))
+			sprite->position.x -= speed;
 	}
 
 };
