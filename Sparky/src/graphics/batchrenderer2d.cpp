@@ -93,7 +93,7 @@ namespace sparky::graphics
 				// openGL has a limit to hold 32 textures
 				// if we have more than that, flush (draw)
 				// what we have in memory and add more starting from 0
-				if (m_TextureSlots.size() >= 32)
+				if (m_TextureSlots.size() >= RENDERER_MAX_TEXTURES)
 				{
 					end();
 					flush();
@@ -152,6 +152,8 @@ namespace sparky::graphics
 		m_IBO->unbind();
 		glBindVertexArray(0);
 		m_IndexCount = 0;
+
+		m_TextureSlots.clear();
 	}
 
 	void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, const Font font, unsigned int color)
