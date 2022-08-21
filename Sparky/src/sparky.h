@@ -15,7 +15,7 @@
 #include "utils/timer.h"
 
 #ifdef SPARKY_EMSCRIPTEN
-static void dispatch_main(void *func)
+static void dispatch_main(void *fp)
 {
 	std::function<void()> *func = (std::function<void()>*)fp;
 	(*func)();
