@@ -38,6 +38,10 @@ namespace sparky
 
 			std::vector<GLuint> m_TextureSlots;
 
+		#ifdef SPARKY_EMSCRIPTEN
+			VertexData *m_BufferBase;
+		#endif
+
 		public:
 			BatchRenderer2D();
 			~BatchRenderer2D();

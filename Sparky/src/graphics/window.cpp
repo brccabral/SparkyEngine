@@ -4,6 +4,11 @@ namespace sparky
 {
 	namespace graphics
 	{
+		void window_resize(GLFWwindow *window, int width, int height);
+		void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
+		void mouse_button_callback(GLFWwindow *window, int button, int action, int mods);
+		void cursor_position_callback(GLFWwindow *window, double xpos, double ypos);
+
 		Window::Window(const char *title, int width, int height)
 		{
 			m_Title = title;
@@ -12,7 +17,11 @@ namespace sparky
 			if (!init())
 				glfwTerminate();
 
+		#ifdef SPARKY_EMSCRIPTEN
+			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32));
+		#else
 			FontManager::add(new Font("SourceSansPro", "SourceSansPro-Light.ttf", 32));
+		#endif
 			audio::SoundManager::init();
 
 			for (int i = 0; i < MAX_KEYS; i++)

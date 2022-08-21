@@ -33,7 +33,6 @@
  */
 
 #ifndef SPARKY_EMSCRIPTEN
-#endif
 
 #ifndef __OPEN_GL_H__
 #define __OPEN_GL_H__
@@ -52,3 +51,5 @@
 #endif
 
 #endif /* OPEN_GL_H */
+
+#endif

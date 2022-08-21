@@ -32,6 +32,8 @@ namespace sparky
 			};
 
 		public:
+			virtual ~Renderer2D() {};
+
 			// apply parent transformation to child
 			void push(const maths::mat4 &matrix, bool do_override = false)
 			{
