@@ -7,23 +7,25 @@
 #include <GL/glew.h> // need to include before GLFW
 #endif
 
-namespace sparky::graphics
+namespace sparky
 {
-	class IndexBuffer
+	namespace graphics
 	{
-	private:
-		GLuint m_BufferID;
-		GLsizei m_Count;
+		class IndexBuffer
+		{
+		private:
+			GLuint m_BufferID;
+			GLsizei m_Count;
 
-	public:
-		IndexBuffer(GLushort *data, GLsizei count);
-		IndexBuffer(GLuint *data, GLsizei count);
-		~IndexBuffer();
+		public:
+			IndexBuffer(GLushort *data, GLsizei count);
+			IndexBuffer(GLuint *data, GLsizei count);
+			~IndexBuffer();
 
-		void bind() const;
-		void unbind() const;
+			void bind() const;
+			void unbind() const;
 
-		inline GLsizei getCount() const { return m_Count; };
-	};
-
-} // namespace sparky::graphics
+			inline GLsizei getCount() const { return m_Count; };
+		};
+	}
+}

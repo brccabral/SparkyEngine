@@ -5,19 +5,22 @@
 #include "../renderable2d.h"
 #include <vector>
 
-namespace sparky::graphics
+namespace sparky
 {
-	class Group : public Renderable2D
+	namespace graphics
 	{
-	private:
-		std::vector<Renderable2D *> m_Renderables;
-		maths::mat4 m_TransformationMatrix;
+		class Group : public Renderable2D
+		{
+		private:
+			std::vector<Renderable2D *> m_Renderables;
+			maths::mat4 m_TransformationMatrix;
 
-	public:
-		Group(const maths::mat4 &transform);
-		~Group();
+		public:
+			Group(const maths::mat4 &transform);
+			~Group();
 
-		void add(Renderable2D *renderable);
-		void submit(Renderer2D *renderer) const override;
-	};
+			void add(Renderable2D *renderable);
+			void submit(Renderer2D *renderer) const override;
+		};
+	}
 }

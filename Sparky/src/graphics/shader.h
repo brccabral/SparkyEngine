@@ -12,35 +12,38 @@
 #include "../utils/fileutils.h"
 #include "../maths/maths.h"
 
-namespace sparky::graphics
+namespace sparky
 {
-	class Shader
+	namespace graphics
 	{
-	private:
-		const char *m_VertPath;
-		const char *m_FragPath;
+		class Shader
+		{
+		private:
+			const char *m_VertPath;
+			const char *m_FragPath;
 
-	public:
-		Shader(const char *vertPath, const char *fragPath);
-		~Shader();
+		public:
+			Shader(const char *vertPath, const char *fragPath);
+			~Shader();
 
-		GLuint m_ShaderID; // shader ID given by openGl
+			GLuint m_ShaderID; // shader ID given by openGl
 
-		void enable() const;
-		void disable() const;
+			void enable() const;
+			void disable() const;
 
-		void setUniform(const GLchar *name, const maths::mat4 &matrix);
-		void setUniform(const GLchar *name, int value);
-		void setUniform(const GLchar *name, int *value, int count);
-		void setUniform(const GLchar *name, float value);
-		void setUniform(const GLchar *name, float *value, int count);
-		void setUniform(const GLchar *name, const maths::vec2 &vector);
-		void setUniform(const GLchar *name, const maths::vec3 &vector);
-		void setUniform(const GLchar *name, const maths::vec4 &vector);
+			void setUniform(const GLchar *name, const maths::mat4 &matrix);
+			void setUniform(const GLchar *name, int value);
+			void setUniform(const GLchar *name, int *value, int count);
+			void setUniform(const GLchar *name, float value);
+			void setUniform(const GLchar *name, float *value, int count);
+			void setUniform(const GLchar *name, const maths::vec2 &vector);
+			void setUniform(const GLchar *name, const maths::vec3 &vector);
+			void setUniform(const GLchar *name, const maths::vec4 &vector);
 
-	private:
-		GLuint load();
+		private:
+			GLuint load();
 
-		GLint getUniformLocation(const GLchar *name);
-	};
-} // namespace sparky::graphics
+			GLint getUniformLocation(const GLchar *name);
+		};
+	}
+}

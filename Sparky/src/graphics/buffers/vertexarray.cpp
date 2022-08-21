@@ -1,38 +1,41 @@
 #include "vertexarray.h"
 
-namespace sparky::graphics
+namespace sparky
 {
-	VertexArray::VertexArray()
+	namespace graphics
 	{
-		glGenVertexArrays(1, &m_ArrayID);
-	};
-	VertexArray::~VertexArray()
-	{
-		for (int i = 0; i < m_Buffers.size(); i++)
-			delete m_Buffers[i];
+		VertexArray::VertexArray()
+		{
+			glGenVertexArrays(1, &m_ArrayID);
+		};
+		VertexArray::~VertexArray()
+		{
+			for (int i = 0; i < m_Buffers.size(); i++)
+				delete m_Buffers[i];
 
-		glDeleteVertexArrays(1, &m_ArrayID);
+			glDeleteVertexArrays(1, &m_ArrayID);
+		}
+
+		void VertexArray::addBuffer(Buffer *buffer, GLuint index)
+		{
+			bind();
+			buffer->bind();
+			glEnableVertexAttribArray(index); // index is the "location" in frag shader
+			glVertexAttribPointer(index, buffer->getComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
+			buffer->unbind();
+			unbind();
+
+			m_Buffers.push_back(buffer);
+		};
+
+		void VertexArray::bind() const
+		{
+			glBindVertexArray(m_ArrayID);
+		};
+
+		void VertexArray::unbind() const
+		{
+			glBindVertexArray(0);
+		};
 	}
-
-	void VertexArray::addBuffer(Buffer *buffer, GLuint index)
-	{
-		bind();
-		buffer->bind();
-		glEnableVertexAttribArray(index); // index is the "location" in frag shader
-		glVertexAttribPointer(index, buffer->getComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
-		buffer->unbind();
-		unbind();
-
-		m_Buffers.push_back(buffer);
-	};
-
-	void VertexArray::bind() const
-	{
-		glBindVertexArray(m_ArrayID);
-	};
-
-	void VertexArray::unbind() const
-	{
-		glBindVertexArray(0);
-	};
 }

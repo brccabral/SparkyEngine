@@ -1,42 +1,45 @@
 #include "font_manager.h"
 
-namespace sparky::graphics
+namespace sparky
 {
-	std::vector<Font *> FontManager::m_Fonts;
-
-	void FontManager::add(Font *font)
+	namespace graphics
 	{
-		m_Fonts.push_back(font);
-	}
+		std::vector<Font *> FontManager::m_Fonts;
 
-	Font *FontManager::get(const std::string &name)
-	{
-		for (Font *font : m_Fonts)
+		void FontManager::add(Font *font)
 		{
-			if (font->getName() == name)
-				return font;
+			m_Fonts.push_back(font);
 		}
-		return nullptr;
-	}
 
-	Font *FontManager::get()
-	{
-		return m_Fonts[0];
-	}
-
-	Font *FontManager::get(const std::string &name, unsigned int size)
-	{
-		for (Font *font : m_Fonts)
+		Font *FontManager::get(const std::string &name)
 		{
-			if (font->getSize() == size && font->getName() == name)
-				return font;
+			for (Font *font : m_Fonts)
+			{
+				if (font->getName() == name)
+					return font;
+			}
+			return nullptr;
 		}
-		return nullptr;
-	}
 
-	void FontManager::clean()
-	{
-		for (int i = 0; i < m_Fonts.size(); i++)
-			delete m_Fonts[i];
+		Font *FontManager::get()
+		{
+			return m_Fonts[0];
+		}
+
+		Font *FontManager::get(const std::string &name, unsigned int size)
+		{
+			for (Font *font : m_Fonts)
+			{
+				if (font->getSize() == size && font->getName() == name)
+					return font;
+			}
+			return nullptr;
+		}
+
+		void FontManager::clean()
+		{
+			for (int i = 0; i < m_Fonts.size(); i++)
+				delete m_Fonts[i];
+		}
 	}
 }

@@ -8,59 +8,62 @@
 #include "renderer2d.h"
 #include "texture.h"
 
-namespace sparky::graphics
+namespace sparky
 {
-	struct VertexData
+	namespace graphics
 	{
-		maths::vec3 vertex;
-		maths::vec2 uv; // texture coordinates
-		float tid;
-		unsigned int color;
-	};
-
-	class Renderable2D
-	{
-	protected:
-		maths::vec3 m_Position;
-		maths::vec2 m_Size;
-		unsigned int m_Color;
-		std::vector<maths::vec2> m_UV;
-		Texture *m_Texture;
-
-		Renderable2D();
-
-	public:
-		Renderable2D(maths::vec3 position, maths::vec2 size, unsigned int color);
-
-		virtual ~Renderable2D();
-
-		virtual void submit(Renderer2D *renderer) const
+		struct VertexData
 		{
-			renderer->submit(this);
+			maths::vec3 vertex;
+			maths::vec2 uv; // texture coordinates
+			float tid;
+			unsigned int color;
 		};
 
-		void setColor(unsigned int color)
+		class Renderable2D
 		{
-			m_Color = color;
-		}
-		void setColor(const maths::vec4 &color)
-		{
-			int r = color.x * 255.0f;
-			int g = color.y * 255.0f;
-			int b = color.z * 255.0f;
-			int a = color.w * 255.0f;
+		protected:
+			maths::vec3 m_Position;
+			maths::vec2 m_Size;
+			unsigned int m_Color;
+			std::vector<maths::vec2> m_UV;
+			Texture *m_Texture;
 
-			m_Color = a << 24 | b << 16 | g << 8 | r;
-		}
+			Renderable2D();
 
-		inline const maths::vec3 &getPosition() const { return m_Position; };
-		inline const maths::vec2 &getSize() const { return m_Size; };
-		inline const unsigned int getColor() const { return m_Color; };
-		inline const std::vector<maths::vec2> &getUV() const { return m_UV; };
+		public:
+			Renderable2D(maths::vec3 position, maths::vec2 size, unsigned int color);
 
-		inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; };
+			virtual ~Renderable2D();
 
-	private:
-		void setUVDefaults();
-	};
-} // namespace sparky::graphics{}
+			virtual void submit(Renderer2D *renderer) const
+			{
+				renderer->submit(this);
+			};
+
+			void setColor(unsigned int color)
+			{
+				m_Color = color;
+			}
+			void setColor(const maths::vec4 &color)
+			{
+				int r = color.x * 255.0f;
+				int g = color.y * 255.0f;
+				int b = color.z * 255.0f;
+				int a = color.w * 255.0f;
+
+				m_Color = a << 24 | b << 16 | g << 8 | r;
+			}
+
+			inline const maths::vec3 &getPosition() const { return m_Position; };
+			inline const maths::vec2 &getSize() const { return m_Size; };
+			inline const unsigned int getColor() const { return m_Color; };
+			inline const std::vector<maths::vec2> &getUV() const { return m_UV; };
+
+			inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; };
+
+		private:
+			void setUVDefaults();
+		};
+	}
+}

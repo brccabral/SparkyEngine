@@ -3,20 +3,23 @@
 #include <vector>
 #include "font.h"
 
-namespace sparky::graphics
+namespace sparky
 {
-	class FontManager
+	namespace graphics
 	{
-	private:
-		static std::vector<Font *> m_Fonts;
+		class FontManager
+		{
+		private:
+			static std::vector<Font *> m_Fonts;
 
-		FontManager() {};
-	
-	public:
-		static void add(Font *font);
-		static Font *get();
-		static Font *get(const std::string &name);
-		static Font *get(const std::string &name, unsigned int size);
-		static void clean();
-	};
+			FontManager() {};
+
+		public:
+			static void add(Font *font);
+			static Font *get();
+			static Font *get(const std::string &name);
+			static Font *get(const std::string &name, unsigned int size);
+			static void clean();
+		};
+	}
 }

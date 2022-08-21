@@ -1,45 +1,48 @@
 #include "sound_manager.h"
 
 
-namespace sparky::audio
+namespace sparky
 {
-	std::vector<Sound *> SoundManager::m_Sounds;
-	gau_Manager *SoundManager::m_Manager = nullptr;
-	ga_Mixer *SoundManager::m_Mixer = nullptr;
-
-	void SoundManager::init()
+	namespace audio
 	{
-		gc_initialize(0);
-		m_Manager = gau_manager_create();
-		m_Mixer = gau_manager_mixer(m_Manager);
-	}
+		std::vector<Sound *> SoundManager::m_Sounds;
+		gau_Manager *SoundManager::m_Manager = nullptr;
+		ga_Mixer *SoundManager::m_Mixer = nullptr;
 
-	void SoundManager::add(Sound *sound)
-	{
-		m_Sounds.push_back(sound);
-	}
-
-	Sound *SoundManager::get(const std::string &name)
-	{
-		for (Sound *sound : m_Sounds)
+		void SoundManager::init()
 		{
-			if (sound->getName() == name)
-				return sound;
+			gc_initialize(0);
+			m_Manager = gau_manager_create();
+			m_Mixer = gau_manager_mixer(m_Manager);
 		}
-		return nullptr;
-	}
 
-	void SoundManager::update()
-	{
-		gau_manager_update(SoundManager::m_Manager);
-	}
+		void SoundManager::add(Sound *sound)
+		{
+			m_Sounds.push_back(sound);
+		}
 
-	void SoundManager::clean()
-	{
-		for (unsigned int i = 0; i < m_Sounds.size(); i++)
-			delete m_Sounds[i];
+		Sound *SoundManager::get(const std::string &name)
+		{
+			for (Sound *sound : m_Sounds)
+			{
+				if (sound->getName() == name)
+					return sound;
+			}
+			return nullptr;
+		}
 
-		gau_manager_destroy(m_Manager);
-		gc_shutdown();
+		void SoundManager::update()
+		{
+			gau_manager_update(SoundManager::m_Manager);
+		}
+
+		void SoundManager::clean()
+		{
+			for (unsigned int i = 0; i < m_Sounds.size(); i++)
+				delete m_Sounds[i];
+
+			gau_manager_destroy(m_Manager);
+			gc_shutdown();
+		}
 	}
 }
