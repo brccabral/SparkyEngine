@@ -10,7 +10,6 @@
 #endif
 
 #include <GLFW/glfw3.h>
-
 #include "font_manager.h"
 #include "../audio/sound_manager.h"
 
