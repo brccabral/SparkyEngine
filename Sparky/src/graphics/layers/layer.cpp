@@ -10,7 +10,7 @@ namespace sparky
 			m_Shader->enable();
 			m_Shader->setUniform("pr_matrix", m_ProjectionMatrix);
 		
-		#ifndef SPARY_EMSCRIPTEN
+		#ifdef SPARKY_EMSCRIPTEN
 			m_Shader->setUniform("texture_0", 0);
 			m_Shader->setUniform("texture_1", 1);
 			m_Shader->setUniform("texture_2", 2);
