@@ -1,4 +1,4 @@
-//*@@@+++@@@@******************************************************************
+//@@@+++@@@@******************************************************************
 //
 // Copyright © Microsoft Corp.
 // All rights reserved.
@@ -24,12 +24,12 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-//*@@@---@@@@******************************************************************
+//@@@---@@@@******************************************************************
 
 #ifndef __PERFTIMER_H_
 #define __PERFTIMER_H_
 
-//***************************************************************************
+//*************************************************************************
 // Description
 //
 //   Performance timer API used to measure codec performance. The underlying
@@ -38,7 +38,7 @@
 // present we only support one implementation of this PerfTimer "object".
 // You choose the implementation by choosing which one of the many files
 // to compile and link with your application.
-//***************************************************************************
+//*************************************************************************
 
 #ifdef DISABLE_PERF_MEASUREMENT
 
@@ -66,9 +66,9 @@
     if (fPerf) {OutputPerfTimerReport(pCodec);};
 #endif // DISABLE_PERF_MEASUREMENT
 
-//***************************************************************************
+//*************************************************************************
 // Data Types
-//***************************************************************************
+//*************************************************************************
 typedef U64 PERFTIMERTIME;
 typedef struct PERFTIMERRESULTS
 {
@@ -81,9 +81,9 @@ typedef struct PERFTIMERRESULTS
 #define NANOSECONDS_PER_SECOND  1000000000
 
 
-//***************************************************************************
+//*************************************************************************
 // Data Declarations
-//***************************************************************************
+//*************************************************************************
 typedef enum
 {
     CS_UNINIT,
@@ -100,9 +100,9 @@ typedef struct PERFTIMERSTATE
 } PERFTIMERSTATE;
 
 
-//***************************************************************************
+//*************************************************************************
 // Functions and Macros
-//***************************************************************************
+//*************************************************************************
 Bool PerfTimerNew(PERFTIMERSTATE **ppNewPerfTimer);
 void PerfTimerDelete(PERFTIMERSTATE *pThisPerfTimer);
 Bool PerfTimerStart(PERFTIMERSTATE *pThisPerfTimer);

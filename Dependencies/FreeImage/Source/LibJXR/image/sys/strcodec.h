@@ -1,4 +1,4 @@
-//*@@@+++@@@@******************************************************************
+//@@@+++@@@@******************************************************************
 //
 // Copyright © Microsoft Corp.
 // All rights reserved.
@@ -24,9 +24,10 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-//*@@@---@@@@******************************************************************
+//@@@---@@@@******************************************************************
 #pragma once
 
+#include <stdlib.h>
 #include <stddef.h>
 #if defined(__MINGW32__)
 #include <stdint.h>
@@ -84,7 +85,7 @@
 #ifdef PLATFORM_ANSI
 typedef unsigned long long U64;
 #else // PLATFORM_ANSI
-typedef unsigned __int64 U64;
+typedef unsigned long long U64;
 #endif // PLATFORM_ANSI
 
 //================================================================

@@ -1,4 +1,4 @@
-//*@@@+++@@@@******************************************************************
+//@@@+++@@@@******************************************************************
 //
 // Copyright © Microsoft Corp.
 // All rights reserved.
@@ -24,7 +24,7 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-//*@@@---@@@@******************************************************************
+//@@@---@@@@******************************************************************
 
 #ifndef XPLATFORM_IMAGE_H
 #define XPLATFORM_IMAGE_H
