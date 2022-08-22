@@ -183,9 +183,6 @@
     <ClCompile Include="ext\freetype\src\base\ftgxval.c">
       <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
     </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftlcdfil.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
     <ClCompile Include="ext\freetype\src\base\ftmm.c">
       <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
     </ClCompile>
@@ -205,9 +202,6 @@
       <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
     </ClCompile>
     <ClCompile Include="ext\freetype\src\base\ftwinfnt.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftxf86.c">
       <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
     </ClCompile>
     <ClCompile Include="ext\freetype\src\pcf\pcf.c">

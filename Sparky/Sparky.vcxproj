@@ -346,7 +346,6 @@
     <ClCompile Include="ext\freetype\src\base\ftglyph.c" />
     <ClCompile Include="ext\freetype\src\base\ftgxval.c" />
     <ClCompile Include="ext\freetype\src\base\ftinit.c" />
-    <ClCompile Include="ext\freetype\src\base\ftlcdfil.c" />
     <ClCompile Include="ext\freetype\src\base\ftmm.c" />
     <ClCompile Include="ext\freetype\src\base\ftotval.c" />
     <ClCompile Include="ext\freetype\src\base\ftpatent.c" />
@@ -356,7 +355,6 @@
     <ClCompile Include="ext\freetype\src\base\ftsystem.c" />
     <ClCompile Include="ext\freetype\src\base\fttype1.c" />
     <ClCompile Include="ext\freetype\src\base\ftwinfnt.c" />
-    <ClCompile Include="ext\freetype\src\base\ftxf86.c" />
     <ClCompile Include="ext\freetype\src\bdf\bdf.c" />
     <ClCompile Include="ext\freetype\src\cache\ftcache.c" />
     <ClCompile Include="ext\freetype\src\cff\cff.c" />
