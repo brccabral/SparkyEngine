@@ -9,7 +9,17 @@ namespace sparky
 		{
 			m_Shader->enable();
 			m_Shader->setUniform("pr_matrix", m_ProjectionMatrix);
-
+		
+		#ifndef SPARY_EMSCRIPTEN
+			m_Shader->setUniform("texture_0", 0);
+			m_Shader->setUniform("texture_1", 1);
+			m_Shader->setUniform("texture_2", 2);
+			m_Shader->setUniform("texture_3", 3);
+			m_Shader->setUniform("texture_4", 4);
+			m_Shader->setUniform("texture_5", 5);
+			m_Shader->setUniform("texture_6", 6);
+			m_Shader->setUniform("texture_7", 7);
+		#else
 			GLint texIDs[] = {
 				 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,
 				10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -17,6 +27,7 @@ namespace sparky
 				30, 31
 			};
 			m_Shader->setUniform("textures", texIDs, 10);
+		#endif
 
 			m_Shader->disable();
 		};

@@ -30,7 +30,7 @@ public:
 		window = createWindow("Test Game", 960, 540);
 		FontManager::get()->setScale(window->getWidth() / 32.0f, window->getHeight() / 18.0f);
 	#ifdef SPARKY_EMSCRIPTEN
-		shader = new Shader("res/shaders/basic.vert", "res/shaders/basic.frag");
+		shader = new Shader("res/shaders/basic.es3.vert", "res/shaders/basic.es3.frag");
 	#else
 		shader = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	#endif

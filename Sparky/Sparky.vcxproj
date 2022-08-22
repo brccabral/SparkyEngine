@@ -459,6 +459,8 @@
     <ClInclude Include="tilelayer.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\shaders\basic.es3.frag" />
+    <None Include="src\shaders\basic.es3.vert" />
     <None Include="src\shaders\basic.frag" />
     <None Include="src\shaders\basic.vert" />
   </ItemGroup>
