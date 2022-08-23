@@ -1,41 +1,14 @@
-/* =========================================================================
- * Freetype GL - A C OpenGL Freetype engine
- * Platform:    Any
- * WWW:         http://code.google.com/p/freetype-gl/
- * -------------------------------------------------------------------------
- * Copyright 2011,2012 Nicolas P. Rougier. All rights reserved.
+/* Freetype GL - A C OpenGL Freetype engine
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- *  1. Redistributions of source code must retain the above copyright notice,
- *     this list of conditions and the following disclaimer.
- *
- *  2. Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *
- * THIS SOFTWARE IS PROVIDED BY NICOLAS P. ROUGIER ''AS IS'' AND ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
- * EVENT SHALL NICOLAS P. ROUGIER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
- * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * The views and conclusions contained in the software and documentation are
- * those of the authors and should not be interpreted as representing official
- * policies, either expressed or implied, of Nicolas P. Rougier.
- * ========================================================================= */
+ * Distributed under the OSI-approved BSD 2-Clause License.  See accompanying
+ * file `LICENSE` for more details.
+ */
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include "vector.h"
-
+#include "ftgl-utils.h"
 
 
 // ------------------------------------------------------------- vector_new ---
@@ -47,14 +20,13 @@ vector_new( size_t item_size )
 
     if( !self )
     {
-        fprintf( stderr,
-                 "line %d: No more memory for allocating data\n", __LINE__ );
-        exit( EXIT_FAILURE );
+	freetype_gl_error( Out_Of_Memory );
+	return NULL;
     }
     self->item_size = item_size;
     self->size      = 0;
     self->capacity  = 1;
-    self->items     = malloc( self->item_size * self->capacity );
+    self->items     = calloc( self->item_size, self->capacity );
     return self;
 }
 
@@ -158,6 +130,8 @@ vector_reserve( vector_t *self,
     if( self->capacity < size)
     {
         self->items = realloc( self->items, size * self->item_size );
+	memset( (char *)(self->items) + self->capacity * self->item_size, 0,
+		(size - self->capacity) * self->item_size );
         self->capacity = size;
     }
 }
@@ -193,6 +167,7 @@ vector_clear( vector_t *self )
 {
     assert( self );
 
+    memset( (char *)(self->items), 0, self->size * self->item_size);
     self->size = 0;
 }
 
