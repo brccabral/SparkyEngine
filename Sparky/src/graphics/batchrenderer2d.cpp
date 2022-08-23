@@ -180,7 +180,8 @@ namespace sparky
 			{
 				if (m_TextureSlots[i] == font.getID())
 				{
-					ts = (float)(i + 1);
+					//ts = (float)(i + 1);
+					ts = (float)(i);
 					found = true;
 					break;
 				}
@@ -197,7 +198,8 @@ namespace sparky
 					begin();
 				}
 				m_TextureSlots.push_back(font.getID());
-				ts = (float)(m_TextureSlots.size());
+				//ts = (float)(m_TextureSlots.size());
+				ts = (float)(m_TextureSlots.size()-1);
 			}
 
 			// scale to the size of our window
@@ -208,14 +210,13 @@ namespace sparky
 
 			for (char i = 0; i < text.length(); i++)
 			{
-				char c = text.at(i);
-				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.getFTGLFont(), c);
+				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.getFTGLFont(), &text.at(i));
 				if (glyph != NULL)
 				{
 					// space between chars
 					if (i > 0)
 					{
-						float kerning = ftgl::texture_glyph_get_kerning(glyph, text.at(i - 1));
+						float kerning = ftgl::texture_glyph_get_kerning(glyph, &text.at(i - 1));
 						x += kerning / scale.x;
 					}
 
