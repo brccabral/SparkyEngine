@@ -48,6 +48,7 @@ texture_atlas_new( const size_t width,
     // sampling texture
     ivec3 node = {{1,1,width-2}};
 
+    // depth 2 was added by Cherno
     assert( (depth == 1) || (depth == 2) || (depth == 3) || (depth == 4) );
     if( self == NULL)
     {
@@ -127,6 +128,7 @@ texture_atlas_set_region( texture_atlas_t * self,
     charsize = sizeof(char);
     for( i=0; i<height; ++i )
     {
+        // depth 2 was added by Cherno
         if (depth == 2)
         {
             row = self->data + ((y + i) * self->width + x) * charsize * depth;

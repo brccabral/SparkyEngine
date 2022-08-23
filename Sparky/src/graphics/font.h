@@ -30,6 +30,8 @@ namespace sparky
 
 			void setScale(float x, float y);
 			inline const maths::vec2 &getScale() const { return m_Scale; }
+
+			void const upload_glyph_to_gl() const;
 		};
 	}
 }

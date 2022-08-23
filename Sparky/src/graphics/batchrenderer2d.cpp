@@ -180,8 +180,7 @@ namespace sparky
 			{
 				if (m_TextureSlots[i] == font.getID())
 				{
-					//ts = (float)(i + 1);
-					ts = (float)(i);
+					ts = (float)(i + 1);
 					found = true;
 					break;
 				}
@@ -198,8 +197,7 @@ namespace sparky
 					begin();
 				}
 				m_TextureSlots.push_back(font.getID());
-				//ts = (float)(m_TextureSlots.size());
-				ts = (float)(m_TextureSlots.size()-1);
+				ts = (float)(m_TextureSlots.size());
 			}
 
 			// scale to the size of our window
@@ -219,6 +217,10 @@ namespace sparky
 						float kerning = ftgl::texture_glyph_get_kerning(glyph, &text.at(i - 1));
 						x += kerning / scale.x;
 					}
+
+					// new freetype-gl doesn't upload glyph to OpenGL
+					// we need to do it
+					font.upload_glyph_to_gl();
 
 					// get char position on screen x/y/u/v
 					float x0 = x + glyph->offset_x / scale.x;
