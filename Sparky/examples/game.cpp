@@ -15,7 +15,7 @@ private:
 	Shader *shader;
 public:
 	Game()
-		:window(nullptr), layer(nullptr), fps(nullptr)
+		:window(nullptr), layer(nullptr), fps(nullptr), shader(nullptr), sprite(nullptr)
 	{
 
 	}
@@ -74,7 +74,7 @@ public:
 		
 		double x, y;
 		window->getMousePosition(x, y);
-		shader->setUniform("light_pos", vec2((float)(x * 32.0f / window->getWidth() - 16.0f),
+		shader->setUniform("light_pos", maths::vec2((float)(x * 32.0f / window->getWidth() - 16.0f),
 			(float)(9.0f - y * 18.0f / window->getHeight())));
 	}
 
