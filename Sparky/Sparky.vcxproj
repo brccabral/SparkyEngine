@@ -332,10 +332,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="examples\game.cpp" />
+    <ClCompile Include="ext\freetype-gl\Development\stdafx.c" />
+    <ClCompile Include="ext\freetype-gl\distance-field.c" />
+    <ClCompile Include="ext\freetype-gl\edtaa3func.c" />
+    <ClCompile Include="ext\freetype-gl\font-manager.c" />
+    <ClCompile Include="ext\freetype-gl\ftgl-utils.c" />
     <ClCompile Include="ext\freetype-gl\platform.c" />
+    <ClCompile Include="ext\freetype-gl\text-buffer.c" />
     <ClCompile Include="ext\freetype-gl\texture-atlas.c" />
     <ClCompile Include="ext\freetype-gl\texture-font.c" />
+    <ClCompile Include="ext\freetype-gl\utf8-utils.c" />
     <ClCompile Include="ext\freetype-gl\vector.c" />
+    <ClCompile Include="ext\freetype-gl\vertex-attribute.c" />
+    <ClCompile Include="ext\freetype-gl\vertex-buffer.c" />
     <ClCompile Include="ext\freetype\src\autofit\autofit.c" />
     <ClCompile Include="ext\freetype\src\base\ftbase.c" />
     <ClCompile Include="ext\freetype\src\base\ftbbox.c" />
@@ -404,13 +413,23 @@
     <ClCompile Include="tilelayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ext\freetype-gl\Development\config.h" />
+    <ClInclude Include="ext\freetype-gl\Development\framework.h" />
+    <ClInclude Include="ext\freetype-gl\Development\stdafx.h" />
+    <ClInclude Include="ext\freetype-gl\distance-field.h" />
     <ClInclude Include="ext\freetype-gl\freetype-gl.h" />
+    <ClInclude Include="ext\freetype-gl\ftgl-utils.h" />
+    <ClInclude Include="ext\freetype-gl\markup.h" />
     <ClInclude Include="ext\freetype-gl\opengl.h" />
     <ClInclude Include="ext\freetype-gl\platform.h" />
+    <ClInclude Include="ext\freetype-gl\text-buffer.h" />
     <ClInclude Include="ext\freetype-gl\texture-atlas.h" />
     <ClInclude Include="ext\freetype-gl\texture-font.h" />
+    <ClInclude Include="ext\freetype-gl\utf8-utils.h" />
     <ClInclude Include="ext\freetype-gl\vec234.h" />
     <ClInclude Include="ext\freetype-gl\vector.h" />
+    <ClInclude Include="ext\freetype-gl\vertex-attribute.h" />
+    <ClInclude Include="ext\freetype-gl\vertex-buffer.h" />
     <ClInclude Include="ext\freetype\include\config\ftconfig.h" />
     <ClInclude Include="ext\freetype\include\config\ftheader.h" />
     <ClInclude Include="ext\freetype\include\config\ftmodule.h" />
