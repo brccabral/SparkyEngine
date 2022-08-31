@@ -12,6 +12,8 @@
 #include <GLFW/glfw3.h>
 #include "font_manager.h"
 #include "../audio/sound_manager.h"
+#include "../maths/vec2.h"
+#include "texture_manager.h"
 
 namespace sparky
 {
@@ -34,7 +36,7 @@ namespace sparky
 			bool m_MouseButtons[MAX_BUTTONS];
 			bool m_MouseState[MAX_BUTTONS];
 			bool m_MouseClicked[MAX_BUTTONS];
-			double m_MouseX, m_MouseY;
+			maths::vec2 m_MousePosition;
 
 		public:
 			Window(const char *title, int width, int height);
@@ -42,6 +44,7 @@ namespace sparky
 			void update();
 			void clear() const;
 			bool closed() const;
+			void updateInput();
 
 			inline int getWidth() const { return m_Width; };
 			inline int getHeight() const { return m_Height; };
@@ -50,8 +53,7 @@ namespace sparky
 			bool isKeyTyped(unsigned int keycode) const;
 			bool isMousePressed(unsigned int keycode) const;
 			bool isMouseClicked(unsigned int keycode) const;
-			void getMousePosition(double &x, double &y) const;
-
+			const maths::vec2 &getMousePosition() const;
 		private:
 			bool init();
 
@@ -63,5 +65,6 @@ namespace sparky
 			friend void mouse_button_callback(GLFWwindow *window, int button, int action, int mods);
 			friend void cursor_position_callback(GLFWwindow *window, double xpos, double ypos);
 		};
+
 	}
 }
