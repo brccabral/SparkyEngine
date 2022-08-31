@@ -2,10 +2,10 @@
 
 #include <string>
 #include <FreeImage.h>
-#include <FreeImage/Utilities.h>
 
 #ifdef SPARKY_EMSCRIPTEN
 #define GLFW_INCLUDE_ES3
+#include <FreeImage/Utilities.h>
 #else
 #include <GL/glew.h> // need to include before GLFW
 #endif
@@ -14,7 +14,7 @@
 
 namespace sparky
 {
-	static BYTE *load_image(const char *filename, GLsizei *width, GLsizei *height)
+	static BYTE *load_image(const char *filename, GLsizei *width, GLsizei *height, unsigned int *bits)
 	{
 		// image format
 		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
@@ -43,13 +43,13 @@ namespace sparky
 		*width = FreeImage_GetWidth(dib);
 		*height = FreeImage_GetHeight(dib);
 
-		int bits = FreeImage_GetBPP(dib);
+		*bits = FreeImage_GetBPP(dib);
 
 	#ifdef SPARKY_EMSCRIPTEN
 		SwapRedBlue32(dib);
 	#endif
 
-		int size = *width * *height * (bits / 8);
+		int size = *width * *height * (*bits / 8);
 		BYTE *result = new BYTE[size];
 		memcpy(result, pixels, size);
 		FreeImage_Unload(dib);
