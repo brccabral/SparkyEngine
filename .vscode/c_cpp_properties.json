@@ -4,14 +4,19 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:\\CPP_Win\\ExternalSources\\glew-2.1.0\\include",
-                "D:\\CPP_Win\\ExternalSources\\glfw-3.3.7.bin.WIN64\\include",
-                "D:\\CPP_Win\\ExternalSources\\FreeImage\\Dist\\x64"
+                "..\\ExternalSources\\glew-2.1.0\\include",
+                "..\\ExternalSources\\glfw-3.3.7.bin.WIN64\\include",
+                "..\\ExternalSources\\FreeImageSource\\Dist"
             ],
             "defines": [
+                "WIN32",
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "_CRT_SECURE_NO_WARNINGS",
+                "GLEW_STATIC",
+                "FT2_BUILD_LIBRARY"
+                // ,"SPARKY_EMSCRIPTEN"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/cl.exe",
