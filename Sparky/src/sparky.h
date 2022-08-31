@@ -9,6 +9,11 @@
 #include "graphics/batchrenderer2d.h"
 #include "graphics/sprite.h"
 #include "graphics/label.h"
+#include "graphics/layers/group.h"
+#include "graphics/texture_manager.h"
+
+#include "audio/sound.h"
+#include "audio/sound_manager.h"
 
 #include "maths/maths.h"
 
@@ -79,7 +84,7 @@ namespace sparky
 
 			unsigned int frames = 0;
 			unsigned int updates = 0;
-			#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_EMSCRIPTEN
 			std::function<void()> mainLoop = [&]()
 			{
 			#else
@@ -113,9 +118,9 @@ namespace sparky
 			#ifdef SPARKY_EMSCRIPTEN
 			};
 			emscripten_set_main_loop_arg(dispatch_main, &mainLoop, 0, 1);
-			#else
+		#else
 			}
-			#endif
+		#endif
 		}
 	};
 }

@@ -152,12 +152,12 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;D:\CPP_Win\SparkyEngine\Sparky\ext\freetype\include;D:\CPP_Win\SparkyEngine\Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\glew-2.1.0\include;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);D:\CPP_Win\SparkyEngine\Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\freetype-2.10.0\build\Debug_x86;D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0-source\lib\Debug\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\freetype-2.10.0\build\Debug_x86;D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0-source\lib\Debug\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);D:\CPP_Win\SparkyEngine\Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;D:\CPP_Win\SparkyEngine\Sparky\ext\freetype\include;D:\CPP_Win\SparkyEngine\Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\glew-2.1.0\include;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
@@ -397,6 +397,7 @@
     <ClCompile Include="src\graphics\shader.cpp" />
     <ClCompile Include="src\graphics\sprite.cpp" />
     <ClCompile Include="src\graphics\texture.cpp" />
+    <ClCompile Include="src\graphics\texture_manager.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
     <ClCompile Include="src\maths\mat4.cpp" />
     <ClCompile Include="src\maths\vec2.cpp" />
@@ -445,6 +446,7 @@
     <ClInclude Include="src\graphics\shader.h" />
     <ClInclude Include="src\graphics\sprite.h" />
     <ClInclude Include="src\graphics\texture.h" />
+    <ClInclude Include="src\graphics\texture_manager.h" />
     <ClInclude Include="src\graphics\window.h" />
     <ClInclude Include="src\maths\mat4.h" />
     <ClInclude Include="src\maths\maths.h" />
@@ -454,6 +456,7 @@
     <ClInclude Include="src\sparky.h" />
     <ClInclude Include="src\utils\fileutils.h" />
     <ClInclude Include="src\utils\imageload.h" />
+    <ClInclude Include="src\utils\Log.h" />
     <ClInclude Include="src\utils\stringutils.h" />
     <ClInclude Include="src\utils\timer.h" />
     <ClInclude Include="tilelayer.h" />

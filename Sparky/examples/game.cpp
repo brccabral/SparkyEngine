@@ -39,9 +39,9 @@ public:
 		layer = new Layer(new BatchRenderer2D(), shader, mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 		layer->add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff));
 	#ifdef SPARKY_EMSCRIPTEN
-		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("res/test.png"));
+		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("Tex", "res/test.png"));
 	#else
-		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("test.png"));
+		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("Tex", "test.png"));
 	#endif
 		layer->add(sprite);
 
@@ -71,11 +71,11 @@ public:
 			sprite->position.x += speed;
 		if (window->isKeyPressed(GLFW_KEY_LEFT))
 			sprite->position.x -= speed;
-		
+
 		double x, y;
-		window->getMousePosition(x, y);
-		shader->setUniform("light_pos", vec2((float)(x * 32.0f / window->getWidth() - 16.0f),
-			(float)(9.0f - y * 18.0f / window->getHeight())));
+		maths::vec2 mouse = window->getMousePosition();
+		shader->setUniform("light_pos", vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
+			(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
 	}
 
 };
