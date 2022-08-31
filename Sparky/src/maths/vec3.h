@@ -6,12 +6,15 @@ namespace sparky
 {
 	namespace maths
 	{
+		struct vec2;
+
 		struct vec3
 		{
 			float x, y, z;
 
 			vec3();
 			vec3(const float &x, const float &y, const float &z);
+			vec3(const vec2 &other);
 
 			vec3 &add(const vec3 &other);
 			vec3 &subtract(const vec3 &other);
@@ -32,6 +35,8 @@ namespace sparky
 
 			bool operator==(const vec3 &other);
 			bool operator!=(const vec3 &other);
+
+			float distance(const vec3 &other) const;
 		};
 
 	} // namespace maths

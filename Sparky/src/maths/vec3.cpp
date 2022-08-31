@@ -1,4 +1,5 @@
 #include "vec3.h"
+#include "vec2.h"
 
 namespace sparky
 {
@@ -16,6 +17,13 @@ namespace sparky
 			this->x = x;
 			this->y = y;
 			this->z = z;
+		}
+
+		vec3::vec3(const vec2 &other)
+		{
+			this->x = other.x;
+			this->y = other.y;
+			this->z = 0.0f;
 		}
 
 		vec3 &vec3::add(const vec3 &other)
@@ -105,6 +113,14 @@ namespace sparky
 		bool vec3::operator!=(const vec3 &other)
 		{
 			return x != other.x || y != other.y || z != other.z;
+		}
+
+		float vec3::distance(const vec3 &other) const
+		{
+			float a = x - other.x;
+			float b = y - other.y;
+			float c = z - other.z;
+			return sqrt(a * a + b * b + c * c);
 		}
 	} // namespace maths
 
