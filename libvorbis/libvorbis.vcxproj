@@ -72,25 +72,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
-    <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
-    <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
@@ -107,6 +107,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>libogg.lib</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,7 +144,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>libogg.lib</AdditionalDependencies>
-      <TargetMachine>MachineX86</TargetMachine>
+      <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -164,15 +165,12 @@
     </Link>
     <Lib>
       <AdditionalDependencies>libogg.lib</AdditionalDependencies>
-      <TargetMachine>MachineX86</TargetMachine>
+      <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\backends.h" />
     <ClInclude Include="src\bitrate.h" />
-    <ClInclude Include="src\books\coupled\res_books_stereo.h" />
-    <ClInclude Include="src\books\floor\floor_books.h" />
-    <ClInclude Include="src\books\uncoupled\res_books_uncoupled.h" />
     <ClInclude Include="src\codebook.h" />
     <ClInclude Include="src\codec_internal.h" />
     <ClInclude Include="src\envelope.h" />
@@ -184,23 +182,6 @@
     <ClInclude Include="src\masking.h" />
     <ClInclude Include="src\mdct.h" />
     <ClInclude Include="src\misc.h" />
-    <ClInclude Include="src\modes\floor_all.h" />
-    <ClInclude Include="src\modes\psych_11.h" />
-    <ClInclude Include="src\modes\psych_16.h" />
-    <ClInclude Include="src\modes\psych_44.h" />
-    <ClInclude Include="src\modes\psych_8.h" />
-    <ClInclude Include="src\modes\residue_16.h" />
-    <ClInclude Include="src\modes\residue_44.h" />
-    <ClInclude Include="src\modes\residue_44u.h" />
-    <ClInclude Include="src\modes\residue_8.h" />
-    <ClInclude Include="src\modes\setup_11.h" />
-    <ClInclude Include="src\modes\setup_16.h" />
-    <ClInclude Include="src\modes\setup_22.h" />
-    <ClInclude Include="src\modes\setup_32.h" />
-    <ClInclude Include="src\modes\setup_44.h" />
-    <ClInclude Include="src\modes\setup_44u.h" />
-    <ClInclude Include="src\modes\setup_8.h" />
-    <ClInclude Include="src\modes\setup_X.h" />
     <ClInclude Include="src\os.h" />
     <ClInclude Include="src\psy.h" />
     <ClInclude Include="src\registry.h" />
@@ -228,7 +209,6 @@
     <ClCompile Include="src\sharedbook.c" />
     <ClCompile Include="src\smallft.c" />
     <ClCompile Include="src\synthesis.c" />
-    <ClCompile Include="src\tone.c" />
     <ClCompile Include="src\vorbisenc.c" />
     <ClCompile Include="src\vorbisfile.c" />
     <ClCompile Include="src\window.c" />
