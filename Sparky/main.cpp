@@ -1,7 +1,7 @@
 // Need to install OpenAL https://openal.org/ , use Windows Installer https://openal.org/downloads/
 // it will install OpenAL32.dll into System32 and SysWow64
 
-#if 0
+#if 1
 
 #include <GL/glew.h>
 
@@ -45,8 +45,8 @@ int main()
 	TileLayer layer(&shader);
 
 	// PNG needs to be saved without background, 8 bit per channel (RGB)
-	Texture *textures[] = { new Texture("test.png"), new Texture("test2.png"),
-						   new Texture("test3.png") };
+	Texture *textures[] = { new Texture("test", "test.png"), new Texture("test2", "test2.png"),
+						   new Texture("test3", "test3.png") };
 
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
@@ -84,9 +84,9 @@ int main()
 	while (!window.closed())
 	{
 		window.clear();
-		window.getMousePosition(x, y);
-		shader.setUniform("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f),
-			(float)(9.0f - y * 18.0f / window.getHeight())));
+		maths::vec2 mouse = window.getMousePosition();
+		shader.setUniform("light_pos", vec2((float)(mouse.x * 32.0f / window.getWidth() - 16.0f),
+			(float)(9.0f - mouse.y * 18.0f / window.getHeight())));
 		layer.render();
 
 		t += 0.001f;

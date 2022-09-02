@@ -114,6 +114,7 @@ namespace sparky
 			glfwPollEvents();
 			glfwSwapBuffers(m_Window);
 
+			updateInput();
 			audio::SoundManager::update();
 		}
 

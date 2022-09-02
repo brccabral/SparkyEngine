@@ -138,15 +138,16 @@ namespace sparky
 			if (gain > 1.0f)
 				gain = 1.0f;
 
-			if (gain < 0.0f)
-				gain = 0.0f;
+			if (gain < 0.01f)
+				gain = 0.01f;
 
 			m_Gain = gain;
 
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
 			if (m_Handle)
-				ga_handle_setParamf(m_Handle, GA_HANDLE_PARAM_GAIN, gain);
+				if (isPlaying())
+					ga_handle_setParamf(m_Handle, GA_HANDLE_PARAM_GAIN, m_Gain);
 		#endif
 		}
 
@@ -157,7 +158,8 @@ namespace sparky
 			if (!m_Handle)
 				return m_Gain;
 
-			ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &m_Gain);
+			if(isPlaying())
+				ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &m_Gain);
 		#endif
 			return m_Gain;
 		}

@@ -1,4 +1,4 @@
-#if 1
+#if 0
 #include "../src/sparky.h"
 
 using namespace sparky;
