@@ -1,7 +1,7 @@
 // Need to install OpenAL https://openal.org/ , use Windows Installer https://openal.org/downloads/
 // it will install OpenAL32.dll into System32 and SysWow64
 
-#if 1
+#if 0
 
 #include <GL/glew.h>
 

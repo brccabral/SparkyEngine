@@ -1,4 +1,4 @@
-#if 0
+#if 1
 #include "../src/sparky.h"
 
 using namespace sparky;
@@ -15,7 +15,7 @@ private:
 	Shader *shader;
 public:
 	Game()
-		:window(nullptr), layer(nullptr), fps(nullptr)
+		:window(nullptr), layer(nullptr), fps(nullptr), shader(nullptr), sprite(nullptr)
 	{
 
 	}
