@@ -75,8 +75,6 @@ int main()
 	SoundManager::add(new Sound("BomDia", "BomDia.ogg"));
 	std::string currentSound = "BomDia";
 
-	double x, y;
-
 	Timer time;
 	float timer = 0.0f;
 	unsigned int frames = 0;

@@ -72,7 +72,6 @@ public:
 		if (window->isKeyPressed(GLFW_KEY_LEFT))
 			sprite->position.x -= speed;
 
-		double x, y;
 		maths::vec2 mouse = window->getMousePosition();
 		shader->setUniform("light_pos", vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
 			(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
