@@ -13,11 +13,11 @@ private:
 	Label *fps;
 	Sprite *sprite;
 	Shader *shader;
+	std::string currentSound = "BomDia";
 public:
 	Game()
 		:window(nullptr), layer(nullptr), fps(nullptr), shader(nullptr), sprite(nullptr)
 	{
-
 	}
 
 	~Game()
@@ -47,6 +47,13 @@ public:
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps);
+
+	#ifdef SPARKY_EMSCRIPTEN
+		// to play  sound on web startup, user need to interact with browser before this function is called
+		audio::SoundManager::add(new audio::Sound(currentSound, "res/BomDia.ogg"))->play();
+	#else
+		audio::SoundManager::add(new audio::Sound(currentSound, "BomDia.ogg"))->play();
+	#endif
 	}
 
 	void tick() override
@@ -63,14 +70,20 @@ public:
 	void update() override
 	{
 		float speed = 0.5f;
-		if (window->isKeyPressed(GLFW_KEY_UP))
+		if (window->isKeyTyped(GLFW_KEY_UP))
 			sprite->position.y += speed;
-		if (window->isKeyPressed(GLFW_KEY_DOWN))
+		if (window->isKeyTyped(GLFW_KEY_DOWN))
 			sprite->position.y -= speed;
-		if (window->isKeyPressed(GLFW_KEY_RIGHT))
+		if (window->isKeyTyped(GLFW_KEY_RIGHT))
 			sprite->position.x += speed;
-		if (window->isKeyPressed(GLFW_KEY_LEFT))
+		if (window->isKeyTyped(GLFW_KEY_LEFT))
 			sprite->position.x -= speed;
+		if (window->isKeyTyped(GLFW_KEY_P))
+			audio::SoundManager::get(currentSound)->play();
+		if (window->isKeyTyped(GLFW_KEY_UP))
+			audio::SoundManager::get(currentSound)->setGain(audio::SoundManager::get(currentSound)->getGain() + 0.05f);
+		if (window->isKeyTyped(GLFW_KEY_DOWN))
+			audio::SoundManager::get(currentSound)->setGain(audio::SoundManager::get(currentSound)->getGain() - 0.05f);
 
 		maths::vec2 mouse = window->getMousePosition();
 		shader->setUniform("light_pos", vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),

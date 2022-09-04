@@ -20,6 +20,7 @@ namespace sparky
 		private:
 			std::string m_Name;
 			std::string m_Filename;
+			unsigned int m_Count;
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
 			ga_Sound *m_Sound;
@@ -27,7 +28,7 @@ namespace sparky
 		#endif
 
 			float m_Gain;
-			int m_Position;
+			bool m_Playing;
 
 		public:
 			Sound(const std::string &name, const std::string &filename);
@@ -36,21 +37,24 @@ namespace sparky
 			void play();
 			void loop();
 			void pause();
+			void resume();
 			void stop();
 
 			void setGain(float gain);
 			float getGain();
 
+			inline const bool isPlaying() const { return m_Playing; }
+			inline const float getGain() const { return m_Gain; }
 			inline const std::string &getName() const { return m_Name; }
 			inline const std::string &getFilename() const { return m_Filename; }
-			int isPlaying();
-			int isStopped();
 
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
-			friend void setFlagAndDestroyOnFinish(ga_Handle *in_handle, void *in_context);
-			friend void loopOnFinish(ga_Handle *in_handle, void *in_context);
+			friend void destroy_on_finish(ga_Handle *in_handle, void *in_context);
+			friend void loop_on_finish(ga_Handle *in_handle, void *in_context);
 		#endif
+
 		};
+
 	}
 }

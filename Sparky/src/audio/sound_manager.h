@@ -4,6 +4,18 @@
 #include <vector>
 #include "sound.h"
 
+#ifdef SPARKY_EMSCRIPTEN
+#include <emscripten/emscripten.h>
+#include <map>
+
+extern "C" void SoundManagerAdd(const char *name, const char *filename);
+extern "C" void SoundManagerPlay(const char *name);
+extern "C" void SoundManagerPause(const char *name);
+extern "C" void SoundManagerStop(const char *name);
+extern "C" void SoundManagerLoop(const char *name);
+extern "C" void SoundManagerSetGain(const char *name, double gain);
+#endif
+
 namespace sparky
 {
 	namespace audio
@@ -21,7 +33,7 @@ namespace sparky
 		#endif
 		public:
 			static void init();
-			static void add(Sound *sound);
+			static Sound *add(Sound *sound);
 			static Sound *get(const std::string &name);
 			static void update();
 			static void clean();

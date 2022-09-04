@@ -141,7 +141,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|x64'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
-    <IncludePath>D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;D:\CPP_Win\SparkyEngine\Sparky\ext\freetype\include;D:\CPP_Win\ExternalSources\FreeImage\Dist\x64;D:\CPP_Win\ExternalSources\glew-2.1.0\include;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;D:\CPP_Win\SparkyEngine\Sparky\ext\gorilla-audio\include;D:\CPP_Win\SparkyEngine\Sparky\ext\freetype\include;D:\CPP_Win\ExternalSources\FreeImage\Dist\x64;D:\CPP_Win\ExternalSources\glew-2.1.0\include;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);D:\CPP_Win\SparkyEngine\Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\freetype-2.10.0\build\Release;D:\CPP_Win\ExternalSources\FreeImage\Dist\x64;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\x64;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN64\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Inline|x64'">
@@ -215,7 +215,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;FT2_BUILD_LIBRARY;GLEW_STATIC;SPARKY_EMSCRIPTEN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SPARKY_EMSCRIPTEN;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;FT2_BUILD_LIBRARY;GLEW_STATIC;SPARKY_EMSCRIPTEN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>Default</ConformanceMode>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -295,7 +295,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;FT2_BUILD_LIBRARY;GLEW_STATIC;$(UserDefines);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SPARKY_EMSCRIPTEN;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;FT2_BUILD_LIBRARY;GLEW_STATIC;$(UserDefines);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <ConformanceMode>Default</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>

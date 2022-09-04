@@ -5,31 +5,20 @@ namespace sparky
 {
 	namespace audio
 	{
-	#ifdef SPARKY_EMSCRIPTEN
-	#else
-		void setFlagAndDestroyOnFinish(ga_Handle *in_handle, void *in_context);
-		void loopOnFinish(ga_Handle *in_handle, void *in_context);
-	#endif
-
 		Sound::Sound(const std::string &name, const std::string &filename)
-		#ifdef SPARKY_EMSCRIPTEN
-			: m_Name(name), m_Filename(filename), m_Gain(1.0f), m_Position(0)
-		#else
-			: m_Name(name), m_Filename(filename), m_Handle(nullptr), m_Gain(1.0f), m_Position(0), m_Sound(nullptr)
-		#endif
+			: m_Name(name), m_Filename(filename), m_Playing(false), m_Count(0), m_Gain(1.0f)
 		{
-			std::vector<std::string> split = split_string(filename, '.');
+			std::vector<std::string> split = split_string(m_Filename, '.');
 			if (split.size() < 2)
 			{
-				std::cout << "[Sound] Invalid filename '" << filename << "'!" << std::endl;
+				std::cout << "[Sound] Invalid file name '" << m_Filename << "'!" << std::endl;
 				return;
 			}
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
 			m_Sound = gau_load_sound_file(filename.c_str(), split.back().c_str());
-
 			if (m_Sound == nullptr)
-				std::cout << "[Sound] Could not load file '" << filename << "'!" << std::endl;
+				std::cout << "[Sound] Could not load file '" << m_Filename << "'!" << std::endl;
 		#endif
 		}
 
@@ -43,97 +32,61 @@ namespace sparky
 
 		void Sound::play()
 		{
-			m_Position = 0;
 		#ifdef SPARKY_EMSCRIPTEN
+			//std::cout << "cpp play " << m_Filename << std::endl;
+			SoundManagerPlay(m_Name.c_str());
 		#else
-			// TODO
-			// creates new handles in the background, but doesn't keep track of all handles created
-			// need some kind of stack to manage all handles
 			gc_int32 quit = 0;
-			m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &setFlagAndDestroyOnFinish, &quit, NULL);
+			m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &destroy_on_finish, &quit, NULL);
 			m_Handle->sound = this;
-			ga_handle_seek(m_Handle, m_Position);
 			ga_handle_play(m_Handle);
-			setGain(m_Gain);
+			m_Count++;
 		#endif
-		};
+			m_Playing = true;
+			setGain(m_Gain);
+		}
 
 		void Sound::loop()
 		{
-			m_Position = 0;
 		#ifdef SPARKY_EMSCRIPTEN
+			//std::cout << "cpp loop " << m_Filename << std::endl;
+			SoundManagerLoop(m_Name.c_str());
 		#else
 			gc_int32 quit = 0;
-			m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &loopOnFinish, &quit, NULL);
+			m_Handle = gau_create_handle_sound(SoundManager::m_Mixer, m_Sound, &loop_on_finish, &quit, NULL);
 			m_Handle->sound = this;
 			ga_handle_play(m_Handle);
 		#endif
+			m_Playing = true;
 			setGain(m_Gain);
-		};
+		}
 
 		void Sound::pause()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
-		#else
-			if (!m_Handle)
-			{
-				std::cout << m_Name << ": No sound to pause/resume." << std::endl;
+			if (!m_Playing)
 				return;
-			}
 
-			if (isPlaying())
-			{
-				m_Position = ga_handle_tell(m_Handle, GA_TELL_PARAM_CURRENT);
-				ga_handle_stop(m_Handle);
-			}
-			else if (m_Position)
-			{
-				ga_handle_seek(m_Handle, m_Position);
-				ga_handle_play(m_Handle);
-				setGain(m_Gain);
-			}
-			else
-			{
-				std::cout << m_Name << " is stopped, cannot resume." << std::endl;
-			}
+			m_Playing = false;
+		#ifdef SPARKY_EMSCRIPTEN
+			//std::cout << "cpp pause " << m_Filename << std::endl;
+			SoundManagerPause(m_Name.c_str());
+		#else
+			ga_handle_stop(m_Handle);
 		#endif
-
-		};
+		}
 
 		void Sound::stop()
 		{
+			if (!m_Playing)
+				return;
+
 		#ifdef SPARKY_EMSCRIPTEN
+			//std::cout << "cpp stop " << m_Filename << std::endl;
+			SoundManagerStop(m_Name.c_str());
 		#else
-			if (!m_Handle)
-				return;
-
-			if (!isPlaying())
-				return;
-
 			ga_handle_stop(m_Handle);
-			//ga_handle_destroy(m_Handle);
 		#endif
-			m_Position = 0;
-		};
-
-		int Sound::isPlaying()
-		{
-		#ifdef SPARKY_EMSCRIPTEN
-		#else
-			if (m_Handle)
-				return ga_handle_playing(m_Handle);
-		#endif
-			return 0;
-		}
-
-		int Sound::isStopped()
-		{
-		#ifdef SPARKY_EMSCRIPTEN
-		#else
-			if (m_Handle)
-				return ga_handle_stopped(m_Handle);
-		#endif
-			return 0;
+			m_Playing = false;
 		}
 
 		void Sound::setGain(float gain)
@@ -146,51 +99,70 @@ namespace sparky
 
 			m_Gain = gain;
 
-		#ifdef SPARKY_EMSCRIPTEN
-		#else
-			if (!m_Handle)
+			if (!m_Playing)
+			{
+				std::cout << "[Sound] Cannot set gain! Sound is not currently playing!" << std::endl;
 				return;
-
-			if (isPlaying())
-				ga_handle_setParamf(m_Handle, GA_HANDLE_PARAM_GAIN, m_Gain);
+			}
+		#ifdef SPARKY_EMSCRIPTEN
+			//std::cout << "cpp gain " << m_Filename << std::endl;
+			SoundManagerSetGain(m_Name.c_str(), gain);
+		#else
+			ga_handle_setParamf(m_Handle, GA_HANDLE_PARAM_GAIN, m_Gain);
 		#endif
 		}
 
 		float Sound::getGain()
 		{
+			float gain = m_Gain;
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
-			if (!m_Handle)
-				return m_Gain;
-
-			float gain = m_Gain;
-			ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &gain);
-			if (gain >= 0.0f && gain <= 1.0f)
-			{
-				m_Gain = gain;
-			}
+			if (m_Playing)
+				ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &gain);
 		#endif
+			if (gain > 1.0f)
+				gain = 1.0f;
+
+			if (gain < 0.0f)
+				gain = 0.0f;
+
+			m_Gain = gain;
+
 			return m_Gain;
+		}
+
+		void Sound::resume()
+		{
+			if (m_Playing)
+				return;
+
+			m_Playing = true;
+		#ifdef SPARKY_EMSCRIPTEN
+			//std::cout << "cpp resume " << m_Filename << std::endl;
+			SoundManagerPlay(m_Name.c_str());
+		#else
+			ga_handle_play(m_Handle);
+		#endif
+			setGain(m_Gain);
 		}
 
 	#ifdef SPARKY_EMSCRIPTEN
 	#else
-		void setFlagAndDestroyOnFinish(ga_Handle *in_handle, void *in_context)
+		void destroy_on_finish(ga_Handle *in_handle, void *in_context)
 		{
-			gc_int32 *flag = (gc_int32 *)(in_context);
-			*flag = 1;
-			ga_handle_destroy(in_handle);
 			Sound *sound = (Sound *)in_handle->sound;
-			sound->m_Position = 0;
+			sound->m_Count--;
+			if (sound->m_Count == 0)
+				sound->stop();
 		}
 
-		void loopOnFinish(ga_Handle *in_handle, void *in_context)
+		void loop_on_finish(ga_Handle *in_handle, void *in_context)
 		{
 			ga_handle_destroy(in_handle);
 			Sound *sound = (Sound *)in_handle->sound;
 			sound->loop();
-			sound->m_Position = 0;
 		}
 	#endif
+
 	}
 }
