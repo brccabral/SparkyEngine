@@ -60,6 +60,11 @@ public:
 	{
 		fps->text = std::to_string(getFPS()) + " fps";
 		std::cout << getUPS() << " ups, " << getFPS() << " fps" << std::endl;
+		/*SPARKY_INFO("tick %d", 99);
+		SPARKY_WARN("tick %d", 88);
+		SPARKY_ERROR("tick %d", 77);
+		SPARKY_FATAL("tick %d", -1);
+		SPARKY_ASSERT(1 == 2, "test");*/
 	}
 
 	void render() override
