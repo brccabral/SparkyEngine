@@ -46,6 +46,7 @@ namespace sparky
 		*bits = FreeImage_GetBPP(dib);
 
 	#ifdef SPARKY_EMSCRIPTEN
+		// Emscripten swaps Red and Blue
 		SwapRedBlue32(dib);
 	#endif
 

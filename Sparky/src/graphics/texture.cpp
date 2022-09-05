@@ -25,6 +25,7 @@ namespace sparky
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
+			// Image needs to be 24 bits (RGB) or 32 bits (RGBA) - 8 bits per channel,  8*3 or 8*4
 			if (m_Bits != 24 && m_Bits != 32)
 				SPARKY_ERROR("[Texture] Unsupported image bit-depth! (%d)", m_Bits);
 
@@ -33,6 +34,7 @@ namespace sparky
 		#ifdef SPARKY_EMSCRIPTEN
 				GL_RGBA : GL_RGB;
 		#else
+				// Emscripten swaps Red and Blue
 				GL_BGRA: GL_BGR;
 		#endif
 			glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, m_Width, m_Height, 0, format, GL_UNSIGNED_BYTE, pixels);

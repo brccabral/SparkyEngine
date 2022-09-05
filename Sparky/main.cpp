@@ -44,7 +44,7 @@ int main()
 
 	TileLayer layer(&shader);
 
-	// PNG needs to be saved without background, 8 bit per channel (RGB)
+	// Image needs to be 24 bits (RGB) or 32 bits (RGBA) - 8 bits per channel,  8*3 or 8*4
 	Texture *textures[] = { new Texture("test", "test.png"), new Texture("test2", "test2.png"),
 						   new Texture("test3", "test3.png") };
 
