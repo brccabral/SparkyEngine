@@ -26,9 +26,8 @@ namespace sparky
 		// check that the plugin has reading capabilities and load the file
 		if (FreeImage_FIFSupportsReading(fif))
 			dib = FreeImage_Load(fif, filename);
-		// if the image failed to load, return failure
-		if (!dib)
-			return nullptr;
+
+		SPARKY_ASSERT(dib, "Could not load image '", filename, "'!");
 
 		// retrieve the image data
 		BYTE *pixels = FreeImage_GetBits(dib);
