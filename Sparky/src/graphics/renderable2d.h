@@ -3,10 +3,10 @@
 #include "buffers/buffer.h"
 #include "buffers/indexbuffer.h"
 #include "buffers/vertexarray.h"
-#include "../maths/maths.h"
-#include "shader.h"
 #include "renderer2d.h"
 #include "texture.h"
+#include "../maths/maths.h"
+#include "shader.h"
 
 namespace sparky
 {

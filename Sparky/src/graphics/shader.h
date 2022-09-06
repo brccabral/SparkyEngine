@@ -1,11 +1,6 @@
 #pragma once
 
-#ifdef SPARKY_EMSCRIPTEN
-#define GLFW_INCLUDE_ES3
-#else
-#include <GL/glew.h> // need to include before GLFW
-#endif
-
+#include <sparkygl.h>
 #include <vector>
 #include <iostream>
 #include <GLFW/glfw3.h>

@@ -4,11 +4,11 @@
 #include <emscripten/emscripten.h>
 #endif
 
+#include "graphics/label.h"
+#include "graphics/sprite.h"
+#include "graphics/batchrenderer2d.h"
 #include "graphics/window.h"
 #include "graphics/layers/layer.h"
-#include "graphics/batchrenderer2d.h"
-#include "graphics/sprite.h"
-#include "graphics/label.h"
 #include "graphics/layers/group.h"
 #include "graphics/texture_manager.h"
 
@@ -35,14 +35,14 @@ namespace sparky
 		graphics::Window *m_Window;
 		Timer *m_Timer;
 		unsigned int m_FramesPerSecond, m_UpdatesPerSecond;
-	
+
 	public:
 		void start()
 		{
 			init();
 			run();
 		}
-	
+
 	protected:
 		Sparky()
 			: m_FramesPerSecond(0), m_UpdatesPerSecond(0), m_Window(nullptr), m_Timer(nullptr)
@@ -87,10 +87,10 @@ namespace sparky
 		#ifdef SPARKY_EMSCRIPTEN
 			std::function<void()> mainLoop = [&]()
 			{
-			#else
+		#else
 			while (!m_Window->closed())
 			{
-			#endif
+		#endif
 				m_Window->clear();
 				if (m_Timer->elapsed() - updateTimer > updateTick)
 				{
@@ -115,7 +115,7 @@ namespace sparky
 
 					tick();
 				}
-			#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_EMSCRIPTEN
 			};
 			emscripten_set_main_loop_arg(dispatch_main, &mainLoop, 0, 1);
 		#else

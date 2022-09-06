@@ -1,5 +1,5 @@
 #if 1
-#include "../src/sparky.h"
+#include <sparky.h>
 
 using namespace sparky;
 using namespace graphics;
@@ -59,7 +59,10 @@ public:
 	void tick() override
 	{
 		fps->text = std::to_string(getFPS()) + " fps";
-		std::cout << getUPS() << " ups, " << getFPS() << " fps" << std::endl;
+		SPARKY_INFO(getUPS(), " ups, ", getFPS(), " fps");
+		SPARKY_WARN(getUPS(), " ups, ", getFPS(), " fps");
+		SPARKY_ERROR(getUPS(), " ups, ", getFPS(), " fps");
+		SPARKY_FATAL(getUPS(), " ups, ", getFPS(), " fps");
 		/*SPARKY_INFO("tick %d", 99);
 		SPARKY_WARN("tick %d", 88);
 		SPARKY_ERROR("tick %d", 77);

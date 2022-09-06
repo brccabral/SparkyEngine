@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)\Dependencies\libvorbis\lib\$(Configuration)\$(Platform)\</OutDir>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
@@ -79,19 +79,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
-    <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)\Dependencies\libvorbis\lib\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)\Dependencies\libvorbis\lib\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>D:\CPP_Win\SparkyEngine\Dependencies\libogg\bin\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;D:\CPP_Win\SparkyEngine\libvorbis\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <OutDir>$(SolutionDir)\Dependencies\libvorbis\bin\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)\Dependencies\libvorbis\lib\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libvorbis\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

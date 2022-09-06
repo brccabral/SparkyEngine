@@ -24,7 +24,7 @@ namespace sparky
 
 		void TextureManager::clean()
 		{
-			for (int i = 0; i < m_Textures.size(); i++)
+			for (unsigned int i = 0; i < m_Textures.size(); i++)
 				delete m_Textures[i];
 		}
 

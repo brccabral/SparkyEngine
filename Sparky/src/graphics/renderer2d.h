@@ -1,14 +1,7 @@
 #pragma once
 
 #include <vector>
-
-#ifdef SPARKY_EMSCRIPTEN
-#define GLFW_INCLUDE_ES3
-#else
-#include <GL/glew.h> // need to include before GLFW
-#endif
-
-#include <GLFW/glfw3.h>
+#include <sparkygl.h>
 #include "font.h"
 #include "../maths/maths.h"
 

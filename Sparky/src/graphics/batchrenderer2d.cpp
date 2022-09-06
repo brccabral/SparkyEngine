@@ -90,7 +90,7 @@ namespace sparky
 			if (tid > 0)
 			{
 				bool found = false;
-				for (int i = 0; i < m_TextureSlots.size(); i++)
+				for (unsigned int i = 0; i < m_TextureSlots.size(); i++)
 				{
 					if (m_TextureSlots[i] == tid)
 					{
@@ -156,7 +156,7 @@ namespace sparky
 
 		void BatchRenderer2D::flush()
 		{
-			for (int i = 0; i < m_TextureSlots.size(); i++)
+			for (unsigned int i = 0; i < m_TextureSlots.size(); i++)
 			{
 				glActiveTexture(GL_TEXTURE0 + i);
 				glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
@@ -178,7 +178,7 @@ namespace sparky
 			float ts = 0.0f;
 
 			bool found = false;
-			for (int i = 0; i < m_TextureSlots.size(); i++)
+			for (unsigned int i = 0; i < m_TextureSlots.size(); i++)
 			{
 				if (m_TextureSlots[i] == font.getID())
 				{
@@ -208,7 +208,7 @@ namespace sparky
 			// position is const, we need separated variable to move chars
 			float x = position.x;
 
-			for (char i = 0; i < text.length(); i++)
+			for (unsigned char i = 0; i < text.length(); i++)
 			{
 				char c = text.at(i);
 				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.getFTGLFont(), c);

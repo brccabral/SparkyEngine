@@ -473,19 +473,8 @@
     <ClInclude Include="src\graphics\texture_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\shaders\basic.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="src\shaders\basic.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="src\shaders\basic.es3.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="src\shaders\basic.es3.vert">
-      <Filter>Shaders</Filter>
-    </None>
+    <ClInclude Include="src\sparkygl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,18 +1,10 @@
 #pragma once
 
-#include <string>
 #include <iostream>
-#include <FreeImage.h>
-#include "../utils/Log.h"
-
-#ifdef SPARKY_EMSCRIPTEN
-#define GLFW_INCLUDE_ES3
-#else
-#include <GL/glew.h> // need to include before GLFW
-#endif
-
-#include <GLFW/glfw3.h>
-#include "../utils/imageload.h"
+#include <string>
+#include <utils/Log.h> // needs to be before GL, redefinition of APIENTRY
+#include <sparkygl.h>
+#include <utils/imageload.h>
 
 namespace sparky
 {
