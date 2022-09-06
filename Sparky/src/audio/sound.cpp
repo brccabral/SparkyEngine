@@ -14,7 +14,7 @@ namespace sparky
 				std::cout << "[Sound] Invalid file name '" << m_Filename << "'!" << std::endl;
 				return;
 			}
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			m_Sound = gau_load_sound_file(filename.c_str(), split.back().c_str());
 
@@ -26,7 +26,7 @@ namespace sparky
 
 		Sound::~Sound()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			ga_sound_release(m_Sound);
 		#endif
@@ -34,7 +34,7 @@ namespace sparky
 
 		void Sound::play()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp play " << m_Filename << std::endl;
 			SoundManagerPlay(m_Name.c_str());
 		#else
@@ -50,7 +50,7 @@ namespace sparky
 
 		void Sound::loop()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp loop " << m_Filename << std::endl;
 			SoundManagerLoop(m_Name.c_str());
 		#else
@@ -69,7 +69,7 @@ namespace sparky
 				return;
 
 			m_Playing = false;
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp pause " << m_Filename << std::endl;
 			SoundManagerPause(m_Name.c_str());
 		#else
@@ -82,7 +82,7 @@ namespace sparky
 			if (!m_Playing)
 				return;
 
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp stop " << m_Filename << std::endl;
 			SoundManagerStop(m_Name.c_str());
 		#else
@@ -106,7 +106,7 @@ namespace sparky
 				std::cout << "[Sound] Cannot set gain! Sound is not currently playing!" << std::endl;
 				return;
 			}
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp gain " << m_Filename << std::endl;
 			SoundManagerSetGain(m_Name.c_str(), gain);
 		#else
@@ -117,7 +117,7 @@ namespace sparky
 		float Sound::getGain()
 		{
 			float gain = m_Gain;
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			if (m_Playing)
 				ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &gain);
@@ -139,7 +139,7 @@ namespace sparky
 				return;
 
 			m_Playing = true;
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp resume " << m_Filename << std::endl;
 			SoundManagerPlay(m_Name.c_str());
 		#else
@@ -148,7 +148,7 @@ namespace sparky
 			setGain(m_Gain);
 		}
 
-	#ifdef SPARKY_EMSCRIPTEN
+	#ifdef SPARKY_PLATFORM_WEB
 	#else
 		void destroy_on_finish(ga_Handle *in_handle, void *in_context)
 		{

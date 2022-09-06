@@ -31,7 +31,7 @@ namespace sparky
 
 			GLint internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 			GLenum format = m_Bits == 32 ?
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 				GL_RGBA : GL_RGB;
 		#else
 				// Emscripten swaps Red and Blue

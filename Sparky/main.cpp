@@ -37,7 +37,7 @@ int main()
 
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
-	Shader *s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Shader *s = ShaderFactory::DefaultShader();
 	Shader &shader = *s;
 	shader.enable();
 	shader.setUniform("light_pos", vec2(4.0f, 1.5f));

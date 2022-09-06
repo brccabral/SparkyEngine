@@ -39,7 +39,7 @@ namespace sparky
 
 			std::vector<GLuint> m_TextureSlots;
 
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			VertexData *m_BufferBase;
 		#endif
 

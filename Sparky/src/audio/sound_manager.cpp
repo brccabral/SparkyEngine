@@ -5,7 +5,7 @@ namespace sparky
 {
 	namespace audio
 	{
-	#ifndef SPARKY_EMSCRIPTEN
+	#ifndef SPARKY_PLATFORM_WEB
 		gau_Manager *SoundManager::m_Manager = nullptr;
 		ga_Mixer *SoundManager::m_Mixer = nullptr;
 	#endif
@@ -15,7 +15,7 @@ namespace sparky
 		Sound *SoundManager::add(Sound *sound)
 		{
 			m_Sounds.push_back(sound);
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp add name " << sound->getName() << " filename " << sound->getFilename() << std::endl;
 			SoundManagerAdd(sound->getName().c_str(), sound->getFilename().c_str());
 		#endif
@@ -34,7 +34,7 @@ namespace sparky
 
 		void SoundManager::update()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			gau_manager_update(SoundManager::m_Manager);
 		#endif
@@ -45,7 +45,7 @@ namespace sparky
 			for (uint i = 0; i < m_Sounds.size(); i++)
 				delete m_Sounds[i];
 
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			gau_manager_destroy(m_Manager);
 			gc_shutdown();
@@ -54,7 +54,7 @@ namespace sparky
 
 		void SoundManager::init()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			EM_ASM({
 				Module.SoundManager = { };
 			Module.SoundManager.m_Sounds = { };

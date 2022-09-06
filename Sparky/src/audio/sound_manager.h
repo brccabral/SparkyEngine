@@ -4,7 +4,7 @@
 #include <vector>
 #include "sound.h"
 
-#ifdef SPARKY_EMSCRIPTEN
+#ifdef SPARKY_PLATFORM_WEB
 #include <emscripten/emscripten.h>
 #include <map>
 
@@ -26,7 +26,7 @@ namespace sparky
 		private:
 			static std::vector<Sound *> m_Sounds;
 			SoundManager() {};
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			static gau_Manager *m_Manager;
 			static ga_Mixer *m_Mixer;

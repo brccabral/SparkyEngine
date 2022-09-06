@@ -17,7 +17,7 @@ namespace sparky
 			if (!init())
 				glfwTerminate();
 
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32.0f));
 			FreeImage_Initialise();
 		#else
@@ -71,7 +71,7 @@ namespace sparky
 			glfwSetCursorPosCallback(m_Window, cursor_position_callback);
 			glfwSwapInterval(0);
 
-		#ifndef SPARKY_EMSCRIPTEN
+		#ifndef SPARKY_PLATFORM_WEB
 			if (glewInit() != GLEW_OK) // glewInit needs to be after glfwMakeContextCurrent
 			{
 				std::cout << "Failed to initialize GLEW!" << std::endl;

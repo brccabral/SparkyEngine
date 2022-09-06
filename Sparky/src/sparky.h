@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef SPARKY_EMSCRIPTEN
+#ifdef SPARKY_PLATFORM_WEB
 #include <emscripten/emscripten.h>
 #endif
 
@@ -21,7 +21,7 @@
 
 #include "utils/timer.h"
 
-#ifdef SPARKY_EMSCRIPTEN
+#ifdef SPARKY_PLATFORM_WEB
 static void dispatch_main(void *fp)
 {
 	std::function<void()> *func = (std::function<void()>*)fp;
@@ -86,7 +86,7 @@ namespace sparky
 
 			uint frames = 0;
 			uint updates = 0;
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			std::function<void()> mainLoop = [&]()
 			{
 		#else
@@ -117,7 +117,7 @@ namespace sparky
 
 					tick();
 				}
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			};
 			emscripten_set_main_loop_arg(dispatch_main, &mainLoop, 0, 1);
 		#else

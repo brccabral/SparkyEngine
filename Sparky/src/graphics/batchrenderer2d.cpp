@@ -61,7 +61,7 @@ namespace sparky
 			m_IBO = new IndexBuffer(indices, RENDERER_INDICES_SIZE);
 			glBindVertexArray(0);
 
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			m_BufferBase = new VertexData[RENDERER_MAX_TEXTURES * 4];
 		#endif
 		};
@@ -69,7 +69,7 @@ namespace sparky
 		void BatchRenderer2D::begin()
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			m_Buffer = m_BufferBase;
 		#else
 			m_Buffer = (VertexData *)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
@@ -144,7 +144,7 @@ namespace sparky
 
 		void BatchRenderer2D::end()
 		{
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 			glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 			glBufferSubData(GL_ARRAY_BUFFER, 0, (m_Buffer - m_BufferBase) * RENDERER_VERTEX_SIZE, m_BufferBase);
 			m_Buffer = m_BufferBase;

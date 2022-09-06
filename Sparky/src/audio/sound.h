@@ -4,7 +4,7 @@
 #include <utils/Log.h>
 #include "../utils/stringutils.h"
 
-#ifdef SPARKY_EMSCRIPTEN
+#ifdef SPARKY_PLATFORM_WEB
 #include <emscripten/emscripten.h>
 #else
 #include "gorilla/ga.h"
@@ -21,7 +21,7 @@ namespace sparky
 			std::string m_Name;
 			std::string m_Filename;
 			uint m_Count;
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			ga_Sound *m_Sound;
 			ga_Handle *m_Handle;
@@ -48,7 +48,7 @@ namespace sparky
 			inline const std::string &getName() const { return m_Name; }
 			inline const std::string &getFilename() const { return m_Filename; }
 
-		#ifdef SPARKY_EMSCRIPTEN
+		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			friend void destroy_on_finish(ga_Handle *in_handle, void *in_context);
 			friend void loop_on_finish(ga_Handle *in_handle, void *in_context);
