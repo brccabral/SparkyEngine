@@ -9,6 +9,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libvorbis", "libvorbis\libv
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libogg", "libogg\libogg.vcxproj", "{20728617-5215-4BC4-8835-1B22F8B920FF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{BC9A9471-0BFA-46DF-83DB-A6280E219109}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8388E4DF-1695-454F-9D28-A7161256FAA6} = {8388E4DF-1695-454F-9D28-A7161256FAA6}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +48,18 @@ Global
 		{20728617-5215-4BC4-8835-1B22F8B920FF}.emscripten|x64.ActiveCfg = Debug|x64
 		{20728617-5215-4BC4-8835-1B22F8B920FF}.Release|Win32.ActiveCfg = Release|Win32
 		{20728617-5215-4BC4-8835-1B22F8B920FF}.Release|x64.ActiveCfg = Release|x64
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Debug|Win32.Build.0 = Debug|Win32
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Debug|x64.ActiveCfg = Debug|x64
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Debug|x64.Build.0 = Debug|x64
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.emscripten|Win32.ActiveCfg = Debug|Win32
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.emscripten|Win32.Build.0 = Debug|Win32
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.emscripten|x64.ActiveCfg = Debug|x64
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.emscripten|x64.Build.0 = Debug|x64
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Release|Win32.ActiveCfg = Release|Win32
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Release|Win32.Build.0 = Release|Win32
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Release|x64.ActiveCfg = Release|x64
+		{BC9A9471-0BFA-46DF-83DB-A6280E219109}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

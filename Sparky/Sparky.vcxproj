@@ -35,40 +35,40 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -100,37 +100,37 @@
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|Win32'">
     <IncludePath>D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);D:\CPP_Win\SparkyEngine\Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|x64'">
     <IncludePath>D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);D:\CPP_Win\SparkyEngine\Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -140,6 +140,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
       <AdditionalIncludeDirectories>src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -151,9 +152,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
       <AdditionalIncludeDirectories>src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -190,7 +192,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -236,7 +238,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>SPARKY_EMSCRIPTEN;GLEW_STATIC;FT2_BUILD_LIBRARY;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SPARKY_EMSCRIPTEN;GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -253,7 +255,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="examples\game.cpp" />
     <ClCompile Include="ext\freetype-gl\platform.c" />
     <ClCompile Include="ext\freetype-gl\texture-atlas.c" />
     <ClCompile Include="ext\freetype-gl\texture-font.c" />

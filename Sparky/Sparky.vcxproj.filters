@@ -306,9 +306,6 @@
     <ClCompile Include="tilelayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="examples\game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\texture_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
