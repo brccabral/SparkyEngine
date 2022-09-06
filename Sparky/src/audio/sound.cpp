@@ -17,8 +17,10 @@ namespace sparky
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
 			m_Sound = gau_load_sound_file(filename.c_str(), split.back().c_str());
-			if (m_Sound == nullptr)
-				std::cout << "[Sound] Could not load file '" << m_Filename << "'!" << std::endl;
+
+			SPARKY_ASSERT(m_Sound, "Failed to load sound '", m_Filename.c_str(), "'!");
+			//if (m_Sound == nullptr)
+				//std::cout << "[Sound] Could not load file '" << m_Filename << "'!" << std::endl;
 		#endif
 		}
 

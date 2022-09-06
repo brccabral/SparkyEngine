@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <iostream>
+#include <utils/Log.h>
 #include "../utils/stringutils.h"
 
 #ifdef SPARKY_EMSCRIPTEN

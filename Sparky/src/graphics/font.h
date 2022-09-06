@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <utils/Log.h>
 #include "../../ext/freetype-gl/freetype-gl.h"
 #include "../maths/maths.h"
 

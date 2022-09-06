@@ -12,8 +12,7 @@ namespace sparky
 			std::istreambuf_iterator<char>(std::ifstream(filepath).rdbuf()),
 			std::istreambuf_iterator<char>());
 		
-		std::string message = "Couldn't read file " + filepath;
-		SPARKY_ASSERT(content.size() != 0, message.c_str());
+		SPARKY_ASSERT(content.size() != 0, "Could not read file '" , filepath.c_str(), "'!");
 		
 		return content;
 	}

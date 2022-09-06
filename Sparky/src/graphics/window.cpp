@@ -21,7 +21,7 @@ namespace sparky
 			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32));
 			FreeImage_Initialise();
 		#else
-			FontManager::add(new Font("SourceSansPro", "SourceSansPro-Light.ttf", 32));
+			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32));
 		#endif
 			audio::SoundManager::init();
 
