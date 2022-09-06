@@ -224,14 +224,6 @@ namespace sparky
 	do { \
 	if (!(x)) \
 		{ \
-		char* file = __FILE__; \
-		unsigned int last = 0; \
-		char* c; \
-		for (c = file; *c != '\0'; c++) \
-				{ \
-			if (*c == '\\' || *c == '/') \
-				last = c - file; \
-				} \
 		SPARKY_FATAL(""); \
 		SPARKY_FATAL("*************************"); \
 		SPARKY_FATAL("    ASSERTION FAILED!    "); \
@@ -239,7 +231,16 @@ namespace sparky
 		SPARKY_FATAL(#x); \
 		SPARKY_FATAL(__VA_ARGS__); \
 		_SPARKY_FATAL("-> "); \
-		for (int i = last + 1; i < c - file; i++) \
+		const char *file = __FILE__; \
+		unsigned int last = 0; \
+		for (int c = 0; file[c] != '\0'; c++) \
+		{ \
+			if (file[c] == '\\' || file[c] == '/') \
+			{ \
+				last = c; \
+			} \
+		} \
+		for (int i = last + 1; file[i] != '\0'; i++) \
 			_SPARKY_FATAL(file[i]); \
 		_SPARKY_FATAL(":", __LINE__, "\n"); \
 		*(int*)NULL = 8; \

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <fstream>
+#include <utils/Log.h>
 
 namespace sparky
 {
@@ -10,6 +11,10 @@ namespace sparky
 		std::string content(
 			std::istreambuf_iterator<char>(std::ifstream(filepath).rdbuf()),
 			std::istreambuf_iterator<char>());
+		
+		std::string message = "Couldn't read file " + filepath;
+		SPARKY_ASSERT(content.size() != 0, message.c_str());
+		
 		return content;
 	}
 } // namespace sparky

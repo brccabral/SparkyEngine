@@ -3,6 +3,7 @@
 #include <string>
 #include <FreeImage.h>
 #include <FreeImage/Utilities.h>
+#include <GLFW/glfw3.h>
 
 namespace sparky
 {
