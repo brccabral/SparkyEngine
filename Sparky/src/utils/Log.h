@@ -7,6 +7,7 @@
 #include <vector>
 #include <list>
 #include <map>
+#include <sparky_types.h>
 
 #include <Windows.h>
 
@@ -232,7 +233,7 @@ namespace sparky
 		SPARKY_FATAL(__VA_ARGS__); \
 		_SPARKY_FATAL("-> "); \
 		const char *file = __FILE__; \
-		unsigned int last = 0; \
+		uint last = 0; \
 		for (int c = 0; file[c] != '\0'; c++) \
 		{ \
 			if (file[c] == '\\' || file[c] == '/') \

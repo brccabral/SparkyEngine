@@ -9,7 +9,7 @@ namespace sparky
 		{
 			setUVDefaults();
 		};
-		Renderable2D::Renderable2D(maths::vec3 position, maths::vec2 size, unsigned int color)
+		Renderable2D::Renderable2D(maths::vec3 position, maths::vec2 size, uint color)
 			: m_Position(position), m_Size(size), m_Color(color), m_Texture(nullptr)
 		{
 			setUVDefaults();
@@ -18,10 +18,10 @@ namespace sparky
 
 		void Renderable2D::setUVDefaults()
 		{
-			m_UV.push_back(maths::vec2(0, 0));
-			m_UV.push_back(maths::vec2(0, 1));
-			m_UV.push_back(maths::vec2(1, 1));
-			m_UV.push_back(maths::vec2(1, 0));
+			m_UV.push_back(maths::vec2(0.0f, 0.0f));
+			m_UV.push_back(maths::vec2(0.0f, 1.0f));
+			m_UV.push_back(maths::vec2(1.0f, 1.0f));
+			m_UV.push_back(maths::vec2(1.0f, 0.0f));
 		};
 	}
 }

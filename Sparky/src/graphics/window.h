@@ -41,10 +41,10 @@ namespace sparky
 			inline int getWidth() const { return m_Width; };
 			inline int getHeight() const { return m_Height; };
 
-			bool isKeyPressed(unsigned int keycode) const;
-			bool isKeyTyped(unsigned int keycode) const;
-			bool isMousePressed(unsigned int keycode) const;
-			bool isMouseClicked(unsigned int keycode) const;
+			bool isKeyPressed(uint keycode) const;
+			bool isKeyTyped(uint keycode) const;
+			bool isMousePressed(uint keycode) const;
+			bool isMouseClicked(uint keycode) const;
 			const maths::vec2 &getMousePosition() const;
 		private:
 			bool init();

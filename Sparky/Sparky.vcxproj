@@ -100,37 +100,37 @@
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|Win32'">
     <IncludePath>D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\bin\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\bin\$(Configuration)\$(Platform);D:\CPP_Win\SparkyEngine\Dependencies\OpenAL\$(Platform);D:\CPP_Win\ExternalSources\FreeImage\Dist\x32;D:\CPP_Win\ExternalSources\glew-2.1.0\lib\Release\Win32;D:\CPP_Win\ExternalSources\glfw-3.3.7.bin.WIN32\lib-vc2022;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|x64'">
     <IncludePath>D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLFW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky</IntDir>
+    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\Sparky\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -378,6 +378,7 @@
     <ClInclude Include="src\maths\vec4.h" />
     <ClInclude Include="src\sparky.h" />
     <ClInclude Include="src\sparkygl.h" />
+    <ClInclude Include="src\sparky_types.h" />
     <ClInclude Include="src\utils\fileutils.h" />
     <ClInclude Include="src\utils\imageload.h" />
     <ClInclude Include="src\utils\Log.h" />

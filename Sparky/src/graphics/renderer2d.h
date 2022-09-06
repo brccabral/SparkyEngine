@@ -49,7 +49,7 @@ namespace sparky
 			virtual void end() {};
 			virtual void flush() = 0;
 
-			virtual void drawString(const std::string &text, maths::vec3 position, const Font &font, unsigned int color) {};
+			virtual void drawString(const std::string &text, maths::vec3 position, const Font &font, uint color) {};
 		};
 	}
 }

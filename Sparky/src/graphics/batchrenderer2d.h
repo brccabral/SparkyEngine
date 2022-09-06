@@ -6,6 +6,7 @@
 #include <cstddef>
 #include <vector>
 #include <string.h>
+#include <sparky_types.h>
 #include "renderer2d.h"
 #include "renderable2d.h"
 #include "buffers/indexbuffer.h"
@@ -51,7 +52,7 @@ namespace sparky
 			void end() override;
 			void flush() override;
 
-			void drawString(const std::string &text, maths::vec3 position, const Font &font, unsigned int color) override;
+			void drawString(const std::string &text, maths::vec3 position, const Font &font, uint color) override;
 
 		private:
 			void init();

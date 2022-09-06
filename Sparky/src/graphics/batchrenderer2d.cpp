@@ -82,7 +82,7 @@ namespace sparky
 			// indices 0,1,2, 2,3,0
 			const maths::vec3 &position = renderable->getPosition();
 			const maths::vec2 &size = renderable->getSize();
-			const unsigned int color = renderable->getColor();
+			const uint color = renderable->getColor();
 			const std::vector<maths::vec2> &uv = renderable->getUV();
 			const GLuint tid = renderable->getTID();
 
@@ -90,7 +90,7 @@ namespace sparky
 			if (tid > 0)
 			{
 				bool found = false;
-				for (unsigned int i = 0; i < m_TextureSlots.size(); i++)
+				for (uint i = 0; i < m_TextureSlots.size(); i++)
 				{
 					if (m_TextureSlots[i] == tid)
 					{
@@ -156,7 +156,7 @@ namespace sparky
 
 		void BatchRenderer2D::flush()
 		{
-			for (unsigned int i = 0; i < m_TextureSlots.size(); i++)
+			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
 				glActiveTexture(GL_TEXTURE0 + i);
 				glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
@@ -173,12 +173,12 @@ namespace sparky
 			m_TextureSlots.clear();
 		}
 
-		void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, const Font &font, unsigned int color)
+		void BatchRenderer2D::drawString(const std::string &text, maths::vec3 position, const Font &font, uint color)
 		{
 			float ts = 0.0f;
 
 			bool found = false;
-			for (unsigned int i = 0; i < m_TextureSlots.size(); i++)
+			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
 				if (m_TextureSlots[i] == font.getID())
 				{
@@ -208,7 +208,7 @@ namespace sparky
 			// position is const, we need separated variable to move chars
 			float x = position.x;
 
-			for (unsigned char i = 0; i < text.length(); i++)
+			for (byte i = 0; i < text.length(); i++)
 			{
 				char c = text.at(i);
 				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.getFTGLFont(), c);
@@ -233,25 +233,25 @@ namespace sparky
 					float v1 = glyph->t1;
 
 					// add to buffer
-					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y0, 0);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y0, 0.0f);
 					m_Buffer->uv = maths::vec2(u0, v0);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
 					m_Buffer++;
 
-					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y1, 0);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y1, 0.0f);
 					m_Buffer->uv = maths::vec2(u0, v1);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
 					m_Buffer++;
 
-					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y1, 0);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y1, 0.0f);
 					m_Buffer->uv = maths::vec2(u1, v1);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
 					m_Buffer++;
 
-					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y0, 0);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y0, 0.0f);
 					m_Buffer->uv = maths::vec2(u1, v0);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;

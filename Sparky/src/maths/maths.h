@@ -11,9 +11,9 @@ namespace sparky
 {
 	namespace maths
 	{
-		inline double toRadians(double degrees) { return degrees * (M_PI / 180.0f); };
+		inline float toRadians(double degrees) { return (float)(degrees * (M_PI / 180.0f)); };
 
-		inline double toDegrees(double radians) { return radians * (180.0f / M_PI); }
+		inline float toDegrees(double radians) { return (float)(radians * (180.0f / M_PI)); }
 
 		inline int sign(double value) { return (value > 0) - (value < 0); }
 	}

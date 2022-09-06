@@ -7,7 +7,7 @@
 
 namespace sparky
 {
-	static BYTE *load_image(const char *filename, GLsizei *width, GLsizei *height, unsigned int *bits)
+	static BYTE *load_image(const char *filename, GLsizei *width, GLsizei *height, uint *bits)
 	{
 		// image format
 		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;

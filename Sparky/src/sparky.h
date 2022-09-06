@@ -34,7 +34,7 @@ namespace sparky
 	private:
 		graphics::Window *m_Window;
 		Timer *m_Timer;
-		unsigned int m_FramesPerSecond, m_UpdatesPerSecond;
+		uint m_FramesPerSecond, m_UpdatesPerSecond;
 
 	public:
 		void start()
@@ -71,8 +71,8 @@ namespace sparky
 		// Runs as fast as possible (unless vsync is enabled)
 		virtual void render() = 0;
 
-		const unsigned int getFPS() const { return m_FramesPerSecond; };
-		const unsigned int getUPS() const { return m_UpdatesPerSecond; };
+		const uint getFPS() const { return m_FramesPerSecond; };
+		const uint getUPS() const { return m_UpdatesPerSecond; };
 
 	private:
 		void run()
@@ -82,8 +82,8 @@ namespace sparky
 			float updateTimer = 0.0f;
 			float updateTick = 1.0f / 60.0f;
 
-			unsigned int frames = 0;
-			unsigned int updates = 0;
+			uint frames = 0;
+			uint updates = 0;
 		#ifdef SPARKY_EMSCRIPTEN
 			std::function<void()> mainLoop = [&]()
 			{

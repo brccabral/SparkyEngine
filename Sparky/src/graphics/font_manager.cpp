@@ -26,7 +26,7 @@ namespace sparky
 			return m_Fonts[0];
 		}
 
-		Font *FontManager::get(const std::string &name, unsigned int size)
+		Font *FontManager::get(const std::string &name, float size)
 		{
 			for (Font *font : m_Fonts)
 			{
@@ -38,7 +38,7 @@ namespace sparky
 
 		void FontManager::clean()
 		{
-			for (unsigned int i = 0; i < m_Fonts.size(); i++)
+			for (uint i = 0; i < m_Fonts.size(); i++)
 				delete m_Fonts[i];
 		}
 	}

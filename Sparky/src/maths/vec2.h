@@ -12,7 +12,8 @@ namespace sparky
 			float x, y;
 
 			vec2();
-			vec2(const float &x, const float &y);
+			vec2(float x, float y);
+			vec2(uint x, uint y);
 			vec2(const vec3 &vector);
 
 			vec2 &add(const vec2 &other);

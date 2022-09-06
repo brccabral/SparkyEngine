@@ -20,7 +20,7 @@ namespace sparky
 		private:
 			std::string m_Name;
 			std::string m_Filename;
-			unsigned int m_Count;
+			uint m_Count;
 		#ifdef SPARKY_EMSCRIPTEN
 		#else
 			ga_Sound *m_Sound;

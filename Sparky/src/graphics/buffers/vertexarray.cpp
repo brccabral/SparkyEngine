@@ -10,7 +10,7 @@ namespace sparky
 		};
 		VertexArray::~VertexArray()
 		{
-			for (unsigned int i = 0; i < m_Buffers.size(); i++)
+			for (uint i = 0; i < m_Buffers.size(); i++)
 				delete m_Buffers[i];
 
 			glDeleteVertexArrays(1, &m_ArrayID);

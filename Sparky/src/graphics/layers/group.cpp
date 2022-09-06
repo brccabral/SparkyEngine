@@ -11,7 +11,7 @@ namespace sparky
 
 		Group::~Group()
 		{
-			for (unsigned int i = 0; i < m_Renderables.size(); i++)
+			for (uint i = 0; i < m_Renderables.size(); i++)
 				delete m_Renderables[i];
 		}
 

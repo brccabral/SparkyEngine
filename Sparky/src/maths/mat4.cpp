@@ -155,7 +155,7 @@ namespace sparky
 			determinant = 1.0 / determinant;
 
 			for (int i = 0; i < 4 * 4; i++)
-				elements[i] = temp[i] * determinant;
+				elements[i] = (float)(temp[i] * determinant);
 
 			return *this;
 		}

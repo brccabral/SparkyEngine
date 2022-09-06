@@ -18,10 +18,10 @@ namespace sparky
 				glfwTerminate();
 
 		#ifdef SPARKY_EMSCRIPTEN
-			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32));
+			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32.0f));
 			FreeImage_Initialise();
 		#else
-			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32));
+			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32.0f));
 		#endif
 			audio::SoundManager::init();
 
@@ -123,7 +123,7 @@ namespace sparky
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
-		bool Window::isKeyPressed(unsigned int keycode) const
+		bool Window::isKeyPressed(uint keycode) const
 		{
 			if (keycode >= MAX_KEYS)
 				return false;
@@ -131,7 +131,7 @@ namespace sparky
 			return m_Keys[keycode];
 		}
 
-		bool Window::isKeyTyped(unsigned int keycode) const
+		bool Window::isKeyTyped(uint keycode) const
 		{
 			if (keycode >= MAX_KEYS)
 				return false;
@@ -139,7 +139,7 @@ namespace sparky
 			return m_KeyTyped[keycode];
 		}
 
-		bool Window::isMouseClicked(unsigned int button) const
+		bool Window::isMouseClicked(uint button) const
 		{
 			if (button >= MAX_BUTTONS)
 				return false;
@@ -147,7 +147,7 @@ namespace sparky
 			return m_MouseClicked[button];
 		}
 
-		bool Window::isMousePressed(unsigned int button) const
+		bool Window::isMousePressed(uint button) const
 		{
 			if (button >= MAX_BUTTONS)
 				return false;

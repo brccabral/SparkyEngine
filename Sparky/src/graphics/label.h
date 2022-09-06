@@ -16,13 +16,13 @@ namespace sparky
 			float x, y;
 			Font *m_Font;
 		public:
-			Label(std::string text, float x, float y, unsigned int color);
-			Label(std::string text, float x, float y, Font *font, unsigned int color);
-			Label(std::string text, float x, float y, const std::string &fontname, unsigned int color);
-			Label(std::string text, float x, float y, const std::string &fontname, unsigned int size, unsigned int color);
+			Label(std::string text, float x, float y, uint color);
+			Label(std::string text, float x, float y, Font *font, uint color);
+			Label(std::string text, float x, float y, const std::string &fontname, uint color);
+			Label(std::string text, float x, float y, const std::string &fontname, float size, uint color);
 			void submit(Renderer2D *renderer) const override;
 
-			void validatefont(const std::string &name, unsigned int size = -1);
+			void validatefont(const std::string &name, float size = -1.0f);
 		};
 	}
 }

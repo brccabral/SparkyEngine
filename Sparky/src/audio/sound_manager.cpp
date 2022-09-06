@@ -42,7 +42,7 @@ namespace sparky
 
 		void SoundManager::clean()
 		{
-			for (unsigned int i = 0; i < m_Sounds.size(); i++)
+			for (uint i = 0; i < m_Sounds.size(); i++)
 				delete m_Sounds[i];
 
 		#ifdef SPARKY_EMSCRIPTEN
