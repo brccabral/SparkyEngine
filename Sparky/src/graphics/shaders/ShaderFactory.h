@@ -9,6 +9,7 @@ namespace sparky
 		namespace ShaderFactory
 		{
 			Shader *DefaultShader();
+			Shader *BasicLightShader();
 		}
 	}
 }
