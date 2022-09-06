@@ -5,7 +5,7 @@
 
 #include <GL/glew.h>
 
-#include "src/graphics/shader.h"
+#include "src/graphics/shaders/shader.h"
 #include "src/graphics/window.h"
 #include "src/maths/maths.h"
 // timer.h needs to come before FreeImage, which is inside batchrenderer2d.h

@@ -4,31 +4,52 @@ namespace sparky
 {
 	namespace graphics
 	{
-		Shader::Shader(const char *vertPath, const char *fragPath)
-			: m_VertPath(vertPath), m_FragPath(fragPath)
+		Shader::Shader(const char *name, const char *vertSrc, const char *fragSrc)
+			: m_VertPath(nullptr), m_FragPath(nullptr), m_Name(name), m_VertSrc(vertSrc), m_FragSrc(fragSrc)
 		{
-			m_ShaderID = load();
+			m_ShaderID = load(m_VertSrc, m_FragSrc);
 		};
+
+		Shader::Shader(const char *vertPath, const char *fragPath)
+			: m_VertPath(vertPath), m_FragPath(fragPath), m_Name(vertPath), m_VertSrc(nullptr), m_FragSrc(nullptr)
+		{
+			// read GL files
+			// need to store the result before using it
+			// or the read_file will delete from memory
+			std::string vertSourceString = read_file(m_VertPath);
+			std::string fragSourceString = read_file(m_FragPath);
+			m_VertSrc = vertSourceString.c_str();
+			m_FragSrc = fragSourceString.c_str();
+
+			m_ShaderID = load(m_VertSrc, m_FragSrc);
+		};
+
+		Shader *Shader::FromFile(const char *vertPath, const char *fragPath)
+		{
+			return new Shader(vertPath, fragPath);
+		}
+		
+		Shader *Shader::FromSource(const char *vertSrc, const char *fragSrc)
+		{
+			return new Shader(vertSrc, vertSrc, fragSrc);
+		}
+
+		Shader *Shader::FromSource(const char *name, const char *vertSrc, const char *fragSrc)
+		{
+			return new Shader(name, vertSrc, fragSrc);
+		}
 
 		Shader::~Shader()
 		{
 			glDeleteProgram(m_ShaderID);
 		}
 
-		GLuint Shader::load()
+		GLuint Shader::load(const char *vertSource, const char *fragSource)
 		{
 			// create a GL program
 			GLuint program = glCreateProgram();
 			GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 			GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
-
-			// read GL files
-			// need to store the result before using it
-			// or the read_file will delete from memory
-			std::string vertSourceString = read_file(m_VertPath);
-			std::string fragSourceString = read_file(m_FragPath);
-			const char *vertSource = vertSourceString.c_str();
-			const char *fragSource = fragSourceString.c_str();
 
 			// send GL file to openGL and compile
 			glShaderSource(vertex, 1, &vertSource, NULL);

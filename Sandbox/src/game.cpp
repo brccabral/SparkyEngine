@@ -33,7 +33,7 @@ public:
 	#ifdef SPARKY_EMSCRIPTEN
 		shader = new Shader("res/shaders/basic.es3.vert", "res/shaders/basic.es3.frag");
 	#else
-		shader = new Shader("shaders/basic.vert", "shaders/basic.frag");
+		shader = ShaderFactory::DefaultShader();
 	#endif
 
 		// the orthographic matrix makes the center of the window to be 0,0

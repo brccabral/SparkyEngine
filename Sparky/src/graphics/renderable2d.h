@@ -6,7 +6,7 @@
 #include "renderer2d.h"
 #include "texture.h"
 #include "../maths/maths.h"
-#include "shader.h"
+#include "shaders/shader.h"
 
 namespace sparky
 {

@@ -12,6 +12,8 @@
 #include "graphics/layers/group.h"
 #include "graphics/texture_manager.h"
 
+#include "graphics/shaders/ShaderFactory.h"
+
 #include "audio/sound.h"
 #include "audio/sound_manager.h"
 

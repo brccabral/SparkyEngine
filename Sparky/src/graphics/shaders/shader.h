@@ -4,8 +4,8 @@
 #include <vector>
 #include <iostream>
 #include <GLFW/glfw3.h>
-#include "../utils/fileutils.h"
-#include "../maths/maths.h"
+#include "../../utils/fileutils.h"
+#include "../../maths/maths.h"
 
 namespace sparky
 {
@@ -14,10 +14,14 @@ namespace sparky
 		class Shader
 		{
 		private:
+			const char *m_Name;
 			const char *m_VertPath;
 			const char *m_FragPath;
+			const char *m_VertSrc;
+			const char *m_FragSrc;
 
 		public:
+			Shader(const char *name, const char *vertSrc, const char *fragSrc);
 			Shader(const char *vertPath, const char *fragPath);
 			~Shader();
 
@@ -36,9 +40,13 @@ namespace sparky
 			void setUniform(const GLchar *name, const maths::vec4 &vector);
 
 		private:
-			GLuint load();
+			GLuint load(const char *vertSource, const char *fragSource);
 
 			GLint getUniformLocation(const GLchar *name);
+		public:
+			static Shader *FromFile(const char *vertPath, const char *fragPath);
+			static Shader *FromSource(const char *vertSrc, const char *fragSrc);
+			static Shader *FromSource(const char *name, const char *vertSrc, const char *fragSrc);
 		};
 	}
 }
