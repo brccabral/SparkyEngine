@@ -16,8 +16,10 @@ namespace sparky
 		{
 			maths::vec3 vertex;
 			maths::vec2 uv; // texture coordinates
-			float tid;
+			float tid; // texture id
 			uint color;
+			maths::vec2 mask_uv;
+			float mid; // mask id
 		};
 
 		class Renderable2D
@@ -61,6 +63,7 @@ namespace sparky
 			inline const std::vector<maths::vec2> &getUV() const { return m_UV; };
 
 			inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; };
+			inline const Texture *getTexture() const { return m_Texture; };
 
 		private:
 			void setUVDefaults();

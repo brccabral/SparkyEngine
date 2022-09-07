@@ -48,7 +48,7 @@ public:
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
 		//Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
-		//layer->setMask(new Texture("Mask", "res/mask2.png"));
+		//layer->setMask(new Mask(new Texture("Mask", "res/mask2.png")));
 
 		shader->enable();
 		//shader->setUniform("mask_matrix", mat4::translation(vec3(200, 0, 0)));

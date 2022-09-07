@@ -25,7 +25,7 @@ namespace sparky
 
 			inline const std::vector<Renderable2D *> &getRenderables() const { return m_Renderables; }
 
-			inline void setMask(const Texture *mask) const { m_Renderer->setMask(mask); };
+			inline void setMask(const Mask *mask) const { m_Renderer->setMask(mask); };
 		};
 	}
 }

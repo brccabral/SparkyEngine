@@ -249,6 +249,12 @@ namespace sparky
 			return result;
 		};
 
+		mat4 mat4::invert(const mat4 &matrix)
+		{
+			mat4 result = matrix;
+			return result.invert();
+		}
+
 		// operators
 		mat4 &mat4::multiply(const mat4 &other)
 		{

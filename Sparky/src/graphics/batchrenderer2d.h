@@ -25,8 +25,10 @@ namespace sparky
 
 	#define SHADER_VERTEX_INDEX 0
 	#define SHADER_UV_INDEX 1
-	#define SHADER_TID_INDEX 2
-	#define SHADER_COLOR_INDEX 3
+	#define SHADER_MASK_UV_INDEX 2
+	#define SHADER_TID_INDEX 3
+	#define SHADER_MID_INDEX 4
+	#define SHADER_COLOR_INDEX 5
 
 		class BatchRenderer2D : public Renderer2D
 		{
@@ -57,6 +59,8 @@ namespace sparky
 
 		private:
 			void init();
+
+			float submitTexture(const Texture *texture);
 		};
 	}
 }

@@ -5,6 +5,7 @@
 #include "texture.h"
 #include "font.h"
 #include "../maths/maths.h"
+#include "mask.h"
 
 namespace sparky
 {
@@ -17,7 +18,7 @@ namespace sparky
 		protected:
 			std::vector<maths::mat4> m_TransformationStack;
 			const maths::mat4 *m_TransformationBack;
-			const Texture *m_Mask;
+			const Mask *m_Mask;
 
 		protected:
 			Renderer2D()
@@ -54,7 +55,7 @@ namespace sparky
 
 			virtual void drawString(const std::string &text, maths::vec3 position, const Font &font, uint color) {};
 
-			virtual void setMask(const Texture *mask)
+			virtual void setMask(const Mask *mask)
 			{
 				m_Mask = mask;
 			}
