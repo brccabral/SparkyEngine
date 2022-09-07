@@ -52,14 +52,14 @@ namespace sparky
 		{
 			if (!glfwInit())
 			{
-				std::cout << "Failed to initialize GLFW!" << std::endl;
+				SPARKY_FATAL("Failed to initialize GLFW!");
 				return false;
 			}
 
 			m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
 			if (!m_Window)
 			{
-				std::cout << "Failed to create GLFW window!" << std::endl;
+				SPARKY_FATAL("Failed to create GLFW window!");
 				return false;
 			}
 
@@ -74,7 +74,7 @@ namespace sparky
 		#ifndef SPARKY_PLATFORM_WEB
 			if (glewInit() != GLEW_OK) // glewInit needs to be after glfwMakeContextCurrent
 			{
-				std::cout << "Failed to initialize GLEW!" << std::endl;
+				SPARKY_FATAL("Failed to initialize GLEW!");
 				return false;
 			}
 		#endif
@@ -82,7 +82,7 @@ namespace sparky
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
+			SPARKY_INFO("OpenGL ", (char *)glGetString(GL_VERSION));
 
 			return true;
 		}
@@ -109,7 +109,7 @@ namespace sparky
 		{
 			GLenum error = glGetError();
 			if (error != GL_NO_ERROR)
-				std::cout << "OpenGL Error: " << error << std::endl;
+				SPARKY_ERROR("OpenGL Error: ", error);
 
 			glfwPollEvents();
 			glfwSwapBuffers(m_Window);

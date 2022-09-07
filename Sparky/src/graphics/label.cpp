@@ -41,10 +41,7 @@ namespace sparky
 			if (m_Font != nullptr)
 				return;
 
-			std::cout << "NULL FONT! Font=" << name;
-			if (size > 0)
-				std::cout << ", Size=" << size;
-			std::cout << std::endl;
+			SPARKY_WARN("NULL FONT! Font=", name.c_str(), ", Size=", size);
 
 			m_Font = FontManager::get("SourceSansPro");
 		}
