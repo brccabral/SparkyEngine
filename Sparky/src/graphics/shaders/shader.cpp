@@ -118,7 +118,11 @@ namespace sparky
 
 		GLint Shader::getUniformLocation(const GLchar *name)
 		{
-			return glGetUniformLocation(m_ShaderID, name);
+			GLint result = glGetUniformLocation(m_ShaderID, name);
+			if (result == -1)
+				SPARKY_ERROR(m_Name, ": could not find uniform ", name, " in shader!");
+
+			return result;
 		};
 
 		void Shader::setUniform(const GLchar *name, const maths::mat4 &matrix)

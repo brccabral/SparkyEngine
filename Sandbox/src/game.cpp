@@ -118,9 +118,9 @@ public:
 		if (window->isKeyTyped(GLFW_KEY_DOWN))
 			audio::SoundManager::get(currentSound)->setGain(audio::SoundManager::get(currentSound)->getGain() - 0.05f);
 
-		maths::vec2 mouse = window->getMousePosition();
-		shader->setUniform("light_pos", maths::vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
-			(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
+		//maths::vec2 mouse = window->getMousePosition();
+		//shader->setUniform("light_pos", maths::vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
+			//(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
 	}
 
 };
