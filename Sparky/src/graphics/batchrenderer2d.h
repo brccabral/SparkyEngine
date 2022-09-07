@@ -61,6 +61,7 @@ namespace sparky
 			void init();
 
 			float submitTexture(const Texture *texture);
+			float submitTexture(uint textureID);
 		};
 	}
 }

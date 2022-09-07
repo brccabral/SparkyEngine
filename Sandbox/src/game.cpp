@@ -13,7 +13,7 @@ private:
 	Label *fps;
 	Sprite *sprite;
 	Shader *shader;
-	vec3 mask;
+	Mask *mask;
 	std::string currentSound = "BomDia";
 public:
 	Game()
@@ -47,8 +47,10 @@ public:
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
-		//Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
-		//layer->setMask(new Mask(new Texture("Mask", "res/mask2.png")));
+
+		Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
+		mask = new Mask(new Texture("Mask", "res/mask2.png"));
+		layer->setMask(mask);
 
 		shader->enable();
 		//shader->setUniform("mask_matrix", mat4::translation(vec3(200, 0, 0)));
@@ -85,18 +87,16 @@ public:
 		if (window->isKeyTyped(GLFW_KEY_LEFT))
 			sprite->position.x -= speed;
 
-
-		/*if (window->isKeyPressed(GLFW_KEY_UP))
-			mask.y += speed;
+		static vec3 pos;
+		if (window->isKeyPressed(GLFW_KEY_UP))
+			pos.y += speed;
 		if (window->isKeyPressed(GLFW_KEY_DOWN))
-			mask.y -= speed;
+			pos.y -= speed;
 		if (window->isKeyPressed(GLFW_KEY_RIGHT))
-			mask.x += speed;
+			pos.x += speed;
 		if (window->isKeyPressed(GLFW_KEY_LEFT))
-			mask.x -= speed;
-		SPARKY_WARN(mask.x, ", ", mask.y);*/
-		//shader->setUniform("mask_matrix", mat4::rotation(mask.x, vec3(0,0,1)));
-		//shader->setUniform("mask_matrix", mat4::translation(mask));
+			pos.x -= speed;
+		//SPARKY_WARN(pos.x, ", ", pos.y);
 
 		static vec3 scale(1, 1, 1);
 		if (window->isKeyPressed(GLFW_KEY_W))
@@ -109,7 +109,7 @@ public:
 			scale.y -= speed;
 			scale.x -= speed;
 		}
-		//shader->setUniform("mask_matrix", mat4::translation(mask) * mat4::scale(scale));
+		mask->transform = mat4::translation(pos) * mat4::scale(scale);
 
 		if (window->isKeyTyped(GLFW_KEY_P))
 			audio::SoundManager::get(currentSound)->play();

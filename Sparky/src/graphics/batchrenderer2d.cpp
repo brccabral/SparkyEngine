@@ -72,10 +72,8 @@ namespace sparky
 		#endif
 		};
 
-		float BatchRenderer2D::submitTexture(const Texture *texture)
+		float BatchRenderer2D::submitTexture(uint id)
 		{
-			uint id = texture->getID();
-
 			float result = 0.0f;
 			bool found = false;
 			if (id > 0)
@@ -107,6 +105,11 @@ namespace sparky
 			return result;
 		}
 
+		float BatchRenderer2D::submitTexture(const Texture *texture)
+		{
+			return submitTexture(texture->getID());
+		}
+
 		void BatchRenderer2D::begin()
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
@@ -128,7 +131,7 @@ namespace sparky
 			const GLuint tid = renderable->getTID();
 
 			float ts = 0.0f;
-			if(tid > 0)
+			if (tid > 0)
 				ts = submitTexture(renderable->getTexture());
 
 			mat4 maskTransform = mat4::identity();
@@ -190,7 +193,7 @@ namespace sparky
 			glUnmapBuffer(GL_ARRAY_BUFFER);
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		#endif
-	};
+		};
 
 		void BatchRenderer2D::flush()
 		{
@@ -215,31 +218,7 @@ namespace sparky
 		void BatchRenderer2D::drawString(const std::string &text, vec3 position, const Font &font, uint color)
 		{
 			float ts = 0.0f;
-
-			bool found = false;
-			for (uint i = 0; i < m_TextureSlots.size(); i++)
-			{
-				if (m_TextureSlots[i] == font.getID())
-				{
-					ts = (float)(i + 1);
-					found = true;
-					break;
-				}
-			}
-			if (!found)
-			{
-				// openGL has a limit to hold 32 textures
-				// if we have more than that, flush (draw)
-				// what we have in memory and add more starting from 0
-				if (m_TextureSlots.size() >= 32)
-				{
-					end();
-					flush();
-					begin();
-				}
-				m_TextureSlots.push_back(font.getID());
-				ts = (float)(m_TextureSlots.size());
-			}
+			ts = submitTexture(font.getID());
 
 			// scale to the size of our window
 			const vec2 &scale = font.getScale();
@@ -304,5 +283,5 @@ namespace sparky
 			}
 		};
 
-}
+	}
 }
