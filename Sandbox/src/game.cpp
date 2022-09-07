@@ -98,7 +98,7 @@ public:
 			pos.x -= speed;
 		//SPARKY_WARN(pos.x, ", ", pos.y);
 
-		static vec3 scale(1, 1, 1);
+		static vec3 scale((float)mask->texture->getWidth() / (float)mask->texture->getHeight(), 1.0f, 1.0f);
 		if (window->isKeyPressed(GLFW_KEY_W))
 		{
 			scale.y += speed;
