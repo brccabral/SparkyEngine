@@ -77,6 +77,7 @@ namespace sparky
 				"uniform mat4 pr_matrix;\n"
 				"uniform mat4 vw_matrix = mat4(1.0);\n"
 				"uniform mat4 ml_matrix = mat4(1.0);\n"
+				"uniform mat4 mask_matrix;\n"
 				"\n"
 				"out DATA\n"
 				"{\n"
@@ -94,7 +95,7 @@ namespace sparky
 				"    vs_out.uv = uv;\n"
 				"    vs_out.tid = tid;\n"
 				"    vs_out.color = color;\n"
-				"    vs_out.mask_uv = gl_Position.xy * 0.5 + 0.5;\n"
+				"    vs_out.mask_uv = (mask_matrix * gl_Position).xy * 0.5 + 0.5;\n"
 				"}\n";
 
 			const char *default_shader_frag =

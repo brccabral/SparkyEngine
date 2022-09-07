@@ -13,6 +13,7 @@ private:
 	Label *fps;
 	Sprite *sprite;
 	Shader *shader;
+	vec3 mask;
 	std::string currentSound = "BomDia";
 public:
 	Game()
@@ -48,6 +49,9 @@ public:
 		layer->add(fps); // add a Label object
 		layer->setMask(new Texture("Mask", "res/mask.png"));
 
+		shader->enable();
+		//shader->setUniform("mask_matrix", mat4::translation(vec3(200, 0, 0)));
+
 
 	#ifdef SPARKY_PLATFORM_WEB
 		// to play  sound on web startup, user need to interact with browser before this function is called
@@ -71,14 +75,37 @@ public:
 	void update() override
 	{
 		float speed = 0.5f;
-		if (window->isKeyTyped(GLFW_KEY_UP))
+		/*if (window->isKeyTyped(GLFW_KEY_UP))
 			sprite->position.y += speed;
 		if (window->isKeyTyped(GLFW_KEY_DOWN))
 			sprite->position.y -= speed;
 		if (window->isKeyTyped(GLFW_KEY_RIGHT))
 			sprite->position.x += speed;
 		if (window->isKeyTyped(GLFW_KEY_LEFT))
-			sprite->position.x -= speed;
+			sprite->position.x -= speed;*/
+
+
+		if (window->isKeyPressed(GLFW_KEY_UP))
+			mask.y += speed;
+		if (window->isKeyPressed(GLFW_KEY_DOWN))
+			mask.y -= speed;
+		if (window->isKeyPressed(GLFW_KEY_RIGHT))
+			mask.x += speed;
+		if (window->isKeyPressed(GLFW_KEY_LEFT))
+			mask.x -= speed;
+		SPARKY_WARN(mask.x, ", ", mask.y);
+		//shader->setUniform("mask_matrix", mat4::rotation(mask.x, vec3(0,0,1)));
+		//shader->setUniform("mask_matrix", mat4::translation(mask));
+
+		static vec3 scale(1, 1, 1);
+		if (window->isKeyPressed(GLFW_KEY_W))
+			scale.y += speed;
+			scale.x += speed;
+		if (window->isKeyPressed(GLFW_KEY_S))
+			scale.y -= speed;
+			scale.x -= speed;
+		shader->setUniform("mask_matrix", mat4::translation(mask) * mat4::scale(scale));
+
 		if (window->isKeyTyped(GLFW_KEY_P))
 			audio::SoundManager::get(currentSound)->play();
 		if (window->isKeyTyped(GLFW_KEY_UP))
