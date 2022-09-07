@@ -47,7 +47,7 @@ public:
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
-		Texture::SetWrap(TextureWrap::CLAMP);
+		Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
 		layer->setMask(new Texture("Mask", "res/mask.png"));
 
 		shader->enable();
@@ -100,11 +100,15 @@ public:
 
 		static vec3 scale(1, 1, 1);
 		if (window->isKeyPressed(GLFW_KEY_W))
+		{
 			scale.y += speed;
-		scale.x += speed;
+			scale.x += speed;
+		}
 		if (window->isKeyPressed(GLFW_KEY_S))
+		{
 			scale.y -= speed;
-		scale.x -= speed;
+			scale.x -= speed;
+		}
 		shader->setUniform("mask_matrix", mat4::translation(mask) * mat4::scale(scale));
 
 		if (window->isKeyTyped(GLFW_KEY_P))
