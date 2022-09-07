@@ -127,7 +127,8 @@ namespace sparky
 				"        texColor = fs_in.color * texture(textures[tid], fs_in.uv);\n"
 				"    }\n"
 				"    vec4 maskColor = texture(mask_texture, fs_in.mask_uv);\n"
-				"    color = texColor * maskColor;\n"
+				"    //color = texColor * maskColor;\n"
+				"    color = texColor * vec4(1.0 - maskColor.x, 1.0 - maskColor.y, 1.0 - maskColor.z, maskColor.w);\n"
 				"}\n";
 		#elif defined(SPARKY_PLATFORM_WEB)
 			const char *basic_light_shader_frag =
