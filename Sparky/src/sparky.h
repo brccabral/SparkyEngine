@@ -89,10 +89,10 @@ namespace sparky
 		#ifdef SPARKY_PLATFORM_WEB
 			std::function<void()> mainLoop = [&]()
 			{
-		#else
+			#else
 			while (!m_Window->closed())
 			{
-		#endif
+			#endif
 				m_Window->clear();
 				if (m_Timer->elapsed() - updateTimer > updateTick)
 				{
@@ -117,7 +117,7 @@ namespace sparky
 
 					tick();
 				}
-		#ifdef SPARKY_PLATFORM_WEB
+			#ifdef SPARKY_PLATFORM_WEB
 			};
 			emscripten_set_main_loop_arg(dispatch_main, &mainLoop, 0, 1);
 		#else

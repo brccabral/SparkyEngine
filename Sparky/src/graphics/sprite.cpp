@@ -6,8 +6,7 @@ namespace sparky
 	{
 		Sprite::Sprite(float x, float y, float width, float height, uint color)
 			: Renderable2D(maths::vec3(x, y, 0.0f), maths::vec2(width, height), color), position(m_Position), size(m_Size)
-		{
-		};
+		{};
 
 		Sprite::Sprite(float x, float y, float width, float height, Texture *texture)
 			: Renderable2D(maths::vec3(x, y, 0.0f), maths::vec2(width, height), 0xffffffff), position(m_Position), size(m_Size)

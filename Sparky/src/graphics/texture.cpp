@@ -36,11 +36,11 @@ namespace sparky
 
 			GLint internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 			GLenum format = m_Bits == 32 ?
-		#ifdef SPARKY_PLATFORM_WEB
+			#ifdef SPARKY_PLATFORM_WEB
 				GL_RGBA : GL_RGB;
 		#else
 				// Emscripten swaps Red and Blue
-				GL_BGRA: GL_BGR;
+			GL_BGRA: GL_BGR;
 		#endif
 			glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, m_Width, m_Height, 0, format, GL_UNSIGNED_BYTE, pixels);
 			glBindTexture(GL_TEXTURE_2D, 0);

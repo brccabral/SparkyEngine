@@ -28,7 +28,7 @@ namespace sparky
 		{
 			return new Shader(vertPath, fragPath);
 		}
-		
+
 		Shader *Shader::FromSource(const char *vertSrc, const char *fragSrc)
 		{
 			return new Shader(vertSrc, vertSrc, fragSrc);

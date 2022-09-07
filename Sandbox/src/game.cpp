@@ -18,8 +18,7 @@ private:
 public:
 	Game()
 		:window(nullptr), layer(nullptr), fps(nullptr), shader(nullptr), sprite(nullptr)
-	{
-	}
+	{}
 
 	~Game()
 	{
@@ -102,10 +101,10 @@ public:
 		static vec3 scale(1, 1, 1);
 		if (window->isKeyPressed(GLFW_KEY_W))
 			scale.y += speed;
-			scale.x += speed;
+		scale.x += speed;
 		if (window->isKeyPressed(GLFW_KEY_S))
 			scale.y -= speed;
-			scale.x -= speed;
+		scale.x -= speed;
 		shader->setUniform("mask_matrix", mat4::translation(mask) * mat4::scale(scale));
 
 		if (window->isKeyTyped(GLFW_KEY_P))

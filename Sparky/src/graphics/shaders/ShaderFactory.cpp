@@ -36,7 +36,7 @@ namespace sparky
 				"    }\n"
 				"    color = texColor * intensity;\n"
 				"}\n";
-			
+
 			const char *basic_light_shader_vert =
 				"#version 330 core\n"
 				"\n"
@@ -176,7 +176,7 @@ namespace sparky
 				"    }\n"
 				"    gl_FragColor = texColor * intensity;\n"
 				"}\n";
-			
+
 			const char *basic_light_shader_vert =
 				"attribute highp vec4 position;\n"
 				"attribute highp vec2 uv;\n"
@@ -200,7 +200,7 @@ namespace sparky
 				"    vs_tid = tid;\n"
 				"    vs_color = color;\n"
 				"}\n";
-			
+
 			const char *default_shader_frag =
 				"precision highp float;\n"
 				"\n"
@@ -246,7 +246,7 @@ namespace sparky
 				"    }\n"
 				"    gl_FragColor = texColor;\n"
 				"}\n";
-			
+
 			const char *default_shader_vert =
 				"attribute highp vec4 position;\n"
 				"attribute highp vec2 uv;\n"
