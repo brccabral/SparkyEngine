@@ -77,7 +77,7 @@ namespace sparky
 				"uniform mat4 pr_matrix;\n"
 				"uniform mat4 vw_matrix = mat4(1.0);\n"
 				"uniform mat4 ml_matrix = mat4(1.0);\n"
-				"uniform mat4 mask_matrix;\n"
+				"uniform mat4 mask_matrix = mat4(1.0);\n"
 				"\n"
 				"out DATA\n"
 				"{\n"
@@ -126,7 +126,8 @@ namespace sparky
 				"        int tid = int(fs_in.tid - 0.5);\n"
 				"        texColor = fs_in.color * texture(textures[tid], fs_in.uv);\n"
 				"    }\n"
-				"    vec4 maskColor = texture(mask_texture, fs_in.mask_uv);\n"
+				"    //vec4 maskColor = texture(mask_texture, fs_in.mask_uv);\n"
+				"    vec4 maskColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
 				"    color = texColor * maskColor;\n"
 				"    //color = texColor * vec4(1.0 - maskColor.x, 1.0 - maskColor.y, 1.0 - maskColor.z, maskColor.w);\n"
 				"}\n";

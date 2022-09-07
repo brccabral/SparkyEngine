@@ -6,6 +6,7 @@
 #include <audio/sound_manager.h>
 #include <maths/vec2.h>
 #include "texture_manager.h"
+#include "../embedded/Embedded.h"
 
 namespace sparky
 {

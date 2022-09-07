@@ -18,10 +18,10 @@ namespace sparky
 				glfwTerminate();
 
 		#ifdef SPARKY_PLATFORM_WEB
-			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32.0f));
+			FontManager::add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
 			FreeImage_Initialise();
 		#else
-			FontManager::add(new Font("SourceSansPro", "res/SourceSansPro-Light.ttf", 32.0f));
+			FontManager::add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
 		#endif
 			audio::SoundManager::init();
 

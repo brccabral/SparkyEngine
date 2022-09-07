@@ -307,6 +307,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\audio\sound.cpp" />
     <ClCompile Include="src\audio\sound_manager.cpp" />
+    <ClCompile Include="src\embedded\Embedded.cpp" />
     <ClCompile Include="src\graphics\batchrenderer2d.cpp" />
     <ClCompile Include="src\graphics\buffers\buffer.cpp" />
     <ClCompile Include="src\graphics\buffers\indexbuffer.cpp" />
@@ -356,6 +357,7 @@
     <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisfile.h" />
     <ClInclude Include="src\audio\sound.h" />
     <ClInclude Include="src\audio\sound_manager.h" />
+    <ClInclude Include="src\embedded\Embedded.h" />
     <ClInclude Include="src\graphics\batchrenderer2d.h" />
     <ClInclude Include="src\graphics\buffers\buffer.h" />
     <ClInclude Include="src\graphics\buffers\indexbuffer.h" />

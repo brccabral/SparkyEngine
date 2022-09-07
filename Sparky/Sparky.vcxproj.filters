@@ -312,6 +312,9 @@
     <ClCompile Include="src\graphics\shaders\ShaderFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\embedded\Embedded.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\batchrenderer2d.h">
@@ -480,6 +483,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\shaders\ShaderFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\embedded\Embedded.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

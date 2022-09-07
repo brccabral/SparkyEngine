@@ -21,7 +21,8 @@ namespace sparky
 
 			maths::vec2 m_Scale;
 		public:
-			Font(std::string name, std::string filename, float size);
+			Font(const std::string &name, const std::string &filename, float size);
+			Font(const std::string &name, const byte *data, uint datasize, float size);
 
 			inline ftgl::texture_font_t *getFTGLFont() const { return m_FTFont; }
 
