@@ -73,21 +73,21 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform)\</OutDir>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libogg</IntDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\libogg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform)\</OutDir>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libogg</IntDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\libogg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libogg</IntDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\libogg\</IntDir>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\Intermediates\libogg</IntDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\libogg\</IntDir>
     <IncludePath>D:\CPP_Win\SparkyEngine\libogg\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -161,6 +161,12 @@ namespace sparky
 				glActiveTexture(GL_TEXTURE0 + i);
 				glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
 			}
+			if (m_Mask)
+			{
+				glActiveTexture(GL_TEXTURE31);
+				m_Mask->bind();
+			}
+
 			glBindVertexArray(m_VAO);
 			m_IBO->bind();
 
@@ -264,5 +270,6 @@ namespace sparky
 				}
 			}
 		};
+	
 	}
 }

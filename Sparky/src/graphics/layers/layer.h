@@ -20,10 +20,12 @@ namespace sparky
 			Layer(Renderer2D *renderer, Shader *shader, maths::mat4 projectionMatrix);
 
 			virtual ~Layer();
-			virtual void add(Renderable2D *renderable);
+			virtual Renderable2D *add(Renderable2D *renderable);
 			virtual void render();
 
 			inline const std::vector<Renderable2D *> &getRenderables() const { return m_Renderables; }
+
+			inline void setMask(const Texture *mask) const { m_Renderer->setMask(mask); };
 		};
 	}
 }

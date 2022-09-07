@@ -46,6 +46,8 @@ public:
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
+		layer->setMask(new Texture("Mask", "res/mask.png"));
+
 
 	#ifdef SPARKY_PLATFORM_WEB
 		// to play  sound on web startup, user need to interact with browser before this function is called

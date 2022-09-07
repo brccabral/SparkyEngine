@@ -84,6 +84,7 @@ namespace sparky
 				"    vec2 uv;\n"
 				"    float tid;\n"
 				"    vec4 color;\n"
+				"    vec2 mask_uv;\n"
 				"} vs_out;\n"
 				"\n"
 				"void main()\n"
@@ -93,6 +94,7 @@ namespace sparky
 				"    vs_out.uv = uv;\n"
 				"    vs_out.tid = tid;\n"
 				"    vs_out.color = color;\n"
+				"    vs_out.mask_uv = gl_Position.xy * 0.5 + 0.5;\n"
 				"}\n";
 
 			const char *default_shader_frag =
@@ -109,9 +111,11 @@ namespace sparky
 				"    vec2 uv;\n"
 				"    float tid;\n"
 				"    vec4 color;\n"
+				"    vec2 mask_uv;\n"
 				"} fs_in;\n"
 				"\n"
-				"uniform sampler2D textures[32];\n"
+				"uniform sampler2D textures[31];\n"
+				"uniform sampler2D mask_texture;\n"
 				"\n"
 				"void main()\n"
 				"{\n"
@@ -121,7 +125,8 @@ namespace sparky
 				"        int tid = int(fs_in.tid - 0.5);\n"
 				"        texColor = fs_in.color * texture(textures[tid], fs_in.uv);\n"
 				"    }\n"
-				"    color = texColor;\n"
+				"    vec4 maskColor = texture(mask_texture, fs_in.mask_uv);\n"
+				"    color = texColor * maskColor;\n"
 				"}\n";
 		#elif defined(SPARKY_PLATFORM_WEB)
 			const char *basic_light_shader_frag =
