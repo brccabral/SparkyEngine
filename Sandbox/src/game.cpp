@@ -36,6 +36,7 @@ public:
 		// the orthographic matrix makes the center of the window to be 0,0
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
 		layer = new Layer(new BatchRenderer2D(), shader, mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+		layer->add(new Sprite(-16.0f, -9.0f, 32, 18, 0xffff00ff)); // add a colored square to screen
 		layer->add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff)); // add a colored square to screen
 
 	#ifdef SPARKY_PLATFORM_WEB
@@ -47,6 +48,7 @@ public:
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
+		Texture::SetWrap(TextureWrap::CLAMP);
 		layer->setMask(new Texture("Mask", "res/mask.png"));
 
 		shader->enable();

@@ -24,6 +24,7 @@ namespace sparky
 			{
 				m_TransformationStack.push_back(maths::mat4::identity());
 				m_TransformationBack = &m_TransformationStack.back();
+				m_Mask = nullptr;
 			};
 
 		public:

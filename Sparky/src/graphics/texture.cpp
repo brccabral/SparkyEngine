@@ -4,6 +4,8 @@ namespace sparky
 {
 	namespace graphics
 	{
+		TextureWrap Texture::s_WrapMode = REPEAT;
+
 		Texture::Texture(const std::string &name, const std::string &filename)
 			: m_Name(name), m_FileName(filename)
 		{
@@ -24,6 +26,9 @@ namespace sparky
 			glBindTexture(GL_TEXTURE_2D, result);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			// do not repeat texture
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLint)s_WrapMode);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLint)s_WrapMode);
 
 			// Image needs to be 24 bits (RGB) or 32 bits (RGBA) - 8 bits per channel,  8*3 or 8*4
 			if (m_Bits != 24 && m_Bits != 32)
