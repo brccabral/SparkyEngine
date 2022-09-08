@@ -12,6 +12,8 @@ namespace sparky
 {
 	namespace graphics
 	{
+	#define RENDERER_VERTEX_SIZE sizeof(VertexData)
+
 		struct VertexData
 		{
 			maths::vec3 vertex;
