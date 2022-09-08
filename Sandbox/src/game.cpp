@@ -13,7 +13,7 @@ private:
 	Label *fps;
 	Sprite *sprite;
 	Shader *shader;
-	Mask *mask;
+	Mask *mask = nullptr;
 	std::string currentSound = "BomDia";
 public:
 	Game()
@@ -30,7 +30,8 @@ public:
 		window = createWindow("Test Game", 960, 540);
 		FontManager::get()->setScale(window->getWidth() / 32.0f, window->getHeight() / 18.0f);
 
-		shader = ShaderFactory::DefaultShader();
+		//shader = ShaderFactory::DefaultShader();
+		shader = ShaderFactory::BasicLightShader();
 
 		// the orthographic matrix makes the center of the window to be 0,0
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
@@ -48,11 +49,11 @@ public:
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
 
-		Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
-		mask = new Mask(new Texture("Mask", "res/mask2.png"));
-		layer->setMask(mask);
+		//Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
+		//mask = new Mask(new Texture("Mask", "res/mask2.png"));
+		//layer->setMask(mask);
 
-		shader->enable();
+		//shader->enable();
 		//shader->setUniform("mask_matrix", mat4::translation(vec3(200, 0, 0)));
 
 
@@ -98,18 +99,21 @@ public:
 			pos.x -= speed;
 		//SPARKY_WARN(pos.x, ", ", pos.y);
 
-		static vec3 scale((float)mask->texture->getWidth() / (float)mask->texture->getHeight(), 1.0f, 1.0f);
-		if (window->isKeyPressed(GLFW_KEY_W))
+		if (mask)
 		{
-			scale.y += speed;
-			scale.x += speed;
+			static vec3 scale((float)mask->texture->getWidth() / (float)mask->texture->getHeight(), 1.0f, 1.0f);
+			if (window->isKeyPressed(GLFW_KEY_W))
+			{
+				scale.y += speed;
+				scale.x += speed;
+			}
+			if (window->isKeyPressed(GLFW_KEY_S))
+			{
+				scale.y -= speed;
+				scale.x -= speed;
+			}
+			mask->transform = mat4::translation(pos) * mat4::scale(scale);
 		}
-		if (window->isKeyPressed(GLFW_KEY_S))
-		{
-			scale.y -= speed;
-			scale.x -= speed;
-		}
-		mask->transform = mat4::translation(pos) * mat4::scale(scale);
 
 		if (window->isKeyTyped(GLFW_KEY_P))
 			audio::SoundManager::get(currentSound)->play();
@@ -118,9 +122,9 @@ public:
 		if (window->isKeyTyped(GLFW_KEY_DOWN))
 			audio::SoundManager::get(currentSound)->setGain(audio::SoundManager::get(currentSound)->getGain() - 0.05f);
 
-		//maths::vec2 mouse = window->getMousePosition();
-		//shader->setUniform("light_pos", maths::vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
-			//(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
+		maths::vec2 mouse = window->getMousePosition();
+		shader->setUniform("light_pos", maths::vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
+			(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
 	}
 
 };
