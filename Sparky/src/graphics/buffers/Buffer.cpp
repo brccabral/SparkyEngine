@@ -17,12 +17,12 @@ namespace sparky
 			glDeleteBuffers(1, &m_BufferID);
 		}
 
-		void Buffer::bind() const
+		void Buffer::Bind() const
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);
 		}
 
-		void Buffer::unbind() const
+		void Buffer::Unbind() const
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		}

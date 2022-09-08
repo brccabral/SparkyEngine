@@ -3,6 +3,7 @@
 #include <string>
 #include <FreeImage.h>
 #include <FreeImage/Utilities.h>
+#include <utils/Log.h> // needs to be before GL, redefinition of APIENTRY
 #include <GLFW/glfw3.h>
 #include <sparky_types.h>
 

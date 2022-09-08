@@ -34,22 +34,22 @@ namespace sparky
 
 			GLuint m_ShaderID; // shader ID given by openGl
 
-			void enable() const;
-			void disable() const;
+			void Bind() const;
+			void Unbind() const;
 
-			void setUniform(const GLchar *name, const maths::mat4 &matrix);
-			void setUniform(const GLchar *name, int value);
-			void setUniform(const GLchar *name, int *value, int count);
-			void setUniform(const GLchar *name, float value);
-			void setUniform(const GLchar *name, float *value, int count);
-			void setUniform(const GLchar *name, const maths::vec2 &vector);
-			void setUniform(const GLchar *name, const maths::vec3 &vector);
-			void setUniform(const GLchar *name, const maths::vec4 &vector);
+			void SetUniform(const GLchar *name, const maths::mat4 &matrix);
+			void SetUniform(const GLchar *name, int value);
+			void SetUniform(const GLchar *name, int *value, int count);
+			void SetUniform(const GLchar *name, float value);
+			void SetUniform(const GLchar *name, float *value, int count);
+			void SetUniform(const GLchar *name, const maths::vec2 &vector);
+			void SetUniform(const GLchar *name, const maths::vec3 &vector);
+			void SetUniform(const GLchar *name, const maths::vec4 &vector);
 
 		private:
-			GLuint load(const char *vertSource, const char *fragSource);
+			GLuint Load(const char *vertSource, const char *fragSource);
 
-			GLint getUniformLocation(const GLchar *name);
+			GLint GetUniformLocation(const GLchar *name);
 		public:
 			static Shader *FromFile(const char *vertPath, const char *fragPath);
 			static Shader *FromSource(const char *vertSrc, const char *fragSrc);

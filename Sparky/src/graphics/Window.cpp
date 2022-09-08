@@ -14,16 +14,16 @@ namespace sparky
 			m_Title = title;
 			m_Width = width;
 			m_Height = height;
-			if (!init())
+			if (!Init())
 				glfwTerminate();
 
 		#ifdef SPARKY_PLATFORM_WEB
 			FontManager::add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
 			FreeImage_Initialise();
 		#else
-			FontManager::add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
+			FontManager::Add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
 		#endif
-			audio::SoundManager::init();
+			audio::SoundManager::Init();
 
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
@@ -42,13 +42,13 @@ namespace sparky
 
 		Window::~Window()
 		{
-			FontManager::clean();
-			TextureManager::clean();
-			audio::SoundManager::clean();
+			FontManager::Clean();
+			TextureManager::Clean();
+			audio::SoundManager::Clean();
 			glfwTerminate();
 		}
 
-		bool Window::init()
+		bool Window::Init()
 		{
 			if (!glfwInit())
 			{
@@ -92,12 +92,12 @@ namespace sparky
 			return true;
 		}
 
-		bool Window::closed() const
+		bool Window::Closed() const
 		{
 			return glfwWindowShouldClose(m_Window) == 1;
 		}
 
-		void Window::updateInput()
+		void Window::UpdateInput()
 		{
 			for (int i = 0; i < MAX_KEYS; i++)
 				m_KeyTyped[i] = m_Keys[i] && !m_KeyState[i];
@@ -110,7 +110,7 @@ namespace sparky
 			memcpy(m_MouseState, m_MouseButtons, MAX_BUTTONS);
 		}
 
-		void Window::update()
+		void Window::Update()
 		{
 			GLenum error = glGetError();
 			if (error != GL_NO_ERROR)
@@ -119,16 +119,16 @@ namespace sparky
 			glfwPollEvents();
 			glfwSwapBuffers(m_Window);
 
-			updateInput();
-			audio::SoundManager::update();
+			UpdateInput();
+			audio::SoundManager::Update();
 		}
 
-		void Window::clear() const
+		void Window::Clear() const
 		{
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
-		bool Window::isKeyPressed(uint keycode) const
+		bool Window::IsKeyPressed(uint keycode) const
 		{
 			if (keycode >= MAX_KEYS)
 				return false;
@@ -136,7 +136,7 @@ namespace sparky
 			return m_Keys[keycode];
 		}
 
-		bool Window::isKeyTyped(uint keycode) const
+		bool Window::IsKeyTyped(uint keycode) const
 		{
 			if (keycode >= MAX_KEYS)
 				return false;
@@ -144,7 +144,7 @@ namespace sparky
 			return m_KeyTyped[keycode];
 		}
 
-		bool Window::isMouseClicked(uint button) const
+		bool Window::IsMouseClicked(uint button) const
 		{
 			if (button >= MAX_BUTTONS)
 				return false;
@@ -152,7 +152,7 @@ namespace sparky
 			return m_MouseClicked[button];
 		}
 
-		bool Window::isMousePressed(uint button) const
+		bool Window::IsMousePressed(uint button) const
 		{
 			if (button >= MAX_BUTTONS)
 				return false;
@@ -160,7 +160,7 @@ namespace sparky
 			return m_MouseButtons[button];
 		}
 
-		const maths::vec2 &Window::getMousePosition() const
+		const maths::vec2 &Window::GetMousePosition() const
 		{
 			return m_MousePosition;
 		}

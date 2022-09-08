@@ -30,7 +30,7 @@ namespace sparky
 		#endif
 		}
 
-		void Sound::play()
+		void Sound::Play()
 		{
 		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp play " << m_Filename << std::endl;
@@ -43,10 +43,10 @@ namespace sparky
 			m_Count++;
 		#endif
 			m_Playing = true;
-			setGain(m_Gain);
+			SetGain(m_Gain);
 		}
 
-		void Sound::loop()
+		void Sound::Loop()
 		{
 		#ifdef SPARKY_PLATFORM_WEB
 			//std::cout << "cpp loop " << m_Filename << std::endl;
@@ -58,10 +58,10 @@ namespace sparky
 			ga_handle_play(m_Handle);
 		#endif
 			m_Playing = true;
-			setGain(m_Gain);
+			SetGain(m_Gain);
 		}
 
-		void Sound::pause()
+		void Sound::Pause()
 		{
 			if (!m_Playing)
 				return;
@@ -75,7 +75,7 @@ namespace sparky
 		#endif
 		}
 
-		void Sound::stop()
+		void Sound::Stop()
 		{
 			if (!m_Playing)
 				return;
@@ -89,7 +89,7 @@ namespace sparky
 			m_Playing = false;
 		}
 
-		void Sound::setGain(float gain)
+		void Sound::SetGain(float gain)
 		{
 			if (gain > 1.0f)
 				gain = 1.0f;
@@ -112,26 +112,7 @@ namespace sparky
 		#endif
 		}
 
-		float Sound::getGain()
-		{
-			float gain = m_Gain;
-		#ifdef SPARKY_PLATFORM_WEB
-		#else
-			if (m_Playing)
-				ga_handle_getParamf(m_Handle, GA_HANDLE_PARAM_GAIN, &gain);
-		#endif
-			if (gain > 1.0f)
-				gain = 1.0f;
-
-			if (gain < 0.0f)
-				gain = 0.0f;
-
-			m_Gain = gain;
-
-			return m_Gain;
-		}
-
-		void Sound::resume()
+		void Sound::Resume()
 		{
 			if (m_Playing)
 				return;
@@ -143,7 +124,7 @@ namespace sparky
 		#else
 			ga_handle_play(m_Handle);
 		#endif
-			setGain(m_Gain);
+			SetGain(m_Gain);
 		}
 
 	#ifdef SPARKY_PLATFORM_WEB
@@ -153,14 +134,14 @@ namespace sparky
 			Sound *sound = (Sound *)in_handle->sound;
 			sound->m_Count--;
 			if (sound->m_Count == 0)
-				sound->stop();
+				sound->Stop();
 		}
 
 		void loop_on_finish(ga_Handle *in_handle, void *in_context)
 		{
 			ga_handle_destroy(in_handle);
 			Sound *sound = (Sound *)in_handle->sound;
-			sound->loop();
+			sound->Loop();
 		}
 	#endif
 

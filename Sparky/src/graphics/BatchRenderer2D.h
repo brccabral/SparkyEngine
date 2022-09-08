@@ -57,12 +57,12 @@ namespace sparky
 			BatchRenderer2D(const maths::tvec2<uint> &screenSize);
 			~BatchRenderer2D();
 
-			void begin() override;
-			void submit(const Renderable2D *renderable) override;
-			void end() override;
-			void flush() override;
+			void Begin() override;
+			void Submit(const Renderable2D *renderable) override;
+			void End() override;
+			void Flush() override;
 
-			void drawString(const std::string &text, maths::vec3 position, const Font &font, uint color) override;
+			void DrawString(const std::string &text, maths::vec3 position, const Font &font, uint color) override;
 
 			inline void SetScreenSize(const maths::tvec2<uint> &size) { m_ScreenSize = size; }
 			inline const maths::tvec2<uint> &GetScreenSize() const { return m_ScreenSize; }
@@ -73,10 +73,10 @@ namespace sparky
 			inline const RenderTarget GetRenderTarget() const { return m_Target; }
 
 		private:
-			void init();
+			void Init();
 
-			float submitTexture(const Texture *texture);
-			float submitTexture(uint textureID);
+			float SubmitTexture(const Texture *texture);
+			float SubmitTexture(uint textureID);
 		};
 	}
 }

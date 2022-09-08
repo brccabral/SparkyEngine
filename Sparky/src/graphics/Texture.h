@@ -31,17 +31,17 @@ namespace sparky
 			Texture(const std::string &name, const std::string &filename);
 			Texture(uint width, uint height);
 			~Texture();
-			void bind() const;
-			void unbind() const;
+			void Bind() const;
+			void Unbind() const;
 
-			inline const uint getWidth() const { return m_Width; };
-			inline const uint getHeight() const { return m_Height; };
-			inline const uint getID() const { return m_TID; };
-			inline const std::string &getName() const { return m_Name; };
+			inline const uint GetWidth() const { return m_Width; };
+			inline const uint GetHeight() const { return m_Height; };
+			inline const uint GetID() const { return m_TID; };
+			inline const std::string &GetName() const { return m_Name; };
 
 			inline static void SetWrap(TextureWrap mode) { s_WrapMode = mode; };
 		private:
-			GLuint load();
+			GLuint Load();
 		};
 	}
 }

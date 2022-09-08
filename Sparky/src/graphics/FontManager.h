@@ -15,11 +15,11 @@ namespace sparky
 			FontManager() {};
 
 		public:
-			static void add(Font *font);
-			static Font *get();
-			static Font *get(const std::string &name);
-			static Font *get(const std::string &name, float size);
-			static void clean();
+			static void Add(Font *font);
+			static Font *Get();
+			static Font *Get(const std::string &name);
+			static Font *Get(const std::string &name, float size);
+			static void Clean();
 		};
 	}
 }

@@ -17,9 +17,9 @@ namespace sparky
 	public:
 		Timer();
 
-		void reset();
+		void Reset();
 
-		float elapsed();
+		float Elapsed();
 
 	};
 }
@@ -50,8 +50,8 @@ namespace sparky
 
 	public:
 		Timer();
-		void reset();
-		float elapsed();
+		void Reset();
+		float Elapsed();
 	};
 } // namespace sparky
 

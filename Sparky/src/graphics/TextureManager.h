@@ -14,9 +14,9 @@ namespace sparky
 		private:
 			static std::vector<Texture *> m_Textures;
 		public:
-			static void add(Texture *texture);
-			static Texture *get(const std::string &name);
-			static void clean();
+			static void Add(Texture *texture);
+			static Texture *Get(const std::string &name);
+			static void Clean();
 		private:
 			TextureManager() {}
 		};

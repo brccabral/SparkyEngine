@@ -20,9 +20,9 @@ namespace sparky
 			Label(std::string text, float x, float y, Font *font, uint color);
 			Label(std::string text, float x, float y, const std::string &fontname, uint color);
 			Label(std::string text, float x, float y, const std::string &fontname, float size, uint color);
-			void submit(Renderer2D *renderer) const override;
+			void Submit(Renderer2D *renderer) const override;
 
-			void validatefont(const std::string &name, float size = -1.0f);
+			void Validatefont(const std::string &name, float size = -1.0f);
 		};
 	}
 }

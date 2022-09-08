@@ -20,19 +20,19 @@ namespace sparky
 			mat4(float diagonal);
 
 			// creators
-			mat4 &invert();
-			static mat4 identity();
-			static mat4 orthographic(float left, float right, float bottom, float top, float near, float far); // clipping planes
-			static mat4 perspective(float fov, float aspectRatio, float near, float far);                      // projection
+			mat4 &Invert();
+			static mat4 Identity();
+			static mat4 Orthographic(float left, float right, float bottom, float top, float near, float far); // clipping planes
+			static mat4 Perspective(float fov, float aspectRatio, float near, float far);                      // projection
 
 			// operations
-			static mat4 translation(const vec3 &translation);
-			static mat4 scale(const vec3 &scale);
-			static mat4 rotation(float angle, const vec3 &axis);
-			static mat4 invert(const mat4 &matrix);
+			static mat4 Translate(const vec3 &translation);
+			static mat4 Scale(const vec3 &scale);
+			static mat4 Rotate(float angle, const vec3 &axis);
+			static mat4 Invert(const mat4 &matrix);
 
 			// operators
-			mat4 &multiply(const mat4 &other);
+			mat4 &Multiply(const mat4 &other);
 			friend mat4 operator*(const mat4 &left, const mat4 &right);
 			friend vec3 operator*(const mat4 &left, const vec3 &right);
 			friend vec4 operator*(const mat4 &left, const vec4 &right);

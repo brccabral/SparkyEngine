@@ -6,37 +6,37 @@ namespace sparky
 	{
 		std::vector<Font *> FontManager::m_Fonts;
 
-		void FontManager::add(Font *font)
+		void FontManager::Add(Font *font)
 		{
 			m_Fonts.push_back(font);
 		}
 
-		Font *FontManager::get(const std::string &name)
+		Font *FontManager::Get(const std::string &name)
 		{
 			for (Font *font : m_Fonts)
 			{
-				if (font->getName() == name)
+				if (font->GetName() == name)
 					return font;
 			}
 			return nullptr;
 		}
 
-		Font *FontManager::get()
+		Font *FontManager::Get()
 		{
 			return m_Fonts[0];
 		}
 
-		Font *FontManager::get(const std::string &name, float size)
+		Font *FontManager::Get(const std::string &name, float size)
 		{
 			for (Font *font : m_Fonts)
 			{
-				if (font->getSize() == size && font->getName() == name)
+				if (font->GetSize() == size && font->GetName() == name)
 					return font;
 			}
 			return nullptr;
 		}
 
-		void FontManager::clean()
+		void FontManager::Clean()
 		{
 			for (uint i = 0; i < m_Fonts.size(); i++)
 				delete m_Fonts[i];

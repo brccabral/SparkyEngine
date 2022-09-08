@@ -18,10 +18,10 @@ namespace sparky
 			vec3(int x, int y, int z);
 			vec3(const vec2 &other);
 
-			vec3 &add(const vec3 &other);
-			vec3 &subtract(const vec3 &other);
-			vec3 &multiply(const vec3 &other);
-			vec3 &divide(const vec3 &other);
+			vec3 &Add(const vec3 &other);
+			vec3 &Subtract(const vec3 &other);
+			vec3 &Multiply(const vec3 &other);
+			vec3 &Divide(const vec3 &other);
 
 			friend std::ostream &operator<<(std::ostream &stream, const vec3 &vector);
 
@@ -38,7 +38,7 @@ namespace sparky
 			bool operator==(const vec3 &other);
 			bool operator!=(const vec3 &other);
 
-			float distance(const vec3 &other) const;
+			float Distance(const vec3 &other) const;
 		};
 
 	} // namespace maths

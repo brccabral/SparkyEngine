@@ -18,7 +18,7 @@ namespace sparky
 			maths::vec3 &position;
 			maths::vec2 &size;
 
-			void setUV(const std::vector<maths::vec2> &uv);
+			void SetUV(const std::vector<maths::vec2> &uv);
 		};
 
 	}

@@ -12,27 +12,27 @@ namespace sparky
 
 		std::vector<Sound *> SoundManager::m_Sounds;
 
-		Sound *SoundManager::add(Sound *sound)
+		Sound *SoundManager::Add(Sound *sound)
 		{
 			m_Sounds.push_back(sound);
 		#ifdef SPARKY_PLATFORM_WEB
-			//std::cout << "cpp add name " << sound->getName() << " filename " << sound->getFilename() << std::endl;
-			SoundManagerAdd(sound->getName().c_str(), sound->getFilename().c_str());
+			//std::cout << "cpp add name " << sound->GetName() << " filename " << sound->GetFilename() << std::endl;
+			SoundManagerAdd(sound->GetName().c_str(), sound->GetFilename().c_str());
 		#endif
 			return sound;
 		}
 
-		Sound *SoundManager::get(const std::string &name)
+		Sound *SoundManager::Get(const std::string &name)
 		{
 			for (Sound *sound : m_Sounds)
 			{
-				if (sound->getName() == name)
+				if (sound->GetName() == name)
 					return sound;
 			}
 			return nullptr;
 		}
 
-		void SoundManager::update()
+		void SoundManager::Update()
 		{
 		#ifdef SPARKY_PLATFORM_WEB
 		#else
@@ -40,7 +40,7 @@ namespace sparky
 		#endif
 		}
 
-		void SoundManager::clean()
+		void SoundManager::Clean()
 		{
 			for (uint i = 0; i < m_Sounds.size(); i++)
 				delete m_Sounds[i];
@@ -52,7 +52,7 @@ namespace sparky
 		#endif
 		}
 
-		void SoundManager::init()
+		void SoundManager::Init()
 		{
 		#ifdef SPARKY_PLATFORM_WEB
 			EM_ASM({

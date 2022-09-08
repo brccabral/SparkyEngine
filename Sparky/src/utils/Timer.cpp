@@ -6,15 +6,15 @@ namespace sparky
 {
 	Timer::Timer()
 	{
-		reset();
+		Reset();
 	}
 
-	void Timer::reset()
+	void Timer::Reset()
 	{
 		m_Start = HighResolutionClock::now();
 	}
 
-	float Timer::elapsed()
+	float Timer::Elapsed()
 	{
 		return std::chrono::duration_cast<milliseconds_type>(HighResolutionClock::now() - m_Start).count() / 1000.0f;
 	}
@@ -39,7 +39,7 @@ namespace sparky
 	#endif
 	};
 
-	void Timer::reset()
+	void Timer::Reset()
 	{
 	#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 		QueryPerformanceCounter(&m_Start);
@@ -47,7 +47,7 @@ namespace sparky
 		clock_gettime(CLOCK_MONOTONIC, &m_Start);
 	#endif
 	};
-	float Timer::elapsed()
+	float Timer::Elapsed()
 	{
 
 	#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)

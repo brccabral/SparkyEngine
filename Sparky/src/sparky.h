@@ -7,10 +7,10 @@
 #include "graphics/Label.h"
 #include "graphics/Sprite.h"
 #include "graphics/BatchRenderer2D.h"
-#include "graphics/Window.h"
 #include "graphics/layers/Layer.h"
 #include "graphics/layers/Group.h"
 #include "graphics/TextureManager.h"
+#include "graphics/Window.h"
 
 #include "graphics/shaders/ShaderFactory.h"
 
@@ -18,7 +18,7 @@
 #include "audio/SoundManager.h"
 
 #include "maths/maths.h"
-
+#include <utils/Log.h>
 #include "utils/Timer.h"
 
 #ifdef SPARKY_PLATFORM_WEB
@@ -39,10 +39,10 @@ namespace sparky
 		uint m_FramesPerSecond, m_UpdatesPerSecond;
 
 	public:
-		void start()
+		void Start()
 		{
-			init();
-			run();
+			Init();
+			Run();
 		}
 
 	protected:
@@ -65,19 +65,19 @@ namespace sparky
 		}
 
 		// Runs once upon initialization
-		virtual void init() = 0;
+		virtual void Init() = 0;
 		// Runs once per second
-		virtual void tick() {};
+		virtual void Tick() {};
 		// Runs 60 times per second
-		virtual void update() {};
+		virtual void Update() {};
 		// Runs as fast as possible (unless vsync is enabled)
-		virtual void render() = 0;
+		virtual void Render() = 0;
 
-		const uint getFPS() const { return m_FramesPerSecond; };
-		const uint getUPS() const { return m_UpdatesPerSecond; };
+		const uint GetFPS() const { return m_FramesPerSecond; };
+		const uint GetUPS() const { return m_UpdatesPerSecond; };
 
 	private:
-		void run()
+		void Run()
 		{
 			m_Timer = new Timer();
 			float timer = 0.0f;
@@ -90,22 +90,22 @@ namespace sparky
 			std::function<void()> mainLoop = [&]()
 			{
 			#else
-			while (!m_Window->closed())
+			while (!m_Window->Closed())
 			{
 			#endif
-				m_Window->clear();
-				if (m_Timer->elapsed() - updateTimer > updateTick)
+				m_Window->Clear();
+				if (m_Timer->Elapsed() - updateTimer > updateTick)
 				{
-					update();
+					Update();
 					updates++;
 					updateTimer += updateTick;
 				}
 
-				render();
-				m_Window->update();
+				Render();
+				m_Window->Update();
 
 				frames++;
-				if (m_Timer->elapsed() - timer > 1.0f)
+				if (m_Timer->Elapsed() - timer > 1.0f)
 				{
 					m_FramesPerSecond = frames;
 					m_UpdatesPerSecond = updates;
@@ -115,7 +115,7 @@ namespace sparky
 					frames = 0;
 					updates = 0;
 
-					tick();
+					Tick();
 				}
 			#ifdef SPARKY_PLATFORM_WEB
 			};

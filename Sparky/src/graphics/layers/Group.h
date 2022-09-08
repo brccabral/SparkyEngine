@@ -19,8 +19,8 @@ namespace sparky
 			Group(const maths::mat4 &transform);
 			~Group();
 
-			void add(Renderable2D *renderable);
-			void submit(Renderer2D *renderer) const override;
+			void Add(Renderable2D *renderable);
+			void Submit(Renderer2D *renderer) const override;
 		};
 	}
 }

@@ -32,11 +32,11 @@ namespace sparky
 			static ga_Mixer *m_Mixer;
 		#endif
 		public:
-			static void init();
-			static Sound *add(Sound *sound);
-			static Sound *get(const std::string &name);
-			static void update();
-			static void clean();
+			static void Init();
+			static Sound *Add(Sound *sound);
+			static Sound *Get(const std::string &name);
+			static void Update();
+			static void Clean();
 		};
 	}
 }

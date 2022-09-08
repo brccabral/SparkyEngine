@@ -21,12 +21,12 @@ namespace sparky
 			Renderer2D *renderer;
 
 			virtual ~Layer();
-			virtual Renderable2D *add(Renderable2D *renderable);
-			virtual void render();
+			virtual Renderable2D *Add(Renderable2D *renderable);
+			virtual void Render();
 
-			inline const std::vector<Renderable2D *> &getRenderables() const { return m_Renderables; }
+			inline const std::vector<Renderable2D *> &GetRenderables() const { return m_Renderables; }
 
-			inline void setMask(const Mask *mask) const { renderer->setMask(mask); };
+			inline void SetMask(const Mask *mask) const { renderer->SetMask(mask); };
 		};
 	}
 }

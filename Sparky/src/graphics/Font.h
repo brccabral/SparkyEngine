@@ -24,15 +24,15 @@ namespace sparky
 			Font(const std::string &name, const std::string &filename, float size);
 			Font(const std::string &name, const byte *data, uint datasize, float size);
 
-			inline ftgl::texture_font_t *getFTGLFont() const { return m_FTFont; }
+			inline ftgl::texture_font_t *GetFTGLFont() const { return m_FTFont; }
 
-			inline const uint getID() const { return m_FTAtlas->id; }
-			inline const std::string &getName() const { return m_Name; }
-			inline const std::string &getFilename() const { return m_Filename; }
-			inline const float &getSize() const { return m_Size; }
+			inline const uint GetID() const { return m_FTAtlas->id; }
+			inline const std::string &GetName() const { return m_Name; }
+			inline const std::string &GetFilename() const { return m_Filename; }
+			inline const float &GetSize() const { return m_Size; }
 
-			void setScale(float x, float y);
-			inline const maths::vec2 &getScale() const { return m_Scale; }
+			void SetScale(float x, float y);
+			inline const maths::vec2 &GetScale() const { return m_Scale; }
 		};
 	}
 }

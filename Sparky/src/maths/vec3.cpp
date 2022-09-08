@@ -33,7 +33,7 @@ namespace sparky
 			this->z = 0.0f;
 		}
 
-		vec3 &vec3::add(const vec3 &other)
+		vec3 &vec3::Add(const vec3 &other)
 		{
 			x += other.x;
 			y += other.y;
@@ -41,7 +41,7 @@ namespace sparky
 			return *this;
 		}
 
-		vec3 &vec3::subtract(const vec3 &other)
+		vec3 &vec3::Subtract(const vec3 &other)
 		{
 			x -= other.x;
 			y -= other.y;
@@ -49,7 +49,7 @@ namespace sparky
 			return *this;
 		}
 
-		vec3 &vec3::multiply(const vec3 &other)
+		vec3 &vec3::Multiply(const vec3 &other)
 		{
 			x *= other.x;
 			y *= other.y;
@@ -57,7 +57,7 @@ namespace sparky
 			return *this;
 		}
 
-		vec3 &vec3::divide(const vec3 &other)
+		vec3 &vec3::Divide(const vec3 &other)
 		{
 			x /= other.x;
 			y /= other.y;
@@ -94,22 +94,22 @@ namespace sparky
 
 		vec3 &vec3::operator+=(const vec3 &other)
 		{
-			return add(other);
+			return Add(other);
 		}
 
 		vec3 &vec3::operator-=(const vec3 &other)
 		{
-			return subtract(other);
+			return Subtract(other);
 		}
 
 		vec3 &vec3::operator*=(const vec3 &other)
 		{
-			return multiply(other);
+			return Multiply(other);
 		}
 
 		vec3 &vec3::operator/=(const vec3 &other)
 		{
-			return divide(other);
+			return Divide(other);
 		}
 
 		bool vec3::operator==(const vec3 &other)
@@ -122,7 +122,7 @@ namespace sparky
 			return x != other.x || y != other.y || z != other.z;
 		}
 
-		float vec3::distance(const vec3 &other) const
+		float vec3::Distance(const vec3 &other) const
 		{
 			float a = x - other.x;
 			float b = y - other.y;

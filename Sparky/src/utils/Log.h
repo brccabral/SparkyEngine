@@ -54,7 +54,7 @@ namespace sparky
 		template <typename T>
 		static const char *to_string_internal(const T &v, const std::true_type &ignored)
 		{
-			sprintf(to_string_buffer, "Container of size: %d, contents: %s", v.size(), format_iterators(v.begin(), v.end()).c_str());
+			sprintf(to_string_buffer, "Container of size: %d, contents: %s", v.size(), format_iterators(v.Begin(), v.End()).c_str());
 			return to_string_buffer;
 		}
 
@@ -109,17 +109,17 @@ namespace sparky
 		}
 
 		template <typename T>
-		static std::string format_iterators(T &begin, T &end)
+		static std::string format_iterators(T &Begin, T &End)
 		{
 			std::string result;
 			bool first = true;
-			while (begin != end)
+			while (Begin != End)
 			{
 				if (!first)
 					result += ", ";
-				result += to_string(*begin);
+				result += to_string(*Begin);
 				first = false;
-				begin++;
+				Begin++;
 			}
 			return result;
 		}

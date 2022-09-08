@@ -35,19 +35,18 @@ namespace sparky
 			Sound(const std::string &name, const std::string &filename);
 			~Sound();
 
-			void play();
-			void loop();
-			void pause();
-			void resume();
-			void stop();
+			void Play();
+			void Loop();
+			void Pause();
+			void Resume();
+			void Stop();
 
-			void setGain(float gain);
-			float getGain();
+			void SetGain(float gain);
 
-			inline const bool isPlaying() const { return m_Playing; }
-			inline const float getGain() const { return m_Gain; }
-			inline const std::string &getName() const { return m_Name; }
-			inline const std::string &getFilename() const { return m_Filename; }
+			inline const bool IsPlaying() const { return m_Playing; }
+			inline const float GetGain() const { return m_Gain; }
+			inline const std::string &GetName() const { return m_Name; }
+			inline const std::string &GetFilename() const { return m_Filename; }
 
 		#ifdef SPARKY_PLATFORM_WEB
 		#else

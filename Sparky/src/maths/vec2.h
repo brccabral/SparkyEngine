@@ -16,10 +16,10 @@ namespace sparky
 			vec2(uint x, uint y);
 			vec2(const vec3 &vector);
 
-			vec2 &add(const vec2 &other);
-			vec2 &subtract(const vec2 &other);
-			vec2 &multiply(const vec2 &other);
-			vec2 &divide(const vec2 &other);
+			vec2 &Add(const vec2 &other);
+			vec2 &Subtract(const vec2 &other);
+			vec2 &Multiply(const vec2 &other);
+			vec2 &Divide(const vec2 &other);
 
 			friend std::ostream &operator<<(std::ostream &stream, const vec2 &vector);
 
@@ -38,10 +38,10 @@ namespace sparky
 			bool operator==(const vec2 &other);
 			bool operator!=(const vec2 &other);
 
-			float magnitude() const;
-			vec2 normalise() const;
-			float distance(const vec2 &other) const;
-			float dot(const vec2 &other) const;
+			float Magnitude() const;
+			vec2 Normalise() const;
+			float Distance(const vec2 &other) const;
+			float Dot(const vec2 &other) const;
 		};
 
 	} // namespace maths

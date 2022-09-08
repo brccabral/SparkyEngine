@@ -26,75 +26,75 @@ public:
 		delete layer;
 	}
 
-	void init() override
+	void Init() override
 	{
 		window = createWindow("Test Game", 1280, 720);
-		FontManager::get()->setScale(window->getWidth() / 32.0f, window->getHeight() / 18.0f);
+		FontManager::Get()->SetScale(window->GetWidth() / 32.0f, window->GetHeight() / 18.0f);
 
 		shader = ShaderFactory::DefaultShader();
 		//shader = ShaderFactory::BasicLightShader();
 
 		// the orthographic matrix makes the center of the window to be 0,0
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
-		layer = new Layer(new BatchRenderer2D(tvec2<uint>(1280, 720)), shader, mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
-		layer->add(new Sprite(-16.0f, -9.0f, 32, 18, 0xffff00ff)); // add a colored square to screen
-		layer->add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff)); // add a colored square to screen
+		layer = new Layer(new BatchRenderer2D(tvec2<uint>(1280, 720)), shader, mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+		layer->Add(new Sprite(-16.0f, -9.0f, 32, 18, 0xffff00ff)); // add a colored square to screen
+		layer->Add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff)); // add a colored square to screen
 
 	#ifdef SPARKY_PLATFORM_WEB
 		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("Tex", "res/test.png"));
 	#else
 		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("Tex", "res/test.png"));
 	#endif
-		layer->add(sprite); // add a image to screen
+		layer->Add(sprite); // add a image to screen
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
-		layer->add(fps); // add a Label object
+		layer->Add(fps); // add a Label object
 
 		debugInfo = new Label("", -15.5f, 6.8f, 0xffffffff);
-		layer->add(debugInfo);
+		layer->Add(debugInfo);
 
 		//Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
 		//mask = new Mask(new Texture("Mask", "res/mask2.png"));
-		//layer->setMask(mask);
+		//layer->SetMask(mask);
 
-		//shader->enable();
-		//shader->setUniform("mask_matrix", mat4::translation(vec3(200, 0, 0)));
+		//shader->Bind();
+		//shader->SetUniform("mask_matrix", mat4::translation(vec3(200, 0, 0)));
 
 
 	#ifdef SPARKY_PLATFORM_WEB
 		// to play  sound on web startup, user need to interact with browser before this function is called
-		audio::SoundManager::add(new audio::Sound(currentSound, "res/BomDia.ogg"))->play();
+		audio::SoundManager::Add(new audio::Sound(currentSound, "res/BomDia.ogg"))->Play();
 	#else
-		audio::SoundManager::add(new audio::Sound(currentSound, "res/BomDia.ogg"))->play();
+		audio::SoundManager::Add(new audio::Sound(currentSound, "res/BomDia.ogg"))->Play();
 	#endif
 	}
 
-	void tick() override
+	void Tick() override
 	{
-		fps->text = std::to_string(getFPS()) + " fps";
-		//SPARKY_INFO(getUPS(), " ups, ", getFPS(), " fps");
+		fps->text = std::to_string(GetFPS()) + " fps";
+		//SPARKY_INFO(GetUPS(), " ups, ", GetFPS(), " fps");
 	}
 
-	void render() override
+	void Render() override
 	{
-		layer->render();
+		layer->Render();
 	}
 
-	void update() override
+	void Update() override
 	{
-		if (window->isKeyPressed(GLFW_KEY_1))
+		if (window->IsKeyPressed(GLFW_KEY_1))
 			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::SCREEN);
-		if (window->isKeyPressed(GLFW_KEY_2))
+		if (window->IsKeyPressed(GLFW_KEY_2))
 			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::BUFFER);
 
 		maths::tvec2<uint> size = ((BatchRenderer2D *)layer->renderer)->GetViewportSize();
 
-		if (window->isKeyPressed(GLFW_KEY_UP))
+		if (window->IsKeyPressed(GLFW_KEY_UP))
 		{
 			size.x++;
 			size.y++;
 		}
-		else if (window->isKeyPressed(GLFW_KEY_DOWN))
+		else if (window->IsKeyPressed(GLFW_KEY_DOWN))
 		{
 			size.x--;
 			size.y--;
@@ -104,13 +104,13 @@ public:
 
 		/*
 		float speed = 0.5f;
-		if (window->isKeyTyped(GLFW_KEY_UP))
+		if (window->IsKeyTyped(GLFW_KEY_UP))
 			sprite->position.y += speed;
-		if (window->isKeyTyped(GLFW_KEY_DOWN))
+		if (window->IsKeyTyped(GLFW_KEY_DOWN))
 			sprite->position.y -= speed;
-		if (window->isKeyTyped(GLFW_KEY_RIGHT))
+		if (window->IsKeyTyped(GLFW_KEY_RIGHT))
 			sprite->position.x += speed;
-		if (window->isKeyTyped(GLFW_KEY_LEFT))
+		if (window->IsKeyTyped(GLFW_KEY_LEFT))
 			sprite->position.x -= speed;
 
 		static vec3 pos;
@@ -137,17 +137,17 @@ public:
 				scale.y -= speed;
 				scale.x -= speed;
 			}
-			mask->transform = mat4::translation(pos) * mat4::scale(scale);
+			mask->transform = mat4::translation(pos) * mat4::Scale(scale);
 		}
 
-		if (window->isKeyTyped(GLFW_KEY_P))
-			audio::SoundManager::get(currentSound)->play();
-		if (window->isKeyTyped(GLFW_KEY_UP))
-			audio::SoundManager::get(currentSound)->setGain(audio::SoundManager::get(currentSound)->getGain() + 0.05f);
-		if (window->isKeyTyped(GLFW_KEY_DOWN))
-			audio::SoundManager::get(currentSound)->setGain(audio::SoundManager::get(currentSound)->getGain() - 0.05f);
+		if (window->IsKeyTyped(GLFW_KEY_P))
+			audio::SoundManager::get(currentSound)->Play();
+		if (window->IsKeyTyped(GLFW_KEY_UP))
+			audio::SoundManager::get(currentSound)->SetGain(audio::SoundManager::get(currentSound)->GetGain() + 0.05f);
+		if (window->IsKeyTyped(GLFW_KEY_DOWN))
+			audio::SoundManager::get(currentSound)->SetGain(audio::SoundManager::get(currentSound)->GetGain() - 0.05f);
 
-		maths::vec2 mouse = window->getMousePosition();
+		maths::vec2 mouse = window->GetMousePosition();
 		shader->setUniform("light_pos", maths::vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
 			(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
 		*/
@@ -158,7 +158,7 @@ public:
 int main()
 {
 	Game game;
-	game.start();
+	game.Start();
 	return 0;
 }
 #endif

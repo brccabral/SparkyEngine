@@ -1,6 +1,7 @@
 #pragma once
 
 #include <sparkygl.h>
+#include <sparky_types.h>
 
 namespace sparky
 {
@@ -13,14 +14,14 @@ namespace sparky
 			GLsizei m_Count;
 
 		public:
-			IndexBuffer(GLushort *data, GLsizei count);
-			IndexBuffer(GLuint *data, GLsizei count);
+			IndexBuffer(short *data, uint count);
+			IndexBuffer(uint *data, uint count);
 			~IndexBuffer();
 
-			void bind() const;
-			void unbind() const;
+			void Bind() const;
+			void Unbind() const;
 
-			inline GLsizei getCount() const { return m_Count; };
+			inline GLsizei GetCount() const { return m_Count; };
 		};
 	}
 }

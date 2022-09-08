@@ -34,21 +34,21 @@ namespace sparky
 		public:
 			Window(const char *title, int width, int height);
 			~Window();
-			void update();
-			void clear() const;
-			bool closed() const;
-			void updateInput();
+			void Update();
+			void Clear() const;
+			bool Closed() const;
+			void UpdateInput();
 
-			inline int getWidth() const { return m_Width; };
-			inline int getHeight() const { return m_Height; };
+			inline int GetWidth() const { return m_Width; };
+			inline int GetHeight() const { return m_Height; };
 
-			bool isKeyPressed(uint keycode) const;
-			bool isKeyTyped(uint keycode) const;
-			bool isMousePressed(uint keycode) const;
-			bool isMouseClicked(uint keycode) const;
-			const maths::vec2 &getMousePosition() const;
+			bool IsKeyPressed(uint keycode) const;
+			bool IsKeyTyped(uint keycode) const;
+			bool IsMousePressed(uint keycode) const;
+			bool IsMouseClicked(uint keycode) const;
+			const maths::vec2 &GetMousePosition() const;
 		private:
-			bool init();
+			bool Init();
 
 			// callback from GLFW to resize window
 			friend void window_resize(GLFWwindow *window, int width, int height);

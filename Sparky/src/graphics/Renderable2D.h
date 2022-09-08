@@ -40,16 +40,16 @@ namespace sparky
 
 			virtual ~Renderable2D();
 
-			virtual void submit(Renderer2D *renderer) const
+			virtual void Submit(Renderer2D *renderer) const
 			{
-				renderer->submit(this);
+				renderer->Submit(this);
 			};
 
-			void setColor(uint color)
+			void SetColor(uint color)
 			{
 				m_Color = color;
 			}
-			void setColor(const maths::vec4 &color)
+			void SetColor(const maths::vec4 &color)
 			{
 				uint r = (uint)(color.x * 255.0f);
 				uint g = (uint)(color.y * 255.0f);
@@ -59,16 +59,16 @@ namespace sparky
 				m_Color = a << 24 | b << 16 | g << 8 | r;
 			}
 
-			inline const maths::vec3 &getPosition() const { return m_Position; };
-			inline const maths::vec2 &getSize() const { return m_Size; };
-			inline const uint getColor() const { return m_Color; };
-			inline const std::vector<maths::vec2> &getUV() const { return m_UV; };
+			inline const maths::vec3 &GetPosition() const { return m_Position; };
+			inline const maths::vec2 &GetSize() const { return m_Size; };
+			inline const uint GetColor() const { return m_Color; };
+			inline const std::vector<maths::vec2> &GetUV() const { return m_UV; };
 
-			inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; };
-			inline const Texture *getTexture() const { return m_Texture; };
+			inline const GLuint GetTID() const { return m_Texture ? m_Texture->GetID() : 0; };
+			inline const Texture *GetTexture() const { return m_Texture; };
 
 		private:
-			void setUVDefaults();
+			void SetUVDefaults();
 		};
 	}
 }

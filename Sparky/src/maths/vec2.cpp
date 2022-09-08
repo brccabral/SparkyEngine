@@ -28,28 +28,28 @@ namespace sparky
 			this->y = vector.y;
 		}
 
-		vec2 &vec2::add(const vec2 &other)
+		vec2 &vec2::Add(const vec2 &other)
 		{
 			x += other.x;
 			y += other.y;
 			return *this;
 		}
 
-		vec2 &vec2::subtract(const vec2 &other)
+		vec2 &vec2::Subtract(const vec2 &other)
 		{
 			x -= other.x;
 			y -= other.y;
 			return *this;
 		}
 
-		vec2 &vec2::multiply(const vec2 &other)
+		vec2 &vec2::Multiply(const vec2 &other)
 		{
 			x *= other.x;
 			y *= other.y;
 			return *this;
 		}
 
-		vec2 &vec2::divide(const vec2 &other)
+		vec2 &vec2::Divide(const vec2 &other)
 		{
 			x /= other.x;
 			y /= other.y;
@@ -95,22 +95,22 @@ namespace sparky
 
 		vec2 &vec2::operator+=(const vec2 &other)
 		{
-			return add(other);
+			return Add(other);
 		}
 
 		vec2 &vec2::operator-=(const vec2 &other)
 		{
-			return subtract(other);
+			return Subtract(other);
 		}
 
 		vec2 &vec2::operator*=(const vec2 &other)
 		{
-			return multiply(other);
+			return Multiply(other);
 		}
 
 		vec2 &vec2::operator/=(const vec2 &other)
 		{
-			return divide(other);
+			return Divide(other);
 		}
 
 		bool vec2::operator==(const vec2 &other)
@@ -123,26 +123,26 @@ namespace sparky
 			return x != other.x || y != other.y;
 		}
 
-		float vec2::distance(const vec2 &other) const
+		float vec2::Distance(const vec2 &other) const
 		{
 			float a = x - other.x;
 			float b = y - other.y;
 			return sqrt(a * a + b * b);
 		}
 
-		float vec2::dot(const vec2 &other) const
+		float vec2::Dot(const vec2 &other) const
 		{
 			return x * other.x + y * other.y;
 		}
 
-		float vec2::magnitude() const
+		float vec2::Magnitude() const
 		{
 			return sqrt(x * x + y * y);
 		}
 
-		vec2 vec2::normalise() const
+		vec2 vec2::Normalise() const
 		{
-			float length = magnitude();
+			float length = Magnitude();
 			return vec2(x / length, y / length);
 		}
 	} // namespace maths

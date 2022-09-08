@@ -7,8 +7,8 @@ namespace sparky
 		Layer::Layer(Renderer2D *renderer, Shader *shader, maths::mat4 projectionMatrix)
 			: renderer(renderer), m_Shader(shader), m_ProjectionMatrix(projectionMatrix)
 		{
-			m_Shader->enable();
-			m_Shader->setUniform("pr_matrix", m_ProjectionMatrix);
+			m_Shader->Bind();
+			m_Shader->SetUniform("pr_matrix", m_ProjectionMatrix);
 
 		#ifdef SPARKY_PLATFORM_WEB
 			m_Shader->setUniform("texture_0", 0);
@@ -26,10 +26,10 @@ namespace sparky
 				20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
 				30, 31
 			};
-			m_Shader->setUniform("textures", texIDs, 32);
+			m_Shader->SetUniform("textures", texIDs, 32);
 		#endif
 
-			m_Shader->disable();
+			m_Shader->Unbind();
 		};
 
 		Layer::~Layer()
@@ -42,21 +42,21 @@ namespace sparky
 			}
 		};
 
-		Renderable2D *Layer::add(Renderable2D *renderable)
+		Renderable2D *Layer::Add(Renderable2D *renderable)
 		{
 			m_Renderables.push_back(renderable);
 			return renderable;
 		};
 
-		void Layer::render()
+		void Layer::Render()
 		{
-			m_Shader->enable();
-			renderer->begin();
+			m_Shader->Bind();
+			renderer->Begin();
 			for (const Renderable2D *renderable : m_Renderables)
-				renderable->submit(renderer);
+				renderable->Submit(renderer);
 
-			renderer->end();
-			renderer->flush();
+			renderer->End();
+			renderer->Flush();
 		};
 
 	}

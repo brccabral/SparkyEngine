@@ -12,7 +12,7 @@ namespace sparky
 			this->w = w;
 		}
 
-		vec4 &vec4::add(const vec4 &other)
+		vec4 &vec4::Add(const vec4 &other)
 		{
 			x += other.x;
 			y += other.y;
@@ -21,7 +21,7 @@ namespace sparky
 			return *this;
 		}
 
-		vec4 &vec4::subtract(const vec4 &other)
+		vec4 &vec4::Subtract(const vec4 &other)
 		{
 			x -= other.x;
 			y -= other.y;
@@ -30,7 +30,7 @@ namespace sparky
 			return *this;
 		}
 
-		vec4 &vec4::multiply(const vec4 &other)
+		vec4 &vec4::Multiply(const vec4 &other)
 		{
 			x *= other.x;
 			y *= other.y;
@@ -39,7 +39,7 @@ namespace sparky
 			return *this;
 		}
 
-		vec4 &vec4::divide(const vec4 &other)
+		vec4 &vec4::Divide(const vec4 &other)
 		{
 			x /= other.x;
 			y /= other.y;
@@ -77,22 +77,22 @@ namespace sparky
 
 		vec4 &vec4::operator+=(const vec4 &other)
 		{
-			return add(other);
+			return Add(other);
 		}
 
 		vec4 &vec4::operator-=(const vec4 &other)
 		{
-			return subtract(other);
+			return Subtract(other);
 		}
 
 		vec4 &vec4::operator*=(const vec4 &other)
 		{
-			return multiply(other);
+			return Multiply(other);
 		}
 
 		vec4 &vec4::operator/=(const vec4 &other)
 		{
-			return divide(other);
+			return Divide(other);
 		}
 
 		bool vec4::operator==(const vec4 &other)

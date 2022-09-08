@@ -9,7 +9,7 @@ namespace sparky
 		BatchRenderer2D::BatchRenderer2D(const maths::tvec2<uint> &screenSize)
 			: m_IndexCount(0), m_ScreenSize(screenSize), m_ViewportSize(screenSize), m_Target(RenderTarget::SCREEN)
 		{
-			init();
+			Init();
 		};
 
 		BatchRenderer2D::~BatchRenderer2D()
@@ -19,7 +19,7 @@ namespace sparky
 			GLCall(glDeleteVertexArrays(1, &m_VAO));
 		}
 
-		void BatchRenderer2D::init()
+		void BatchRenderer2D::Init()
 		{
 			GLCall(glGenVertexArrays(1, &m_VAO));
 			GLCall(glGenBuffers(1, &m_VBO));
@@ -75,14 +75,14 @@ namespace sparky
 			GLCall(glGetIntegerv(GL_FRAMEBUFFER_BINDING, &m_ScreenBuffer));
 			m_Framebuffer = new Framebuffer(m_ViewportSize);
 			m_SimpleShader = ShaderFactory::SimpleShader();
-			m_SimpleShader->enable();
-			m_SimpleShader->setUniform("pr_matrix", maths::mat4::orthographic(0.0f, (float)m_ScreenSize.x, (float)m_ScreenSize.y, 0.0f, -1.0f, 1.0f));
-			m_SimpleShader->setUniform("tex", 0);
-			m_SimpleShader->disable();
+			m_SimpleShader->Bind();
+			m_SimpleShader->SetUniform("pr_matrix", maths::mat4::Orthographic(0.0f, (float)m_ScreenSize.x, (float)m_ScreenSize.y, 0.0f, -1.0f, 1.0f));
+			m_SimpleShader->SetUniform("tex", 0);
+			m_SimpleShader->Unbind();
 			m_ScreenQuad = MeshFactory::CreateQuad(0.0f, 0.0f, (float)m_ScreenSize.x, (float)m_ScreenSize.y);
 		};
 
-		float BatchRenderer2D::submitTexture(uint id)
+		float BatchRenderer2D::SubmitTexture(uint id)
 		{
 			float result = 0.0f;
 			bool found = false;
@@ -104,9 +104,9 @@ namespace sparky
 					// what we have in memory and add more starting from 0
 					if (m_TextureSlots.size() >= RENDERER_MAX_TEXTURES)
 					{
-						end();
-						flush();
-						begin();
+						End();
+						Flush();
+						Begin();
 					}
 					m_TextureSlots.push_back(id);
 					result = (float)(m_TextureSlots.size());
@@ -115,12 +115,12 @@ namespace sparky
 			return result;
 		}
 
-		float BatchRenderer2D::submitTexture(const Texture *texture)
+		float BatchRenderer2D::SubmitTexture(const Texture *texture)
 		{
-			return submitTexture(texture->getID());
+			return SubmitTexture(texture->GetID());
 		}
 
-		void BatchRenderer2D::begin()
+		void BatchRenderer2D::Begin()
 		{
 			if (m_Target == RenderTarget::BUFFER)
 			{
@@ -147,27 +147,27 @@ namespace sparky
 		};
 
 		// submit will create a rectangle
-		void BatchRenderer2D::submit(const Renderable2D *renderable)
+		void BatchRenderer2D::Submit(const Renderable2D *renderable)
 		{
 			// indices 0,1,2, 2,3,0
-			const vec3 &position = renderable->getPosition();
-			const vec2 &size = renderable->getSize();
-			const uint color = renderable->getColor();
-			const std::vector<vec2> &uv = renderable->getUV();
-			const GLuint tid = renderable->getTID();
+			const vec3 &position = renderable->GetPosition();
+			const vec2 &size = renderable->GetSize();
+			const uint color = renderable->GetColor();
+			const std::vector<vec2> &uv = renderable->GetUV();
+			const GLuint tid = renderable->GetTID();
 
 			float ts = 0.0f;
 			if (tid > 0)
-				ts = submitTexture(renderable->getTexture());
+				ts = SubmitTexture(renderable->GetTexture());
 
-			mat4 maskTransform = mat4::identity();
-			const GLuint mid = m_Mask ? m_Mask->texture->getID() : 0;
+			mat4 maskTransform = mat4::Identity();
+			const GLuint mid = m_Mask ? m_Mask->texture->GetID() : 0;
 			float ms = 0.0f; // mask slot
 
 			if (m_Mask != nullptr)
 			{
-				maskTransform = mat4::invert(m_Mask->transform);
-				ms = submitTexture(m_Mask->texture);
+				maskTransform = mat4::Invert(m_Mask->transform);
+				ms = SubmitTexture(m_Mask->texture);
 			}
 
 			vec3 vertex = *m_TransformationBack * position;
@@ -209,7 +209,7 @@ namespace sparky
 			m_IndexCount += 6;
 		};
 
-		void BatchRenderer2D::end()
+		void BatchRenderer2D::End()
 		{
 		#ifdef SPARKY_PLATFORM_WEB
 			GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_VBO));
@@ -221,7 +221,7 @@ namespace sparky
 		#endif
 		};
 
-		void BatchRenderer2D::flush()
+		void BatchRenderer2D::Flush()
 		{
 			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
@@ -230,11 +230,11 @@ namespace sparky
 			}
 
 			GLCall(glBindVertexArray(m_VAO));
-			m_IBO->bind();
+			m_IBO->Bind();
 
 			GLCall(glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, NULL));
 
-			m_IBO->unbind();
+			m_IBO->Unbind();
 			GLCall(glBindVertexArray(0));
 			m_IndexCount = 0;
 
@@ -245,27 +245,27 @@ namespace sparky
 				// Display Framebuffer - potentially move to Framebuffer class
 				GLCall(glBindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer));
 				GLCall(glViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y));
-				m_SimpleShader->enable();
+				m_SimpleShader->Bind();
 
 				GLCall(glActiveTexture(GL_TEXTURE0));
-				m_Framebuffer->GetTexture()->bind();
+				m_Framebuffer->GetTexture()->Bind();
 
 				GLCall(glBindVertexArray(m_ScreenQuad));
-				m_IBO->bind();
+				m_IBO->Bind();
 				GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, NULL));
-				m_IBO->unbind();
+				m_IBO->Unbind();
 				GLCall(glBindVertexArray(0));
-				m_SimpleShader->disable();
+				m_SimpleShader->Unbind();
 			}
 		}
 
-		void BatchRenderer2D::drawString(const std::string &text, vec3 position, const Font &font, uint color)
+		void BatchRenderer2D::DrawString(const std::string &text, vec3 position, const Font &font, uint color)
 		{
 			float ts = 0.0f;
-			ts = submitTexture(font.getID());
+			ts = SubmitTexture(font.GetID());
 
 			// scale to the size of our window
-			const vec2 &scale = font.getScale();
+			const vec2 &scale = font.GetScale();
 
 			// position is const, we need separated variable to move chars
 			float x = position.x;
@@ -273,7 +273,7 @@ namespace sparky
 			for (byte i = 0; i < text.length(); i++)
 			{
 				char c = text.at(i);
-				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.getFTGLFont(), c);
+				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.GetFTGLFont(), c);
 				if (glyph != NULL)
 				{
 					// space between chars

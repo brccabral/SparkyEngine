@@ -13,10 +13,10 @@ namespace sparky
 			vec4() = default; // needed for mat4 "union" with elements
 			vec4(const float &x, const float &y, const float &z, const float &w);
 
-			vec4 &add(const vec4 &other);
-			vec4 &subtract(const vec4 &other);
-			vec4 &multiply(const vec4 &other);
-			vec4 &divide(const vec4 &other);
+			vec4 &Add(const vec4 &other);
+			vec4 &Subtract(const vec4 &other);
+			vec4 &Multiply(const vec4 &other);
+			vec4 &Divide(const vec4 &other);
 
 			friend std::ostream &operator<<(std::ostream &stream, const vec4 &vector);
 
