@@ -10,6 +10,7 @@ namespace sparky
 		{
 			Shader *DefaultShader();
 			Shader *BasicLightShader();
+			Shader *SimpleShader();
 		}
 	}
 }
