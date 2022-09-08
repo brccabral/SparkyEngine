@@ -3,6 +3,7 @@
 #include <string>
 #include <utils/Log.h>
 #include "../utils/stringutils.h"
+#include <sparky_types.h>
 
 #ifdef SPARKY_PLATFORM_WEB
 #include <emscripten/emscripten.h>

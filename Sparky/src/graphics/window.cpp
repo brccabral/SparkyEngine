@@ -82,7 +82,12 @@ namespace sparky
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			SPARKY_INFO("OpenGL ", (char *)glGetString(GL_VERSION));
+			SPARKY_INFO("----------------------------------");
+			SPARKY_INFO(" OpenGL:");
+			SPARKY_INFO("    ", glGetString(GL_VERSION));
+			SPARKY_INFO("    ", glGetString(GL_VENDOR));
+			SPARKY_INFO("    ", glGetString(GL_RENDERER));
+			SPARKY_INFO("----------------------------------");
 
 			return true;
 		}

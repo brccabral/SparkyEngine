@@ -4,6 +4,7 @@
 #include <FreeImage.h>
 #include <FreeImage/Utilities.h>
 #include <GLFW/glfw3.h>
+#include <sparky_types.h>
 
 namespace sparky
 {
