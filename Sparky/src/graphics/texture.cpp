@@ -12,6 +12,12 @@ namespace sparky
 			m_TID = load();
 		};
 
+		Texture::Texture(uint width, uint height)
+			: m_Width(width), m_Height(height), m_FileName("NULL")
+		{
+			m_TID = load();
+		}
+
 		Texture::~Texture()
 		{
 			GLCall(glDeleteTextures(1, &m_TID));
@@ -19,7 +25,11 @@ namespace sparky
 
 		GLuint Texture::load()
 		{
-			BYTE *pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height, &m_Bits);
+			BYTE *pixels = nullptr;
+			if (m_FileName != "NULL")
+				pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height, &m_Bits);
+			else
+				m_Bits = 32; // Temporary
 
 			GLuint result;
 			GLCall(glGenTextures(1, &result));

@@ -23,12 +23,13 @@ namespace sparky
 		{
 		private:
 			std::string m_Name, m_FileName;
-			GLuint m_TID;
-			GLsizei m_Width, m_Height;
+			uint m_TID;
+			uint m_Width, m_Height;
 			uint m_Bits;
 			static TextureWrap s_WrapMode;
 		public:
 			Texture(const std::string &name, const std::string &filename);
+			Texture(uint width, uint height);
 			~Texture();
 			void bind() const;
 			void unbind() const;
