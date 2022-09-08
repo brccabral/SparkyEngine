@@ -14,10 +14,11 @@ private:
 	Sprite *sprite;
 	Shader *shader;
 	Mask *mask = nullptr;
+	Label *debugInfo;
 	std::string currentSound = "BomDia";
 public:
 	Game()
-		:window(nullptr), layer(nullptr), fps(nullptr), shader(nullptr), sprite(nullptr)
+		:window(nullptr), layer(nullptr), fps(nullptr), shader(nullptr), sprite(nullptr), debugInfo(nullptr)
 	{}
 
 	~Game()
@@ -27,15 +28,15 @@ public:
 
 	void init() override
 	{
-		window = createWindow("Test Game", 960, 540);
+		window = createWindow("Test Game", 1280, 720);
 		FontManager::get()->setScale(window->getWidth() / 32.0f, window->getHeight() / 18.0f);
 
-		//shader = ShaderFactory::DefaultShader();
-		shader = ShaderFactory::BasicLightShader();
+		shader = ShaderFactory::DefaultShader();
+		//shader = ShaderFactory::BasicLightShader();
 
 		// the orthographic matrix makes the center of the window to be 0,0
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
-		layer = new Layer(new BatchRenderer2D(), shader, mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+		layer = new Layer(new BatchRenderer2D(tvec2<uint>(1280, 720)), shader, mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 		layer->add(new Sprite(-16.0f, -9.0f, 32, 18, 0xffff00ff)); // add a colored square to screen
 		layer->add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff)); // add a colored square to screen
 
@@ -48,6 +49,9 @@ public:
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->add(fps); // add a Label object
+
+		debugInfo = new Label("", -15.5f, 6.8f, 0xffffffff);
+		layer->add(debugInfo);
 
 		//Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
 		//mask = new Mask(new Texture("Mask", "res/mask2.png"));
@@ -78,6 +82,27 @@ public:
 
 	void update() override
 	{
+		if (window->isKeyPressed(GLFW_KEY_1))
+			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::SCREEN);
+		if (window->isKeyPressed(GLFW_KEY_2))
+			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::BUFFER);
+
+		maths::tvec2<uint> size = ((BatchRenderer2D *)layer->renderer)->GetViewportSize();
+
+		if (window->isKeyPressed(GLFW_KEY_UP))
+		{
+			size.x++;
+			size.y++;
+		}
+		else if (window->isKeyPressed(GLFW_KEY_DOWN))
+		{
+			size.x--;
+			size.y--;
+		}
+		debugInfo->text = std::to_string(size.x) + ", " + std::to_string(size.y);
+		((BatchRenderer2D *)layer->renderer)->SetViewportSize(size);
+
+		/*
 		float speed = 0.5f;
 		if (window->isKeyTyped(GLFW_KEY_UP))
 			sprite->position.y += speed;
@@ -125,6 +150,7 @@ public:
 		maths::vec2 mouse = window->getMousePosition();
 		shader->setUniform("light_pos", maths::vec2((float)(mouse.x * 32.0f / window->getWidth() - 16.0f),
 			(float)(9.0f - mouse.y * 18.0f / window->getHeight())));
+		*/
 	}
 
 };

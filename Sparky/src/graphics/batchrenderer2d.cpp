@@ -6,8 +6,8 @@ namespace sparky
 	{
 		using namespace maths;
 
-		BatchRenderer2D::BatchRenderer2D()
-			: m_IndexCount(0)
+		BatchRenderer2D::BatchRenderer2D(const maths::tvec2<uint> &screenSize)
+			: m_IndexCount(0), m_ScreenSize(screenSize), m_ViewportSize(screenSize), m_Target(RenderTarget::SCREEN)
 		{
 			init();
 		};
@@ -70,6 +70,16 @@ namespace sparky
 		#ifdef SPARKY_PLATFORM_WEB
 			m_BufferBase = new VertexData[RENDERER_MAX_TEXTURES * 4];
 		#endif
+
+			// Setup Framebuffer
+			GLCall(glGetIntegerv(GL_FRAMEBUFFER_BINDING, &m_ScreenBuffer));
+			m_Framebuffer = new Framebuffer(m_ViewportSize);
+			m_SimpleShader = ShaderFactory::SimpleShader();
+			m_SimpleShader->enable();
+			m_SimpleShader->setUniform("pr_matrix", maths::mat4::orthographic(0.0f, (float)m_ScreenSize.x, (float)m_ScreenSize.y, 0.0f, -1.0f, 1.0f));
+			m_SimpleShader->setUniform("tex", 0);
+			m_SimpleShader->disable();
+			m_ScreenQuad = MeshFactory::CreateQuad(0.0f, 0.0f, (float)m_ScreenSize.x, (float)m_ScreenSize.y);
 		};
 
 		float BatchRenderer2D::submitTexture(uint id)
@@ -112,6 +122,22 @@ namespace sparky
 
 		void BatchRenderer2D::begin()
 		{
+			if (m_Target == RenderTarget::BUFFER)
+			{
+				if (m_ViewportSize != m_Framebuffer->GetSize())
+				{
+					delete m_Framebuffer;
+					m_Framebuffer = new Framebuffer(m_ViewportSize);
+				}
+
+				m_Framebuffer->Bind();
+				m_Framebuffer->Clear();
+			}
+			else
+			{
+				GLCall(glBindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer));
+				GLCall(glViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y));
+			}
 			glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 		#ifdef SPARKY_PLATFORM_WEB
 			m_Buffer = m_BufferBase;
@@ -213,6 +239,24 @@ namespace sparky
 			m_IndexCount = 0;
 
 			m_TextureSlots.clear();
+
+			if (m_Target == RenderTarget::BUFFER)
+			{
+				// Display Framebuffer - potentially move to Framebuffer class
+				GLCall(glBindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer));
+				GLCall(glViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y));
+				m_SimpleShader->enable();
+
+				GLCall(glActiveTexture(GL_TEXTURE0));
+				m_Framebuffer->GetTexture()->bind();
+
+				GLCall(glBindVertexArray(m_ScreenQuad));
+				m_IBO->bind();
+				GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, NULL));
+				m_IBO->unbind();
+				GLCall(glBindVertexArray(0));
+				m_SimpleShader->disable();
+			}
 		}
 
 		void BatchRenderer2D::drawString(const std::string &text, vec3 position, const Font &font, uint color)

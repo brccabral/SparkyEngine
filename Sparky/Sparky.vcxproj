@@ -331,7 +331,6 @@
     <ClCompile Include="src\maths\vec3.cpp" />
     <ClCompile Include="src\maths\vec4.cpp" />
     <ClCompile Include="src\utils\timer.cpp" />
-    <ClCompile Include="tilelayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype-gl\freetype-gl.h" />
@@ -394,7 +393,6 @@
     <ClInclude Include="src\utils\Log.h" />
     <ClInclude Include="src\utils\stringutils.h" />
     <ClInclude Include="src\utils\timer.h" />
-    <ClInclude Include="tilelayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
