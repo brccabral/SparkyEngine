@@ -58,7 +58,7 @@ namespace sparky
 			delete m_Window;
 		}
 
-		graphics::Window *createWindow(const char *title, int width, int height)
+		graphics::Window *CreateWindow(const char *title, int width, int height)
 		{
 			m_Window = new graphics::Window(title, width, height);
 			return m_Window;

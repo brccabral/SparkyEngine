@@ -28,7 +28,7 @@ public:
 
 	void Init() override
 	{
-		window = createWindow("Test Game", 1280, 720);
+		window = CreateWindow("Test Game", 1280, 720);
 		FontManager::Get()->SetScale(window->GetWidth() / 32.0f, window->GetHeight() / 18.0f);
 
 		shader = ShaderFactory::DefaultShader();
