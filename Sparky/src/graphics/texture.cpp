@@ -14,7 +14,7 @@ namespace sparky
 
 		Texture::~Texture()
 		{
-			glDeleteTextures(1, &m_TID);
+			GLCall(glDeleteTextures(1, &m_TID));
 		};
 
 		GLuint Texture::load()
@@ -22,17 +22,17 @@ namespace sparky
 			BYTE *pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height, &m_Bits);
 
 			GLuint result;
-			glGenTextures(1, &result);
-			glBindTexture(GL_TEXTURE_2D, result);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			GLCall(glGenTextures(1, &result));
+			GLCall(glBindTexture(GL_TEXTURE_2D, result));
+			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST));
+			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST));
 			// do not repeat texture
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLint)s_WrapMode);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLint)s_WrapMode);
+			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLint)s_WrapMode));
+			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLint)s_WrapMode));
 
 			// Image needs to be 24 bits (RGB) or 32 bits (RGBA) - 8 bits per channel,  8*3 or 8*4
 			if (m_Bits != 24 && m_Bits != 32)
-				SPARKY_ERROR("[Texture] Unsupported image bit-depth! (%d)", m_Bits);
+				SPARKY_ERROR("[Texture] Unsupported image bit-depth! (", m_Bits, ")");
 
 			GLint internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 			GLenum format = m_Bits == 32 ?
@@ -42,21 +42,22 @@ namespace sparky
 				// Emscripten swaps Red and Blue
 			GL_BGRA: GL_BGR;
 		#endif
-			glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, m_Width, m_Height, 0, format, GL_UNSIGNED_BYTE, pixels);
-			glBindTexture(GL_TEXTURE_2D, 0);
+			GLCall(glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, m_Width, m_Height, 0, format, GL_UNSIGNED_BYTE, pixels));
+			GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 
-			delete[] pixels;
+			if (pixels != nullptr)
+				delete[] pixels;
 
 			return result;
 		};
 
 		void Texture::bind() const
 		{
-			glBindTexture(GL_TEXTURE_2D, m_TID);
+			GLCall(glBindTexture(GL_TEXTURE_2D, m_TID));
 		};
 		void Texture::unbind() const
 		{
-			glBindTexture(GL_TEXTURE_2D, 0);
+			GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 		};
 	}
 }
