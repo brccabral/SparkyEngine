@@ -32,15 +32,15 @@ namespace sparky
 			maths::vec2 m_MousePosition;
 
 		public:
-			Window(const char *title, int width, int height);
+			Window(const char *title, uint width, uint height);
 			~Window();
 			void Update();
 			void Clear() const;
 			bool Closed() const;
 			void UpdateInput();
 
-			inline int GetWidth() const { return m_Width; };
-			inline int GetHeight() const { return m_Height; };
+			inline uint GetWidth() const { return m_Width; };
+			inline uint GetHeight() const { return m_Height; };
 
 			bool IsKeyPressed(uint keycode) const;
 			bool IsKeyTyped(uint keycode) const;

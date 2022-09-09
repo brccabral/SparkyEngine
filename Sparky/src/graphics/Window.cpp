@@ -9,7 +9,7 @@ namespace sparky
 		void mouse_button_callback(GLFWwindow *window, int button, int action, int mods);
 		void cursor_position_callback(GLFWwindow *window, double xpos, double ypos);
 
-		Window::Window(const char *title, int width, int height)
+		Window::Window(const char *title, uint width, uint height)
 		{
 			m_Title = title;
 			m_Width = width;
@@ -17,12 +17,12 @@ namespace sparky
 			if (!Init())
 				glfwTerminate();
 
-		#ifdef SPARKY_PLATFORM_WEB
-			FontManager::add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
-			FreeImage_Initialise();
-		#else
 			FontManager::Add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
+
+		#ifdef SPARKY_PLATFORM_WEB
+			FreeImage_Initialise();
 		#endif
+
 			audio::SoundManager::Init();
 
 			for (int i = 0; i < MAX_KEYS; i++)
