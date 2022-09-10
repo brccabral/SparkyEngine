@@ -37,6 +37,7 @@ namespace sparky
 
 			std::vector<GLuint> m_TextureSlots;
 			Framebuffer *m_Framebuffer;
+			Framebuffer *m_PostEffectsBuffer;
 			int m_ScreenBuffer;
 			maths::tvec2<uint> m_ViewportSize, m_ScreenSize;
 			Shader *m_SimpleShader;

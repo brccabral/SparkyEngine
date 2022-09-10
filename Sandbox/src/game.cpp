@@ -5,6 +5,9 @@ using namespace sparky;
 using namespace graphics;
 using namespace maths;
 
+#define WIDTH 1280
+#define HEIGHT 720
+
 class Game : public Application
 {
 private:
@@ -13,13 +16,12 @@ private:
 	Sprite *sprite = nullptr;
 	Shader *shader = nullptr;
 	Mask *mask = nullptr;
-	Label *debugInfo = nullptr;
+	Label **debugInfo = nullptr;
 	std::string currentSound = "BomDia";
 public:
 	Game()
-		: Application("Test Game", 1280, 720)
-	{
-	}
+		: Application("Test Game", WIDTH, HEIGHT)
+	{}
 
 	~Game()
 	{
@@ -38,7 +40,11 @@ public:
 
 		// the orthographic matrix makes the center of the window to be 0,0
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
-		layer = new Layer(new BatchRenderer2D(tvec2<uint>(1280, 720)), shader, mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+		layer = new Layer(new BatchRenderer2D(tvec2<uint>(WIDTH, HEIGHT)), shader, mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+
+		layer->renderer->SetRenderTarget(RenderTarget::BUFFER);
+		layer->renderer->AddPostEffectsPass(new PostEffectsPass(Shader::FromFile("shaders/postfx.vert", "shaders/postfx.frag")));
+		layer->renderer->SetPostEffects(true);
 
 		Texture::SetFilter(TextureFilter::NEAREST);
 		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("Tex", "res/test.png"));
@@ -49,8 +55,11 @@ public:
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->Add(fps); // add a Label object
 
-		debugInfo = new Label("", -15.5f, 6.8f, 0xffffffff);
-		layer->Add(debugInfo);
+		debugInfo = new Label * [10];
+		debugInfo[0] = new Label("", -15.5f, 6.8f, 0xffffffff);
+		debugInfo[1] = new Label("", -15.5f, 5.8f, 0xffffffff);
+		layer->Add(debugInfo[0]);
+		layer->Add(debugInfo[1]);
 
 		Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
 		mask = new Mask(new Texture("Mask", "res/mask2.png"));
@@ -75,32 +84,13 @@ public:
 
 	void Update() override
 	{
-		if (window->IsKeyPressed(VK_NUMPAD1))
-			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::SCREEN);
-		if (window->IsKeyPressed(VK_NUMPAD2))
-			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::BUFFER);
+		if (window->IsKeyTyped(VK_T))
+			layer->renderer->SetRenderTarget(layer->renderer->GetRenderTarget() == RenderTarget::SCREEN ? RenderTarget::BUFFER : RenderTarget::SCREEN);
+		if (window->IsKeyTyped(VK_P))
+			layer->renderer->SetPostEffects(!layer->renderer->GetPostEffects());
 
-		tvec2<uint> size = ((BatchRenderer2D *)layer->renderer)->GetViewportSize();
-
-		if (window->IsKeyPressed(VK_UP))
-		{
-			size.x += 16;
-			size.y += 9;
-		}
-		else if (window->IsKeyPressed(VK_DOWN))
-		{
-			size.x -= 16;
-			size.y -= 9;
-		}
-
-		if (size.x > 10000)
-			size.x = 0;
-		if (size.y > 10000)
-			size.y = 0;
-
-		debugInfo->text = std::to_string(size.x) + ", " + std::to_string(size.y);
-		((BatchRenderer2D *)layer->renderer)->SetViewportSize(size);
-		((BatchRenderer2D *)layer->renderer)->SetScreenSize(tvec2<uint>(window->GetWidth(), window->GetHeight()));
+		debugInfo[0]->text = std::string("Target: ") + (layer->renderer->GetRenderTarget() == RenderTarget::SCREEN ? "Screen" : "Buffer");
+		debugInfo[1]->text = std::string("PostFX: ") + (layer->renderer->GetPostEffects() ? "On" : "Off");
 	}
 };
 

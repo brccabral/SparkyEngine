@@ -6,6 +6,7 @@
 #include "Font.h"
 #include "../maths/maths.h"
 #include "Mask.h"
+#include "postfx/PostEffects.h"
 
 namespace sparky
 {
@@ -26,6 +27,8 @@ namespace sparky
 			const maths::mat4 *m_TransformationBack;
 			const Mask *m_Mask;
 			RenderTarget m_Target;
+			PostEffects *m_PostEffects;
+			bool m_PostEffectsEnabled;
 
 		protected:
 			Renderer2D()
@@ -69,6 +72,10 @@ namespace sparky
 
 			inline void SetRenderTarget(RenderTarget target) { m_Target = target; }
 			inline const RenderTarget GetRenderTarget() const { return m_Target; }
+
+			inline void SetPostEffects(bool enabled) { m_PostEffectsEnabled = enabled; }
+			inline bool GetPostEffects() const { return m_PostEffectsEnabled; }
+			inline void AddPostEffectsPass(PostEffectsPass *pass) { m_PostEffects->Push(pass); }
 		};
 	}
 }
