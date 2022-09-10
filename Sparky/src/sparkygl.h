@@ -8,8 +8,6 @@
 #include <GL/glew.h> // need to include before GLFW
 #endif
 
-#include <GLFW/glfw3.h>
-
 #include <utils/Log.h>
 
 static void log_gl_call(const char *function, const char *file, int line)

@@ -3,7 +3,6 @@
 #include <sparkygl.h>
 #include <vector>
 #include <iostream>
-#include <GLFW/glfw3.h>
 #include "../../utils/FileUtils.h"
 #include "../../maths/maths.h"
 

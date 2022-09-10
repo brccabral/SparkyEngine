@@ -39,11 +39,10 @@ public:
 		// the orthographic matrix makes the center of the window to be 0,0
 		// so, the window is x = [-16 to 16] left to right and y = [-9 to 9] bottom to top
 		layer = new Layer(new BatchRenderer2D(tvec2<uint>(1280, 720)), shader, mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
-		layer->Add(new Sprite(-16.0f, -9.0f, 32, 18, 0xffff00ff)); // add a colored square to screen
-		layer->Add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff)); // add a colored square to screen
-
 		sprite = new Sprite(6.0f, 3.0f, 4, 4, new Texture("Tex", "res/test.png"));
 		layer->Add(sprite); // add a image to screen
+
+		layer->Add(new Sprite(0.0f, 0.0f, 4, 4, 0xffffffff)); // add a colored square to screen
 
 		fps = new Label("", -15.5f, 8.0f, 0xffffffff);
 		layer->Add(fps); // add a Label object
@@ -54,8 +53,10 @@ public:
 		Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
 		mask = new Mask(new Texture("Mask", "res/mask2.png"));
 		mask->transform = mat4::Translate(vec3(-16.0f, -9.0f, 0.0f)) * mat4::Scale(vec3(32, 18, 1));
-		layer->SetMask(mask);
+		//layer->SetMask(mask);
 
+		// without GLFW the order to display on screen changes
+		layer->Add(new Sprite(-16.0f, -9.0f, 32, 18, 0xffff00ff)); // add a colored square to screen
 		audio::SoundManager::Add(new audio::Sound(currentSound, "res/BomDia.ogg"))->Play();
 	}
 
@@ -72,19 +73,19 @@ public:
 
 	void Update() override
 	{
-		if (window->IsKeyPressed(GLFW_KEY_1))
+		if (window->IsKeyPressed(VK_NUMPAD1))
 			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::SCREEN);
-		if (window->IsKeyPressed(GLFW_KEY_2))
+		if (window->IsKeyPressed(VK_NUMPAD2))
 			((BatchRenderer2D *)layer->renderer)->SetRenderTarget(RenderTarget::BUFFER);
 
 		tvec2<uint> size = ((BatchRenderer2D *)layer->renderer)->GetViewportSize();
 
-		if (window->IsKeyPressed(GLFW_KEY_UP))
+		if (window->IsKeyPressed(VK_UP))
 		{
 			size.x += 16;
 			size.y += 9;
 		}
-		else if (window->IsKeyPressed(GLFW_KEY_DOWN))
+		else if (window->IsKeyPressed(VK_DOWN))
 		{
 			size.x -= 16;
 			size.y -= 9;
