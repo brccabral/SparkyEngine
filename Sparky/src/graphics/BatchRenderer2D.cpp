@@ -7,7 +7,7 @@ namespace sparky
 		using namespace maths;
 
 		BatchRenderer2D::BatchRenderer2D(const maths::tvec2<uint> &screenSize)
-			: m_IndexCount(0), m_ScreenSize(screenSize), m_ViewportSize(screenSize), m_Target(RenderTarget::SCREEN)
+			: m_IndexCount(0), m_ScreenSize(screenSize), m_ViewportSize(screenSize)
 		{
 			Init();
 		};

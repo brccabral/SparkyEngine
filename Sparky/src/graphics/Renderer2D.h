@@ -11,6 +11,12 @@ namespace sparky
 {
 	namespace graphics
 	{
+		enum class RenderTarget
+		{
+			SCREEN = 0,
+			BUFFER = 1
+		};
+
 		class Renderable2D;
 
 		class Renderer2D
@@ -19,13 +25,14 @@ namespace sparky
 			std::vector<maths::mat4> m_TransformationStack;
 			const maths::mat4 *m_TransformationBack;
 			const Mask *m_Mask;
+			RenderTarget m_Target;
 
 		protected:
 			Renderer2D()
+				: m_Mask(nullptr), m_Target(RenderTarget::SCREEN)
 			{
 				m_TransformationStack.push_back(maths::mat4::Identity());
 				m_TransformationBack = &m_TransformationStack.back();
-				m_Mask = nullptr;
 			};
 
 		public:
@@ -59,6 +66,9 @@ namespace sparky
 			{
 				m_Mask = mask;
 			}
+
+			inline void SetRenderTarget(RenderTarget target) { m_Target = target; }
+			inline const RenderTarget GetRenderTarget() const { return m_Target; }
 		};
 	}
 }

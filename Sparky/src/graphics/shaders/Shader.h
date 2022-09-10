@@ -26,12 +26,12 @@ namespace sparky
 			const char *m_VertSrc;
 			const char *m_FragSrc;
 
+			GLuint m_ShaderID; // shader ID given by openGl
 		public:
 			Shader(const char *name, const char *vertSrc, const char *fragSrc);
 			Shader(const char *vertPath, const char *fragPath);
 			~Shader();
 
-			GLuint m_ShaderID; // shader ID given by openGl
 
 			void Bind() const;
 			void Unbind() const;
