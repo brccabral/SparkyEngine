@@ -34,7 +34,7 @@ namespace sparky
 		{
 			hInstance = (HINSTANCE)&__ImageBase;
 
-			WNDCLASS winClass = {};
+			WNDCLASSA winClass = {};
 			winClass.hInstance = hInstance; // GetModuleHandle(0);
 			winClass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 			winClass.lpfnWndProc = (WNDPROC)WndProc;

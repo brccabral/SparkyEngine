@@ -31,6 +31,7 @@ namespace sparky
 			maths::vec2 m_MousePosition;
 
 			static std::map<void *, Window *> s_Handles;
+			bool m_Vsync;
 
 		public:
 			Window(const char *title, uint width, uint height);
@@ -51,6 +52,9 @@ namespace sparky
 
 			static void RegisterWindowClass(void *handle, Window *window);
 			static Window *GetWindowClass(void *handle);
+
+			void SetVsync(bool enabled);
+			bool IsVsync() const { return m_Vsync; }
 		private:
 			bool Init();
 

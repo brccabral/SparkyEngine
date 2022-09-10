@@ -1,0 +1,263 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SparkyCLI, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class SparkyCLI.ManagedClass<sparky::audio::Sound>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.audio.Sound*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    GetHandle(): PrivateScope, Public, HideBySig
+Class SparkyCLI.Sound: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::audio::Sound>
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(sparky.audio.Sound*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Play(): PrivateScope, Public, HideBySig
+    Loop(): PrivateScope, Public, HideBySig
+    Pause(): PrivateScope, Public, HideBySig
+    Resume(): PrivateScope, Public, HideBySig
+    Stop(): PrivateScope, Public, HideBySig
+    SetGain(Single): PrivateScope, Public, HideBySig
+    IsPlaying(): PrivateScope, Public, HideBySig
+    GetGain(): PrivateScope, Public, HideBySig
+    GetName(): PrivateScope, Public, HideBySig
+    GetFileName(): PrivateScope, Public, HideBySig
+Class SparkyCLI.SoundManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Init(): PrivateScope, Public, Static, HideBySig
+    Add(Sound): PrivateScope, Public, Static, HideBySig
+    Get(String): PrivateScope, Public, Static, HideBySig
+    Update(): PrivateScope, Public, Static, HideBySig
+    Clean(): PrivateScope, Public, Static, HideBySig
+Class SparkyCLI.ManagedClass<sparky::maths::vec3>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.maths.vec3*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetHandle(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Vector3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::maths::vec3>
+    Void .ctor(SparkyCLI.Vector2): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single, Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Single z   'get set' : 
+    Single y   'get set' : 
+    Single x   'get set' : 
+  Methods:
+    get_x(): PrivateScope, Public, HideBySig, SpecialName
+    set_x(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_y(): PrivateScope, Public, HideBySig, SpecialName
+    set_y(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_z(): PrivateScope, Public, HideBySig, SpecialName
+    set_z(Single): PrivateScope, Public, HideBySig, SpecialName
+    Add(Vector3): PrivateScope, Public, HideBySig
+    Subtract(Vector3): PrivateScope, Public, HideBySig
+    Multiply(Vector3): PrivateScope, Public, HideBySig
+    Divide(Vector3): PrivateScope, Public, HideBySig
+    op_Addition(Vector3, Vector3): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Subtraction(Vector3, Vector3): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(Vector3, Vector3): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Division(Vector3, Vector3): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Equality(Vector3): PrivateScope, Public, HideBySig, SpecialName
+    op_Inequality(Vector3): PrivateScope, Public, HideBySig, SpecialName
+    op_AdditionAssignment(Vector3): PrivateScope, Public, HideBySig, SpecialName
+    op_SubtractionAssignment(Vector3): PrivateScope, Public, HideBySig, SpecialName
+    op_MultiplicationAssignment(Vector3): PrivateScope, Public, HideBySig, SpecialName
+    op_DivisionAssignment(Vector3): PrivateScope, Public, HideBySig, SpecialName
+    Distance(Vector3): PrivateScope, Public, HideBySig
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SparkyCLI.ManagedClass<sparky::maths::vec2>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.maths.vec2*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetHandle(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Vector2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::maths::vec2>
+    Void .ctor(SparkyCLI.Vector3): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Single y   'get set' : 
+    Single x   'get set' : 
+  Methods:
+    get_x(): PrivateScope, Public, HideBySig, SpecialName
+    set_x(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_y(): PrivateScope, Public, HideBySig, SpecialName
+    set_y(Single): PrivateScope, Public, HideBySig, SpecialName
+    Add(Vector2): PrivateScope, Public, HideBySig
+    Subtract(Vector2): PrivateScope, Public, HideBySig
+    Multiply(Vector2): PrivateScope, Public, HideBySig
+    Divide(Vector2): PrivateScope, Public, HideBySig
+    op_Addition(Vector2, Single): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Addition(Vector2, Vector2): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Subtraction(Vector2, Vector2): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(Vector2, Single): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(Vector2, Vector2): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Division(Vector2, Vector2): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Equality(Vector2): PrivateScope, Public, HideBySig, SpecialName
+    op_Inequality(Vector2): PrivateScope, Public, HideBySig, SpecialName
+    op_AdditionAssignment(Vector2): PrivateScope, Public, HideBySig, SpecialName
+    op_SubtractionAssignment(Vector2): PrivateScope, Public, HideBySig, SpecialName
+    op_MultiplicationAssignment(Vector2): PrivateScope, Public, HideBySig, SpecialName
+    op_DivisionAssignment(Vector2): PrivateScope, Public, HideBySig, SpecialName
+    Magnitude(): PrivateScope, Public, HideBySig
+    Normalise(): PrivateScope, Public, HideBySig
+    Distance(Vector2): PrivateScope, Public, HideBySig
+    Dot(Vector2): PrivateScope, Public, HideBySig
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SparkyCLI.ManagedClass<sparky::maths::vec4>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.maths.vec4*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetHandle(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Vector4: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::maths::vec4>
+    Void .ctor(Single, Single, Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Single w   'get set' : 
+    Single z   'get set' : 
+    Single y   'get set' : 
+    Single x   'get set' : 
+  Methods:
+    get_x(): PrivateScope, Public, HideBySig, SpecialName
+    set_x(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_y(): PrivateScope, Public, HideBySig, SpecialName
+    set_y(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_z(): PrivateScope, Public, HideBySig, SpecialName
+    set_z(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_w(): PrivateScope, Public, HideBySig, SpecialName
+    set_w(Single): PrivateScope, Public, HideBySig, SpecialName
+    Add(Vector4): PrivateScope, Public, HideBySig
+    Subtract(Vector4): PrivateScope, Public, HideBySig
+    Multiply(Vector4): PrivateScope, Public, HideBySig
+    Divide(Vector4): PrivateScope, Public, HideBySig
+    op_Addition(Vector4, Vector4): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Subtraction(Vector4, Vector4): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(Vector4, Vector4): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Division(Vector4, Vector4): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Equality(Vector4): PrivateScope, Public, HideBySig, SpecialName
+    op_Inequality(Vector4): PrivateScope, Public, HideBySig, SpecialName
+    op_AdditionAssignment(Vector4): PrivateScope, Public, HideBySig, SpecialName
+    op_SubtractionAssignment(Vector4): PrivateScope, Public, HideBySig, SpecialName
+    op_MultiplicationAssignment(Vector4): PrivateScope, Public, HideBySig, SpecialName
+    op_DivisionAssignment(Vector4): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SparkyCLI.ManagedClass<sparky::maths::mat4>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.maths.mat4*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetHandle(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Matrix4: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::maths::mat4>
+    Void .ctor(Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Identity(): PrivateScope, Public, Static, HideBySig
+    Multiply(Vector4): PrivateScope, Public, HideBySig
+    Multiply(Vector3): PrivateScope, Public, HideBySig
+    Multiply(Matrix4): PrivateScope, Public, HideBySig
+    op_Multiply(Matrix4, Vector4): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(Matrix4, Vector3): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(Matrix4, Matrix4): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_MultiplicationAssignment(Matrix4): PrivateScope, Public, HideBySig, SpecialName
+    Invert(Matrix4): PrivateScope, Public, Static, HideBySig
+    Invert(): PrivateScope, Public, HideBySig
+    Orthographic(Single, Single, Single, Single, Single, Single): PrivateScope, Public, Static, HideBySig
+    Perspective(Single, Single, Single, Single): PrivateScope, Public, Static, HideBySig
+    Translate(Vector3): PrivateScope, Public, Static, HideBySig
+    Rotate(Single, Vector3): PrivateScope, Public, Static, HideBySig
+    Scale(Vector3): PrivateScope, Public, Static, HideBySig
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class SparkyCLI.ManagedClass<sparky::graphics::Shader>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.graphics.Shader*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Shader: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::graphics::Shader>
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetUniform1f(String, Single): PrivateScope, Public, HideBySig
+    SetUniform1fv(String, Single[], Int32): PrivateScope, Public, HideBySig
+    SetUniform1i(String, Int32): PrivateScope, Public, HideBySig
+    SetUniform1iv(String, Int32[], Int32): PrivateScope, Public, HideBySig
+    SetUniform2f(String, Vector2): PrivateScope, Public, HideBySig
+    SetUniform3f(String, Vector3): PrivateScope, Public, HideBySig
+    SetUniform4f(String, Vector4): PrivateScope, Public, HideBySig
+    SetUniformMat4(String, Matrix4): PrivateScope, Public, HideBySig
+    Bind(): PrivateScope, Public, HideBySig
+    Unbind(): PrivateScope, Public, HideBySig
+    FromFile(String, String): PrivateScope, Public, Static, HideBySig
+    FromSource(String, String, String): PrivateScope, Public, Static, HideBySig
+    FromSource(String, String): PrivateScope, Public, Static, HideBySig
+Class SparkyCLI.ManagedClass<sparky::graphics::Window>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(sparky.graphics.Window*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Window: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::graphics::Window>
+    Void .ctor(System.String, UInt32, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Clear(): PrivateScope, Public, HideBySig
+    Update(): PrivateScope, Public, HideBySig
+    UpdateInput(): PrivateScope, Public, HideBySig
+    Closed(): PrivateScope, Public, HideBySig
+    GetWidth(): PrivateScope, Public, HideBySig
+    GetHeight(): PrivateScope, Public, HideBySig
+    IsKeyPressed(UInt32): PrivateScope, Public, HideBySig
+    IsKeyTyped(UInt32): PrivateScope, Public, HideBySig
+    IsMouseButtonPressed(UInt32): PrivateScope, Public, HideBySig
+    IsMouseButtonClicked(UInt32): PrivateScope, Public, HideBySig
+    GetMousePosition(): PrivateScope, Public, HideBySig
+    SetVsync(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    IsVsync(): PrivateScope, Public, HideBySig
+Class SparkyCLI.ManagedClass<sparky::Application>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SparkyCLI.Application: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SparkyCLI.ManagedClass<sparky::Application>
+    Void .ctor(System.String, UInt32, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Init(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Start(): PrivateScope, Public, HideBySig
+    Suspend(): PrivateScope, Public, HideBySig
+    Resume(): PrivateScope, Public, HideBySig
+    Stop(): PrivateScope, Public, HideBySig
+    Tick(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Update(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Render(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetFPS(): PrivateScope, Public, HideBySig
+    GetUPS(): PrivateScope, Public, HideBySig

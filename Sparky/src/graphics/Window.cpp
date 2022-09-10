@@ -143,5 +143,10 @@ namespace sparky
 		{
 			return s_Handles[handle];
 		}
+
+		void Window::SetVsync(bool enabled)
+		{
+			m_Vsync = enabled;
+		}
 	}
 }

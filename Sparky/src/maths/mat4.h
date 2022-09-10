@@ -33,10 +33,14 @@ namespace sparky
 
 			// operators
 			mat4 &Multiply(const mat4 &other);
+			vec3 Multiply(const vec3 &other) const;
+			vec4 Multiply(const vec4 &other) const;
 			friend mat4 operator*(const mat4 &left, const mat4 &right);
 			friend vec3 operator*(const mat4 &left, const vec3 &right);
 			friend vec4 operator*(const mat4 &left, const vec4 &right);
 			mat4 &operator*=(const mat4 &other);
+			friend vec3 operator*(const mat4 &left, const vec3 &right);
+			friend vec4 operator*(const mat4 &left, const vec4 &right);
 		};
 	} // namespace maths
 
