@@ -172,8 +172,8 @@ namespace sparky
 			}
 
 			window->m_MouseButtons[button] = down;
-			window->m_MousePosition.x = x;
-			window->m_MousePosition.y = y;
+			window->m_MousePosition.x = (float)x;
+			window->m_MousePosition.y = (float)y;
 		}
 
 		void resize_callback(Window *window, int width, int height)

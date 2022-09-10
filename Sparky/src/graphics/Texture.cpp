@@ -5,6 +5,7 @@ namespace sparky
 	namespace graphics
 	{
 		TextureWrap Texture::s_WrapMode = REPEAT;
+		TextureFilter Texture::s_FilterMode = TextureFilter::LINEAR;
 
 		Texture::Texture(const std::string &name, const std::string &filename)
 			: m_Name(name), m_FileName(filename)
@@ -12,8 +13,8 @@ namespace sparky
 			m_TID = Load();
 		};
 
-		Texture::Texture(uint width, uint height)
-			: m_Width(width), m_Height(height), m_FileName("NULL")
+		Texture::Texture(uint width, uint height, uint bits)
+			: m_Width(width), m_Height(height), m_FileName("NULL"), m_Bits(24)
 		{
 			m_TID = Load();
 		}
@@ -28,14 +29,12 @@ namespace sparky
 			BYTE *pixels = nullptr;
 			if (m_FileName != "NULL")
 				pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height, &m_Bits);
-			else
-				m_Bits = 32; // Temporary
 
 			GLuint result;
 			GLCall(glGenTextures(1, &result));
 			GLCall(glBindTexture(GL_TEXTURE_2D, result));
-			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST));
-			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST));
+			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, (GLint)s_FilterMode));
+			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, (GLint)s_FilterMode));
 			// do not repeat texture
 			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLint)s_WrapMode));
 			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLint)s_WrapMode));
