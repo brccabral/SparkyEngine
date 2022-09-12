@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SandboxCS/1.0.0": {
+        "dependencies": {
+          "SparkyCLI": "1.0.0"
+        },
+        "runtime": {
+          "SandboxCS.dll": {}
+        }
+      },
+      "SparkyCLI/1.0.0": {
+        "dependencies": {
+          "Sparky": "1.0.0"
+        },
+        "runtime": {
+          "SparkyCLI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SandboxCS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SparkyCLI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
