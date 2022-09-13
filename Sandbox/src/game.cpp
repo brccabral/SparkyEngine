@@ -75,6 +75,7 @@ public:
 	{
 		fps->text = std::to_string(GetFPS()) + " fps";
 		//SPARKY_INFO(GetUPS(), " ups, ", GetFPS(), " fps");
+		SPARKY_INFO(window->GetMousePosition());
 	}
 
 	void Render() override
