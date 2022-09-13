@@ -13,6 +13,7 @@ namespace sparky
 			m_TID = Load();
 		};
 
+		// need 24 for Font, with 32 Font loses quality
 		Texture::Texture(uint width, uint height, uint bits)
 			: m_Width(width), m_Height(height), m_FileName("NULL"), m_Bits(24)
 		{

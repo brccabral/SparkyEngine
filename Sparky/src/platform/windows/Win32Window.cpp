@@ -49,6 +49,7 @@ namespace sparky
 				return false;
 			}
 
+			// adjust window to start after Title Bar
 			RECT size = { 0, 0, m_Width, m_Height };
 			AdjustWindowRectEx(&size, WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, false, WS_EX_APPWINDOW | WS_EX_WINDOWEDGE);
 

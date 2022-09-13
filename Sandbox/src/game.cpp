@@ -43,6 +43,7 @@ public:
 		layer = new Layer(new BatchRenderer2D(tvec2<uint>(WIDTH, HEIGHT)), shader, mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
 		layer->renderer->SetRenderTarget(RenderTarget::BUFFER);
+		// currently this post fx applies a Blur to our screen
 		layer->renderer->AddPostEffectsPass(new PostEffectsPass(Shader::FromFile("shaders/postfx.vert", "shaders/postfx.frag")));
 		layer->renderer->SetPostEffects(true);
 
