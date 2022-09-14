@@ -308,6 +308,8 @@
     <ClCompile Include="src\audio\SoundManager.cpp" />
     <ClCompile Include="src\embedded\Embedded.cpp" />
     <ClCompile Include="src\events\Event.cpp" />
+    <ClCompile Include="src\events\KeyEvent.cpp" />
+    <ClCompile Include="src\events\MouseEvent.cpp" />
     <ClCompile Include="src\graphics\BatchRenderer2D.cpp" />
     <ClCompile Include="src\graphics\buffers\Buffer.cpp" />
     <ClCompile Include="src\graphics\buffers\IndexBuffer.cpp" />
@@ -368,6 +370,8 @@
     <ClInclude Include="src\embedded\Embedded.h" />
     <ClInclude Include="src\events\Event.h" />
     <ClInclude Include="src\events\IEventListener.h" />
+    <ClInclude Include="src\events\KeyEvent.h" />
+    <ClInclude Include="src\events\MouseEvent.h" />
     <ClInclude Include="src\graphics\BatchRenderer2D.h" />
     <ClInclude Include="src\graphics\buffers\Buffer.h" />
     <ClInclude Include="src\graphics\buffers\IndexBuffer.h" />
