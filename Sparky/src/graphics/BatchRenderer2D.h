@@ -48,6 +48,7 @@ namespace sparky
 		#endif
 
 		public:
+			BatchRenderer2D(uint width, uint height);
 			BatchRenderer2D(const maths::tvec2<uint> &screenSize);
 			~BatchRenderer2D();
 
