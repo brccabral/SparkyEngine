@@ -29,6 +29,7 @@ namespace sparky
 			bool m_MouseState[MAX_BUTTONS];
 			bool m_MouseClicked[MAX_BUTTONS];
 			maths::vec2 m_MousePosition;
+			bool m_MouseGrabbed;
 
 			static std::map<void *, Window *> s_Handles;
 			bool m_Vsync;
@@ -49,6 +50,10 @@ namespace sparky
 			bool IsMousePressed(uint keycode) const;
 			bool IsMouseClicked(uint keycode) const;
 			const maths::vec2 &GetMousePosition() const;
+			void SetMousePosition(const maths::vec2 &position);
+			const bool IsMouseGrabbed() const;
+			void SetMouseGrabbed(bool grabbed);
+			void SetMouseCursor(int cursor);
 
 			static void RegisterWindowClass(void *handle, Window *window);
 			static Window *GetWindowClass(void *handle);
@@ -75,6 +80,8 @@ namespace sparky
 #define SP_MOUSE_LEFT	  0x00
 #define SP_MOUSE_MIDDLE	  0x01
 #define SP_MOUSE_RIGHT    0x02
+
+#define SP_NO_CURSOR	  NULL
 
 #define VK_0			  0x30
 #define VK_1			  0x31
