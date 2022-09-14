@@ -4,22 +4,17 @@ namespace sparky
 {
 	namespace maths
 	{
+
 		vec2::vec2()
 		{
 			x = 0.0f;
 			y = 0.0f;
 		}
 
-		vec2::vec2(float x, float y)
+		vec2::vec2(const float &x, const float &y)
 		{
 			this->x = x;
 			this->y = y;
-		}
-
-		vec2::vec2(uint x, uint y)
-		{
-			this->x = (float)x;
-			this->y = (float)y;
 		}
 
 		vec2::vec2(const vec3 &vector)
@@ -32,6 +27,7 @@ namespace sparky
 		{
 			x += other.x;
 			y += other.y;
+
 			return *this;
 		}
 
@@ -39,6 +35,7 @@ namespace sparky
 		{
 			x -= other.x;
 			y -= other.y;
+
 			return *this;
 		}
 
@@ -46,6 +43,7 @@ namespace sparky
 		{
 			x *= other.x;
 			y *= other.y;
+
 			return *this;
 		}
 
@@ -53,18 +51,28 @@ namespace sparky
 		{
 			x /= other.x;
 			y /= other.y;
+
 			return *this;
 		}
 
-		std::ostream &operator<<(std::ostream &stream, const vec2 &vector)
+		vec2 operator+(vec2 left, const vec2 &right)
 		{
-			stream << "vec2(" << vector.x << ", " << vector.y << ")";
-			return stream;
+			return left.Add(right);
 		}
 
-		vec2 operator+(const vec2 &left, const vec2 &right)
+		vec2 operator-(vec2 left, const vec2 &right)
 		{
-			return vec2(left.x + right.x, left.y + right.y);
+			return left.Subtract(right);
+		}
+
+		vec2 operator*(vec2 left, const vec2 &right)
+		{
+			return left.Multiply(right);
+		}
+
+		vec2 operator/(vec2 left, const vec2 &right)
+		{
+			return left.Divide(right);
 		}
 
 		vec2 operator+(vec2 left, float value)
@@ -75,22 +83,6 @@ namespace sparky
 		vec2 operator*(vec2 left, float value)
 		{
 			return vec2(left.x * value, left.y * value);
-		}
-
-		vec2
-			operator-(const vec2 &left, const vec2 &right)
-		{
-			return vec2(left.x - right.x, left.y - right.y);
-		}
-
-		vec2 operator*(const vec2 &left, const vec2 &right)
-		{
-			return vec2(left.x * right.x, left.y * right.y);
-		}
-
-		vec2 operator/(const vec2 &left, const vec2 &right)
-		{
-			return vec2(left.x / right.x, left.y / right.y);
 		}
 
 		vec2 &vec2::operator+=(const vec2 &other)
@@ -120,7 +112,7 @@ namespace sparky
 
 		bool vec2::operator!=(const vec2 &other)
 		{
-			return x != other.x || y != other.y;
+			return !(*this == other);
 		}
 
 		float vec2::Distance(const vec2 &other) const
@@ -145,6 +137,13 @@ namespace sparky
 			float length = Magnitude();
 			return vec2(x / length, y / length);
 		}
-	} // namespace maths
 
-} // namespace sparky
+		std::ostream &operator<<(std::ostream &stream, const vec2 &vector)
+		{
+			stream << "vec2: (" << vector.x << ", " << vector.y << ")";
+			return stream;
+		}
+
+
+	}
+}

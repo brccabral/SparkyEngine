@@ -4,6 +4,7 @@ namespace sparky
 {
 	namespace maths
 	{
+
 		vec4::vec4(const float &x, const float &y, const float &z, const float &w)
 		{
 			this->x = x;
@@ -18,6 +19,7 @@ namespace sparky
 			y += other.y;
 			z += other.z;
 			w += other.w;
+
 			return *this;
 		}
 
@@ -27,6 +29,7 @@ namespace sparky
 			y -= other.y;
 			z -= other.z;
 			w -= other.w;
+
 			return *this;
 		}
 
@@ -36,6 +39,7 @@ namespace sparky
 			y *= other.y;
 			z *= other.z;
 			w *= other.w;
+
 			return *this;
 		}
 
@@ -45,34 +49,28 @@ namespace sparky
 			y /= other.y;
 			z /= other.z;
 			w /= other.w;
+
 			return *this;
 		}
 
-		std::ostream &operator<<(std::ostream &stream, const vec4 &vector)
+		vec4 operator+(vec4 left, const vec4 &right)
 		{
-			stream << "vec4(" << vector.x << ", " << vector.y << ", " << vector.z << ", " << vector.w << ")";
-			return stream;
+			return left.Add(right);
 		}
 
-		vec4 operator+(const vec4 &left, const vec4 &right)
+		vec4 operator-(vec4 left, const vec4 &right)
 		{
-			return vec4(left.x + right.x, left.y + right.y, left.z + right.z, left.w + right.w);
+			return left.Subtract(right);
 		}
 
-		vec4
-			operator-(const vec4 &left, const vec4 &right)
+		vec4 operator*(vec4 left, const vec4 &right)
 		{
-			return vec4(left.x - right.x, left.y - right.y, left.z - right.z, left.w - right.w);
+			return left.Multiply(right);
 		}
 
-		vec4 operator*(const vec4 &left, const vec4 &right)
+		vec4 operator/(vec4 left, const vec4 &right)
 		{
-			return vec4(left.x * right.x, left.y * right.y, left.z * right.z, left.w * right.w);
-		}
-
-		vec4 operator/(const vec4 &left, const vec4 &right)
-		{
-			return vec4(left.x / right.x, left.y / right.y, left.z / right.z, left.w / right.w);
+			return left.Divide(right);
 		}
 
 		vec4 &vec4::operator+=(const vec4 &other)
@@ -102,8 +100,15 @@ namespace sparky
 
 		bool vec4::operator!=(const vec4 &other)
 		{
-			return x != other.x || y != other.y || z != other.z || w != other.w;
+			return !(*this == other);
 		}
-	} // namespace maths
 
-} // namespace sparky
+		std::ostream &operator<<(std::ostream &stream, const vec4 &vector)
+		{
+			stream << "vec4: (" << vector.x << ", " << vector.y << ", " << vector.z << ", " << vector.w << ")";
+			return stream;
+		}
+
+
+	}
+}

@@ -5,6 +5,7 @@ namespace sparky
 {
 	namespace maths
 	{
+
 		vec3::vec3()
 		{
 			x = 0.0f;
@@ -19,13 +20,6 @@ namespace sparky
 			this->z = z;
 		}
 
-		vec3::vec3(int x, int y, int z)
-		{
-			this->x = (float)x;
-			this->y = (float)y;
-			this->z = (float)z;
-		}
-
 		vec3::vec3(const vec2 &other)
 		{
 			this->x = other.x;
@@ -38,6 +32,7 @@ namespace sparky
 			x += other.x;
 			y += other.y;
 			z += other.z;
+
 			return *this;
 		}
 
@@ -46,6 +41,7 @@ namespace sparky
 			x -= other.x;
 			y -= other.y;
 			z -= other.z;
+
 			return *this;
 		}
 
@@ -54,6 +50,7 @@ namespace sparky
 			x *= other.x;
 			y *= other.y;
 			z *= other.z;
+
 			return *this;
 		}
 
@@ -62,34 +59,38 @@ namespace sparky
 			x /= other.x;
 			y /= other.y;
 			z /= other.z;
+
 			return *this;
 		}
 
-		std::ostream &operator<<(std::ostream &stream, const vec3 &vector)
+		vec3 operator+(vec3 left, const vec3 &right)
 		{
-			stream << "vec3(" << vector.x << ", " << vector.y << ", " << vector.z << ")";
-			return stream;
+			return left.Add(right);
 		}
 
-		vec3 operator+(const vec3 &left, const vec3 &right)
+		vec3 operator-(vec3 left, const vec3 &right)
 		{
-			return vec3(left.x + right.x, left.y + right.y, left.z + right.z);
+			return left.Subtract(right);
 		}
 
-		vec3
-			operator-(const vec3 &left, const vec3 &right)
+		vec3 operator*(vec3 left, const vec3 &right)
 		{
-			return vec3(left.x - right.x, left.y - right.y, left.z - right.z);
+			return left.Multiply(right);
 		}
 
-		vec3 operator*(const vec3 &left, const vec3 &right)
+		vec3 operator/(vec3 left, const vec3 &right)
 		{
-			return vec3(left.x * right.x, left.y * right.y, left.z * right.z);
+			return left.Divide(right);
 		}
 
-		vec3 operator/(const vec3 &left, const vec3 &right)
+		vec3 operator+(vec3 left, float value)
 		{
-			return vec3(left.x / right.x, left.y / right.y, left.z / right.z);
+			return vec3(left.x + value, left.y + value, left.z + value);
+		}
+
+		vec3 operator*(vec3 left, float value)
+		{
+			return vec3(left.x * value, left.y * value, left.z * value);
 		}
 
 		vec3 &vec3::operator+=(const vec3 &other)
@@ -119,7 +120,7 @@ namespace sparky
 
 		bool vec3::operator!=(const vec3 &other)
 		{
-			return x != other.x || y != other.y || z != other.z;
+			return !(*this == other);
 		}
 
 		float vec3::Distance(const vec3 &other) const
@@ -129,6 +130,13 @@ namespace sparky
 			float c = z - other.z;
 			return sqrt(a * a + b * b + c * c);
 		}
-	} // namespace maths
 
-} // namespace sparky
+		std::ostream &operator<<(std::ostream &stream, const vec3 &vector)
+		{
+			stream << "vec3: (" << vector.x << ", " << vector.y << ", " << vector.z << ")";
+			return stream;
+		}
+
+
+	}
+}
