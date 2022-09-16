@@ -31,8 +31,13 @@ namespace sparky
 			friend vec3 operator+(vec3 left, float value);
 			friend vec3 operator*(vec3 left, float value);
 
-			bool operator==(const vec3 &other);
-			bool operator!=(const vec3 &other);
+			bool operator==(const vec3 &other) const;
+			bool operator!=(const vec3 &other) const;
+
+			bool operator<(const vec3 &other) const;
+			bool operator<=(const vec3 &other) const;
+			bool operator>(const vec3 &other) const;
+			bool operator>=(const vec3 &other) const;
 
 			vec3 &operator+=(const vec3 &other);
 			vec3 &operator-=(const vec3 &other);

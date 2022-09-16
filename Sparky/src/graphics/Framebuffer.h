@@ -1,10 +1,10 @@
 #pragma once
 
-#include <sparkygl.h>
 #include <sparky_types.h>
 #include "../maths/vec4.h"
 #include "../maths/tvec2.h"
 #include "Texture.h"
+#include "graphics/SPRenderAPI.h"
 
 namespace sparky
 {
@@ -15,8 +15,8 @@ namespace sparky
 		private:
 			struct FramebufferData
 			{
-				GLuint framebufferID;
-				GLuint depthbufferID;
+				uint framebufferID;
+				uint depthbufferID;
 			};
 
 			Texture *m_Texture;

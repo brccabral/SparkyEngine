@@ -4,6 +4,7 @@
 
 #include "../Framebuffer.h"
 #include "../buffers/IndexBuffer.h"
+#include "../buffers/VertexArray.h"
 #include "PostEffectsPass.h"
 
 namespace sparky
@@ -22,7 +23,7 @@ namespace sparky
 			void Push(PostEffectsPass *pass);
 			void Pop();
 
-			void RenderPostEffects(Framebuffer *source, Framebuffer *target, uint quad, IndexBuffer *indices);
+			void RenderPostEffects(Framebuffer *source, Framebuffer *target, VertexArray *quad, IndexBuffer *indices);
 		};
 
 	}

@@ -1,12 +1,5 @@
 #include "TestLayer.h"
 
-#include <app/Application.h>
-
-#include <graphics/BatchRenderer2D.h>
-#include <graphics/shaders/ShaderFactory.h>
-#include <graphics/FontManager.h>
-#include <graphics/Sprite.h>
-
 using namespace sparky;
 using namespace graphics;
 using namespace events;
@@ -42,7 +35,7 @@ void TestLayer::OnInit(Renderer2D &renderer, Shader &shader)
 	Add(debugInfo[1]);
 
 	Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
-	Mask *mask = new Mask(new Texture("Mask", "res/mask.png"));
+	Mask *mask = new Mask(new Texture("Mask", "res/mask2.png"));
 	mask->transform = mat4::Translate(vec3(-16.0f, -9.0f, 0.0f)) * mat4::Scale(vec3(32, 18, 1));
 	// layer->SetMask(mask);
 }

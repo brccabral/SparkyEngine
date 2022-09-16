@@ -10,6 +10,8 @@
 
 #include "mat4.h"
 
+#include "AABB.h"
+
 namespace sparky
 {
 	namespace maths

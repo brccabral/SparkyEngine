@@ -2,6 +2,7 @@
 
 #include "../Framebuffer.h"
 #include "../shaders/Shader.h"
+#include <graphics/SPRenderAPI.h>
 
 namespace sparky
 {

@@ -22,7 +22,7 @@ namespace sparky
 
 		Texture::~Texture()
 		{
-			GLCall(glDeleteTextures(1, &m_TID));
+			API::FreeTexture(m_TID);
 		};
 
 		GLuint Texture::Load()
@@ -31,29 +31,27 @@ namespace sparky
 			if (m_FileName != "NULL")
 				pixels = load_image(m_FileName.c_str(), &m_Width, &m_Height, &m_Bits);
 
-			GLuint result;
-			GLCall(glGenTextures(1, &result));
-			GLCall(glBindTexture(GL_TEXTURE_2D, result));
-			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, (GLint)s_FilterMode));
-			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, (GLint)s_FilterMode));
-			// do not repeat texture
-			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLint)s_WrapMode));
-			GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLint)s_WrapMode));
+			uint result = API::CreateTexture();
+			API::BindTexture(GL_TEXTURE_2D, result);
+			API::SetTextureParameter(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, (int)s_FilterMode);
+			API::SetTextureParameter(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, (int)s_FilterMode);
+			API::SetTextureParameter(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (int)s_WrapMode);
+			API::SetTextureParameter(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (int)s_WrapMode);
 
 			// Image needs to be 24 bits (RGB) or 32 bits (RGBA) - 8 bits per channel,  8*3 or 8*4
 			if (m_Bits != 24 && m_Bits != 32)
 				SPARKY_ERROR("[Texture] Unsupported image bit-depth! (", m_Bits, ")");
 
-			GLint internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
-			GLenum format = m_Bits == 32 ?
-			#ifdef SPARKY_PLATFORM_WEB
+			int internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
+			uint format = m_Bits == 32 ?
+		#ifdef SPARKY_PLATFORM_WEB
 				GL_RGBA : GL_RGB;
 		#else
 				// Emscripten swaps Red and Blue
 			GL_BGRA: GL_BGR;
 		#endif
-			GLCall(glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, m_Width, m_Height, 0, format, GL_UNSIGNED_BYTE, pixels));
-			GLCall(glBindTexture(GL_TEXTURE_2D, 0));
+			API::SetTextureData(GL_TEXTURE_2D, internalFormat, m_Width, m_Height, format, GL_UNSIGNED_BYTE, pixels ? pixels : NULL);
+			API::UnbindTexture(GL_TEXTURE_2D);
 
 			if (pixels != nullptr)
 				delete[] pixels;
@@ -63,11 +61,11 @@ namespace sparky
 
 		void Texture::Bind() const
 		{
-			GLCall(glBindTexture(GL_TEXTURE_2D, m_TID));
+			API::BindTexture(GL_TEXTURE_2D, m_TID);
 		};
 		void Texture::Unbind() const
 		{
-			GLCall(glBindTexture(GL_TEXTURE_2D, 0));
+			API::UnbindTexture(GL_TEXTURE_2D);
 		};
 	}
 }

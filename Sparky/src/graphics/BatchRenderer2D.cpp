@@ -1,9 +1,18 @@
 #include "BatchRenderer2D.h"
 
+#include "shaders/ShaderFactory.h"
+#include "MeshFactory.h"
+
+#include "buffers/Buffer.h"
+#include "buffers/BufferLayout.h"
+
+#include <utils/Log.h>
+
 namespace sparky
 {
 	namespace graphics
 	{
+
 		using namespace maths;
 
 		BatchRenderer2D::BatchRenderer2D(uint width, uint height)
@@ -12,50 +21,39 @@ namespace sparky
 			Init();
 		}
 
-		BatchRenderer2D::BatchRenderer2D(const maths::tvec2<uint> &screenSize)
+		BatchRenderer2D::BatchRenderer2D(const tvec2<uint> &screenSize)
 			: m_IndexCount(0), m_ScreenSize(screenSize), m_ViewportSize(screenSize)
 		{
 			Init();
-		};
+		}
 
 		BatchRenderer2D::~BatchRenderer2D()
 		{
+			delete m_ScreenQuad;
 			delete m_IBO;
-			GLCall(glDeleteBuffers(1, &m_VBO));
-			GLCall(glDeleteVertexArrays(1, &m_VAO));
+			API::FreeBuffer(m_VBO);
+			API::FreeVertexArray(m_VAO);
 		}
 
 		void BatchRenderer2D::Init()
 		{
-			GLCall(glGenVertexArrays(1, &m_VAO));
-			GLCall(glGenBuffers(1, &m_VBO));
+			API::Buffer *buffer = new API::Buffer(GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
+			buffer->Bind();
+			buffer->Resize(RENDERER_BUFFER_SIZE);
 
-			GLCall(glBindVertexArray(m_VAO));
-			GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_VBO));
-			GLCall(glBufferData(GL_ARRAY_BUFFER, RENDERER_BUFFER_SIZE, NULL, GL_DYNAMIC_DRAW));
+			buffer->layout.Push<vec3>("position");
+			buffer->layout.Push<vec2>("uv");
+			buffer->layout.Push<vec2>("mask_uv");
+			buffer->layout.Push<float>("tid");
+			buffer->layout.Push<float>("mid");
+			buffer->layout.Push<byte>("color", 4, true);
 
-			// get the vertex position based on VertexData
-			GLCall(glEnableVertexAttribArray(SHADER_VERTEX_INDEX));
-			GLCall(glEnableVertexAttribArray(SHADER_UV_INDEX));
-			GLCall(glEnableVertexAttribArray(SHADER_MASK_UV_INDEX));
-			GLCall(glEnableVertexAttribArray(SHADER_TID_INDEX));
-			GLCall(glEnableVertexAttribArray(SHADER_MID_INDEX));
-			// get the color position based on VertexData
-			GLCall(glEnableVertexAttribArray(SHADER_COLOR_INDEX));
+			m_VertexArray = new VertexArray();
+			m_VertexArray->Bind();
+			m_VertexArray->PushBuffer(buffer);
 
-			GLCall(glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid *)0));
-			GLCall(glVertexAttribPointer(SHADER_UV_INDEX, 2, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid *)(offsetof(VertexData, uv))));
-			GLCall(glVertexAttribPointer(SHADER_MASK_UV_INDEX, 2, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid *)(offsetof(VertexData, mask_uv))));
-			GLCall(glVertexAttribPointer(SHADER_TID_INDEX, 1, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid *)(offsetof(VertexData, tid))));
-			GLCall(glVertexAttribPointer(SHADER_MID_INDEX, 1, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid *)(offsetof(VertexData, mid))));
-			GLCall(glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDERER_VERTEX_SIZE, (const GLvoid *)(offsetof(VertexData, color))));
+			uint *indices = new uint[RENDERER_INDICES_SIZE];
 
-			GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0)); // bind and unbind costs a lot
-
-			// create triangle indices
-			// t1 = 0,1,2, 2,3,0
-			// t2 = 4,5,6, 6,7,4
-			GLuint *indices = new GLuint[RENDERER_INDICES_SIZE]; // moving to HEAP we can load more sprites on Windows
 			int offset = 0;
 			for (int i = 0; i < RENDERER_INDICES_SIZE; i += 6)
 			{
@@ -71,14 +69,14 @@ namespace sparky
 			}
 
 			m_IBO = new IndexBuffer(indices, RENDERER_INDICES_SIZE);
-			GLCall(glBindVertexArray(0));
+			m_VertexArray->Unbind();
 
 		#ifdef SPARKY_PLATFORM_WEB
-			m_BufferBase = new VertexData[RENDERER_MAX_TEXTURES * 4];
+			m_BufferBase = new VertexData[RENDERER_MAX_SPRITES * 4];
 		#endif
 
 			// Setup Framebuffer
-			GLCall(glGetIntegerv(GL_FRAMEBUFFER_BINDING, &m_ScreenBuffer));
+			m_ScreenBuffer = API::GetScreenBuffer();
 			m_Framebuffer = new Framebuffer(m_ViewportSize);
 			m_SimpleShader = ShaderFactory::SimpleShader();
 			m_SimpleShader->Bind();
@@ -89,37 +87,32 @@ namespace sparky
 
 			m_PostEffects = new PostEffects();
 			m_PostEffectsBuffer = new Framebuffer(m_ViewportSize);
-		};
+		}
 
-		float BatchRenderer2D::SubmitTexture(uint id)
+		float BatchRenderer2D::SubmitTexture(uint textureID)
 		{
 			float result = 0.0f;
 			bool found = false;
-			if (id > 0)
+			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
-				for (uint i = 0; i < m_TextureSlots.size(); i++)
+				if (m_TextureSlots[i] == textureID)
 				{
-					if (m_TextureSlots[i] == id)
-					{
-						result = (float)(i + 1);
-						found = true;
-						break;
-					}
+					result = (float)(i + 1);
+					found = true;
+					break;
 				}
-				if (!found)
+			}
+
+			if (!found)
+			{
+				if (m_TextureSlots.size() >= RENDERER_MAX_TEXTURES)
 				{
-					// openGL has a limit to hold 32 textures
-					// if we have more than that, flush (draw)
-					// what we have in memory and add more starting from 0
-					if (m_TextureSlots.size() >= RENDERER_MAX_TEXTURES)
-					{
-						End();
-						Flush();
-						Begin();
-					}
-					m_TextureSlots.push_back(id);
-					result = (float)(m_TextureSlots.size());
+					End();
+					Flush();
+					Begin();
 				}
+				m_TextureSlots.push_back(textureID);
+				result = (float)(m_TextureSlots.size());
 			}
 			return result;
 		}
@@ -152,25 +145,23 @@ namespace sparky
 				}
 
 				m_Framebuffer->Bind();
-				m_Framebuffer->Clear();
+				m_Framebuffer->Clear(); // TODO: Clear somewhere else, since this basically limits to one draw call
 			}
 			else
 			{
-				GLCall(glBindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer));
-				GLCall(glViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y));
+				API::BindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer);
+				API::SetViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y);
 			}
-			glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+			m_VertexArray->GetBuffer()->Bind();
 		#ifdef SPARKY_PLATFORM_WEB
 			m_Buffer = m_BufferBase;
 		#else
-			GLCall(m_Buffer = (VertexData *)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY));
+			m_Buffer = m_VertexArray->GetBuffer()->GetPointer<VertexData>();
 		#endif
-		};
+		}
 
-		// submit will create a rectangle
 		void BatchRenderer2D::Submit(const Renderable2D *renderable)
 		{
-			// indices 0,1,2, 2,3,0
 			const vec3 &position = renderable->GetPosition();
 			const vec2 &size = renderable->GetSize();
 			const uint color = renderable->GetColor();
@@ -182,8 +173,8 @@ namespace sparky
 				ts = SubmitTexture(renderable->GetTexture());
 
 			mat4 maskTransform = mat4::Identity();
-			const GLuint mid = m_Mask ? m_Mask->texture->GetID() : 0;
-			float ms = 0.0f; // mask slot
+			const uint mid = m_Mask ? m_Mask->texture->GetID() : 0;
+			float ms = 0.0f;
 
 			if (m_Mask != nullptr)
 			{
@@ -228,90 +219,51 @@ namespace sparky
 			m_Buffer++;
 
 			m_IndexCount += 6;
-		};
-
-		void BatchRenderer2D::End()
-		{
-		#ifdef SPARKY_PLATFORM_WEB
-			GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_VBO));
-			GLCall(glBufferSubData(GL_ARRAY_BUFFER, 0, (m_Buffer - m_BufferBase) * RENDERER_VERTEX_SIZE, m_BufferBase));
-			m_Buffer = m_BufferBase;
-		#else
-			GLCall(glUnmapBuffer(GL_ARRAY_BUFFER));
-			GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
-		#endif
-		};
-
-		void BatchRenderer2D::Flush()
-		{
-			for (uint i = 0; i < m_TextureSlots.size(); i++)
-			{
-				GLCall(glActiveTexture(GL_TEXTURE0 + i));
-				GLCall(glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]));
-			}
-
-			GLCall(glBindVertexArray(m_VAO));
-			m_IBO->Bind();
-
-			GLCall(glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, NULL));
-
-			m_IBO->Unbind();
-			GLCall(glBindVertexArray(0));
-			m_IndexCount = 0;
-
-			m_TextureSlots.clear();
-
-			if (m_Target == RenderTarget::BUFFER)
-			{
-				// Post Effects pass should go here!
-				if (m_PostEffectsEnabled)
-					m_PostEffects->RenderPostEffects(m_Framebuffer, m_PostEffectsBuffer, m_ScreenQuad, m_IBO);
-
-				// Display Framebuffer - potentially move to Framebuffer class
-				GLCall(glBindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer));
-				GLCall(glViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y));
-				m_SimpleShader->Bind();
-
-				GLCall(glActiveTexture(GL_TEXTURE0));
-				if (m_PostEffectsEnabled)
-					m_PostEffectsBuffer->GetTexture()->Bind();
-				else
-					m_Framebuffer->GetTexture()->Bind();
-
-				GLCall(glBindVertexArray(m_ScreenQuad));
-				m_IBO->Bind();
-				GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, NULL));
-				m_IBO->Unbind();
-				GLCall(glBindVertexArray(0));
-				m_SimpleShader->Unbind();
-			}
 		}
 
-		void BatchRenderer2D::DrawString(const std::string &text, vec3 position, const Font &font, uint color)
+		void BatchRenderer2D::DrawAABB(const maths::AABB &aabb, uint color)
 		{
+			// TODO: Draw 3D AABBs
+		#if 0
+			m_DeferredLineVertexData.push_back({ aabb.min, vec2(), vec2(), 0, 0, color });
+			m_DeferredLineVertexData.push_back({ vec3(aabb.min.x, aabb.max.y, 0.0f), vec2(), vec2(), 0, 0, color });
+
+			m_DeferredLineVertexData.push_back({ vec3(aabb.min.x, aabb.max.y, 0.0f), vec2(), vec2(), 0, 0, color });
+			m_DeferredLineVertexData.push_back({ aabb.max, vec2(), vec2(), 0, 0, color });
+
+			m_DeferredLineVertexData.push_back({ aabb.max, vec2(), vec2(), 0, 0, color });
+			m_DeferredLineVertexData.push_back({ vec3(aabb.max.x, aabb.min.y, 0.0f), vec2(), vec2(), 0, 0, color });
+
+			m_DeferredLineVertexData.push_back({ vec3(aabb.max.x, aabb.min.y, 0.0f), vec2(), vec2(), 0, 0, color });
+			m_DeferredLineVertexData.push_back({ aabb.min, vec2(), vec2(), 0, 0, color });
+		#endif
+		}
+
+		void BatchRenderer2D::DrawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color)
+		{
+			using namespace ftgl;
+
 			float ts = 0.0f;
 			ts = SubmitTexture(font.GetID());
 
-			// scale to the size of our window
-			const vec2 &scale = font.GetScale();
+			const maths::vec2 &scale = font.GetScale();
 
-			// position is const, we need separated variable to move chars
 			float x = position.x;
 
-			for (byte i = 0; i < text.length(); i++)
+			texture_font_t *ftFont = font.GetFTFont();
+
+			for (uint i = 0; i < text.length(); i++)
 			{
-				char c = text.at(i);
-				ftgl::texture_glyph_t *glyph = ftgl::texture_font_get_glyph(font.GetFTGLFont(), c);
+				char c = text[i];
+				texture_glyph_t *glyph = texture_font_get_glyph(ftFont, c);
 				if (glyph != NULL)
 				{
-					// space between chars
 					if (i > 0)
 					{
-						float kerning = ftgl::texture_glyph_get_kerning(glyph, text.at(i - 1));
+						float kerning = texture_glyph_get_kerning(glyph, text[i - 1]);
 						x += kerning / scale.x;
 					}
 
-					// get char position on screen x/y/u/v
 					float x0 = x + glyph->offset_x / scale.x;
 					float y0 = position.y + glyph->offset_y / scale.y;
 					float x1 = x0 + glyph->width / scale.x;
@@ -322,26 +274,25 @@ namespace sparky
 					float u1 = glyph->s1;
 					float v1 = glyph->t1;
 
-					// add to buffer
-					m_Buffer->vertex = *m_TransformationBack * vec3(x0, y0, 0.0f);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y0, 0);
 					m_Buffer->uv = vec2(u0, v0);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
 					m_Buffer++;
 
-					m_Buffer->vertex = *m_TransformationBack * vec3(x0, y1, 0.0f);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x0, y1, 0);
 					m_Buffer->uv = vec2(u0, v1);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
 					m_Buffer++;
 
-					m_Buffer->vertex = *m_TransformationBack * vec3(x1, y1, 0.0f);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y1, 0);
 					m_Buffer->uv = vec2(u1, v1);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
 					m_Buffer++;
 
-					m_Buffer->vertex = *m_TransformationBack * vec3(x1, y0, 0.0f);
+					m_Buffer->vertex = *m_TransformationBack * maths::vec3(x1, y0, 0);
 					m_Buffer->uv = vec2(u1, v0);
 					m_Buffer->tid = ts;
 					m_Buffer->color = color;
@@ -349,11 +300,71 @@ namespace sparky
 
 					m_IndexCount += 6;
 
-					// move to next char position.
 					x += glyph->advance_x / scale.x;
 				}
 			}
-		};
+		}
+
+		void BatchRenderer2D::End()
+		{
+		#ifdef SPARKY_PLATFORM_WEB
+			API::BindBuffer(GL_ARRAY_BUFFER, m_VBO);
+			API::SetBufferSubData(GL_ARRAY_BUFFER, 0, (m_Buffer - m_BufferBase) * RENDERER_VERTEX_SIZE, m_BufferBase);
+			m_Buffer = m_BufferBase;
+		#else
+			m_VertexArray->GetBuffer()->ReleasePointer();
+		#endif
+			m_VertexArray->GetBuffer()->Unbind();
+		}
+
+		void BatchRenderer2D::Flush()
+		{
+			for (uint i = 0; i < m_TextureSlots.size(); i++)
+			{
+				API::SetActiveTexture(GL_TEXTURE0 + i);
+				API::BindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);
+			}
+
+			// Draw buffers here
+			{
+				m_VertexArray->Bind();
+				m_IBO->Bind();
+
+				API::DrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, NULL);
+
+				m_IBO->Unbind();
+				m_VertexArray->Unbind();
+			}
+
+			m_IndexCount = 0;
+			m_TextureSlots.clear();
+
+			if (m_Target == RenderTarget::BUFFER)
+			{
+				// Post Effects pass should go here!
+				if (m_PostEffectsEnabled)
+					m_PostEffects->RenderPostEffects(m_Framebuffer, m_PostEffectsBuffer, m_ScreenQuad, m_IBO);
+
+				// Display Framebuffer - potentially move to Framebuffer class
+				API::BindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer);
+				API::SetViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y);
+				m_SimpleShader->Bind();
+
+				API::SetActiveTexture(GL_TEXTURE0);
+				if (m_PostEffectsEnabled)
+					m_PostEffectsBuffer->GetTexture()->Bind();
+				else
+					m_Framebuffer->GetTexture()->Bind();
+
+				m_ScreenQuad->Bind();
+				m_IBO->Bind();
+				API::DrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, NULL);
+				m_IBO->Unbind();
+				m_ScreenQuad->Unbind();
+
+				m_SimpleShader->Unbind();
+			}
+		}
 
 	}
 }

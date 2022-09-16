@@ -32,7 +32,7 @@ namespace sparky
 
 		protected:
 			Renderer2D()
-				: m_Mask(nullptr), m_Target(RenderTarget::SCREEN)
+				: m_Mask(nullptr), m_Target(RenderTarget::SCREEN), m_PostEffects(nullptr), m_PostEffectsEnabled(false)
 			{
 				m_TransformationStack.push_back(maths::mat4::Identity());
 				m_TransformationBack = &m_TransformationStack.back();
@@ -63,7 +63,7 @@ namespace sparky
 			virtual void End() {};
 			virtual void Flush() = 0;
 
-			virtual void DrawString(const std::string &text, maths::vec3 position, const Font &font, uint color) {};
+			virtual void DrawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color) {}
 
 			virtual void SetMask(const Mask *mask)
 			{

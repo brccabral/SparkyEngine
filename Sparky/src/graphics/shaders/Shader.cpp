@@ -44,7 +44,7 @@ namespace sparky
 			glDeleteProgram(m_ShaderID);
 		}
 
-		GLuint Shader::Load(const char *vertSource, const char *fragSource)
+		uint Shader::Load(const char *vertSource, const char *fragSource)
 		{
 			// create a GL program
 			GLuint program = glCreateProgram();
@@ -116,7 +116,7 @@ namespace sparky
 			glUseProgram(0);
 		}
 
-		GLint Shader::GetUniformLocation(const GLchar *name)
+		int Shader::GetUniformLocation(const char *name)
 		{
 			GLint result = glGetUniformLocation(m_ShaderID, name);
 			if (result == -1)
@@ -125,35 +125,35 @@ namespace sparky
 			return result;
 		};
 
-		void Shader::SetUniform(const GLchar *name, const maths::mat4 &matrix)
+		void Shader::SetUniform(const char *name, const maths::mat4 &matrix)
 		{
 			glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, matrix.elements);
 		};
-		void Shader::SetUniform(const GLchar *name, int value)
+		void Shader::SetUniform(const char *name, int value)
 		{
 			glUniform1i(GetUniformLocation(name), value);
 		};
-		void Shader::SetUniform(const GLchar *name, int *value, int count)
+		void Shader::SetUniform(const char *name, int *value, int count)
 		{
 			glUniform1iv(GetUniformLocation(name), count, value);
 		};
-		void Shader::SetUniform(const GLchar *name, float value)
+		void Shader::SetUniform(const char *name, float value)
 		{
 			glUniform1f(GetUniformLocation(name), value);
 		};
-		void Shader::SetUniform(const GLchar *name, float *value, int count)
+		void Shader::SetUniform(const char *name, float *value, int count)
 		{
 			glUniform1fv(GetUniformLocation(name), count, value);
 		};
-		void Shader::SetUniform(const GLchar *name, const maths::vec2 &vector)
+		void Shader::SetUniform(const char *name, const maths::vec2 &vector)
 		{
 			glUniform2f(GetUniformLocation(name), vector.x, vector.y);
 		};
-		void Shader::SetUniform(const GLchar *name, const maths::vec3 &vector)
+		void Shader::SetUniform(const char *name, const maths::vec3 &vector)
 		{
 			glUniform3f(GetUniformLocation(name), vector.x, vector.y, vector.z);
 		};
-		void Shader::SetUniform(const GLchar *name, const maths::vec4 &vector)
+		void Shader::SetUniform(const char *name, const maths::vec4 &vector)
 		{
 			glUniform4f(GetUniformLocation(name), vector.x, vector.y, vector.z, vector.w);
 		};
