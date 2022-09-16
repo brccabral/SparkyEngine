@@ -12,17 +12,17 @@ namespace sparky
 {
 	namespace graphics
 	{
-	#define RENDERER_VERTEX_SIZE sizeof(VertexData)
-
 		struct VertexData
 		{
 			maths::vec3 vertex;
 			maths::vec2 uv; // texture coordinates
-			float tid; // texture id
-			uint color;
 			maths::vec2 mask_uv;
+			float tid; // texture id
 			float mid; // mask id
+			uint color;
 		};
+
+	#define RENDERER_VERTEX_SIZE sizeof(VertexData)
 
 		class Renderable2D
 		{
