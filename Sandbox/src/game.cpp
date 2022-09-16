@@ -1,6 +1,3 @@
-#include <sparky.h>
-#include <app/Application.h>
-
 #include "TestLayer.h"
 
 using namespace sparky;

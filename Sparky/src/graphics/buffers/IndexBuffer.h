@@ -1,7 +1,7 @@
 #pragma once
 
-#include <sparkygl.h>
 #include <sparky_types.h>
+#include "../SPRenderAPI.h"
 
 namespace sparky
 {
@@ -10,8 +10,8 @@ namespace sparky
 		class IndexBuffer
 		{
 		private:
-			GLuint m_BufferID;
-			GLsizei m_Count;
+			API::Buffer *m_Buffer;
+			uint m_Count;
 
 		public:
 			IndexBuffer(short *data, uint count);
@@ -21,7 +21,7 @@ namespace sparky
 			void Bind() const;
 			void Unbind() const;
 
-			inline GLsizei GetCount() const { return m_Count; };
+			inline uint GetCount() const { return m_Count; }
 		};
 	}
 }

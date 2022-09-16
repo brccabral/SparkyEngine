@@ -1,12 +1,5 @@
 #include "TestLayer.h"
 
-#include <app/Application.h>
-
-#include <graphics/BatchRenderer2D.h>
-#include <graphics/shaders/ShaderFactory.h>
-#include <graphics/FontManager.h>
-#include <graphics/Sprite.h>
-
 using namespace sparky;
 using namespace graphics;
 using namespace events;

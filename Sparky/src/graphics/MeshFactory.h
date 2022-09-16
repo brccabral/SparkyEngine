@@ -2,9 +2,8 @@
 
 #include <sparky_types.h>
 #include <maths/maths.h>
-#include <sparkygl.h>
-#include <graphics/Renderable2D.h>
-#include <graphics/shaders/Shader.h>
+
+#include <graphics/buffers/VertexArray.h>
 
 namespace sparky
 {
@@ -18,8 +17,8 @@ namespace sparky
 			//		 For now it uploads data to the GPU and returns the handle.
 			//
 
-			uint CreateQuad(float x, float y, float width, float height);
-			uint CreateQuad(const maths::vec2 &position, const maths::vec2 &size);
+			VertexArray *CreateQuad(float x, float y, float width, float height);
+			VertexArray *CreateQuad(const maths::vec2 &position, const maths::vec2 &size);
 
 		}
 	}

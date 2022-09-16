@@ -131,7 +131,7 @@ namespace sparky
 			POINT mouse;
 			GetCursorPos(&mouse);
 			ScreenToClient(hWnd, &mouse);
-			m_MousePosition = maths::vec2((uint)mouse.x, (uint)mouse.y);
+			m_MousePosition = maths::vec2((float)mouse.x, (float)mouse.y);
 
 			SwapBuffers(hDc);
 		}

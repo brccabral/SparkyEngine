@@ -15,13 +15,13 @@ namespace sparky
 		};
 
 		Sprite::Sprite(Texture *texture)
-			: Renderable2D(maths::vec3(0.0f, 0.0f, 0.0f), maths::vec2(texture->GetWidth(), texture->GetHeight()), 0xffffffff), position(m_Position), size(m_Size)
+			: Renderable2D(maths::vec3(0.0f, 0.0f, 0.0f), maths::vec2((float)texture->GetWidth(), (float)texture->GetHeight()), 0xffffffff), position(m_Position), size(m_Size)
 		{
 			m_Texture = texture;
 		}
 
 		Sprite::Sprite(float x, float y, Texture *texture)
-			: Renderable2D(maths::vec3(x, y, 0.0f), maths::vec2(texture->GetWidth(), texture->GetHeight()), 0xffffffff), position(m_Position), size(m_Size)
+			: Renderable2D(maths::vec3(x, y, 0.0f), maths::vec2((float)texture->GetWidth(), (float)texture->GetHeight()), 0xffffffff), position(m_Position), size(m_Size)
 		{
 			m_Texture = texture;
 		}

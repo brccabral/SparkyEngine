@@ -24,7 +24,7 @@ namespace sparky
 			Font(const std::string &name, const std::string &filename, float size);
 			Font(const std::string &name, const byte *data, uint datasize, float size);
 
-			inline ftgl::texture_font_t *GetFTGLFont() const { return m_FTFont; }
+			inline ftgl::texture_font_t *GetFTFont() const { return m_FTFont; }
 
 			inline const uint GetID() const { return m_FTAtlas->id; }
 			inline const std::string &GetName() const { return m_Name; }

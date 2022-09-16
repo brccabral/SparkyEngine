@@ -1,6 +1,5 @@
 #pragma once
 
-#include <sparkygl.h>
 #include <vector>
 #include <iostream>
 #include "../../utils/FileUtils.h"
@@ -26,7 +25,7 @@ namespace sparky
 			const char *m_VertSrc;
 			const char *m_FragSrc;
 
-			GLuint m_ShaderID; // shader ID given by openGl
+			uint m_ShaderID; // shader ID given by openGl
 		public:
 			Shader(const char *name, const char *vertSrc, const char *fragSrc);
 			Shader(const char *vertPath, const char *fragPath);
@@ -36,19 +35,19 @@ namespace sparky
 			void Bind() const;
 			void Unbind() const;
 
-			void SetUniform(const GLchar *name, const maths::mat4 &matrix);
-			void SetUniform(const GLchar *name, int value);
-			void SetUniform(const GLchar *name, int *value, int count);
-			void SetUniform(const GLchar *name, float value);
-			void SetUniform(const GLchar *name, float *value, int count);
-			void SetUniform(const GLchar *name, const maths::vec2 &vector);
-			void SetUniform(const GLchar *name, const maths::vec3 &vector);
-			void SetUniform(const GLchar *name, const maths::vec4 &vector);
+			void SetUniform(const char *name, const maths::mat4 &matrix);
+			void SetUniform(const char *name, int value);
+			void SetUniform(const char *name, int *value, int count);
+			void SetUniform(const char *name, float value);
+			void SetUniform(const char *name, float *value, int count);
+			void SetUniform(const char *name, const maths::vec2 &vector);
+			void SetUniform(const char *name, const maths::vec3 &vector);
+			void SetUniform(const char *name, const maths::vec4 &vector);
 
 		private:
-			GLuint Load(const char *vertSource, const char *fragSource);
+			uint Load(const char *vertSource, const char *fragSource);
 
-			GLint GetUniformLocation(const GLchar *name);
+			int GetUniformLocation(const char *name);
 		public:
 			static Shader *FromFile(const char *vertPath, const char *fragPath);
 			static Shader *FromSource(const char *vertSrc, const char *fragSrc);
