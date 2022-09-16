@@ -1,9 +1,9 @@
-#include <sparkygl.h>
-#include <sparky_types.h>
+#include <sp/sparkygl.h>
+#include <sp/sparky_types.h>
 
-#include <graphics/Window.h>
-#include <graphics/layers/Layer.h>
-#include <utils/Timer.h>
+#include <sp/graphics/Window.h>
+#include <sp/graphics/layers/Layer.h>
+#include <sp/utils/Timer.h>
 
 namespace sparky
 {

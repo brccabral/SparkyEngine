@@ -1,9 +1,9 @@
 #pragma once
 
-#include <sparky_types.h>
-#include <maths/maths.h>
+#include <sp/sparky_types.h>
+#include <sp/maths/maths.h>
 
-#include <graphics/buffers/VertexArray.h>
+#include <sp/graphics/buffers/VertexArray.h>
 
 namespace sparky
 {

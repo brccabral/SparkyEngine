@@ -1,6 +1,6 @@
 #include "SPOpenGLBuffer.h"
 
-#include <graphics/SPRenderAPI.h>
+#include <sp/graphics/SPRenderAPI.h>
 
 namespace sparky
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <sparky_types.h>
-#include <graphics/buffers/BufferLayout.h>
+#include <sp/sparky_types.h>
+#include <sp/graphics/buffers/BufferLayout.h>
 
 namespace sparky
 {

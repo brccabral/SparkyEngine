@@ -2,7 +2,7 @@
 
 #include "../SparkyCLI.h"
 
-#include <maths/vec3.h>
+#include <sp/maths/vec3.h>
 
 namespace SparkyCLI {
 

@@ -4,7 +4,7 @@
 #include "Vector3.h"
 #include "Vector4.h"
 
-#include <maths/mat4.h>
+#include <sp/maths/mat4.h>
 
 #ifdef near
 #undef near

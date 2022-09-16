@@ -1,9 +1,9 @@
 #pragma once
 
 #include <string>
-#include <utils/Log.h>
-#include <sparky_types.h>
-#include "../../ext/freetype-gl/freetype-gl.h"
+#include <sp/utils/Log.h>
+#include <sp/sparky_types.h>
+#include "../../../ext/freetype-gl/freetype-gl.h"
 #include "../maths/maths.h"
 
 namespace sparky

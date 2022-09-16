@@ -6,7 +6,7 @@
 #include "buffers/Buffer.h"
 #include "buffers/BufferLayout.h"
 
-#include <utils/Log.h>
+#include <sp/utils/Log.h>
 
 namespace sparky
 {

@@ -18,7 +18,7 @@
 #include "audio/SoundManager.h"
 
 #include "maths/maths.h"
-#include <utils/Log.h>
+#include "utils/Log.h"
 #include "utils/Timer.h"
 
 #ifdef SPARKY_PLATFORM_WEB

@@ -3,8 +3,8 @@
 #include <string>
 #include <FreeImage.h>
 #include <FreeImage/Utilities.h>
-#include <utils/Log.h> // needs to be before GL, redefinition of APIENTRY
-#include <sparky_types.h>
+#include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
+#include <sp/sparky_types.h>
 
 namespace sparky
 {

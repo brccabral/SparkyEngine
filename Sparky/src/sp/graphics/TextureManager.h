@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <sparky_types.h>
+#include <sp/sparky_types.h>
 #include "Texture.h"
 
 namespace sparky

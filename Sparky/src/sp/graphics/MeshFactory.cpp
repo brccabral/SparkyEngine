@@ -1,10 +1,10 @@
 #include "MeshFactory.h"
 
-#include <graphics/BatchRenderer2D.h>
+#include <sp/graphics/BatchRenderer2D.h>
 
-#include <sparkygl.h>
-#include <graphics/Renderable2D.h>
-#include <graphics/shaders/Shader.h>
+#include <sp/sparkygl.h>
+#include <sp/graphics/Renderable2D.h>
+#include <sp/graphics/shaders/Shader.h>
 
 #define SPARKY_VERTEX_ARRAYS 1
 

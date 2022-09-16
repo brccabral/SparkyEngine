@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <sparkygl.h>
+#include <sp/sparkygl.h>
 #include "Texture.h"
 #include "Font.h"
 #include "../maths/maths.h"

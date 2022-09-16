@@ -7,8 +7,8 @@
 #include <vector>
 #include <list>
 #include <map>
-#include <sparky_types.h>
-#include <maths/vec2.h>
+#include <sp/sparky_types.h>
+#include <sp/maths/vec2.h>
 
 #define SPARKY_LOG_LEVEL_FATAL 0
 #define SPARKY_LOG_LEVEL_ERROR 1

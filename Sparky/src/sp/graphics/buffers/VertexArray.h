@@ -1,9 +1,9 @@
 #pragma once
 
 #include <vector>
-#include <sparky_types.h>
+#include <sp/sparky_types.h>
 #include "Buffer.h"
-#include "graphics/SPRenderAPI.h"
+#include <sp/graphics/SPRenderAPI.h>
 
 namespace sparky
 {

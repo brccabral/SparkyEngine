@@ -1,9 +1,9 @@
 #pragma once
 
 #include <vector>
-#include <sparky_types.h>
-#include <maths/maths.h>
-#include <utils/Log.h>
+#include <sp/sparky_types.h>
+#include <sp/maths/maths.h>
+#include <sp/utils/Log.h>
 #include <GL/glew.h>
 
 namespace sparky

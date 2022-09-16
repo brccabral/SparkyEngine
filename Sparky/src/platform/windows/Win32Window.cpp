@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <Windowsx.h>
 
-#include <graphics/Window.h>
+#include <sp/graphics/Window.h>
 
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 

@@ -17,7 +17,8 @@ namespace SparkyCLI {
 	static const char* string_to_char_array(System::String^ string)
 	{
 		char* result = new char[string->Length + 1];
-		sprintf(result, "%s", string);
+		char *format = "%s";
+		sprintf(result, format, &string);
 		return result;
 	}
 

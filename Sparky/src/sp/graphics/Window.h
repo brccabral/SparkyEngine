@@ -1,10 +1,10 @@
 #pragma once
 
 #include <iostream>
-#include <sparkygl.h>
+#include <sp/sparkygl.h>
 #include "FontManager.h"
-#include <audio/SoundManager.h>
-#include <maths/vec2.h>
+#include <sp/audio/SoundManager.h>
+#include <sp/maths/vec2.h>
 #include "TextureManager.h"
 #include "../embedded/Embedded.h"
 

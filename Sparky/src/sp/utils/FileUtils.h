@@ -2,7 +2,7 @@
 
 #include <string>
 #include <fstream>
-#include <utils/Log.h>
+#include <sp/utils/Log.h>
 
 namespace sparky
 {

@@ -2,7 +2,7 @@
 
 #include "..\SparkyCLI.h"
 
-#include <app/Application.h>
+#include <sp/app/Application.h>
 
 namespace SparkyCLI {
 

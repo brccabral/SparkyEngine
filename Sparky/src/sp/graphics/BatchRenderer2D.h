@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include <sparky_types.h>
+#include <sp/sparky_types.h>
 
 #include "Renderer2D.h"
 #include "Renderable2D.h"

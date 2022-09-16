@@ -1,9 +1,9 @@
 #pragma once
 
 #include <string>
-#include <utils/Log.h>
+#include <sp/utils/Log.h>
 #include "../utils/StringUtils.h"
-#include <sparky_types.h>
+#include <sp/sparky_types.h>
 
 #ifdef SPARKY_PLATFORM_WEB
 #include <emscripten/emscripten.h>

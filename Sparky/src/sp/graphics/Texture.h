@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <string>
-#include <utils/Log.h> // needs to be before GL, redefinition of APIENTRY
+#include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
 #include "SPRenderAPI.h"
-#include <utils/ImageLoad.h>
+#include <sp/utils/ImageLoad.h>
 #include <GL/glew.h>
 
 namespace sparky

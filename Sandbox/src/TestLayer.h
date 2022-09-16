@@ -1,15 +1,15 @@
 #pragma once
 
-#include <app/Application.h>
-#include <sparky.h>
-#include <events/Event.h>
-#include <graphics/layers/Layer2D.h>
-#include <graphics/Label.h>
-#include <graphics/Renderer2D.h>
-#include <graphics/BatchRenderer2D.h>
-#include <graphics/shaders/ShaderFactory.h>
-#include <graphics/FontManager.h>
-#include <graphics/Sprite.h>
+#include <sp/app/Application.h>
+#include <sp/sparky.h>
+#include <sp/events/Event.h>
+#include <sp/graphics/layers/Layer2D.h>
+#include <sp/graphics/Label.h>
+#include <sp/graphics/Renderer2D.h>
+#include <sp/graphics/BatchRenderer2D.h>
+#include <sp/graphics/shaders/ShaderFactory.h>
+#include <sp/graphics/FontManager.h>
+#include <sp/graphics/Sprite.h>
 
 class TestLayer : public sparky::graphics::Layer2D
 {

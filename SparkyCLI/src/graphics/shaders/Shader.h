@@ -5,7 +5,7 @@
 #include "../../maths/Vector3.h"
 #include "../../maths/Matrix4.h"
 
-#include <graphics/shaders/Shader.h>
+#include <sp/graphics/shaders/Shader.h>
 
 namespace SparkyCLI {
 
