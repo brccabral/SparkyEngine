@@ -304,6 +304,7 @@
     <ClCompile Include="ext\gorilla-audio\src\ga.c" />
     <ClCompile Include="ext\gorilla-audio\src\gau.c" />
     <ClCompile Include="ext\gorilla-audio\src\ga_stream.c" />
+    <ClCompile Include="src\app\Application.cpp" />
     <ClCompile Include="src\audio\Sound.cpp" />
     <ClCompile Include="src\audio\SoundManager.cpp" />
     <ClCompile Include="src\embedded\Embedded.cpp" />
