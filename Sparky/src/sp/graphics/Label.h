@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string.h>
 #include "Renderable2D.h"
 #include "FontManager.h"
 

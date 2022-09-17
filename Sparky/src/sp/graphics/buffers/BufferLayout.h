@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 #include <sp/maths/maths.h>
 #include <sp/utils/Log.h>
 #include <GL/glew.h>

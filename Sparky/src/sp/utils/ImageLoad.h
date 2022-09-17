@@ -4,7 +4,7 @@
 #include <FreeImage.h>
 #include <FreeImage/Utilities.h>
 #include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 
 namespace sp
 {

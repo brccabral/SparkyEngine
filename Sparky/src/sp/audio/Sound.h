@@ -2,14 +2,14 @@
 
 #include <string>
 #include <sp/utils/Log.h>
-#include "../utils/StringUtils.h"
-#include <sp/sparky_types.h>
+#include <sp/utils/StringUtils.h>
+#include <sp/Types.h>
 
 #ifdef SPARKY_PLATFORM_WEB
 #include <emscripten/emscripten.h>
 #else
-#include "gorilla/ga.h"
-#include "gorilla/gau.h"
+#include <gorilla/ga.h>
+#include <gorilla/gau.h>
 #endif
 
 namespace sp

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 
 namespace sp
 {

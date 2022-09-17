@@ -7,7 +7,7 @@
 #include <vector>
 #include <list>
 #include <map>
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 #include <sp/maths/vec2.h>
 
 #define SPARKY_LOG_LEVEL_FATAL 0

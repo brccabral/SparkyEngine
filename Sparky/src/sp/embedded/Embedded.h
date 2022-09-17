@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 
 namespace sp
 {

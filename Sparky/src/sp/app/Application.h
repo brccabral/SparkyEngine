@@ -1,5 +1,5 @@
 #include <sp/sparkygl.h>
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 
 #include <sp/graphics/Window.h>
 #include <sp/graphics/layers/Layer.h>

@@ -1,10 +1,10 @@
 #pragma once
 
-#include <sp/sparky_types.h>
-#include "../maths/vec4.h"
-#include "../maths/tvec2.h"
+#include <sp/Types.h>
+#include <sp/maths/vec4.h>
+#include <sp/maths/tvec2.h>
 #include "Texture.h"
-#include "sp/graphics/SPRenderAPI.h"
+#include <sp/graphics/SPRenderAPI.h>
 
 namespace sp
 {

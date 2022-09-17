@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 #include <sp/maths/maths.h>
 
 #include <sp/graphics/buffers/VertexArray.h>

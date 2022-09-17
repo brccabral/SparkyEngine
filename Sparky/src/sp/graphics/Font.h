@@ -2,7 +2,7 @@
 
 #include <string>
 #include <sp/utils/Log.h>
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 #include "../../../ext/freetype-gl/freetype-gl.h"
 #include "../maths/maths.h"
 

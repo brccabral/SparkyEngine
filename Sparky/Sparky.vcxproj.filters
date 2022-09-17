@@ -530,7 +530,7 @@
     <ClInclude Include="src\sp\sparky.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\sp\sparky_types.h">
+    <ClInclude Include="src\sp\Types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\sparkygl.h">

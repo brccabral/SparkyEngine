@@ -412,7 +412,7 @@
     <ClInclude Include="src\platform\opengl\SPOpenGLBuffer.h" />
     <ClInclude Include="src\sp\sparky.h" />
     <ClInclude Include="src\sp\sparkygl.h" />
-    <ClInclude Include="src\sp\sparky_types.h" />
+    <ClInclude Include="src\sp\Types.h" />
     <ClInclude Include="src\sp\utils\FileUtils.h" />
     <ClInclude Include="src\sp\utils\ImageLoad.h" />
     <ClInclude Include="src\sp\utils\Log.h" />

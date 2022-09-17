@@ -2,8 +2,8 @@
 
 #include <vector>
 #include <iostream>
-#include "../../utils/FileUtils.h"
-#include "../../maths/maths.h"
+#include <sp/utils/FileUtils.h>
+#include <sp/maths/maths.h>
 
 namespace sp
 {

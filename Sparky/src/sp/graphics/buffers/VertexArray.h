@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <sp/sparky_types.h>
+#include <sp/Types.h>
 #include "Buffer.h"
 #include <sp/graphics/SPRenderAPI.h>
 
