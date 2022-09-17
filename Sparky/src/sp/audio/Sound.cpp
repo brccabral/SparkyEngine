@@ -6,9 +6,9 @@ namespace sp
 	namespace audio
 	{
 		Sound::Sound(const String &name, const String &filename)
-			: m_Name(name), m_Filename(filename), m_Playing(false), m_Count(0), m_Gain(1.0f)
+			: m_Name(name), m_Filename(filename), m_Playing(false), m_Count(0), m_Gain(1.0f), m_Handle(nullptr), m_Sound(nullptr)
 		{
-			std::vector<String> split = split_string(m_Filename, '.');
+			std::vector<String> split = SplitString(m_Filename, '.');
 			if (split.size() < 2)
 			{
 				SPARKY_ERROR("[Sound] Invalid file name '", m_Filename.c_str(), "'!");
