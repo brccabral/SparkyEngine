@@ -19,8 +19,8 @@ namespace sp
 		class Sound
 		{
 		private:
-			std::string m_Name;
-			std::string m_Filename;
+			String m_Name;
+			String m_Filename;
 			uint m_Count;
 		#ifdef SPARKY_PLATFORM_WEB
 		#else
@@ -32,7 +32,7 @@ namespace sp
 			bool m_Playing;
 
 		public:
-			Sound(const std::string &name, const std::string &filename);
+			Sound(const String &name, const String &filename);
 			~Sound();
 
 			void Play();
@@ -45,8 +45,8 @@ namespace sp
 
 			inline const bool IsPlaying() const { return m_Playing; }
 			inline const float GetGain() const { return m_Gain; }
-			inline const std::string &GetName() const { return m_Name; }
-			inline const std::string &GetFilename() const { return m_Filename; }
+			inline const String &GetName() const { return m_Name; }
+			inline const String &GetFilename() const { return m_Filename; }
 
 		#ifdef SPARKY_PLATFORM_WEB
 		#else

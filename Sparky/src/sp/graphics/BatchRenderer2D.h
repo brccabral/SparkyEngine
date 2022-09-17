@@ -52,7 +52,7 @@ namespace sp
 			void Begin() override;
 			void Submit(const Renderable2D *renderable) override;
 			void DrawAABB(const maths::AABB &aabb, uint color = 0xffffffff);
-			void DrawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color) override;
+			void DrawString(const String &text, const maths::vec3 &position, const Font &font, unsigned int color) override;
 			void End() override;
 			void Flush() override;
 

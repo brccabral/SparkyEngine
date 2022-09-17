@@ -22,7 +22,7 @@ namespace sp
 			return sound;
 		}
 
-		Sound *SoundManager::Get(const std::string &name)
+		Sound *SoundManager::Get(const String &name)
 		{
 			for (Sound *sound : m_Sounds)
 			{

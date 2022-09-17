@@ -239,7 +239,7 @@ namespace sp
 		#endif
 		}
 
-		void BatchRenderer2D::DrawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color)
+		void BatchRenderer2D::DrawString(const String &text, const maths::vec3 &position, const Font &font, unsigned int color)
 		{
 			using namespace ftgl;
 

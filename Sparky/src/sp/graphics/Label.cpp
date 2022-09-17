@@ -4,21 +4,21 @@ namespace sp
 {
 	namespace graphics
 	{
-		Label::Label(std::string text, float x, float y, uint color)
+		Label::Label(String text, float x, float y, uint color)
 			: Renderable2D(), text(text), x(x), y(y), position(m_Position), m_Font(FontManager::Get("SourceSansPro"))
 		{
 			m_Position = maths::vec3(x, y, 0.0f);
 			m_Color = color;
 		};
 
-		Label::Label(std::string text, float x, float y, Font *font, uint color)
+		Label::Label(String text, float x, float y, Font *font, uint color)
 			: Renderable2D(), text(text), x(x), y(y), position(m_Position), m_Font(font)
 		{
 			m_Position = maths::vec3(x, y, 0.0f);
 			m_Color = color;
 		};
 
-		Label::Label(std::string text, float x, float y, const std::string &fontname, uint color)
+		Label::Label(String text, float x, float y, const String &fontname, uint color)
 			: Renderable2D(), text(text), x(x), y(y), position(m_Position), m_Font(FontManager::Get(fontname))
 		{
 			m_Position = maths::vec3(x, y, 0.0f);
@@ -27,7 +27,7 @@ namespace sp
 			Validatefont(fontname);
 		};
 
-		Label::Label(std::string text, float x, float y, const std::string &fontname, float size, uint color)
+		Label::Label(String text, float x, float y, const String &fontname, float size, uint color)
 			: Renderable2D(), text(text), x(x), y(y), position(m_Position), m_Font(FontManager::Get(fontname, size))
 		{
 			m_Position = maths::vec3(x, y, 0.0f);
@@ -36,7 +36,7 @@ namespace sp
 			Validatefont(fontname, size);
 		};
 
-		void Label::Validatefont(const std::string &name, float size)
+		void Label::Validatefont(const String &name, float size)
 		{
 			if (m_Font != nullptr)
 				return;

@@ -11,7 +11,7 @@ namespace sp
 			m_Fonts.push_back(font);
 		}
 
-		Font *FontManager::Get(const std::string &name)
+		Font *FontManager::Get(const String &name)
 		{
 			for (Font *font : m_Fonts)
 			{
@@ -26,7 +26,7 @@ namespace sp
 			return m_Fonts[0];
 		}
 
-		Font *FontManager::Get(const std::string &name, float size)
+		Font *FontManager::Get(const String &name, float size)
 		{
 			for (Font *font : m_Fonts)
 			{

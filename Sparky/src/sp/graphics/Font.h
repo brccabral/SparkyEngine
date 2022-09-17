@@ -16,19 +16,19 @@ namespace sp
 			ftgl::texture_atlas_t *m_FTAtlas;
 			ftgl::texture_font_t *m_FTFont;
 			float m_Size;
-			std::string m_Filename;
-			std::string m_Name;
+			String m_Filename;
+			String m_Name;
 
 			maths::vec2 m_Scale;
 		public:
-			Font(const std::string &name, const std::string &filename, float size);
-			Font(const std::string &name, const byte *data, uint datasize, float size);
+			Font(const String &name, const String &filename, float size);
+			Font(const String &name, const byte *data, uint datasize, float size);
 
 			inline ftgl::texture_font_t *GetFTFont() const { return m_FTFont; }
 
 			inline const uint GetID() const { return m_FTAtlas->id; }
-			inline const std::string &GetName() const { return m_Name; }
-			inline const std::string &GetFilename() const { return m_Filename; }
+			inline const String &GetName() const { return m_Name; }
+			inline const String &GetFilename() const { return m_Filename; }
 			inline const float &GetSize() const { return m_Size; }
 
 			void SetScale(float x, float y);

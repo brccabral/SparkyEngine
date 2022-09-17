@@ -6,11 +6,11 @@
 
 namespace sp
 {
-	static std::vector<std::string> split_string(const std::string &s, char delimeter)
+	static std::vector<String> split_string(const String &s, char delimeter)
 	{
-		std::vector<std::string> elems;
+		std::vector<String> elems;
 		std::stringstream ss(s);
-		std::string item;
+		String item;
 		while (std::getline(ss, item, delimeter))
 		{
 			elems.push_back(item);

@@ -15,7 +15,7 @@ namespace sp
 			static std::vector<Texture *> m_Textures;
 		public:
 			static void Add(Texture *texture);
-			static Texture *Get(const std::string &name);
+			static Texture *Get(const String &name);
 			static void Clean();
 		private:
 			TextureManager() {}

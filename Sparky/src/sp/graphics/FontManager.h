@@ -17,8 +17,8 @@ namespace sp
 		public:
 			static void Add(Font *font);
 			static Font *Get();
-			static Font *Get(const std::string &name);
-			static Font *Get(const std::string &name, float size);
+			static Font *Get(const String &name);
+			static Font *Get(const String &name, float size);
 			static void Clean();
 		};
 	}

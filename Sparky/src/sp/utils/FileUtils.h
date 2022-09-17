@@ -6,9 +6,9 @@
 
 namespace sp
 {
-	static std::string read_file(const std::string &filepath)
+	static String read_file(const String &filepath)
 	{
-		std::string content(
+		String content(
 			std::istreambuf_iterator<char>(std::ifstream(filepath).rdbuf()),
 			std::istreambuf_iterator<char>());
 

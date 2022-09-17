@@ -63,7 +63,7 @@ namespace sp
 			virtual void End() {};
 			virtual void Flush() = 0;
 
-			virtual void DrawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color) {}
+			virtual void DrawString(const String &text, const maths::vec3 &position, const Font &font, unsigned int color) {}
 
 			virtual void SetMask(const Mask *mask)
 			{

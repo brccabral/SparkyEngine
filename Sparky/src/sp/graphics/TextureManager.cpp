@@ -12,7 +12,7 @@ namespace sp
 			m_Textures.push_back(texture);
 		}
 
-		Texture *TextureManager::Get(const std::string &name)
+		Texture *TextureManager::Get(const String &name)
 		{
 			for (Texture *texture : m_Textures)
 			{

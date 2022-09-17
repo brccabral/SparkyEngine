@@ -7,7 +7,7 @@ namespace sp
 		TextureWrap Texture::s_WrapMode = REPEAT;
 		TextureFilter Texture::s_FilterMode = TextureFilter::LINEAR;
 
-		Texture::Texture(const std::string &name, const std::string &filename)
+		Texture::Texture(const String &name, const String &filename)
 			: m_Name(name), m_FileName(filename)
 		{
 			m_TID = Load();

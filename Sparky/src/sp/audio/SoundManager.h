@@ -34,7 +34,7 @@ namespace sp
 		public:
 			static void Init();
 			static Sound *Add(Sound *sound);
-			static Sound *Get(const std::string &name);
+			static Sound *Get(const String &name);
 			static void Update();
 			static void Clean();
 		};
