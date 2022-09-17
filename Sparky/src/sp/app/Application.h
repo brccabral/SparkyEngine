@@ -5,7 +5,7 @@
 #include <sp/graphics/layers/Layer.h>
 #include <sp/utils/Timer.h>
 
-namespace sparky
+namespace sp
 {
 	class Application
 	{

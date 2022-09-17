@@ -2,7 +2,7 @@
 
 #include "Event.h"
 
-namespace sparky
+namespace sp
 {
 	namespace events
 	{

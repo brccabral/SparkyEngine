@@ -5,12 +5,12 @@
 
 #include <sp/maths/vec2.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
-	public ref class Vector2 : public ManagedClass<sparky::maths::vec2>
+	public ref class Vector2 : public ManagedClass<sp::maths::vec2>
 	{
 	private:
-		Vector2(sparky::maths::vec2* instance);
+		Vector2(sp::maths::vec2* instance);
 	public:
 		property float x
 		{

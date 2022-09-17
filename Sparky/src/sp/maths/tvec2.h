@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace sparky
+namespace sp
 {
 	namespace maths
 	{

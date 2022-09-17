@@ -8,7 +8,7 @@
 #include "TextureManager.h"
 #include "../embedded/Embedded.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

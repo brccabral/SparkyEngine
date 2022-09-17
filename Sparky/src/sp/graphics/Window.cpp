@@ -1,6 +1,6 @@
 #include "Window.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

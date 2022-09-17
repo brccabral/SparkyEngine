@@ -6,7 +6,7 @@
 
 #include <chrono>
 
-namespace sparky
+namespace sp
 {
 	class Timer
 	{
@@ -36,7 +36,7 @@ namespace sparky
 #include <stdint.h>
 #endif
 
-namespace sparky
+namespace sp
 {
 	class Timer
 	{
@@ -53,6 +53,6 @@ namespace sparky
 		void Reset();
 		float Elapsed();
 	};
-} // namespace sparky
+} // namespace sp
 
 #endif

@@ -2,7 +2,7 @@
 
 #if STD_CHRONO
 
-namespace sparky
+namespace sp
 {
 	Timer::Timer()
 	{
@@ -21,7 +21,7 @@ namespace sparky
 }
 
 #else
-namespace sparky
+namespace sp
 {
 	Timer::Timer()
 	{

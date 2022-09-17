@@ -35,7 +35,7 @@ namespace std
 //	- Logging to other destinations (eg. files)
 //	- Include (almost) ALL Sparky class types
 //	- More...
-namespace sparky
+namespace sp
 {
 	namespace internal
 	{
@@ -200,29 +200,29 @@ namespace sparky
 #endif
 
 #if SPARKY_LOG_LEVEL >= SPARKY_LOG_LEVEL_FATAL
-#define SPARKY_FATAL(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_FATAL, true, "SPARKY:    ", __VA_ARGS__)
-#define _SPARKY_FATAL(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_FATAL, false, __VA_ARGS__)
+#define SPARKY_FATAL(...) sp::internal::log_message(SPARKY_LOG_LEVEL_FATAL, true, "SPARKY:    ", __VA_ARGS__)
+#define _SPARKY_FATAL(...) sp::internal::log_message(SPARKY_LOG_LEVEL_FATAL, false, __VA_ARGS__)
 #else
 #define SPARKY_FATAL(...)
 #endif
 
 #if SPARKY_LOG_LEVEL >= SPARKY_LOG_LEVEL_ERROR
-#define SPARKY_ERROR(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_ERROR, true, "SPARKY:    ", __VA_ARGS__)
-#define _SPARKY_ERROR(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_ERROR, false, __VA_ARGS__)
+#define SPARKY_ERROR(...) sp::internal::log_message(SPARKY_LOG_LEVEL_ERROR, true, "SPARKY:    ", __VA_ARGS__)
+#define _SPARKY_ERROR(...) sp::internal::log_message(SPARKY_LOG_LEVEL_ERROR, false, __VA_ARGS__)
 #else
 #define SPARKY_ERROR(...)
 #endif
 
 #if SPARKY_LOG_LEVEL >= SPARKY_LOG_LEVEL_WARN
-#define SPARKY_WARN(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_WARN, true, "SPARKY:    ", __VA_ARGS__)
-#define _SPARKY_WARN(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_WARN, false, __VA_ARGS__)
+#define SPARKY_WARN(...) sp::internal::log_message(SPARKY_LOG_LEVEL_WARN, true, "SPARKY:    ", __VA_ARGS__)
+#define _SPARKY_WARN(...) sp::internal::log_message(SPARKY_LOG_LEVEL_WARN, false, __VA_ARGS__)
 #else
 #define SPARKY_WARN(...)
 #endif
 
 #if SPARKY_LOG_LEVEL >= SPARKY_LOG_LEVEL_INFO
-#define SPARKY_INFO(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_INFO, true, "SPARKY:    ", __VA_ARGS__)
-#define _SPARKY_INFO(...) sparky::internal::log_message(SPARKY_LOG_LEVEL_INFO, false, __VA_ARGS__)
+#define SPARKY_INFO(...) sp::internal::log_message(SPARKY_LOG_LEVEL_INFO, true, "SPARKY:    ", __VA_ARGS__)
+#define _SPARKY_INFO(...) sp::internal::log_message(SPARKY_LOG_LEVEL_INFO, false, __VA_ARGS__)
 #else
 #define SPARKY_INFO(...)
 #endif

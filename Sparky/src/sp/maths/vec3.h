@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sp/sparky_types.h>
 
-namespace sparky
+namespace sp
 {
 	namespace maths
 	{

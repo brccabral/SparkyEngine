@@ -3,7 +3,7 @@
 #include "Texture.h"
 #include "../maths/maths.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

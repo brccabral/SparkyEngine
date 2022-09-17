@@ -6,7 +6,7 @@
 #include <sp/utils/Log.h>
 #include <GL/glew.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

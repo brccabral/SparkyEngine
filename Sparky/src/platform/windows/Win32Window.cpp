@@ -5,7 +5,7 @@
 
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

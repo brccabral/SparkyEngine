@@ -1,6 +1,6 @@
 #include "ShaderFactory.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

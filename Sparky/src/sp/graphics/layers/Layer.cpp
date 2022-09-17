@@ -1,6 +1,6 @@
 #include "Layer.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

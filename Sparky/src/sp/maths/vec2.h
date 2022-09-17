@@ -4,7 +4,7 @@
 #include <math.h>
 #include "vec3.h"
 
-namespace sparky
+namespace sp
 {
 	namespace maths
 	{

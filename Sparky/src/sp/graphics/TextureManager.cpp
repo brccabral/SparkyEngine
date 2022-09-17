@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

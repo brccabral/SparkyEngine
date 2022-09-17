@@ -2,7 +2,7 @@
 
 #include <Windows.h>
 
-namespace sparky
+namespace sp
 {
 	namespace internal
 	{

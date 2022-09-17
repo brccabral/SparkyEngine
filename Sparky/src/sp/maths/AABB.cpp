@@ -1,6 +1,6 @@
 #include "AABB.h"
 
-namespace sparky
+namespace sp
 {
 	namespace maths
 	{

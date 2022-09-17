@@ -1,6 +1,6 @@
 #pragma once
 
-namespace sparky
+namespace sp
 {
 	namespace events
 	{

@@ -7,7 +7,7 @@
 #include <sp/utils/ImageLoad.h>
 #include <GL/glew.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

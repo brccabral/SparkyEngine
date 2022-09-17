@@ -3,7 +3,7 @@
 #include "../BatchRenderer2D.h"
 #include "../Window.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

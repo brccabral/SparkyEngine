@@ -3,7 +3,7 @@
 #include <sp/sparky_types.h>
 #include "../SPRenderAPI.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

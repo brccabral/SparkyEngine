@@ -4,9 +4,9 @@
 
 #include <sp/app/Application.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
-	public ref class Application : public ManagedClass<sparky::Application>
+	public ref class Application : public ManagedClass<sp::Application>
 	{
 	public:
 		Application(System::String^ name, uint width, uint height);

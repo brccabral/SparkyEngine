@@ -1,15 +1,15 @@
 #include "Window.h"
 
-namespace SparkyCLI
+namespace spCLI
 {
 
-	Window::Window(sparky::graphics::Window *instance)
+	Window::Window(sp::graphics::Window *instance)
 		: ManagedClass(instance)
 	{}
 
 	Window::Window(System::String ^name, System::UInt32 width, System::UInt32 height)
 	{
-		m_Instance = new sparky::graphics::Window(string_to_char_array(name), width, height);
+		m_Instance = new sp::graphics::Window(string_to_char_array(name), width, height);
 	}
 
 	void Window::Clear()
@@ -64,7 +64,7 @@ namespace SparkyCLI
 
 	Vector2 ^Window::GetMousePosition()
 	{
-		sparky::maths::vec2 position = m_Instance->GetMousePosition();
+		sp::maths::vec2 position = m_Instance->GetMousePosition();
 		return gcnew Vector2(position.x, position.y);
 	}
 

@@ -5,7 +5,7 @@
 #include "../Renderable2D.h"
 #include <vector>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

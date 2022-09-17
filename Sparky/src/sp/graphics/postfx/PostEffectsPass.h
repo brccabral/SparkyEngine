@@ -4,7 +4,7 @@
 #include "../shaders/Shader.h"
 #include <sp/graphics/SPRenderAPI.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

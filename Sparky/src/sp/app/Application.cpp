@@ -1,6 +1,6 @@
 #include "Application.h"
 
-namespace sparky
+namespace sp
 {
 
 	using namespace graphics;

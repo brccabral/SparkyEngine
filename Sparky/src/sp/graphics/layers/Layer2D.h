@@ -6,7 +6,7 @@
 #include "../Renderable2D.h"
 #include "../Mask.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

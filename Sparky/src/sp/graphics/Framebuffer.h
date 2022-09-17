@@ -6,7 +6,7 @@
 #include "Texture.h"
 #include "sp/graphics/SPRenderAPI.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

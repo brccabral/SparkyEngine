@@ -1,10 +1,10 @@
 #include "../../app/Application.h"
 
-namespace SparkyCLI {
+namespace spCLI {
 
 	Application::Application(System::String^ name, uint width, uint height)
 	{
-		m_Instance = new sparky::Application(string_to_char_array(name), width, height);
+		m_Instance = new sp::Application(string_to_char_array(name), width, height);
 	}
 
 	void Application::Init()

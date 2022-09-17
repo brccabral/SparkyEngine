@@ -1,6 +1,6 @@
 #include "KeyEvent.h"
 
-namespace sparky
+namespace sp
 {
 	namespace events
 	{

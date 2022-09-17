@@ -2,7 +2,7 @@
 
 #include <sp/sparky_types.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

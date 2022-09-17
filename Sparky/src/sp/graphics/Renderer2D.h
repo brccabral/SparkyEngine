@@ -8,7 +8,7 @@
 #include "Mask.h"
 #include "postfx/PostEffects.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

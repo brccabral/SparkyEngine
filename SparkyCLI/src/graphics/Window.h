@@ -5,12 +5,12 @@
 
 #include <sp/graphics/Window.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
-	public ref class Window : public ManagedClass<sparky::graphics::Window>
+	public ref class Window : public ManagedClass<sp::graphics::Window>
 	{
 	private:
-		Window(sparky::graphics::Window* instance);
+		Window(sp::graphics::Window* instance);
 	public:
 		Window(System::String^ name, System::UInt32 width, System::UInt32 height);
 		void Clear();

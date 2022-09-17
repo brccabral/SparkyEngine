@@ -1,6 +1,6 @@
 #include "IndexBuffer.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

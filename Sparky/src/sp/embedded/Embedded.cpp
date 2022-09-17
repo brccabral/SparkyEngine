@@ -1,6 +1,6 @@
 #include "Embedded.h"
 
-namespace sparky
+namespace sp
 {
 	namespace internal
 	{

@@ -5,7 +5,7 @@
 #include "../../utils/FileUtils.h"
 #include "../../maths/maths.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

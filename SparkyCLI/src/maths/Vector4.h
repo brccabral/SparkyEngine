@@ -4,14 +4,14 @@
 
 #include <sp/maths/vec4.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
 	ref class Vector2;
 
-	public ref class Vector4 : public ManagedClass<sparky::maths::vec4>
+	public ref class Vector4 : public ManagedClass<sp::maths::vec4>
 	{
 	private:
-		Vector4(sparky::maths::vec4* instance);
+		Vector4(sp::maths::vec4* instance);
 	public:
 		property float x
 		{

@@ -6,7 +6,7 @@
 #include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
 #include <sp/sparky_types.h>
 
-namespace sparky
+namespace sp
 {
 	static BYTE *load_image(const char *filename, uint *width, uint *height, uint *bits)
 	{

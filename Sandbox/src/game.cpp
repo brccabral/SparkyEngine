@@ -1,6 +1,6 @@
 #include "TestLayer.h"
 
-using namespace sparky;
+using namespace sp;
 using namespace graphics;
 using namespace maths;
 

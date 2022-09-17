@@ -7,12 +7,12 @@
 
 #include <sp/graphics/shaders/Shader.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
-	public ref class Shader : public ManagedClass<sparky::graphics::Shader>
+	public ref class Shader : public ManagedClass<sp::graphics::Shader>
 	{
 	private:
-		Shader(sparky::graphics::Shader* instance);
+		Shader(sp::graphics::Shader* instance);
 	public:
 		Shader(System::String^ name, System::String^ vertSrc, System::String^ fragSrc);
 		Shader(System::String^ vertPath, System::String^ fragPath);

@@ -1,6 +1,6 @@
 #include "TestLayer.h"
 
-using namespace sparky;
+using namespace sp;
 using namespace graphics;
 using namespace events;
 using namespace maths;
@@ -50,7 +50,7 @@ void TestLayer::OnTick()
 void TestLayer::OnUpdate()
 {}
 
-bool TestLayer::OnEvent(const sparky::events::Event &event)
+bool TestLayer::OnEvent(const sp::events::Event &event)
 {
 	return false;
 }

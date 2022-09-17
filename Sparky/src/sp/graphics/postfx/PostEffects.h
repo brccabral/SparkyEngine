@@ -7,7 +7,7 @@
 #include "../buffers/VertexArray.h"
 #include "PostEffectsPass.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

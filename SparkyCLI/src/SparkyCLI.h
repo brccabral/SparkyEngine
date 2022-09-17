@@ -2,7 +2,7 @@
 
 #include <msclr\marshal_cppstd.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
 	static std::string string_to_std_string(System::String^ string)
 	{

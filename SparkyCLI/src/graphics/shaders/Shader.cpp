@@ -1,20 +1,20 @@
 #include "Shader.h"
 
-namespace SparkyCLI {
+namespace spCLI {
 
-	Shader::Shader(sparky::graphics::Shader* instance)
+	Shader::Shader(sp::graphics::Shader* instance)
 		: ManagedClass(instance)
 	{
 	}
 
 	Shader::Shader(System::String^ vertPath, System::String^ fragPath)
 	{
-		m_Instance = new sparky::graphics::Shader(string_to_char_array(vertPath), string_to_char_array(fragPath));
+		m_Instance = new sp::graphics::Shader(string_to_char_array(vertPath), string_to_char_array(fragPath));
 	}
 
 	Shader::Shader(System::String^ name, System::String^ vertSrc, System::String^ fragSrc)
 	{
-		m_Instance = new sparky::graphics::Shader(string_to_char_array(name), string_to_char_array(vertSrc), string_to_char_array(fragSrc));
+		m_Instance = new sp::graphics::Shader(string_to_char_array(name), string_to_char_array(vertSrc), string_to_char_array(fragSrc));
 	}
 
 
@@ -72,17 +72,17 @@ namespace SparkyCLI {
 
 	Shader^ Shader::FromFile(System::String^ vertPath, System::String^ fragPath)
 	{
-		return gcnew Shader(sparky::graphics::Shader::FromFile(string_to_char_array(vertPath), string_to_char_array(fragPath)));
+		return gcnew Shader(sp::graphics::Shader::FromFile(string_to_char_array(vertPath), string_to_char_array(fragPath)));
 	}
 
 	Shader^ Shader::FromSource(System::String^ vertSrc, System::String^ fragSrc)
 	{
-		return gcnew Shader(sparky::graphics::Shader::FromSource(string_to_char_array(vertSrc), string_to_char_array(fragSrc)));
+		return gcnew Shader(sp::graphics::Shader::FromSource(string_to_char_array(vertSrc), string_to_char_array(fragSrc)));
 	}
 
 	Shader^ Shader::FromSource(System::String^ name, System::String^ vertSrc, System::String^ fragSrc)
 	{
-		return gcnew Shader(sparky::graphics::Shader::FromSource(string_to_char_array(name), string_to_char_array(vertSrc), string_to_char_array(fragSrc)));
+		return gcnew Shader(sp::graphics::Shader::FromSource(string_to_char_array(name), string_to_char_array(vertSrc), string_to_char_array(fragSrc)));
 	}
 
 }

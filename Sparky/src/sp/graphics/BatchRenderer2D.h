@@ -13,7 +13,7 @@
 #include "buffers/VertexArray.h"
 #include "buffers/IndexBuffer.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

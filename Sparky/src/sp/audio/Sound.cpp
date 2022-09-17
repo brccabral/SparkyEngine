@@ -1,7 +1,7 @@
 #include "Sound.h"
 #include "SoundManager.h"
 
-namespace sparky
+namespace sp
 {
 	namespace audio
 	{

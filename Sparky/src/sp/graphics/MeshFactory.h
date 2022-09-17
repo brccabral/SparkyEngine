@@ -5,7 +5,7 @@
 
 #include <sp/graphics/buffers/VertexArray.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

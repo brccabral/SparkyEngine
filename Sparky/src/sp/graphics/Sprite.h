@@ -2,7 +2,7 @@
 
 #include "Renderable2D.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

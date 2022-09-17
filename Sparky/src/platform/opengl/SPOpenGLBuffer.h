@@ -3,7 +3,7 @@
 #include <sp/sparky_types.h>
 #include <sp/graphics/buffers/BufferLayout.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

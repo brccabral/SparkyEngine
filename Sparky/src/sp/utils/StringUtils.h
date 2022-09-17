@@ -4,7 +4,7 @@
 #include <sstream>
 #include <vector>
 
-namespace sparky
+namespace sp
 {
 	static std::vector<std::string> split_string(const std::string &s, char delimeter)
 	{

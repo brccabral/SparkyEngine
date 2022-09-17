@@ -8,7 +8,7 @@
 
 #include <sp/utils/Log.h>
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

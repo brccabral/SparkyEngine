@@ -1,6 +1,6 @@
 #include "PostEffectsPass.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

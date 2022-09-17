@@ -12,7 +12,7 @@
 #include "gorilla/gau.h"
 #endif
 
-namespace sparky
+namespace sp
 {
 	namespace audio
 	{

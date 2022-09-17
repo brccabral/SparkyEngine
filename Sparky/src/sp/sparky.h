@@ -29,7 +29,7 @@ static void dispatch_main(void *fp)
 }
 #endif
 
-namespace sparky
+namespace sp
 {
 	class Sparky
 	{

@@ -3,7 +3,7 @@
 #include <vector>
 #include "Font.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

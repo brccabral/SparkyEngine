@@ -1,6 +1,6 @@
 #include "MouseEvent.h"
 
-namespace sparky
+namespace sp
 {
 	namespace events
 	{

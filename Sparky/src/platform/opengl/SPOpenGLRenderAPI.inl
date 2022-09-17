@@ -9,7 +9,7 @@
 #define SP_FLOAT GL_FLOAT
 #define SP_UNSIGNED_SHORT GL_UNSIGNED_SHORT
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

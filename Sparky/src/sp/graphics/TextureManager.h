@@ -4,7 +4,7 @@
 #include <sp/sparky_types.h>
 #include "Texture.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

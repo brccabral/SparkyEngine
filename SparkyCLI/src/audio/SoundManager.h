@@ -5,7 +5,7 @@
 
 #include <sp/audio/SoundManager.h>
 
-namespace SparkyCLI {
+namespace spCLI {
 
 	// Static class, no ManagedClass type
 	public ref class SoundManager

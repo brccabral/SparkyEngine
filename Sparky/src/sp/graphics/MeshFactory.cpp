@@ -8,7 +8,7 @@
 
 #define SPARKY_VERTEX_ARRAYS 1
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

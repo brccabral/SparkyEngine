@@ -4,7 +4,7 @@
 #include "Renderable2D.h"
 #include "FontManager.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

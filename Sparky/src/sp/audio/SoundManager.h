@@ -16,7 +16,7 @@ extern "C" void SoundManagerLoop(const char *name);
 extern "C" void SoundManagerSetGain(const char *name, double gain);
 #endif
 
-namespace sparky
+namespace sp
 {
 	namespace audio
 	{

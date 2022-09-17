@@ -8,7 +8,7 @@
 #include "../maths/maths.h"
 #include "shaders/Shader.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

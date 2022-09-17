@@ -1,6 +1,6 @@
 #include "Label.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

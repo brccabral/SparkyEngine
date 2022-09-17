@@ -1,6 +1,6 @@
 #include "Framebuffer.h"
 
-namespace sparky
+namespace sp
 {
 	namespace graphics
 	{

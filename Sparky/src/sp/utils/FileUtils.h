@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sp/utils/Log.h>
 
-namespace sparky
+namespace sp
 {
 	static std::string read_file(const std::string &filepath)
 	{
@@ -16,4 +16,4 @@ namespace sparky
 
 		return content;
 	}
-} // namespace sparky
+} // namespace sp
