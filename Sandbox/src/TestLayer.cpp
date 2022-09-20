@@ -1,5 +1,11 @@
 #include "TestLayer.h"
 
+#include <sp/app/Application.h>
+#include <sp/graphics/BatchRenderer2D.h>
+#include <sp/graphics/shaders/ShaderFactory.h>
+#include <sp/graphics/FontManager.h>
+#include <sp/graphics/Sprite.h>
+
 using namespace sp;
 using namespace graphics;
 using namespace events;
@@ -7,17 +13,19 @@ using namespace maths;
 
 TestLayer::TestLayer()
 	: Layer2D(ShaderFactory::DefaultShader(), mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f)), debugInfo(nullptr), m_Fps(nullptr)
-{}
+{
+}
 
 TestLayer::~TestLayer()
-{}
+{
+}
 
 void TestLayer::OnInit(Renderer2D &renderer, Shader &shader)
 {
 	// m_Window->SetVsync(false);
 
 	FontManager::Get()->SetScale(m_Window->GetWidth() / 32.0f, m_Window->GetHeight() / 18.0f);
-	renderer.SetRenderTarget(RenderTarget::SCREEN);
+	renderer.SetRenderTarget(RenderTarget::BUFFER);
 	renderer.AddPostEffectsPass(new PostEffectsPass(Shader::FromFile("Horizontal Blur", "shaders/postfx.shader")));
 	renderer.SetPostEffects(false);
 
@@ -35,7 +43,7 @@ void TestLayer::OnInit(Renderer2D &renderer, Shader &shader)
 	Add(debugInfo[1]);
 
 	Texture::SetWrap(TextureWrap::CLAMP_TO_BORDER);
-	Mask *mask = new Mask(new Texture("Mask", "res/mask2.png"));
+	Mask *mask = new Mask(new Texture("Mask", "res/mask.png"));
 	mask->transform = mat4::Translate(vec3(-16.0f, -9.0f, 0.0f)) * mat4::Scale(vec3(32, 18, 1));
 	// layer->SetMask(mask);
 }

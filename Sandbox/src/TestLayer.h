@@ -1,15 +1,9 @@
 #pragma once
 
-#include <sp/app/Application.h>
-#include <sp/sparky.h>
-#include <sp/events/Event.h>
 #include <sp/graphics/layers/Layer2D.h>
 #include <sp/graphics/Label.h>
 #include <sp/graphics/Renderer2D.h>
-#include <sp/graphics/BatchRenderer2D.h>
-#include <sp/graphics/shaders/ShaderFactory.h>
-#include <sp/graphics/FontManager.h>
-#include <sp/graphics/Sprite.h>
+#include <sp/events/Event.h>
 
 class TestLayer : public sp::graphics::Layer2D
 {

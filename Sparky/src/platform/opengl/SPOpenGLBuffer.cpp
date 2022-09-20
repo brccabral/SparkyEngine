@@ -10,7 +10,7 @@ namespace sp
 		{
 
 			Buffer::Buffer(uint target, uint usage)
-				: target(target), usage(usage)
+				: target(target), usage(usage), size(0)
 			{
 				id = CreateBuffer();
 			}

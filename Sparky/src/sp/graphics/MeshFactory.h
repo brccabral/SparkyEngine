@@ -4,6 +4,8 @@
 #include <sp/maths/maths.h>
 
 #include <sp/graphics/buffers/VertexArray.h>
+#include <sp/graphics/Mesh.h>
+#include <sp/graphics/Material.h>
 
 namespace sp
 {
@@ -20,6 +22,7 @@ namespace sp
 			VertexArray *CreateQuad(float x, float y, float width, float height);
 			VertexArray *CreateQuad(const maths::vec2 &position, const maths::vec2 &size);
 
+			Mesh *CreateCube(float size, MaterialInstance *material);
 		}
 	}
 }

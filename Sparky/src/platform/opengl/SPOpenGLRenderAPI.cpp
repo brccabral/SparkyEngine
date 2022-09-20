@@ -7,9 +7,6 @@ namespace sp
 	{
 		namespace API
 		{
-
-
-
 		}
 	}
 }

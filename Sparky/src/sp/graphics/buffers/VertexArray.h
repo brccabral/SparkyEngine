@@ -25,6 +25,8 @@ namespace sp
 			void Unbind() const;
 
 			API::Buffer *GetBuffer(uint index = 0);
+
+			void Draw(uint count) const;
 		};
 	}
 }
