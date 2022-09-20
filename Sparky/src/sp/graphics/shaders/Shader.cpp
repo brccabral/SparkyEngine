@@ -16,8 +16,8 @@ namespace sp
 			// read GL files
 			// need to store the result before using it
 			// or the read_file will delete from memory
-			String vertSourceString = read_file(m_VertPath);
-			String fragSourceString = read_file(m_FragPath);
+			String vertSourceString = utils::ReadFile(m_VertPath);
+			String fragSourceString = utils::ReadFile(m_FragPath);
 			m_VertSrc = vertSourceString.c_str();
 			m_FragSrc = fragSourceString.c_str();
 
