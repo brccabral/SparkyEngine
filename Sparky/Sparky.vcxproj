@@ -342,6 +342,7 @@
     <ClCompile Include="src\platform\windows\Win32Application.cpp" />
     <ClCompile Include="src\platform\windows\Win32Log.cpp" />
     <ClCompile Include="src\platform\windows\Win32Window.cpp" />
+    <ClCompile Include="src\sp\String.cpp" />
     <ClCompile Include="src\sp\utils\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +413,7 @@
     <ClInclude Include="src\platform\opengl\SPOpenGLBuffer.h" />
     <ClInclude Include="src\sp\sparky.h" />
     <ClInclude Include="src\sp\sparkygl.h" />
+    <ClInclude Include="src\sp\String.h" />
     <ClInclude Include="src\sp\Types.h" />
     <ClInclude Include="src\sp\utils\FileUtils.h" />
     <ClInclude Include="src\sp\utils\ImageLoad.h" />

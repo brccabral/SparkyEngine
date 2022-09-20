@@ -1,5 +1,6 @@
 #pragma once
 
+#include <sstream>
 #include "vec3.h"
 #include "vec4.h"
 #include "maths_func.h"
@@ -47,6 +48,8 @@ namespace sp
 			static mat4 Rotate(float angle, const vec3 &axis);
 			static mat4 Scale(const vec3 &scale);
 			static mat4 Invert(const mat4 &matrix);
+
+			String ToString() const;
 		};
 
 	}

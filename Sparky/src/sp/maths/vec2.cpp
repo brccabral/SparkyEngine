@@ -140,10 +140,16 @@ namespace sp
 
 		std::ostream &operator<<(std::ostream &stream, const vec2 &vector)
 		{
-			stream << "vec2: (" << vector.x << ", " << vector.y << ")";
+			stream << vector.ToString();
 			return stream;
 		}
 
+		String vec2::ToString() const
+		{
+			std::stringstream result;
+			result << "vec2: (" << x << ", " << y << ")";
+			return result.str();
+		}
 
 	}
 }

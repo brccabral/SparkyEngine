@@ -1,5 +1,6 @@
 #pragma once
 
+#include <sstream>
 #include <iostream>
 #include <math.h>
 #include "vec3.h"
@@ -44,6 +45,9 @@ namespace sp
 			float Dot(const vec2 &other) const;
 
 			friend std::ostream &operator<<(std::ostream &stream, const vec2 &vector);
+
+			String ToString() const;
+
 		};
 
 	}
