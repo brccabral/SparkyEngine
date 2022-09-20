@@ -177,6 +177,9 @@
   <ItemGroup>
     <ClInclude Include="src\TestLayer.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\postfx.shader" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <sp/utils/FileUtils.h>
+#include <sp/utils/StringUtils.h>
 #include <sp/maths/maths.h>
 
 namespace sp
@@ -19,39 +20,44 @@ namespace sp
 		class Shader
 		{
 		private:
-			const char *m_Name;
-			const char *m_VertPath;
-			const char *m_FragPath;
-			const char *m_VertSrc;
-			const char *m_FragSrc;
+			enum class ShaderType
+			{
+				UNKNOWN, VERTEX, FRAGMENT
+			};
+			struct ShaderSource
+			{
 
+			};
+
+			String m_Name, m_Path;
+			String m_Source;
 			uint m_ShaderID; // shader ID given by openGl
 		public:
-			Shader(const char *name, const char *vertSrc, const char *fragSrc);
-			Shader(const char *vertPath, const char *fragPath);
+			Shader(const String &name, const String &source);
 			~Shader();
 
 
 			void Bind() const;
 			void Unbind() const;
 
-			void SetUniform(const char *name, const maths::mat4 &matrix);
-			void SetUniform(const char *name, int value);
-			void SetUniform(const char *name, int *value, int count);
-			void SetUniform(const char *name, float value);
-			void SetUniform(const char *name, float *value, int count);
-			void SetUniform(const char *name, const maths::vec2 &vector);
-			void SetUniform(const char *name, const maths::vec3 &vector);
-			void SetUniform(const char *name, const maths::vec4 &vector);
+			void SetUniform(const String &name, const maths::mat4 &matrix);
+			void SetUniform(const String &name, int value);
+			void SetUniform(const String &name, int *value, int count);
+			void SetUniform(const String &name, float value);
+			void SetUniform(const String &name, float *value, int count);
+			void SetUniform(const String &name, const maths::vec2 &vector);
+			void SetUniform(const String &name, const maths::vec3 &vector);
+			void SetUniform(const String &name, const maths::vec4 &vector);
 
 		private:
-			uint Load(const char *vertSource, const char *fragSource);
+			uint Load(const String &vertSource, const String &fragSource);
 
-			int GetUniformLocation(const char *name);
+			int GetUniformLocation(const String &name);
+
+			void PreProcess(const String &source, String *shaders);
 		public:
-			static Shader *FromFile(const char *vertPath, const char *fragPath);
-			static Shader *FromSource(const char *vertSrc, const char *fragSrc);
-			static Shader *FromSource(const char *name, const char *vertSrc, const char *fragSrc);
+			static Shader *FromFile(const String &name, const String &filepath);
+			static Shader *FromSource(const String &name, const String &source);
 		};
 	}
 }

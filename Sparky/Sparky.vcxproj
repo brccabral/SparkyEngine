@@ -421,6 +421,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="src\platform\opengl\SPOpenGLRenderAPI.inl" />
+    <None Include="src\sp\graphics\shaders\default\BasicLight.shader" />
+    <None Include="src\sp\graphics\shaders\default\Default.shader" />
+    <None Include="src\sp\graphics\shaders\default\Simple.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,7 +20,7 @@ namespace std
 	template <typename T>
 	string to_string(const T &t)
 	{
-		return String("[Unsupported type (") + typeid(T).name() + String(")!] (to_string)");
+		return string("[Unsupported type (") + typeid(T).name() + string(")!] (to_string)");
 	}
 }
 
@@ -55,7 +55,7 @@ namespace sp
 		template <typename T>
 		static const char *to_string_internal(const T &v, const std::true_type &ignored)
 		{
-			sprintf(to_string_buffer, "Container of size: %d, contents: %s", v.size(), format_iterators(v.Begin(), v.End()).c_str());
+			sprintf(to_string_buffer, "Container of size: %d, contents: %s", v.size(), format_iterators(v.begin(), v.end()).c_str());
 			return to_string_buffer;
 		}
 
@@ -104,13 +104,13 @@ namespace sp
 		}
 
 		template <>
-		static const char *to_string<String>(String const &t)
+		static const char *to_string<String>(const String &t)
 		{
 			return t.c_str();
 		}
 
 		template <>
-		static const char *to_string<maths::vec2>(maths::vec2 const &t)
+		static const char *to_string<maths::vec2>(const maths::vec2 &t)
 		{
 			String string = String("vec2: (") + std::to_string(t.x) + ", " + std::to_string(t.y) + ")";
 			char *result = new char[string.length()];
@@ -119,35 +119,20 @@ namespace sp
 		}
 
 		template <typename T>
-		static String format_iterators(T &Begin, T &End)
+		static String format_iterators(T &begin, T &end)
 		{
 			String result;
 			bool first = true;
-			while (Begin != End)
+			while (begin != end)
 			{
 				if (!first)
 					result += ", ";
-				result += to_string(*Begin);
+				result += to_string(*begin);
 				first = false;
-				Begin++;
+				begin++;
 			}
 			return result;
 		}
-
-		//
-		//template <typename T> const char* container_to_string_internal(const std::vector<T>& v)
-		//{
-		//	static char buffer[1024];
-		//	sprintf(buffer, "Vector of %s - size: %d, contents: %s", typeid(T).name(), v.size(), format_iterators(v.begin(), v.end()).c_str());
-		//	return buffer;
-		//}
-		//
-		//template <typename T> const char* container_to_string_internal(const std::list<T>& v)
-		//{
-		//	static char buffer[1024];
-		//	sprintf(buffer, "List of %s - size: %d, contents: %s", typeid(T).name(), v.size(), format_iterators(v.begin(), v.end()).c_str());
-		//	return buffer;
-		//}
 
 		template<typename X, typename Y>
 		static const char *to_string(const std::pair<typename X, typename Y> &v)
@@ -159,7 +144,7 @@ namespace sp
 		template <typename First>
 		static void print_log_internal(char *buffer, int &position, First &&first)
 		{
-			const char *formatted = to_string<First>(first);
+			const char *formatted = sp::internal::to_string<First>(first);
 			int length = strlen(formatted);
 			memcpy(&buffer[position], formatted, length);
 			position += length;
@@ -168,14 +153,12 @@ namespace sp
 		template <typename First, typename... Args>
 		static void print_log_internal(char *buffer, int &position, First &&first, Args&&... args)
 		{
-			const char *formatted = to_string<First>(first);
+			const char *formatted = sp::internal::to_string<First>(first);
 			int length = strlen(formatted);
 			memcpy(&buffer[position], formatted, length);
 			position += length;
 			if (sizeof...(Args))
-			{
 				print_log_internal(buffer, position, std::forward<Args>(args)...);
-			}
 		}
 
 		template <typename... Args>
