@@ -357,6 +357,9 @@
     <ClCompile Include="src\sp\String.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\sp\graphics\shaders\ShaderUniform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype-gl\freetype-gl.h">
@@ -579,6 +582,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\String.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\graphics\shaders\ShaderUniform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

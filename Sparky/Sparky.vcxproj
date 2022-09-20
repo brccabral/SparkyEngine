@@ -328,6 +328,7 @@
     <ClCompile Include="src\sp\graphics\Renderable2D.cpp" />
     <ClCompile Include="src\sp\graphics\shaders\Shader.cpp" />
     <ClCompile Include="src\sp\graphics\shaders\ShaderFactory.cpp" />
+    <ClCompile Include="src\sp\graphics\shaders\ShaderUniform.cpp" />
     <ClCompile Include="src\sp\graphics\Sprite.cpp" />
     <ClCompile Include="src\sp\graphics\Texture.cpp" />
     <ClCompile Include="src\sp\graphics\TextureManager.cpp" />
@@ -397,6 +398,7 @@
     <ClInclude Include="src\sp\graphics\Renderer2D.h" />
     <ClInclude Include="src\sp\graphics\shaders\Shader.h" />
     <ClInclude Include="src\sp\graphics\shaders\ShaderFactory.h" />
+    <ClInclude Include="src\sp\graphics\shaders\ShaderUniform.h" />
     <ClInclude Include="src\sp\graphics\SPRenderAPI.h" />
     <ClInclude Include="src\sp\graphics\Sprite.h" />
     <ClInclude Include="src\sp\graphics\Texture.h" />
