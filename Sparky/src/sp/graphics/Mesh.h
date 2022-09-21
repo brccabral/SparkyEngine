@@ -4,6 +4,8 @@
 #include "buffers/IndexBuffer.h"
 #include "Material.h"
 
+#include "IRenderable.h"
+
 namespace sp
 {
 	namespace graphics
@@ -18,7 +20,7 @@ namespace sp
 			maths::vec2 uv;
 		};
 
-		class Mesh
+		class Mesh : public IRenderable
 		{
 		private:
 			VertexArray *m_VertexArray;
@@ -30,7 +32,8 @@ namespace sp
 
 			inline MaterialInstance *GetMaterialInstance() const { return m_MaterialInstance; }
 
-			void Render(Renderer3D &renderer);
+			inline void SetMaterial(MaterialInstance *materialInstance) { m_MaterialInstance = materialInstance; }
+			void Render(Renderer3D &renderer) override;
 		};
 
 	}
