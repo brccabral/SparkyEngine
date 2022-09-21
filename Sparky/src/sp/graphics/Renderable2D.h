@@ -1,9 +1,9 @@
 #pragma once
 
+#include "Renderer2D.h" // must come before Buffer.h
 #include "buffers/Buffer.h"
 #include "buffers/IndexBuffer.h"
 #include "buffers/VertexArray.h"
-#include "Renderer2D.h"
 #include "Texture.h"
 #include "../maths/maths.h"
 #include "shaders/Shader.h"

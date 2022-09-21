@@ -1,5 +1,4 @@
 #include "Test3D.h"
-#include <sp/app/Application.h>
 
 using namespace sp;
 using namespace graphics;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <sp/maths/maths.h>
-
+#include <sp/app/Application.h> // must come before MeshFactory, VertexArray, Buffer.h
 #include <sp/graphics/MeshFactory.h>
 #include <sp/graphics/layers/Layer3D.h>
 #include <sp/graphics/shaders/ShaderFactory.h>

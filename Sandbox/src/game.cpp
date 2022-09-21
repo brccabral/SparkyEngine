@@ -1,7 +1,7 @@
 #include <sp/sparky.h>
 #include <sp/app/Application.h>
 
-//#include "TestLayer.h"
+#include "TestLayer.h"
 #include "Test3D.h"
 
 using namespace sp;
@@ -24,7 +24,7 @@ public:
 	void Init() override
 	{
 		Application::Init();
-		//PushLayer(new TestLayer());
+		// PushLayer(new TestLayer());
 		PushLayer(new Test3D());
 	}
 };

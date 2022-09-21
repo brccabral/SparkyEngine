@@ -282,9 +282,6 @@
     <ClCompile Include="src\sp\graphics\MeshFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\sp\graphics\Renderable2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\sp\graphics\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -373,6 +370,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\graphics\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\graphics\Renderable2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

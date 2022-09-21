@@ -1,3 +1,6 @@
+#pragma once
+
+#include <vector>
 #include <sp/sparkygl.h>
 #include <sp/Types.h>
 
@@ -32,7 +35,7 @@ namespace sp
 		void Suspend();
 		void Resume();
 		void Stop();
-
+		
 		const uint GetFPS() const { return m_FramesPerSecond; }
 		const uint GetUPS() const { return m_UpdatesPerSecond; }
 
