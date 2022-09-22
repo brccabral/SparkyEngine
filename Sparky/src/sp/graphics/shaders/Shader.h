@@ -58,6 +58,8 @@ namespace sp
 			void SetUniform(uint location, const maths::vec3 &vector);
 			void SetUniform(uint location, const maths::vec4 &vector);
 
+			void ResolveAndSetUniform(ShaderUniformDeclaration *uniform, byte *data);
+			void ResolveAndSetUniform(uint index, byte *data);
 			void ResolveAndSetUniforms(byte *data, uint size);
 
 			inline const std::vector<ShaderUniformDeclaration *> &GetUniformDeclarations() const { return m_Uniforms; }
@@ -70,7 +72,6 @@ namespace sp
 			void ParseUniforms(const std::vector<String> &lines);
 			ShaderUniformDeclaration::Type GetUniformTypeFromString(const String &token);
 			void ResolveUniforms();
-			void ResolveAndSetUniform(ShaderUniformDeclaration *uniform, byte *data);
 		public:
 			static Shader *FromFile(const String &name, const String &filepath);
 			static Shader *FromSource(const String &name, const String &source);

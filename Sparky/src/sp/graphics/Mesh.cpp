@@ -22,7 +22,7 @@ namespace sp
 
 		void Mesh::Render(Renderer3D &renderer)
 		{
-			m_MaterialInstance->GetMaterial()->Bind();
+			m_MaterialInstance->Bind();
 
 			m_VertexArray->Bind();
 			m_IndexBuffer->Bind();
@@ -30,7 +30,7 @@ namespace sp
 			m_IndexBuffer->Unbind();
 			m_VertexArray->Unbind();
 
-			m_MaterialInstance->GetMaterial()->Unbind();
+			m_MaterialInstance->Unbind();
 		}
 
 	}

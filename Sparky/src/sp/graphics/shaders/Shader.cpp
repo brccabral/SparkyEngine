@@ -274,6 +274,12 @@ namespace sp
 			}
 		}
 
+		void Shader::ResolveAndSetUniform(uint index, byte *data)
+		{
+			ShaderUniformDeclaration *uniform = m_Uniforms[index];
+			ResolveAndSetUniform(uniform, data);
+		}
+
 		void Shader::ResolveAndSetUniforms(byte *data, uint size)
 		{
 			const std::vector<ShaderUniformDeclaration *> &uniforms = m_Uniforms;
