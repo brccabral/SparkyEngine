@@ -26,6 +26,8 @@ namespace sp
 			void Unbind() const;
 			void DumpUniformData() const;
 
+			inline Shader *GetShader() const { return m_Shader; }
+
 			template<typename T>
 			void SetUniform(const String &name, const T &value)
 			{
@@ -85,8 +87,6 @@ namespace sp
 
 				m_SetUniforms |= 1 << index;
 			}
-
-			template<> void SetUniform<float>(const String &name, const float &value) {}
 		private:
 			void InitUniformStorage();
 			int GetUniformDeclarationIndex(const String &name) const;

@@ -44,7 +44,11 @@ namespace sp
 			for (String line : lines)
 			{
 				const char *cstr = line.c_str();
-				if (strstr(cstr, "v"))
+				if (strstr(cstr, "#")) // Comment
+				{
+					continue;
+				}
+				else if (strstr(cstr, "v"))
 				{
 					if (strstr(cstr, "vt"))
 					{
