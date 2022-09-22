@@ -3,7 +3,7 @@
 #include <string>
 #include <sp/utils/Log.h>
 #include <sp/Types.h>
-#include "../../../ext/freetype-gl/freetype-gl.h"
+#include <freetype-gl/freetype-gl.h>
 #include "../maths/maths.h"
 
 namespace sp

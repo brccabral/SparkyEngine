@@ -90,18 +90,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ext\freetype-gl\platform.c">
-      <Filter>Source Files\ext\freetype-gl</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype-gl\texture-atlas.c">
-      <Filter>Source Files\ext\freetype-gl</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype-gl\texture-font.c">
-      <Filter>Source Files\ext\freetype-gl</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype-gl\vector.c">
-      <Filter>Source Files\ext\freetype-gl</Filter>
-    </ClCompile>
     <ClCompile Include="ext\gorilla-audio\src\ga.c">
       <Filter>Source Files\ext\gorilla-audio</Filter>
     </ClCompile>
@@ -119,123 +107,6 @@
     </ClCompile>
     <ClCompile Include="ext\gorilla-audio\src\common\gc_thread.c">
       <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftbbox.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftgxval.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftlcdfil.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftmm.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftotval.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftpatent.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftpfr.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftsynth.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\fttype1.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftwinfnt.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftxf86.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\pcf\pcf.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\pfr\pfr.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\psaux\psaux.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\pshinter\pshinter.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\psnames\psmodule.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\raster\raster.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\sfnt\sfnt.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\truetype\truetype.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\type1\type1.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\cid\type1cid.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\type42\type42.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\winfonts\winfnt.c">
-      <Filter>Source Files\ext\freetype\FT_MODULES</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\autofit\autofit.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\bdf\bdf.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\cff\cff.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftbase.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftbitmap.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\cache\ftcache.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftdebug.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftfstype.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftgasp.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftglyph.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\gzip\ftgzip.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftinit.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\lzw\ftlzw.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftstroke.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\base\ftsystem.c">
-      <Filter>Source Files\ext\freetype</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\freetype\src\smooth\smooth.c">
-      <Filter>Source Files\ext\freetype</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\audio\Sound.cpp">
       <Filter>Source Files</Filter>
@@ -401,27 +272,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ext\freetype-gl\freetype-gl.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\opengl.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\platform.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\texture-atlas.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\texture-font.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\vec234.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\freetype-gl\vector.h">
-      <Filter>Header Files\ext\freetype-gl</Filter>
-    </ClInclude>
     <ClInclude Include="ext\freetype\include\ft2build.h">
       <Filter>Header Files\ext\freetype</Filter>
     </ClInclude>

@@ -97,37 +97,37 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Sparky\ext\freetype\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
@@ -137,7 +137,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;SPARKY_DEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;SPARKY_DEBUG;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
       <AdditionalIncludeDirectories>src</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -152,7 +152,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;SPARKY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;SPARKY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
       <AdditionalIncludeDirectories>src</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -169,7 +169,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -192,7 +192,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SP_PLATFORM_WINDOWS;SPARKY_PLATFORM_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -215,7 +215,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;SPARKY_PLATFORM_WEB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SPARKY_PLATFORM_WEB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -238,7 +238,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;SPARKY_PLATFORM_WEB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;SPARKY_PLATFORM_WEB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -255,49 +255,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ext\freetype-gl\platform.c" />
-    <ClCompile Include="ext\freetype-gl\texture-atlas.c" />
-    <ClCompile Include="ext\freetype-gl\texture-font.c" />
-    <ClCompile Include="ext\freetype-gl\vector.c" />
-    <ClCompile Include="ext\freetype\src\autofit\autofit.c" />
-    <ClCompile Include="ext\freetype\src\base\ftbase.c" />
-    <ClCompile Include="ext\freetype\src\base\ftbbox.c" />
-    <ClCompile Include="ext\freetype\src\base\ftbitmap.c" />
-    <ClCompile Include="ext\freetype\src\base\ftdebug.c" />
-    <ClCompile Include="ext\freetype\src\base\ftfstype.c" />
-    <ClCompile Include="ext\freetype\src\base\ftgasp.c" />
-    <ClCompile Include="ext\freetype\src\base\ftglyph.c" />
-    <ClCompile Include="ext\freetype\src\base\ftgxval.c" />
-    <ClCompile Include="ext\freetype\src\base\ftinit.c" />
-    <ClCompile Include="ext\freetype\src\base\ftlcdfil.c" />
-    <ClCompile Include="ext\freetype\src\base\ftmm.c" />
-    <ClCompile Include="ext\freetype\src\base\ftotval.c" />
-    <ClCompile Include="ext\freetype\src\base\ftpatent.c" />
-    <ClCompile Include="ext\freetype\src\base\ftpfr.c" />
-    <ClCompile Include="ext\freetype\src\base\ftstroke.c" />
-    <ClCompile Include="ext\freetype\src\base\ftsynth.c" />
-    <ClCompile Include="ext\freetype\src\base\ftsystem.c" />
-    <ClCompile Include="ext\freetype\src\base\fttype1.c" />
-    <ClCompile Include="ext\freetype\src\base\ftwinfnt.c" />
-    <ClCompile Include="ext\freetype\src\base\ftxf86.c" />
-    <ClCompile Include="ext\freetype\src\bdf\bdf.c" />
-    <ClCompile Include="ext\freetype\src\cache\ftcache.c" />
-    <ClCompile Include="ext\freetype\src\cff\cff.c" />
-    <ClCompile Include="ext\freetype\src\cid\type1cid.c" />
-    <ClCompile Include="ext\freetype\src\gzip\ftgzip.c" />
-    <ClCompile Include="ext\freetype\src\lzw\ftlzw.c" />
-    <ClCompile Include="ext\freetype\src\pcf\pcf.c" />
-    <ClCompile Include="ext\freetype\src\pfr\pfr.c" />
-    <ClCompile Include="ext\freetype\src\psaux\psaux.c" />
-    <ClCompile Include="ext\freetype\src\pshinter\pshinter.c" />
-    <ClCompile Include="ext\freetype\src\psnames\psmodule.c" />
-    <ClCompile Include="ext\freetype\src\raster\raster.c" />
-    <ClCompile Include="ext\freetype\src\sfnt\sfnt.c" />
-    <ClCompile Include="ext\freetype\src\smooth\smooth.c" />
-    <ClCompile Include="ext\freetype\src\truetype\truetype.c" />
-    <ClCompile Include="ext\freetype\src\type1\type1.c" />
-    <ClCompile Include="ext\freetype\src\type42\type42.c" />
-    <ClCompile Include="ext\freetype\src\winfonts\winfnt.c" />
     <ClCompile Include="ext\gorilla-audio\src\common\gc_common.c" />
     <ClCompile Include="ext\gorilla-audio\src\common\gc_thread.c" />
     <ClCompile Include="ext\gorilla-audio\src\devices\ga_openal.c" />
@@ -360,13 +317,6 @@
     <ClCompile Include="src\sp\utils\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ext\freetype-gl\freetype-gl.h" />
-    <ClInclude Include="ext\freetype-gl\opengl.h" />
-    <ClInclude Include="ext\freetype-gl\platform.h" />
-    <ClInclude Include="ext\freetype-gl\texture-atlas.h" />
-    <ClInclude Include="ext\freetype-gl\texture-font.h" />
-    <ClInclude Include="ext\freetype-gl\vec234.h" />
-    <ClInclude Include="ext\freetype-gl\vector.h" />
     <ClInclude Include="ext\freetype\include\config\ftconfig.h" />
     <ClInclude Include="ext\freetype\include\config\ftheader.h" />
     <ClInclude Include="ext\freetype\include\config\ftmodule.h" />
@@ -458,6 +408,14 @@
     <None Include="src\sp\graphics\shaders\default\BasicLight.shader" />
     <None Include="src\sp\graphics\shaders\default\Default.shader" />
     <None Include="src\sp\graphics\shaders\default\Simple.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\Box2D\Box2D.vcxproj">
+      <Project>{c2b7f379-6807-4e58-90cd-068a90861aba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\FreeType\FreeType.vcxproj">
+      <Project>{81593a3b-1e17-4dd4-9e83-437981d66e69}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
