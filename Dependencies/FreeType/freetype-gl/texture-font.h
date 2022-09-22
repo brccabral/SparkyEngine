@@ -40,6 +40,7 @@
 extern "C" {
 #endif
 
+#include "common.h"
 #include "vector.h"
 #include "texture-atlas.h"
 
@@ -357,7 +358,7 @@ typedef struct texture_font_t
  * @return A new empty font (no glyph inside yet)
  *
  */
-  texture_font_t *
+ DLL_EXPORT texture_font_t *
   texture_font_new_from_file( texture_atlas_t * atlas,
                               const float pt_size,
                               const char * filename );
@@ -378,7 +379,7 @@ typedef struct texture_font_t
  * @return A new empty font (no glyph inside yet)
  *
  */
-  texture_font_t *
+ DLL_EXPORT texture_font_t *
   texture_font_new_from_memory( texture_atlas_t *atlas,
                                 float pt_size,
                                 const void *memory_base,
@@ -390,7 +391,7 @@ typedef struct texture_font_t
  *
  * @param self a valid texture font
  */
-  void
+ DLL_EXPORT void
   texture_font_delete( texture_font_t * self );
 
 
@@ -405,7 +406,7 @@ typedef struct texture_font_t
  *         enough
  *
  */
-  texture_glyph_t *
+ DLL_EXPORT texture_glyph_t *
   texture_font_get_glyph( texture_font_t * self,
                           wchar_t charcode );
 
@@ -419,7 +420,7 @@ typedef struct texture_font_t
  * @return Number of missed glyph if the texture is not big enough to hold
  *         every glyphs.
  */
-  size_t
+ DLL_EXPORT size_t
   texture_font_load_glyphs( texture_font_t * self,
                             const wchar_t * charcodes );
 
@@ -431,7 +432,7 @@ typedef struct texture_font_t
  *
  * @return x kerning value
  */
-float
+ DLL_EXPORT float
 texture_glyph_get_kerning( const texture_glyph_t * self,
                            const wchar_t charcode );
 
@@ -441,7 +442,7 @@ texture_glyph_get_kerning( const texture_glyph_t * self,
  *
  * @return a new empty glyph (not valid)
  */
-texture_glyph_t *
+ DLL_EXPORT texture_glyph_t *
 texture_glyph_new( void );
 
 /** @} */

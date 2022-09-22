@@ -54,6 +54,9 @@
     <ClInclude Include="freetype-gl\vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="freetype-gl\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="freetype-gl\platform.c">
