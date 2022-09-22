@@ -11,14 +11,14 @@ namespace sp
 			std::vector<String> split = utils::SplitString(m_Filename, '.');
 			if (split.size() < 2)
 			{
-				SPARKY_ERROR("[Sound] Invalid file name '", m_Filename.c_str(), "'!");
+				SP_ERROR("[Sound] Invalid file name '", m_Filename.c_str(), "'!");
 				return;
 			}
 		#ifdef SPARKY_PLATFORM_WEB
 		#else
 			m_Sound = gau_load_sound_file(filename.c_str(), split.back().c_str());
 
-			SPARKY_ASSERT(m_Sound, "Failed to load sound '", m_Filename.c_str(), "'!");
+			SP_ASSERT(m_Sound, "Failed to load sound '", m_Filename.c_str(), "'!");
 		#endif
 		}
 
@@ -101,7 +101,7 @@ namespace sp
 
 			if (!m_Playing)
 			{
-				SPARKY_WARN("[Sound] Cannot set gain! Sound is not currently playing!");
+				SP_WARN("[Sound] Cannot set gain! Sound is not currently playing!");
 				return;
 			}
 		#ifdef SPARKY_PLATFORM_WEB

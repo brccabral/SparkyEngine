@@ -34,7 +34,7 @@ namespace sp
 				const ShaderUniformDeclaration *uniform = GetUniformDeclaration(name);
 				if (!uniform)
 				{
-					SPARKY_ERROR("Could not find uniform '", name, "'!");
+					SP_ERROR("Could not find uniform '", name, "'!");
 					return;
 				}
 				memcpy(m_UniformData + uniform->GetOffset(), &value, uniform->GetSize());
@@ -79,7 +79,7 @@ namespace sp
 				int index = GetUniformDeclarationIndex(name);
 				if (index == -1)
 				{
-					SPARKY_ERROR("Could not find uniform '", name, "'!");
+					SP_ERROR("Could not find uniform '", name, "'!");
 					return;
 				}
 				ShaderUniformDeclaration *uniform = m_Material->m_Shader->GetUniformDeclarations()[index];

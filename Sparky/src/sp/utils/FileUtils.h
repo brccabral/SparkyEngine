@@ -14,7 +14,7 @@ namespace sp
 				std::istreambuf_iterator<char>(std::ifstream(filepath).rdbuf()),
 				std::istreambuf_iterator<char>());
 
-			SPARKY_ASSERT(content.size() != 0, "Could not read file '", filepath.c_str(), "'!");
+			SP_ASSERT(content.size() != 0, "Could not read file '", filepath.c_str(), "'!");
 
 			return content;
 		}

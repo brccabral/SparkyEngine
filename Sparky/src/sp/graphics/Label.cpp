@@ -41,7 +41,7 @@ namespace sp
 			if (m_Font != nullptr)
 				return;
 
-			SPARKY_WARN("NULL FONT! Font=", name.c_str(), ", Size=", size);
+			SP_WARN("NULL FONT! Font=", name.c_str(), ", Size=", size);
 
 			m_Font = FontManager::Get("SourceSansPro");
 		}

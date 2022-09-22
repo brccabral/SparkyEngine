@@ -40,7 +40,7 @@ namespace sp
 
 			// Image needs to be 24 bits (RGB) or 32 bits (RGBA) - 8 bits per channel,  8*3 or 8*4
 			if (m_Bits != 24 && m_Bits != 32)
-				SPARKY_ERROR("[Texture] Unsupported image bit-depth! (", m_Bits, ")");
+				SP_ERROR("[Texture] Unsupported image bit-depth! (", m_Bits, ")");
 
 			int internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 			uint format = m_Bits == 32 ?

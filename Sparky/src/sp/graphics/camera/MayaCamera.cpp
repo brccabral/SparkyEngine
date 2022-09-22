@@ -23,8 +23,8 @@ namespace sp
 			m_FocalPoint = vec3::Zero();
 			m_Distance = m_Position.Distance(m_FocalPoint);
 
-			m_Yaw = 3.0f * M_PI / 4.0f;
-			m_Pitch = M_PI / 4.0f;
+			m_Yaw = 3.0f * (float)M_PI / 4.0f;
+			m_Pitch = (float)M_PI / 4.0f;
 		}
 
 		void MayaCamera::Update()

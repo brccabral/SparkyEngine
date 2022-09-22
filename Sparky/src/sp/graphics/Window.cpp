@@ -11,7 +11,7 @@ namespace sp
 		{
 			if (!Init())
 			{
-				SPARKY_ERROR("Failed base Window initialization!");
+				SP_ERROR("Failed base Window initialization!");
 				return;
 			}
 
@@ -50,7 +50,7 @@ namespace sp
 		{
 			if (!PlatformInit())
 			{
-				SPARKY_FATAL("Failed to initialize platform!");
+				SP_FATAL("Failed to initialize platform!");
 				return false;
 			}
 
@@ -59,12 +59,12 @@ namespace sp
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			SPARKY_INFO("----------------------------------");
-			SPARKY_INFO(" OpenGL:");
-			SPARKY_INFO("    ", glGetString(GL_VERSION));
-			SPARKY_INFO("    ", glGetString(GL_VENDOR));
-			SPARKY_INFO("    ", glGetString(GL_RENDERER));
-			SPARKY_INFO("----------------------------------");
+			SP_INFO("----------------------------------");
+			SP_INFO(" OpenGL:");
+			SP_INFO("    ", glGetString(GL_VERSION));
+			SP_INFO("    ", glGetString(GL_VENDOR));
+			SP_INFO("    ", glGetString(GL_RENDERER));
+			SP_INFO("----------------------------------");
 
 			return true;
 		}

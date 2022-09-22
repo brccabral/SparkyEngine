@@ -32,7 +32,7 @@ namespace sp
 			template<typename T>
 			void Push(const String &name, uint count = 1, bool normalized = false)
 			{
-				SPARKY_ASSERT(false, "Unkown type!");
+				SP_ASSERT(false, "Unkown type!");
 			}
 
 			template<> void Push<float>(const String &name, uint count, bool normalized) { Push(name, GL_FLOAT, sizeof(float) * count, count, normalized); }

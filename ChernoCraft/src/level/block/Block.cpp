@@ -21,14 +21,14 @@ Block::Block(unsigned short ID)
 {
     this->ID = ID;
     if (vao == (VertexArray*) NULL) {
-        _SPARKY_INFO("Initializing block... ");
+        _SP_INFO("Initializing block... ");
         init();
-		_SPARKY_INFO("done.\n");
+		_SP_INFO("done.\n");
     }
     srand((unsigned int) time(NULL));
     color = vec3(0.3f, 0.6f, 0.2f);
     shader = Shaders::BLOCK;
-	SPARKY_INFO("Creating block...");
+	SP_INFO("Creating block...");
 }
 
 void Block::CREATE_ALL()
