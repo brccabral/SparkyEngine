@@ -90,24 +90,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ext\gorilla-audio\src\ga.c">
-      <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\gorilla-audio\src\devices\ga_openal.c">
-      <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\gorilla-audio\src\ga_stream.c">
-      <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\gorilla-audio\src\gau.c">
-      <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\gorilla-audio\src\common\gc_common.c">
-      <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
-    <ClCompile Include="ext\gorilla-audio\src\common\gc_thread.c">
-      <Filter>Source Files\ext\gorilla-audio</Filter>
-    </ClCompile>
     <ClCompile Include="src\sp\audio\Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -289,36 +271,6 @@
     </ClInclude>
     <ClInclude Include="ext\freetype\include\config\ftstdlib.h">
       <Filter>Header Files\ext\freetype</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\common\gc_types.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\ga.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\ga_internal.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\devices\ga_openal.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\gau.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\common\gc_common.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\common\gc_thread.h">
-      <Filter>Header Files\ext\gorilla-audio</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\vorbis\codec.h">
-      <Filter>Header Files\ext\vorbis</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisenc.h">
-      <Filter>Header Files\ext\vorbis</Filter>
-    </ClInclude>
-    <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisfile.h">
-      <Filter>Header Files\ext\vorbis</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\audio\Sound.h">
       <Filter>Header Files</Filter>

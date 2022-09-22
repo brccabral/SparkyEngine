@@ -255,12 +255,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ext\gorilla-audio\src\common\gc_common.c" />
-    <ClCompile Include="ext\gorilla-audio\src\common\gc_thread.c" />
-    <ClCompile Include="ext\gorilla-audio\src\devices\ga_openal.c" />
-    <ClCompile Include="ext\gorilla-audio\src\ga.c" />
-    <ClCompile Include="ext\gorilla-audio\src\gau.c" />
-    <ClCompile Include="ext\gorilla-audio\src\ga_stream.c" />
     <ClCompile Include="src\sp\app\Application.cpp" />
     <ClCompile Include="src\sp\audio\Sound.cpp" />
     <ClCompile Include="src\sp\audio\SoundManager.cpp" />
@@ -323,16 +317,6 @@
     <ClInclude Include="ext\freetype\include\config\ftoption.h" />
     <ClInclude Include="ext\freetype\include\config\ftstdlib.h" />
     <ClInclude Include="ext\freetype\include\ft2build.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\common\gc_common.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\common\gc_thread.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\common\gc_types.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\devices\ga_openal.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\ga.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\gau.h" />
-    <ClInclude Include="ext\gorilla-audio\include\gorilla\ga_internal.h" />
-    <ClInclude Include="ext\gorilla-audio\include\vorbis\codec.h" />
-    <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisenc.h" />
-    <ClInclude Include="ext\gorilla-audio\include\vorbis\vorbisfile.h" />
     <ClInclude Include="src\sp\app\Application.h" />
     <ClInclude Include="src\sp\audio\Sound.h" />
     <ClInclude Include="src\sp\audio\SoundManager.h" />
