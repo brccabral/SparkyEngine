@@ -341,6 +341,7 @@
     <ClCompile Include="src\sp\graphics\Window.cpp" />
     <ClCompile Include="src\sp\maths\AABB.cpp" />
     <ClCompile Include="src\sp\maths\mat4.cpp" />
+    <ClCompile Include="src\sp\maths\Quaternion.cpp" />
     <ClCompile Include="src\sp\maths\vec2.cpp" />
     <ClCompile Include="src\sp\maths\vec3.cpp" />
     <ClCompile Include="src\sp\maths\vec4.cpp" />
@@ -422,6 +423,7 @@
     <ClInclude Include="src\sp\maths\mat4.h" />
     <ClInclude Include="src\sp\maths\maths.h" />
     <ClInclude Include="src\sp\maths\maths_func.h" />
+    <ClInclude Include="src\sp\maths\Quaternion.h" />
     <ClInclude Include="src\sp\maths\tvec2.h" />
     <ClInclude Include="src\sp\maths\vec2.h" />
     <ClInclude Include="src\sp\maths\vec3.h" />

@@ -11,6 +11,7 @@
 #include "mat4.h"
 
 #include "AABB.h"
+#include "Quaternion.h"
 
 namespace sp
 {

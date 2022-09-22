@@ -47,6 +47,40 @@ namespace sp
 			float Distance(const vec3 &other) const;
 
 			friend std::ostream &operator<<(std::ostream &stream, const vec3 &vector);
+
+
+			static vec3 Up();
+			static vec3 Down();
+			static vec3 Left();
+			static vec3 Right();
+			static vec3 Zero();
+
+			static vec3 XAxis();
+			static vec3 YAxis();
+			static vec3 ZAxis();
+
+			vec3 &Add(float other);
+			vec3 &Subtract(float other);
+			vec3 &Multiply(float other);
+			vec3 &Divide(float other);
+
+			friend vec3 operator+(vec3 left, float right);
+			friend vec3 operator-(vec3 left, float right);
+			friend vec3 operator*(vec3 left, float right);
+			friend vec3 operator/(vec3 left, float right);
+
+			vec3 &operator+=(float other);
+			vec3 &operator-=(float other);
+			vec3 &operator*=(float other);
+			vec3 &operator/=(float other);
+
+			friend vec3 operator-(const vec3 &vector);
+
+			vec3 Cross(const vec3 &other) const;
+			float Dot(const vec3 &other) const;
+
+			float Magnitude() const;
+			vec3 Normalize() const;
 		};
 
 	}
