@@ -97,37 +97,37 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Dependencies\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Dependencies\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Dependencies\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='emscripten|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Dependencies\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;D:\CPP_Win\ExternalSources\emsdk\upstream\emscripten\system\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Dependencies\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Sparky\ext\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\Box2D\src;$(SolutionDir)Dependencies\gorilla-audio\include;$(SolutionDir)Dependencies\FreeType;$(SolutionDir)Dependencies\FreeType\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencies\Box2D\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libvorbis\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\libogg\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\OpenAL\lib\Release\$(Platform);$(SolutionDir)Dependencies\FreeImage\lib\$(Configuration)\$(Platform);$(SolutionDir)Dependencies\GLEW\lib\$(Configuration)\$(Platform);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
@@ -399,6 +399,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\FreeType\FreeType.vcxproj">
       <Project>{81593a3b-1e17-4dd4-9e83-437981d66e69}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\gorilla-audio\gorilla-audio.vcxproj">
+      <Project>{1f6ee55c-2763-42a1-8cad-fdbd7ebe4de6}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

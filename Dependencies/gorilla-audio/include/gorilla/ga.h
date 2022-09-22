@@ -12,7 +12,7 @@
 #ifndef _GORILLA_GA_H
 #define _GORILLA_GA_H
 
-#include "gorilla/common/gc_common.h"
+#include "common/gc_common.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -210,7 +210,7 @@ typedef struct ga_Device ga_Device;
  *  \param in_format Requested device output format (usually 16-bit/44100/stereo).
  *  \return Concrete instance of the requested device type. 0 if a suitable device could not be opened.
  */
-ga_Device* ga_device_open(gc_int32 in_type,
+DLL_EXPORT ga_Device* ga_device_open(gc_int32 in_type,
                           gc_int32 in_numBuffers,
                           gc_int32 in_numSamples,
                           ga_Format* in_format);
@@ -221,7 +221,7 @@ ga_Device* ga_device_open(gc_int32 in_type,
  *  \param in_device Device to check.
  *  \return Number of free (unqueued) buffers.
  */
-gc_int32 ga_device_check(ga_Device* in_device);
+DLL_EXPORT gc_int32 ga_device_check(ga_Device* in_device);
 
 /** Adds a buffer to a device's presentation queue.
  *
@@ -232,7 +232,7 @@ gc_int32 ga_device_check(ga_Device* in_device);
  *  \warning You should always call ga_device_check() prior to queueing a buffer! If 
  *           there isn't a free (unqueued) buffer, the operation will fail.
  */
-gc_result ga_device_queue(ga_Device* in_device,
+DLL_EXPORT gc_result ga_device_queue(ga_Device* in_device,
                           void* in_buffer);
 
 /** Closes an open audio device.
@@ -242,7 +242,7 @@ gc_result ga_device_queue(ga_Device* in_device,
  *  \return GC_SUCCESS if the device was closed successfully. GC_ERROR_GENERIC if not.
  *  \warning The client must never use a device after calling ga_device_close().
  */
-gc_result ga_device_close(ga_Device* in_device);
+DLL_EXPORT gc_result ga_device_close(ga_Device* in_device);
 
 
 /*****************/
@@ -289,7 +289,7 @@ typedef struct ga_DataSource ga_DataSource;
  *  \param in_count Number of elements to read.
  *  \return Total number of bytes read into the destination buffer.
  */
-gc_int32 ga_data_source_read(ga_DataSource* in_dataSrc, void* in_dst, gc_int32 in_size, gc_int32 in_count);
+DLL_EXPORT gc_int32 ga_data_source_read(ga_DataSource* in_dataSrc, void* in_dst, gc_int32 in_size, gc_int32 in_count);
 
 /** Seek to an offset within a data source.
  *
@@ -300,7 +300,7 @@ gc_int32 ga_data_source_read(ga_DataSource* in_dataSrc, void* in_dst, gc_int32 i
  *  \return If seek succeeds, returns 0, otherwise returns -1 (invalid seek request).
  *  \warning Only data sources with GA_FLAG_SEEKABLE can have ga_data_source_seek() called on them.
 */
-gc_int32 ga_data_source_seek(ga_DataSource* in_dataSrc, gc_int32 in_offset, gc_int32 in_origin);
+DLL_EXPORT gc_int32 ga_data_source_seek(ga_DataSource* in_dataSrc, gc_int32 in_offset, gc_int32 in_origin);
 
 /** Tells the current read position of a data source.
  *
@@ -308,7 +308,7 @@ gc_int32 ga_data_source_seek(ga_DataSource* in_dataSrc, gc_int32 in_offset, gc_i
  *  \param in_dataSrc Data source to tell the read position of.
  *  \return The current data source read position.
  */
-gc_int32 ga_data_source_tell(ga_DataSource* in_dataSrc);
+DLL_EXPORT gc_int32 ga_data_source_tell(ga_DataSource* in_dataSrc);
 
 /** Returns the bitfield of flags set for a data source (see \ref globDefs).
  *
@@ -316,7 +316,7 @@ gc_int32 ga_data_source_tell(ga_DataSource* in_dataSrc);
  *  \param in_dataSrc Data source whose flags should be retrieved.
  *  \return The bitfield of flags set for the data source.
  */
-gc_int32 ga_data_source_flags(ga_DataSource* in_dataSrc);
+DLL_EXPORT gc_int32 ga_data_source_flags(ga_DataSource* in_dataSrc);
 
 /** Acquires a reference for a data source.
  *
@@ -325,7 +325,7 @@ gc_int32 ga_data_source_flags(ga_DataSource* in_dataSrc);
  *  \ingroup ga_DataSource
  *  \param in_dataSrc Data source whose reference count should be incremented.
  */
-void ga_data_source_acquire(ga_DataSource* in_dataSrc);
+DLL_EXPORT void ga_data_source_acquire(ga_DataSource* in_dataSrc);
 
 /** Releases a reference for a data source.
  *
@@ -336,7 +336,7 @@ void ga_data_source_acquire(ga_DataSource* in_dataSrc);
  *  \param in_dataSrc Data source whose reference count should be decremented.
  *  \warning A client must never use a data source after releasing its reference.
  */
-void ga_data_source_release(ga_DataSource* in_dataSrc);
+DLL_EXPORT void ga_data_source_release(ga_DataSource* in_dataSrc);
 
 
 /*******************/
@@ -385,7 +385,7 @@ typedef void (*tOnSeekFunc)(gc_int32 in_sample, gc_int32 in_delta, void* in_seek
  *  \param in_seekContext User-specified context for the on-seek function.
  *  \return Total number of bytes read into the destination buffer.
  */
-gc_int32 ga_sample_source_read(ga_SampleSource* in_sampleSrc, void* in_dst, gc_int32 in_numSamples,
+DLL_EXPORT gc_int32 ga_sample_source_read(ga_SampleSource* in_sampleSrc, void* in_dst, gc_int32 in_numSamples,
                                tOnSeekFunc in_onSeekFunc, void* in_seekContext);
 
 /** Checks whether a sample source has reached the end of the stream.
@@ -394,7 +394,7 @@ gc_int32 ga_sample_source_read(ga_SampleSource* in_sampleSrc, void* in_dst, gc_i
  *  \param in_sampleSrc Sample source to check.
  *  \return Whether the sample source has reached the end of the stream.
  */
-gc_int32 ga_sample_source_end(ga_SampleSource* in_sampleSrc);
+DLL_EXPORT gc_int32 ga_sample_source_end(ga_SampleSource* in_sampleSrc);
 
 /** Checks whether a sample source has at least a given number of available
  *  samples.
@@ -410,7 +410,7 @@ gc_int32 ga_sample_source_end(ga_SampleSource* in_sampleSrc);
  *  \return Whether the sample source has at least a given number of available
  *          samples.
  */
-gc_int32 ga_sample_source_ready(ga_SampleSource* in_sampleSrc, gc_int32 in_numSamples);
+DLL_EXPORT gc_int32 ga_sample_source_ready(ga_SampleSource* in_sampleSrc, gc_int32 in_numSamples);
 
 /** Seek to an offset (in samples) within a sample source.
  *
@@ -421,7 +421,7 @@ gc_int32 ga_sample_source_ready(ga_SampleSource* in_sampleSrc, gc_int32 in_numSa
  *  \warning Only sample sources with GA_FLAG_SEEKABLE can have ga_sample_source_seek()
  *           called on them.
  */
-gc_int32 ga_sample_source_seek(ga_SampleSource* in_sampleSrc, gc_int32 in_sampleOffset);
+DLL_EXPORT gc_int32 ga_sample_source_seek(ga_SampleSource* in_sampleSrc, gc_int32 in_sampleOffset);
 
 /** Tells the current sample number of a sample source.
  *
@@ -431,7 +431,7 @@ gc_int32 ga_sample_source_seek(ga_SampleSource* in_sampleSrc, gc_int32 in_sample
  *                          samples in the sample source. Output parameter.
  *  \return The current sample source sample number.
  */
-gc_int32 ga_sample_source_tell(ga_SampleSource* in_sampleSrc, gc_int32* out_totalSamples);
+DLL_EXPORT gc_int32 ga_sample_source_tell(ga_SampleSource* in_sampleSrc, gc_int32* out_totalSamples);
 
 /** Returns the bitfield of flags set for a sample source (see \ref globDefs).
  *
@@ -439,7 +439,7 @@ gc_int32 ga_sample_source_tell(ga_SampleSource* in_sampleSrc, gc_int32* out_tota
  *  \param in_sampleSrc Sample source whose flags should be retrieved.
  *  \return The bitfield of flags set for the sample source.
  */
-gc_int32 ga_sample_source_flags(ga_SampleSource* in_sampleSrc);
+DLL_EXPORT gc_int32 ga_sample_source_flags(ga_SampleSource* in_sampleSrc);
 
 /** Retrieves the PCM sample format for a sample source.
  *
@@ -449,7 +449,7 @@ gc_int32 ga_sample_source_flags(ga_SampleSource* in_sampleSrc);
  *                    as samples in the sample source. Output parameter.
  *  \todo Either return a copy of the format, or make it a const* return value.
  */
-void ga_sample_source_format(ga_SampleSource* in_sampleSrc, ga_Format* out_format);
+DLL_EXPORT void ga_sample_source_format(ga_SampleSource* in_sampleSrc, ga_Format* out_format);
 
 /** Acquires a reference for a sample source.
  *
@@ -458,7 +458,7 @@ void ga_sample_source_format(ga_SampleSource* in_sampleSrc, ga_Format* out_forma
  *  \ingroup ga_SampleSource
  *  \param in_sampleSrc Sample source whose reference count should be incremented.
  */
-void ga_sample_source_acquire(ga_SampleSource* in_sampleSrc);
+DLL_EXPORT void ga_sample_source_acquire(ga_SampleSource* in_sampleSrc);
 
 /** Releases a reference for a sample source.
  *
@@ -469,7 +469,7 @@ void ga_sample_source_acquire(ga_SampleSource* in_sampleSrc);
  *  \param in_sampleSrc Sample source whose reference count should be decremented.
  *  \warning A client must never use a sample source after releasing its reference.
  */
-void ga_sample_source_release(ga_SampleSource* in_sampleSrc);
+DLL_EXPORT void ga_sample_source_release(ga_SampleSource* in_sampleSrc);
 
 
 /************/
@@ -509,7 +509,7 @@ typedef struct ga_Memory ga_Memory;
  *  \return Newly-allocated memory object, containing an internal copy of the
  *          provided data buffer.
  */
-ga_Memory* ga_memory_create(void* in_data, gc_int32 in_size);
+DLL_EXPORT ga_Memory* ga_memory_create(void* in_data, gc_int32 in_size);
 
 /** Create a shared memory object from the full contents of a data source.
  *
@@ -522,7 +522,7 @@ ga_Memory* ga_memory_create(void* in_data, gc_int32 in_size);
  *  \return Newly-allocated memory object, containing an internal copy of the
  *          full contents of the provided data source.
  */
-ga_Memory* ga_memory_create_data_source(ga_DataSource* in_dataSource);
+DLL_EXPORT ga_Memory* ga_memory_create_data_source(ga_DataSource* in_dataSource);
 
 /** Retrieve the size (in bytes) of a memory object's stored data.
  *
@@ -530,7 +530,7 @@ ga_Memory* ga_memory_create_data_source(ga_DataSource* in_dataSource);
  *  \param in_mem Memory object whose stored data size should be retrieved.
  *  \return Size (in bytes) of the memory object's stored data.
  */
-gc_int32 ga_memory_size(ga_Memory* in_mem);
+DLL_EXPORT gc_int32 ga_memory_size(ga_Memory* in_mem);
 
 /** Retrieve a pointer to a memory object's stored data.
  *
@@ -539,7 +539,7 @@ gc_int32 ga_memory_size(ga_Memory* in_mem);
  *  \return Pointer to the memory object's stored data.
  *  \warning Never manually free the pointer returned by this function.
  */
-void* ga_memory_data(ga_Memory* in_mem);
+DLL_EXPORT void* ga_memory_data(ga_Memory* in_mem);
 
 /** Acquires a reference for a memory object.
  *
@@ -548,7 +548,7 @@ void* ga_memory_data(ga_Memory* in_mem);
  *  \ingroup ga_Memory
  *  \param in_mem Memory object whose reference count should be incremented.
  */
-void ga_memory_acquire(ga_Memory* in_mem);
+DLL_EXPORT void ga_memory_acquire(ga_Memory* in_mem);
 
 /** Releases a reference for a memory object.
  *
@@ -559,7 +559,7 @@ void ga_memory_acquire(ga_Memory* in_mem);
  *  \param in_mem Memory object whose reference count should be decremented.
  *  \warning A client must never use a memory object after releasing its reference.
  */
-void ga_memory_release(ga_Memory* in_mem);
+DLL_EXPORT void ga_memory_release(ga_Memory* in_mem);
 
 
 /***********/
@@ -597,7 +597,7 @@ typedef struct ga_Sound ga_Sound;
  *  \param in_format Format of the raw PCM data contained by in_memory.
  *  \return Newly-allocated sound object.
  */
-ga_Sound* ga_sound_create(ga_Memory* in_memory, ga_Format* in_format);
+DLL_EXPORT ga_Sound* ga_sound_create(ga_Memory* in_memory, ga_Format* in_format);
 
 /** Create a shared memory object from the full contents of a sample source.
  *
@@ -610,7 +610,7 @@ ga_Sound* ga_sound_create(ga_Memory* in_memory, ga_Format* in_format);
  *  \return Newly-allocated memory object, containing an internal copy of the
  *          full contents of the provided data source.
  */
-ga_Sound* ga_sound_create_sample_source(ga_SampleSource* in_sampleSrc);
+DLL_EXPORT ga_Sound* ga_sound_create_sample_source(ga_SampleSource* in_sampleSrc);
 
 /** Retrieve a pointer to a sound object's stored data.
  *
@@ -619,7 +619,7 @@ ga_Sound* ga_sound_create_sample_source(ga_SampleSource* in_sampleSrc);
  *  \return Pointer to the sound object's stored data.
  *  \warning Never manually free the pointer returned by this function.
  */
-void* ga_sound_data(ga_Sound* in_sound);
+DLL_EXPORT void* ga_sound_data(ga_Sound* in_sound);
 
 /** Retrieve the size (in bytes) of a sound object's stored data.
  *
@@ -627,7 +627,7 @@ void* ga_sound_data(ga_Sound* in_sound);
  *  \param in_sound Sound object whose stored data size should be retrieved.
  *  \return Size (in bytes) of the sound object's stored data.
  */
-gc_int32 ga_sound_size(ga_Sound* in_sound);
+DLL_EXPORT gc_int32 ga_sound_size(ga_Sound* in_sound);
 
 /** Retrieve the number of samples in a sound object's stored PCM data.
  *
@@ -635,7 +635,7 @@ gc_int32 ga_sound_size(ga_Sound* in_sound);
  *  \param in_sound Sound object whose number of samples should be retrieved.
  *  \return Number of samples in the sound object's stored PCM data.
  */
-gc_int32 ga_sound_numSamples(ga_Sound* in_sound);
+DLL_EXPORT gc_int32 ga_sound_numSamples(ga_Sound* in_sound);
 
 /** Retrieves the PCM sample format for a sound.
  *
@@ -645,7 +645,7 @@ gc_int32 ga_sound_numSamples(ga_Sound* in_sound);
  *                    as samples in the sound. Output parameter.
  *  \todo Either return a copy of the format, or make it a const* return value.
  */
-void ga_sound_format(ga_Sound* in_sound, ga_Format* out_format);
+DLL_EXPORT void ga_sound_format(ga_Sound* in_sound, ga_Format* out_format);
 
 /** Acquires a reference for a sound object.
  *
@@ -655,7 +655,7 @@ void ga_sound_format(ga_Sound* in_sound, ga_Format* out_format);
  *  \param in_sound Sound object whose reference count should be incremented.
  *  \todo Either return a copy of the format, or make it a const* return value.
  */
-void ga_sound_acquire(ga_Sound* in_sound);
+DLL_EXPORT void ga_sound_acquire(ga_Sound* in_sound);
 
 /** Releases a reference for a sound object.
  *
@@ -666,7 +666,7 @@ void ga_sound_acquire(ga_Sound* in_sound);
  *  \param in_sound Sound object whose reference count should be decremented.
  *  \warning A client must never use a sound object after releasing its reference.
  */
-void ga_sound_release(ga_Sound* in_sound);
+DLL_EXPORT void ga_sound_release(ga_Sound* in_sound);
 
 
 /************/
@@ -701,7 +701,7 @@ typedef struct ga_Mixer ga_Mixer;
  *  \warning The number of samples must be a power-of-two.
  *  \todo Remove the requirement that the buffer be a power-of-two in size.
  */
-ga_Mixer* ga_mixer_create(ga_Format* in_format, gc_int32 in_numSamples);
+DLL_EXPORT ga_Mixer* ga_mixer_create(ga_Format* in_format, gc_int32 in_numSamples);
 
 /** Retrieves the PCM sample format for a mixer object.
  *
@@ -711,7 +711,7 @@ ga_Mixer* ga_mixer_create(ga_Format* in_format, gc_int32 in_numSamples);
  *  \warning Do not modify the contents of this pointer
  *  \todo Either return a copy of the format, or make it a const*.
  */
-ga_Format* ga_mixer_format(ga_Mixer* in_mixer);
+DLL_EXPORT ga_Format* ga_mixer_format(ga_Mixer* in_mixer);
 
 /** Retrieve the number of samples in a mixer object's mix buffer.
  *
@@ -719,7 +719,7 @@ ga_Format* ga_mixer_format(ga_Mixer* in_mixer);
  *  \param in_mixer Mixer object whose number of samples should be retrieved.
  *  \return Number of samples in a mixer object's mix buffer.
  */
-gc_int32 ga_mixer_numSamples(ga_Mixer* in_mixer);
+DLL_EXPORT gc_int32 ga_mixer_numSamples(ga_Mixer* in_mixer);
 
 /** Mixes samples from all ready handles into a single output buffer.
  *
@@ -734,7 +734,7 @@ gc_int32 ga_mixer_numSamples(ga_Mixer* in_mixer);
  *  \return Whether the mixer successfully mixed the data. GA_SUCCESS if the 
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_mixer_mix(ga_Mixer* in_mixer, void* out_buffer);
+DLL_EXPORT gc_result ga_mixer_mix(ga_Mixer* in_mixer, void* out_buffer);
 
 /** Dispatches all pending finish callbacks.
  *
@@ -747,7 +747,7 @@ gc_result ga_mixer_mix(ga_Mixer* in_mixer, void* out_buffer);
  *  \return Whether the mixer successfully dispatched the callbacks. GA_SUCCESS if the 
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_mixer_dispatch(ga_Mixer* in_mixer);
+DLL_EXPORT gc_result ga_mixer_dispatch(ga_Mixer* in_mixer);
 
 /** Destroys a mixer object.
  *
@@ -757,7 +757,7 @@ gc_result ga_mixer_dispatch(ga_Mixer* in_mixer);
  *          operation was successful, GA_ERROR_GENERIC if not.
  *  \warning The client must never use a mixer after calling ga_mixer_destroy().
  */
-gc_result ga_mixer_destroy(ga_Mixer* in_mixer);
+DLL_EXPORT gc_result ga_mixer_destroy(ga_Mixer* in_mixer);
 
 
 /************/
@@ -836,7 +836,7 @@ typedef void (*ga_FinishCallback)(ga_Handle* in_finishedHandle, void* in_context
  *  \param in_sampleSrc The sample source from which to stream samples.
  *  \todo Provide a way to query handles for flags.
  */
-ga_Handle* ga_handle_create(ga_Mixer* in_mixer, ga_SampleSource* in_sampleSrc);
+DLL_EXPORT ga_Handle* ga_handle_create(ga_Mixer* in_mixer, ga_SampleSource* in_sampleSrc);
 
 /** Destroys an audio playback handle.
  *
@@ -846,7 +846,7 @@ ga_Handle* ga_handle_create(ga_Mixer* in_mixer, ga_SampleSource* in_sampleSrc);
  *          operation was successful, GA_ERROR_GENERIC if not.
  *  \warning The client must never use a handle after calling ga_handle_destroy().
  */
-gc_result ga_handle_destroy(ga_Handle* in_handle);
+DLL_EXPORT gc_result ga_handle_destroy(ga_Handle* in_handle);
 
 /** Starts playback on an audio playback handle.
  *
@@ -859,7 +859,7 @@ gc_result ga_handle_destroy(ga_Handle* in_handle);
  *  \warning You cannot play a handle that has finished playing. When in doubt, check
  *           ga_handle_finished() to verify this state prior to calling play.
  */
-gc_result ga_handle_play(ga_Handle* in_handle);
+DLL_EXPORT gc_result ga_handle_play(ga_Handle* in_handle);
 
 /** Stops playback of a playing audio playback handle.
  *
@@ -872,7 +872,7 @@ gc_result ga_handle_play(ga_Handle* in_handle);
  *  \warning You cannot stop a handle that has finished playing. When in doubt, check
  *           ga_handle_finished() to verify this state prior to calling play.
  */
-gc_result ga_handle_stop(ga_Handle* in_handle);
+DLL_EXPORT gc_result ga_handle_stop(ga_Handle* in_handle);
 
 /** Checks whether a handle is currently playing.
  *
@@ -880,7 +880,7 @@ gc_result ga_handle_stop(ga_Handle* in_handle);
  *  \param in_handle Handle object to check.
  *  \return Whether the handle is currently playing.
  */
-gc_int32 ga_handle_playing(ga_Handle* in_handle);
+DLL_EXPORT gc_int32 ga_handle_playing(ga_Handle* in_handle);
 
 /** Checks whether a handle is currently stopped.
  *
@@ -888,7 +888,7 @@ gc_int32 ga_handle_playing(ga_Handle* in_handle);
  *  \param in_handle Handle object to check.
  *  \return Whether the handle is currently stopped.
  */
-gc_int32 ga_handle_stopped(ga_Handle* in_handle);
+DLL_EXPORT gc_int32 ga_handle_stopped(ga_Handle* in_handle);
 
 /** Checks whether a handle is currently finished.
  *
@@ -896,7 +896,7 @@ gc_int32 ga_handle_stopped(ga_Handle* in_handle);
  *  \param in_handle Handle object to check.
  *  \return Whether the handle is currently finished.
  */
-gc_int32 ga_handle_finished(ga_Handle* in_handle);
+DLL_EXPORT gc_int32 ga_handle_finished(ga_Handle* in_handle);
 
 /** Checks whether a handle is currently destroyed.
  *
@@ -904,7 +904,7 @@ gc_int32 ga_handle_finished(ga_Handle* in_handle);
  *  \param in_handle Handle object to check.
  *  \return Whether the handle is currently destroyed.
  */
-gc_int32 ga_handle_destroyed(ga_Handle* in_handle);
+DLL_EXPORT gc_int32 ga_handle_destroyed(ga_Handle* in_handle);
 
 /** Sets the handle-finished-playback callback for a handle.
  *
@@ -918,7 +918,7 @@ gc_int32 ga_handle_destroyed(ga_Handle* in_handle);
  *  \return Whether the handle's callback was set successfully. GA_SUCCESS if the
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_handle_setCallback(ga_Handle* in_handle,
+DLL_EXPORT gc_result ga_handle_setCallback(ga_Handle* in_handle,
                                 ga_FinishCallback in_callback,
                                 void* in_context);
 
@@ -933,7 +933,7 @@ gc_result ga_handle_setCallback(ga_Handle* in_handle,
  *  \return Whether the parameter was set successfully. GA_SUCCESS if the
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_handle_setParamf(ga_Handle* in_handle,
+DLL_EXPORT gc_result ga_handle_setParamf(ga_Handle* in_handle,
                               gc_int32 in_param,
                               gc_float32 in_value);
 
@@ -949,7 +949,7 @@ gc_result ga_handle_setParamf(ga_Handle* in_handle,
  *  \return Whether the parameter was retrieved successfully. GA_SUCCESS if the
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_handle_getParamf(ga_Handle* in_handle,
+DLL_EXPORT gc_result ga_handle_getParamf(ga_Handle* in_handle,
                               gc_int32 in_param,
                               gc_float32* out_value);
 
@@ -964,7 +964,7 @@ gc_result ga_handle_getParamf(ga_Handle* in_handle,
  *  \return Whether the parameter was set successfully. GA_SUCCESS if the
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_handle_setParami(ga_Handle* in_handle,
+DLL_EXPORT gc_result ga_handle_setParami(ga_Handle* in_handle,
                               gc_int32 in_param,
                               gc_int32 in_value);
 
@@ -980,7 +980,7 @@ gc_result ga_handle_setParami(ga_Handle* in_handle,
  *  \return Whether the parameter was retrieved successfully. GA_SUCCESS if the
  *          operation was successful, GA_ERROR_GENERIC if not.
  */
-gc_result ga_handle_getParami(ga_Handle* in_handle,
+DLL_EXPORT gc_result ga_handle_getParami(ga_Handle* in_handle,
                               gc_int32 in_param,
                               gc_int32* out_value);
 
@@ -993,7 +993,7 @@ gc_result ga_handle_getParami(ga_Handle* in_handle,
  *  \warning Only handles containing sample sources with GA_FLAG_SEEKABLE can
  *           have ga_handle_seek() called on them.
  */
-gc_result ga_handle_seek(ga_Handle* in_handle, gc_int32 in_sampleOffset);
+DLL_EXPORT gc_result ga_handle_seek(ga_Handle* in_handle, gc_int32 in_sampleOffset);
 
 /** Tells the current playback sample number or total samples of a handle.
  *
@@ -1004,7 +1004,7 @@ gc_result ga_handle_seek(ga_Handle* in_handle, gc_int32 in_sampleOffset);
  *          GA_TELL_PARAM_CURRENT. The total number of samples in the handle
  *          if in_param is set to GA_TELL_PARAM_TOTAL.
  */
-gc_int32 ga_handle_tell(ga_Handle* in_handle, gc_int32 in_param);
+DLL_EXPORT gc_int32 ga_handle_tell(ga_Handle* in_handle, gc_int32 in_param);
 
 /** Checks whether a handle has at least a given number of available samples.
  *
@@ -1017,7 +1017,7 @@ gc_int32 ga_handle_tell(ga_Handle* in_handle, gc_int32 in_param);
  *                       to be considered ready.
  *  \return Whether the handle has at least a given number of available samples.
  */
-gc_int32 ga_handle_ready(ga_Handle* in_handle, gc_int32 in_numSamples);
+DLL_EXPORT gc_int32 ga_handle_ready(ga_Handle* in_handle, gc_int32 in_numSamples);
 
 /** Retrieves the PCM sample format for a handle.
  *
@@ -1027,7 +1027,7 @@ gc_int32 ga_handle_ready(ga_Handle* in_handle, gc_int32 in_numSamples);
  *                    as samples streamed by the handle. Output parameter.
  *  \todo Either return a copy of the format, or make it a const* return value.
  */
-void ga_handle_format(ga_Handle* in_handle, ga_Format* out_format);
+DLL_EXPORT void ga_handle_format(ga_Handle* in_handle, ga_Format* out_format);
 
 
 /*****************************/
@@ -1054,14 +1054,14 @@ typedef struct ga_StreamManager ga_StreamManager;
  *  \ingroup ga_StreamManager
  *  \return Newly-created stream manager.
  */
-ga_StreamManager* ga_stream_manager_create();
+DLL_EXPORT ga_StreamManager* ga_stream_manager_create();
 
 /** Fills all buffers managed by a buffered-stream manager.
  *
  *  \ingroup ga_StreamManager
  *  \param in_mgr The buffered-stream manager whose buffers are to be filled.
  */
-void ga_stream_manager_buffer(ga_StreamManager* in_mgr);
+DLL_EXPORT void ga_stream_manager_buffer(ga_StreamManager* in_mgr);
 
 /** Destroys a buffered-stream manager.
  *
@@ -1069,7 +1069,7 @@ void ga_stream_manager_buffer(ga_StreamManager* in_mgr);
  *  \param in_mgr The buffered-stream manager to be destroyed.
  *  \warning Never use a buffered-stream manager after it has been destroyed.
  */
-void ga_stream_manager_destroy(ga_StreamManager* in_mgr);
+DLL_EXPORT void ga_stream_manager_destroy(ga_StreamManager* in_mgr);
 
 
 /*********************/
@@ -1104,7 +1104,7 @@ typedef struct ga_BufferedStream ga_BufferedStream;
  *  \todo Change in_bufferSize to in_bufferSamples for a mre fault-resistant
  *        interface.
  */
-ga_BufferedStream* ga_stream_create(ga_StreamManager* in_mgr, ga_SampleSource* in_sampleSrc, gc_int32 in_bufferSize);
+DLL_EXPORT ga_BufferedStream* ga_stream_create(ga_StreamManager* in_mgr, ga_SampleSource* in_sampleSrc, gc_int32 in_bufferSize);
 
 /** Buffers samples from the sample source into the internal buffer (producer).
  *
@@ -1115,7 +1115,7 @@ ga_BufferedStream* ga_stream_create(ga_StreamManager* in_mgr, ga_SampleSource* i
  *  \warning This function should only ever be called by the buffered stream
  *           manager.
  */
-void ga_stream_produce(ga_BufferedStream* in_stream); /* Can be called from a secondary thread */
+DLL_EXPORT void ga_stream_produce(ga_BufferedStream* in_stream); /* Can be called from a secondary thread */
 
 /** Reads samples from a buffered stream.
  *
@@ -1126,7 +1126,7 @@ void ga_stream_produce(ga_BufferedStream* in_stream); /* Can be called from a se
  *  \param in_numSamples Number of samples to read.
  *  \return Total number of bytes read into the destination buffer.
  */
-gc_int32 ga_stream_read(ga_BufferedStream* in_stream, void* in_dst, gc_int32 in_numSamples);
+DLL_EXPORT gc_int32 ga_stream_read(ga_BufferedStream* in_stream, void* in_dst, gc_int32 in_numSamples);
 
 /** Checks whether a buffered stream has reached the end of the stream.
  *
@@ -1134,7 +1134,7 @@ gc_int32 ga_stream_read(ga_BufferedStream* in_stream, void* in_dst, gc_int32 in_
  *  \param in_stream Buffered stream to check.
  *  \return Whether the buffered stream has reached the end of the stream.
  */
-gc_int32 ga_stream_end(ga_BufferedStream* in_stream);
+DLL_EXPORT gc_int32 ga_stream_end(ga_BufferedStream* in_stream);
 
 /** Checks whether a buffered stream has at least a given number of available
  *  samples.
@@ -1150,7 +1150,7 @@ gc_int32 ga_stream_end(ga_BufferedStream* in_stream);
  *  \return Whether the buffered stream has at least a given number of available
  *          samples.
  */
-gc_int32 ga_stream_ready(ga_BufferedStream* in_stream, gc_int32 in_numSamples);
+DLL_EXPORT gc_int32 ga_stream_ready(ga_BufferedStream* in_stream, gc_int32 in_numSamples);
 
 /** Seek to an offset (in samples) within a buffered stream.
  *
@@ -1163,7 +1163,7 @@ gc_int32 ga_stream_ready(ga_BufferedStream* in_stream, gc_int32 in_numSamples);
  *  \warning Only buffered streams with GA_FLAG_SEEKABLE can have ga_stream_seek()
  *           called on them.
  */
-gc_int32 ga_stream_seek(ga_BufferedStream* in_stream, gc_int32 in_sampleOffset);
+DLL_EXPORT gc_int32 ga_stream_seek(ga_BufferedStream* in_stream, gc_int32 in_sampleOffset);
 
 /** Tells the current sample number of a buffered stream.
  *
@@ -1173,7 +1173,7 @@ gc_int32 ga_stream_seek(ga_BufferedStream* in_stream, gc_int32 in_sampleOffset);
  *                          samples in the contained sample source. Output parameter.
  *  \return The current sample source sample number.
  */
-gc_int32 ga_stream_tell(ga_BufferedStream* in_stream, gc_int32* out_totalSamples);
+DLL_EXPORT gc_int32 ga_stream_tell(ga_BufferedStream* in_stream, gc_int32* out_totalSamples);
 
 /** Returns the bitfield of flags set for a buffered stream (see \ref globDefs).
  *
@@ -1181,7 +1181,7 @@ gc_int32 ga_stream_tell(ga_BufferedStream* in_stream, gc_int32* out_totalSamples
  *  \param in_stream Buffered stream whose flags should be retrieved.
  *  \return The bitfield of flags set for the buffered stream.
  */
-gc_int32 ga_stream_flags(ga_BufferedStream* in_stream);
+DLL_EXPORT gc_int32 ga_stream_flags(ga_BufferedStream* in_stream);
 
 /** Acquire a reference for a buffered stream.
  *
@@ -1191,7 +1191,7 @@ gc_int32 ga_stream_flags(ga_BufferedStream* in_stream);
  *  \param in_stream Buffered stream whose reference count should be incremented.
  *  \todo Either return a copy of the format, or make it a const* return value.
  */
-void ga_stream_acquire(ga_BufferedStream* in_stream);
+DLL_EXPORT void ga_stream_acquire(ga_BufferedStream* in_stream);
 
 /** Releases a reference for a buffered stream.
  *
@@ -1202,7 +1202,7 @@ void ga_stream_acquire(ga_BufferedStream* in_stream);
  *  \param in_stream Buffered stream whose reference count should be decremented.
  *  \warning A client must never use a buffered stream after releasing its reference.
  */
-void ga_stream_release(ga_BufferedStream* in_stream);
+DLL_EXPORT void ga_stream_release(ga_BufferedStream* in_stream);
 
 #ifdef __cplusplus
 }

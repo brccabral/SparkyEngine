@@ -16,6 +16,8 @@
 #include "gc_types.h"
 #include "gc_thread.h"
 
+#define DLL_EXPORT __declspec(dllexport)
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -53,7 +55,7 @@ extern gc_SystemOps* gcX_ops;
  *  \return GC_SUCCESS if library initialized successfully. GC_ERROR_GENERIC
  *          if not.
  */
-gc_result gc_initialize(gc_SystemOps* in_callbacks);
+DLL_EXPORT gc_result gc_initialize(gc_SystemOps* in_callbacks);
 
 /** Shutdown the Gorilla library.
  *
@@ -64,7 +66,7 @@ gc_result gc_initialize(gc_SystemOps* in_callbacks);
  *  \return GC_SUCCESS if the library shut down successfully. GC_ERROR_GENERIC
  *          if not.
  */
-gc_result gc_shutdown();
+DLL_EXPORT gc_result gc_shutdown();
 
 /***********************/
 /**  Circular Buffer  **/
