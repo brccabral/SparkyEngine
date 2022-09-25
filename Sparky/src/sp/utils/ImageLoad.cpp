@@ -1,4 +1,6 @@
 #include "ImageLoad.h"
+#include <FreeImage.h>
+#include <FreeImage/Utilities.h>
 
 namespace sp
 {
