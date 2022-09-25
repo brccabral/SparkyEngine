@@ -8,6 +8,8 @@
 
 #include <sp/utils/Log.h>
 
+#include <freetype-gl/freetype-gl.h>
+
 namespace sp
 {
 	namespace graphics

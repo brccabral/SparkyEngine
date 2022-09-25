@@ -1,4 +1,5 @@
 #include "Font.h"
+#include <freetype-gl/freetype-gl.h>
 
 namespace sp
 {
@@ -24,6 +25,11 @@ namespace sp
 		void Font::SetScale(float x, float y)
 		{
 			m_Scale = maths::vec2(x, y);
+		}
+
+		uint Font::GetID() const
+		{
+			return m_FTAtlas->id;
 		}
 	}
 }

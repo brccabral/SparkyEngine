@@ -5,8 +5,13 @@
 #include <string>
 #include <sp/utils/Log.h>
 #include <sp/Types.h>
-#include <freetype-gl/freetype-gl.h>
 #include "../maths/maths.h"
+
+namespace ftgl
+{
+	struct texture_atlas_t;
+	struct texture_font_t;
+}
 
 namespace sp
 {
@@ -28,7 +33,7 @@ namespace sp
 
 			inline ftgl::texture_font_t *GetFTFont() const { return m_FTFont; }
 
-			inline const uint GetID() const { return m_FTAtlas->id; }
+			uint GetID() const;
 			inline const String &GetName() const { return m_Name; }
 			inline const String &GetFilename() const { return m_Filename; }
 			inline const float &GetSize() const { return m_Size; }
