@@ -8,8 +8,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		class Layer : public events::IEventListener
+		class SP_API Layer : public events::IEventListener
 		{
 		protected:
 			Window *m_Window;

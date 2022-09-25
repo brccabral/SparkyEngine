@@ -1,13 +1,13 @@
 #pragma once
 
+#include "sp/Common.h"
 #include "Renderer3D.h"
 
 namespace sp
 {
 	namespace graphics
 	{
-
-		class ForwardRenderer : public Renderer3D
+		class SP_API ForwardRenderer : public Renderer3D
 		{
 		private:
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <stdlib.h>
 #include <string>
 
@@ -11,7 +12,7 @@ namespace sp
 
 #define STRINGFORMAT_BUFFER_SIZE 10 * 1024
 
-	class StringFormat
+	class SP_API StringFormat
 	{
 	private:
 		static char *s_Buffer;

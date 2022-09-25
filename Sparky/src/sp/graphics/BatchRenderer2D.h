@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <cstddef>
 
 #include <sp/Types.h>
@@ -24,7 +25,7 @@ namespace sp
 	#define RENDERER_INDICES_SIZE	RENDERER_MAX_SPRITES * 6
 	#define RENDERER_MAX_TEXTURES	32 - 1
 
-		class BatchRenderer2D : public Renderer2D
+		class SP_API BatchRenderer2D : public Renderer2D
 		{
 		private:
 			VertexArray *m_VertexArray;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <sp/Types.h>
 #include <sp/maths/maths.h>
 
@@ -19,10 +20,10 @@ namespace sp
 			//		 For now it uploads data to the GPU and returns the handle.
 			//
 
-			VertexArray *CreateQuad(float x, float y, float width, float height);
-			VertexArray *CreateQuad(const maths::vec2 &position, const maths::vec2 &size);
+			SP_API VertexArray *CreateQuad(float x, float y, float width, float height);
+			SP_API VertexArray *CreateQuad(const maths::vec2 &position, const maths::vec2 &size);
 
-			Mesh *CreateCube(float size, MaterialInstance *material);
+			SP_API Mesh *CreateCube(float size, MaterialInstance *material);
 		}
 	}
 }

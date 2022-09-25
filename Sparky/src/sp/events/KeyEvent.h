@@ -6,8 +6,7 @@ namespace sp
 {
 	namespace events
 	{
-
-		class KeyEvent : public Event
+		class SP_API KeyEvent : public Event
 		{
 		private:
 			int m_KeyCode;
@@ -16,8 +15,8 @@ namespace sp
 
 			inline const int GetKeyCode() const { return m_KeyCode; }
 		};
-
-		class KeyPressedEvent : public KeyEvent
+		
+		class SP_API KeyPressedEvent : public KeyEvent
 		{
 		private:
 			int m_Repeat;
@@ -26,8 +25,8 @@ namespace sp
 
 			inline const int GetRepeat() const { return m_Repeat; }
 		};
-
-		class KeyReleasedEvent : public KeyEvent
+		
+		class SP_API KeyReleasedEvent : public KeyEvent
 		{
 		public:
 			KeyReleasedEvent(int button);

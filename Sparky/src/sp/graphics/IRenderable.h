@@ -1,5 +1,7 @@
 #pragma once
 
+#include "sp/Common.h"
+
 namespace sp
 {
 	namespace graphics
@@ -7,7 +9,7 @@ namespace sp
 
 		class Renderer3D;
 
-		class IRenderable
+		class SP_API IRenderable
 		{
 		public:
 			virtual void Render(Renderer3D &renderer) = 0;

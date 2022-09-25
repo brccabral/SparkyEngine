@@ -4,7 +4,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		TextureWrap Texture::s_WrapMode = REPEAT;
+		TextureWrap Texture::s_WrapMode = TextureWrap::REPEAT;
 		TextureFilter Texture::s_FilterMode = TextureFilter::LINEAR;
 
 		Texture::Texture(const String &name, const String &filename)

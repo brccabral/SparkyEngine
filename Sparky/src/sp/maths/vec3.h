@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <iostream>
 #include <sp/Types.h>
 
@@ -10,7 +11,7 @@ namespace sp
 
 		struct vec2;
 
-		struct vec3
+		struct SP_API vec3
 		{
 			float x, y, z;
 

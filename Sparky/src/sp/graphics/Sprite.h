@@ -6,7 +6,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class Sprite : public Renderable2D
+		class SP_API Sprite : public Renderable2D
 		{
 		public:
 			Sprite(float x, float y, float width, float height, uint color);

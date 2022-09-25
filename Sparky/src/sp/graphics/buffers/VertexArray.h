@@ -9,7 +9,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class VertexArray
+		class SP_API VertexArray
 		{
 		private:
 			uint m_ID;

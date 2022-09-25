@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <vector>
 #include <sp/sparkygl.h>
 #include <sp/Types.h>
@@ -10,7 +11,7 @@
 
 namespace sp
 {
-	class Application
+	class SP_API Application
 	{
 	public:
 		graphics::Window *window;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <vector>
 #include "Font.h"
 
@@ -7,7 +8,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class FontManager
+		class SP_API FontManager
 		{
 		private:
 			static std::vector<Font *> m_Fonts;

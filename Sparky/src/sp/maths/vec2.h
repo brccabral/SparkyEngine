@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <sstream>
 #include <iostream>
 #include <math.h>
@@ -9,8 +10,7 @@ namespace sp
 {
 	namespace maths
 	{
-
-		struct vec2
+		struct SP_API vec2
 		{
 			float x, y;
 

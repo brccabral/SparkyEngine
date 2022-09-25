@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include "mat4.h"
 
 namespace sp
@@ -7,7 +8,7 @@ namespace sp
 	namespace maths
 	{
 
-		struct Quaternion
+		struct SP_API Quaternion
 		{
 			float x, y, z, w;
 

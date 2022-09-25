@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include "Renderer2D.h" // must come before Buffer.h
 #include "buffers/Buffer.h"
 #include "buffers/IndexBuffer.h"
@@ -12,7 +13,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		struct VertexData
+		struct SP_API VertexData
 		{
 			maths::vec3 vertex;
 			maths::vec2 uv; // texture coordinates
@@ -24,7 +25,7 @@ namespace sp
 
 	#define RENDERER_VERTEX_SIZE sizeof(VertexData)
 
-		class Renderable2D
+		class SP_API Renderable2D
 		{
 		protected:
 			maths::vec3 m_Position;

@@ -1,5 +1,6 @@
 #pragma once
 
+//#include "sp/Common.h"
 #include <vector>
 #include <iostream>
 #include <sp/utils/FileUtils.h>
@@ -22,7 +23,7 @@ namespace sp
 	#define SHADER_UNIFORM_VIEW_MATRIX_NAME			"vw_matrix"
 	#define SHADER_UNIFORM_MODEL_MATRIX_NAME		"ml_matrix"
 
-		class Shader
+		class SP_API Shader
 		{
 		private:
 			enum class ShaderType

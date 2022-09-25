@@ -6,9 +6,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-
-		class ShaderUniformDeclaration
+		class SP_API ShaderUniformDeclaration
 		{
 		public:
 			enum class Type

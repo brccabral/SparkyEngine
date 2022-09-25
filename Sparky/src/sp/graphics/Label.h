@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include "Renderable2D.h"
 #include "FontManager.h"
 
@@ -7,7 +8,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class Label : public Renderable2D
+		class SP_API Label : public Renderable2D
 		{
 		public:
 			String text;

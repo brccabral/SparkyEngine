@@ -12,7 +12,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		enum class RenderTarget
+		enum class SP_API RenderTarget
 		{
 			SCREEN = 0,
 			BUFFER = 1
@@ -20,7 +20,7 @@ namespace sp
 
 		class Renderable2D;
 
-		class Renderer2D
+		class SP_API Renderer2D
 		{
 		protected:
 			std::vector<maths::mat4> m_TransformationStack;

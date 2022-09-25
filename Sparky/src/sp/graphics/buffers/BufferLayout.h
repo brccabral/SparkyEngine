@@ -1,5 +1,7 @@
 #pragma once
 
+#include "sp/Common.h"
+#include <sp/String.h>
 #include <vector>
 #include <sp/Types.h>
 #include <sp/maths/maths.h>
@@ -10,8 +12,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		struct BufferLayoutType
+		struct SP_API BufferLayoutType
 		{
 			String name;
 			uint type;
@@ -21,7 +22,7 @@ namespace sp
 			bool normalized;
 		};
 
-		class BufferLayout
+		class SP_API BufferLayout
 		{
 		private:
 			uint m_Size;

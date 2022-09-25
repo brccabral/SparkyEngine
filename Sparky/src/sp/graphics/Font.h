@@ -1,5 +1,7 @@
 #pragma once
 
+#include "sp/Common.h"
+#include <sp/String.h>
 #include <string>
 #include <sp/utils/Log.h>
 #include <sp/Types.h>
@@ -10,7 +12,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class Font
+		class SP_API Font
 		{
 		private:
 			ftgl::texture_atlas_t *m_FTAtlas;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <map>
 
 #include <sp/Types.h>
@@ -9,8 +10,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		class Material
+		class SP_API Material
 		{
 		private:
 			friend class MaterialInstance;
@@ -57,7 +57,7 @@ namespace sp
 			const ShaderUniformDeclaration *GetUniformDeclaration(const String &name) const;
 		};
 
-		class MaterialInstance
+		class SP_API MaterialInstance
 		{
 		private:
 			Material *m_Material;

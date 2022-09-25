@@ -8,8 +8,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		class TextureManager
+		class SP_API TextureManager
 		{
 		private:
 			static std::vector<Texture *> m_Textures;

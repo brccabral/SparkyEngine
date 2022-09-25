@@ -10,8 +10,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		class Layer2D : public Layer
+		class SP_API Layer2D : public Layer
 		{
 		private:
 			Renderer2D *m_Renderer;

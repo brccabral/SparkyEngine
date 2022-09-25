@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <sp/Types.h>
 #include <sp/maths/maths.h>
 
@@ -11,8 +12,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		class Model : public IRenderable
+		class SP_API Model : public IRenderable
 		{
 		private:
 			Mesh *m_Mesh;

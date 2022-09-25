@@ -9,7 +9,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class Group : public Renderable2D
+		class SP_API Group : public Renderable2D
 		{
 		private:
 			std::vector<Renderable2D *> m_Renderables;

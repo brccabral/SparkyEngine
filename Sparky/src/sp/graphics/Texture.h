@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <iostream>
 #include <string>
 #include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
@@ -11,7 +12,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		enum TextureWrap
+		enum class SP_API TextureWrap
 		{
 			REPEAT = GL_REPEAT,
 			CLAMP = GL_CLAMP,
@@ -20,13 +21,13 @@ namespace sp
 			CLAMP_TO_BORDER = GL_CLAMP_TO_BORDER
 		};
 
-		enum class TextureFilter
+		enum class SP_API TextureFilter
 		{
 			LINEAR = GL_LINEAR,
 			NEAREST = GL_NEAREST
 		};
 
-		class Texture
+		class SP_API Texture
 		{
 		private:
 			String m_Name, m_FileName;

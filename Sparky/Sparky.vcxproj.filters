@@ -252,6 +252,9 @@
     <ClCompile Include="src\sp\entity\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\sp\utils\ImageLoad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype\include\ft2build.h">
@@ -477,6 +480,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\entity\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sp\Common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

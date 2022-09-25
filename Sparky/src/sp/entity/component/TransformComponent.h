@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include "Component.h"
 
 #include <sp/maths/maths.h>
@@ -10,8 +11,7 @@ namespace sp
 	{
 		namespace component
 		{
-
-			class TransformComponent : public Component
+			class SP_API TransformComponent : public Component
 			{
 			public:
 				maths::mat4 transform;

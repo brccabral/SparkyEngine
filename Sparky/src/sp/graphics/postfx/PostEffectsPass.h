@@ -8,8 +8,7 @@ namespace sp
 {
 	namespace graphics
 	{
-
-		class PostEffectsPass
+		class SP_API PostEffectsPass
 		{
 		private:
 			Shader *m_Shader;

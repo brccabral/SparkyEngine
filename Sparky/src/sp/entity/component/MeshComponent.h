@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include "Component.h"
 
 #include <sp/graphics/Mesh.h>
@@ -10,8 +11,7 @@ namespace sp
 	{
 		namespace component
 		{
-
-			class MeshComponent : public Component
+			class SP_API MeshComponent : public Component
 			{
 			public:
 				graphics::Mesh *mesh;

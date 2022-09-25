@@ -19,7 +19,7 @@ namespace sp
 		//		- ForwardRenderer.h  (WIP)
 		//		- DeferredRenderer.h (TBA)
 		//
-		class Renderer3D
+		class SP_API Renderer3D
 		{
 		protected:
 			CommandQueue m_CommandQueue;

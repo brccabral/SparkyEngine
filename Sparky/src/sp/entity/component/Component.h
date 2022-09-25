@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <sp/Types.h>
 
 namespace sp
@@ -16,13 +17,12 @@ namespace sp
 	{
 		namespace component
 		{
-
-			struct ComponentType
+			struct SP_API ComponentType
 			{
 				String name;
 			};
 
-			class Component
+			class SP_API Component
 			{
 			protected:
 				Entity *m_Entity;

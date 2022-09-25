@@ -8,9 +8,9 @@ namespace sp
 	{
 		namespace ShaderFactory
 		{
-			Shader *DefaultShader();
-			Shader *BasicLightShader();
-			Shader *SimpleShader();
+			SP_API Shader *DefaultShader();
+			SP_API Shader *SimpleShader();
+			SP_API Shader *BasicLightShader();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <string>
 #include <sp/utils/Log.h>
 #include <sp/utils/StringUtils.h>
@@ -16,7 +17,7 @@ namespace sp
 {
 	namespace audio
 	{
-		class Sound
+		class SP_API Sound
 		{
 		private:
 			String m_Name;

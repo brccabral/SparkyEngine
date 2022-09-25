@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <iostream> // Cherno is missing this
 #include <stdio.h>
 #include <algorithm>
@@ -42,7 +43,7 @@ namespace sp
 
 		static char to_string_buffer[1024 * 10];
 
-		void PlatformLogMessage(uint level, const char *message);
+		SP_API void PlatformLogMessage(uint level, const char *message);
 
 		template <class T>
 		struct has_iterator

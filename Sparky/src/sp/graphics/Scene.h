@@ -15,7 +15,7 @@ namespace sp
 		class Renderer3D;
 
 		// TODO: This probably shouldn't be in graphics.
-		class Scene
+		class SP_API Scene
 		{
 		private:
 			std::vector<entity::Entity *> m_Entities;

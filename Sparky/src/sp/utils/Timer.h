@@ -1,5 +1,7 @@
 #pragma once
 
+#include "sp/Common.h"
+
 #define STD_CHRONO 1
 
 #if STD_CHRONO
@@ -8,7 +10,7 @@
 
 namespace sp
 {
-	class Timer
+	class SP_API Timer
 	{
 	private:
 		typedef std::chrono::high_resolution_clock HighResolutionClock;

@@ -15,7 +15,7 @@ namespace sp
 	#define MAX_KEYS 1024
 	#define MAX_BUTTONS 32
 
-		class Window
+		class SP_API Window
 		{
 		private:
 			int m_Width, m_Height;

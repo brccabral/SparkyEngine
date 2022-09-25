@@ -13,7 +13,7 @@ namespace sp
 	{
 
 		// The Post Effects pipeline
-		class PostEffects
+		class SP_API PostEffects
 		{
 		private:
 			std::vector<PostEffectsPass *> m_Passes;

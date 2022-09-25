@@ -1,13 +1,13 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <iostream>
 
 namespace sp
 {
 	namespace maths
 	{
-
-		struct vec4
+		struct SP_API vec4
 		{
 			float x, y, z, w;
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <string>
 #include <vector>
 #include "Sound.h"
@@ -20,7 +21,7 @@ namespace sp
 {
 	namespace audio
 	{
-		class SoundManager
+		class SP_API SoundManager
 		{
 			friend class Sound; // Sound can access private members
 		private:

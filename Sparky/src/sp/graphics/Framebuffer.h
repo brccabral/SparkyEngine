@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <sp/Types.h>
 #include <sp/maths/vec4.h>
 #include <sp/maths/tvec2.h>
@@ -10,7 +11,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class Framebuffer
+		class SP_API Framebuffer
 		{
 		private:
 			struct FramebufferData

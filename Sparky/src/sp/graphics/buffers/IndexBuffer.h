@@ -7,7 +7,7 @@ namespace sp
 {
 	namespace graphics
 	{
-		class IndexBuffer
+		class SP_API IndexBuffer
 		{
 		private:
 			API::Buffer *m_Buffer;

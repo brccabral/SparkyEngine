@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sp/Common.h"
 #include <sstream>
 #include "vec3.h"
 #include "vec4.h"
@@ -11,7 +12,7 @@ namespace sp
 	{
 		struct Quaternion;
 
-		struct mat4
+		struct SP_API mat4
 		{
 			union
 			{
@@ -26,14 +27,14 @@ namespace sp
 			static mat4 Identity();
 
 			mat4 &Multiply(const mat4 &other);
-			friend mat4 operator*(mat4 left, const mat4 &right);
+			friend SP_API mat4 operator*(mat4 left, const mat4 &right);
 			mat4 &operator*=(const mat4 &other);
 
 			vec3 Multiply(const vec3 &other) const;
-			friend vec3 operator*(const mat4 &left, const vec3 &right);
+			friend SP_API vec3 operator*(const mat4 &left, const vec3 &right);
 
 			vec4 Multiply(const vec4 &other) const;
-			friend vec4 operator*(const mat4 &left, const vec4 &right);
+			friend SP_API vec4 operator*(const mat4 &left, const vec4 &right);
 
 			mat4 &Invert();
 
