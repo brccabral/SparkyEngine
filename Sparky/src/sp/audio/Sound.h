@@ -6,11 +6,9 @@
 #include <sp/utils/StringUtils.h>
 #include <sp/Types.h>
 
-#ifdef SPARKY_PLATFORM_WEB
-#include <emscripten/emscripten.h>
-#else
-#include <gorilla/ga.h>
-#include <gorilla/gau.h>
+#ifndef SP_PLATFORM_WEB
+struct ga_Sound;
+struct ga_Handle;
 #endif
 
 namespace sp
@@ -23,11 +21,9 @@ namespace sp
 			String m_Name;
 			String m_Filename;
 			uint m_Count;
-		#ifdef SPARKY_PLATFORM_WEB
-		#else
+
 			ga_Sound *m_Sound;
 			ga_Handle *m_Handle;
-		#endif
 
 			float m_Gain;
 			bool m_Playing;

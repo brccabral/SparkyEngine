@@ -26,5 +26,11 @@
     <ClInclude Include="src\crctable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\ogg\ogg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ogg\os_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
