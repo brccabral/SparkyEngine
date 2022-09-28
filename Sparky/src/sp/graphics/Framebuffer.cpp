@@ -1,4 +1,5 @@
 #include "Framebuffer.h"
+#include <sp/graphics/SPRenderAPI.h>
 
 namespace sp
 {

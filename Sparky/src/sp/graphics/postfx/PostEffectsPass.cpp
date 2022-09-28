@@ -1,4 +1,5 @@
 #include "PostEffectsPass.h"
+#include <sp/graphics/SPRenderAPI.h>
 
 namespace sp
 {

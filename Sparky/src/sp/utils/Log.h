@@ -244,21 +244,11 @@ namespace sp
 #define SP_ASSERT(x, ...)
 #endif
 
-#include <GL/glew.h>
-
-static bool log_gl_call(const char *function, const char *file, int line)
-{
-	GLenum error = glGetError();
-	if (error != GL_NO_ERROR)
-	{
-		SP_ERROR("[OpenGL Error] (", error, "): ", function, " ", file, ":", line);
-		return false;
-	}
-	return true;
-}
+void check_error();
+bool log_gl_call(const char *function, const char *file, int line);
 
 #ifdef SP_DEBUG
-#define GLCall(x) glGetError();\
+#define GLCall(x) check_error();\
 		x; \
 		if (!log_gl_call(#x, __FILE__, __LINE__)) __debugbreak();
 #else

@@ -2,6 +2,7 @@
 #include <Windowsx.h>
 
 #include <sp/graphics/Window.h>
+#include <GL/glew.h>
 
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 

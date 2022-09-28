@@ -3,7 +3,6 @@
 #include <vector>
 #include <sp/Types.h>
 #include "Buffer.h"
-#include <sp/graphics/SPRenderAPI.h>
 
 namespace sp
 {

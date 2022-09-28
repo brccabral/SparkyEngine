@@ -1,5 +1,6 @@
 #include "Texture.h"
 #include <FreeImage.h>
+#include "SPRenderAPI.h"
 
 namespace sp
 {
@@ -26,7 +27,7 @@ namespace sp
 			API::FreeTexture(m_TID);
 		};
 
-		GLuint Texture::Load()
+		uint Texture::Load()
 		{
 			BYTE *pixels = nullptr;
 			if (m_FileName != "NULL")

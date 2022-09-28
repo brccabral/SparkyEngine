@@ -10,6 +10,8 @@
 
 #include <freetype-gl/freetype-gl.h>
 
+#include "SPRenderAPI.h"
+
 namespace sp
 {
 	namespace graphics
@@ -168,7 +170,7 @@ namespace sp
 			const vec2 &size = renderable->GetSize();
 			const uint color = renderable->GetColor();
 			const std::vector<vec2> &uv = renderable->GetUV();
-			const GLuint tid = renderable->GetTID();
+			const uint tid = renderable->GetTID();
 
 			float ts = 0.0f;
 			if (tid > 0)

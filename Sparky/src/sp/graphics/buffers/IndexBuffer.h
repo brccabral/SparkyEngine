@@ -1,7 +1,7 @@
 #pragma once
 
 #include <sp/Types.h>
-#include "../SPRenderAPI.h"
+#include "platform/opengl/SPOpenGLBuffer.h"
 
 namespace sp
 {

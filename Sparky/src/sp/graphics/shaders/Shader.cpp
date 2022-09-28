@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include <GL/glew.h>
 
 namespace sp
 {

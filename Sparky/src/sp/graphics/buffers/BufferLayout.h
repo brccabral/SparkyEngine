@@ -6,7 +6,7 @@
 #include <sp/Types.h>
 #include <sp/maths/maths.h>
 #include <sp/utils/Log.h>
-#include <GL/glew.h>
+#include "platform/opengl/SPOpenGLTypes.h"
 
 namespace sp
 {

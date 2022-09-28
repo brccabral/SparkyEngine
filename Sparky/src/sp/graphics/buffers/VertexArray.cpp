@@ -1,4 +1,5 @@
 #include "VertexArray.h"
+#include "../SPRenderAPI.h"
 
 namespace sp
 {

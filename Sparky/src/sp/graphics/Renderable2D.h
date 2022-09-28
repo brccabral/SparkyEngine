@@ -65,7 +65,7 @@ namespace sp
 			inline const uint GetColor() const { return m_Color; };
 			inline const std::vector<maths::vec2> &GetUV() const { return m_UV; };
 
-			inline const GLuint GetTID() const { return m_Texture ? m_Texture->GetID() : 0; };
+			inline const uint GetTID() const { return m_Texture ? m_Texture->GetID() : 0; };
 			inline const Texture *GetTexture() const { return m_Texture; };
 
 		private:

@@ -5,7 +5,6 @@
 #include <sp/maths/vec4.h>
 #include <sp/maths/tvec2.h>
 #include "Texture.h"
-#include <sp/graphics/SPRenderAPI.h>
 
 namespace sp
 {

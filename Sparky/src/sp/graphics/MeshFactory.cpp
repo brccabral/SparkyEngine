@@ -5,6 +5,7 @@
 #include <sp/sparkygl.h>
 #include <sp/graphics/Renderable2D.h>
 #include <sp/graphics/shaders/Shader.h>
+#include <GL/glew.h>
 
 #define SPARKY_VERTEX_ARRAYS 1
 

@@ -4,9 +4,8 @@
 #include <iostream>
 #include <string>
 #include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
-#include "SPRenderAPI.h"
 #include <sp/utils/ImageLoad.h>
-#include <GL/glew.h>
+#include "platform/opengl/SPOpenGLTypes.h"
 
 namespace sp
 {
@@ -51,7 +50,7 @@ namespace sp
 			inline static void SetWrap(TextureWrap mode) { s_WrapMode = mode; };
 			inline static void SetFilter(TextureFilter mode) { s_FilterMode = mode; }
 		private:
-			GLuint Load();
+			uint Load();
 		};
 	}
 }

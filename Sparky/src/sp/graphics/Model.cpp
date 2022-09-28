@@ -5,6 +5,7 @@
 #include <sp/utils/FileUtils.h>
 
 #include <vector>
+#include <GL/glew.h>
 
 template<>
 struct std::hash<sp::graphics::Model::IndexSet>
