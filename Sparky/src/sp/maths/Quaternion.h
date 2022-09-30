@@ -27,6 +27,7 @@ namespace sp
 			Quaternion &SetElem(int idx, float value);
 			float GetElem(int idx) const;
 			vec3 GetAxis() const;
+			vec3 ToEulerAngles() const;
 
 			const Quaternion operator+(const Quaternion &Quaternion) const;
 			const Quaternion operator-(const Quaternion &Quaternion) const;

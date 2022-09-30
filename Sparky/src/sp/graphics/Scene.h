@@ -26,7 +26,8 @@ namespace sp
 			void Update();
 			void Render(Renderer3D &renderer);
 
-			const std::vector<entity::Entity *> &GetEntities() const { return m_Entities; }
+			inline Camera *GetCamera() const { return m_Camera; }
+			inline const std::vector<entity::Entity *> &GetEntities() const { return m_Entities; }
 		};
 
 	}
