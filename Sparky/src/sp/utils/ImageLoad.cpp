@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "ImageLoad.h"
 #include <FreeImage.h>
 #include <FreeImage/Utilities.h>

@@ -2,7 +2,6 @@
 
 #include "sp/Common.h"
 #include <sp/String.h>
-#include <string>
 #include <sp/utils/Log.h>
 #include <sp/Types.h>
 #include "../maths/maths.h"

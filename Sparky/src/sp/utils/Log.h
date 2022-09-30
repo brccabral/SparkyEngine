@@ -1,13 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <iostream> // Cherno is missing this
-#include <stdio.h>
-#include <algorithm>
-#include <string>
-#include <vector>
-#include <list>
-#include <map>
 #include <sp/Types.h>
 #include <sp/maths/vec2.h>
 

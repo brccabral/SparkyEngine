@@ -1,7 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <iostream>
 #include <sp/Types.h>
 
 namespace sp

@@ -3,7 +3,6 @@
 // Group to add Sprites relative one another
 
 #include "../Renderable2D.h"
-#include <vector>
 
 namespace sp
 {

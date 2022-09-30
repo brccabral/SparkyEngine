@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "ShaderFactory.h"
 
 namespace sp

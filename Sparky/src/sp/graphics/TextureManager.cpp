@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "TextureManager.h"
 
 namespace sp

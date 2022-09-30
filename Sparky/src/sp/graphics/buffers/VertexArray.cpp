@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "VertexArray.h"
 #include "../SPRenderAPI.h"
 

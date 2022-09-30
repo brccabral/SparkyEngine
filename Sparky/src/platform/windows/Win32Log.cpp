@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include <sp/utils/Log.h>
 
 #include <Windows.h>

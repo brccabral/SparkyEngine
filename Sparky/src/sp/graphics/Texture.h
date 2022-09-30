@@ -1,8 +1,6 @@
 #pragma once
 
 #include "sp/Common.h"
-#include <iostream>
-#include <string>
 #include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
 #include <sp/utils/ImageLoad.h>
 #include "platform/opengl/SPOpenGLTypes.h"

@@ -1,8 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <sstream>
-#include <iostream>
 #include <math.h>
 #include "vec3.h"
 

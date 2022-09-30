@@ -383,13 +383,7 @@
     <ClInclude Include="src\sp\utils\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\sp\sparky.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\sp\Types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sp\sparkygl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\app\Application.h">
@@ -495,6 +489,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\opengl\SPOpenGLTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sparky.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

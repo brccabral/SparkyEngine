@@ -1,7 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <map>
 
 #include <sp/Types.h>
 #include <sp/graphics/shaders/Shader.h>

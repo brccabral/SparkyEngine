@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "SoundManager.h"
 
 #ifdef SPARKY_PLATFORM_WEB

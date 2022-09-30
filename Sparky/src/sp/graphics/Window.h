@@ -1,7 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <sp/sparkygl.h>
+#include "sp/sp.h"
 #include "FontManager.h"
 #include <sp/audio/SoundManager.h>
 #include <sp/maths/vec2.h>

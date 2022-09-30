@@ -1,8 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <vector>
-#include <sp/sparkygl.h>
 #include <sp/Types.h>
 
 #include <sp/graphics/Window.h>

@@ -1,6 +1,5 @@
+#include "sp/sp.h"
 #include "Material.h"
-
-#include <sstream>
 
 namespace sp
 {

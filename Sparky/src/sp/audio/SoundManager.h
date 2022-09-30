@@ -1,8 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <string>
-#include <vector>
 #include "Sound.h"
 
 #ifdef SPARKY_PLATFORM_WEB

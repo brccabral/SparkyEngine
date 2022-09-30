@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
 #include <sp/Types.h>
 

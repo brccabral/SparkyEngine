@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "Sound.h"
 #include "SoundManager.h"
 

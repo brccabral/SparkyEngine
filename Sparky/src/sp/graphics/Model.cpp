@@ -1,10 +1,10 @@
+#include "sp/sp.h"
 #include "Model.h"
 
 #include <sp/String.h>
 #include <sp/utils/StringUtils.h>
 #include <sp/utils/FileUtils.h>
 
-#include <vector>
 #include <GL/glew.h>
 
 template<>

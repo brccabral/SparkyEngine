@@ -1,8 +1,7 @@
 #pragma once
 
+#include "sp/sp.h"
 #include "sp/Common.h"
-#include <stdlib.h>
-#include <string>
 
 typedef unsigned int uint;
 typedef std::string String;

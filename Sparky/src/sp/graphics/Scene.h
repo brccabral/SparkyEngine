@@ -1,7 +1,5 @@
 #pragma once
 
-#include <vector>
-
 #include <sp/Types.h>
 #include <sp/entity/Entity.h>
 

@@ -1,3 +1,4 @@
+#include "sp/sp.h"
 #include "Texture.h"
 #include <FreeImage.h>
 #include "SPRenderAPI.h"
