@@ -159,9 +159,6 @@
     <ClCompile Include="src\sp\maths\vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\sp\utils\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\platform\windows\Win32Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -259,6 +256,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\platform\opengl\SPOpenGLError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\Win32Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -262,6 +262,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\platform\opengl\SPOpenGLError.cpp" />
+    <ClCompile Include="src\platform\windows\Win32Timer.cpp" />
     <ClCompile Include="src\sp\app\Application.cpp" />
     <ClCompile Include="src\sp\audio\Sound.cpp" />
     <ClCompile Include="src\sp\audio\SoundManager.cpp" />
@@ -317,7 +318,6 @@
     <ClCompile Include="src\sp\sp.cpp" />
     <ClCompile Include="src\sp\String.cpp" />
     <ClCompile Include="src\sp\utils\ImageLoad.cpp" />
-    <ClCompile Include="src\sp\utils\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype\include\config\ftconfig.h" />
