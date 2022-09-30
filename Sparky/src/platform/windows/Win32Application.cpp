@@ -1,5 +1,5 @@
 #include "sp/sp.h"
-#include <sp/app/Application.h>
+#include "sp/app/Application.h"
 
 namespace sp
 {

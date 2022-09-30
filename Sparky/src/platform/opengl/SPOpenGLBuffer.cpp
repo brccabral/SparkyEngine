@@ -1,7 +1,7 @@
 #include "sp/sp.h"
 #include "SPOpenGLBuffer.h"
 
-#include <sp/graphics/SPRenderAPI.h>
+#include "sp/graphics/SPRenderAPI.h"
 
 namespace sp
 {

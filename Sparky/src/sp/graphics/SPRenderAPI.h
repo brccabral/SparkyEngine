@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sp/Types.h>
+#include "sp/Types.h"
 
 namespace sp
 {
@@ -79,6 +79,6 @@ namespace sp
 }
 
 #ifdef SP_PLATFORM_WINDOWS
-#include <platform/opengl/SPOpenGLRenderAPI.inl>
-#include <platform/opengl/SPOpenGLBuffer.h>
+#include "platform/opengl/SPOpenGLRenderAPI.inl"
+#include "platform/opengl/SPOpenGLBuffer.h"
 #endif

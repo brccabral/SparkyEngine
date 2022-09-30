@@ -2,8 +2,8 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
-#include <sp/Types.h>
-#include <sp/maths/vec2.h>
+#include "sp/Types.h"
+#include "sp/maths/vec2.h"
 
 #define SPARKY_LOG_LEVEL_FATAL 0
 #define SPARKY_LOG_LEVEL_ERROR 1

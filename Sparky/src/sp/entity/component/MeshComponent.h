@@ -3,7 +3,7 @@
 #include "sp/Common.h"
 #include "Component.h"
 
-#include <sp/graphics/Mesh.h>
+#include "sp/graphics/Mesh.h"
 
 namespace sp
 {

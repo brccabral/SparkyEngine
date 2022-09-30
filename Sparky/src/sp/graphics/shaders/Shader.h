@@ -2,9 +2,9 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
-#include <sp/utils/FileUtils.h>
-#include <sp/utils/StringUtils.h>
-#include <sp/maths/maths.h>
+#include "sp/utils/FileUtils.h"
+#include "sp/utils/StringUtils.h"
+#include "sp/maths/maths.h"
 #include "ShaderUniform.h"
 
 namespace sp

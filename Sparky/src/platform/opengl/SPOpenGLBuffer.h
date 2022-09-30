@@ -1,7 +1,7 @@
 #pragma once
 
-#include <sp/Types.h>
-#include <sp/graphics/buffers/BufferLayout.h>
+#include "sp/Types.h"
+#include "sp/graphics/buffers/BufferLayout.h"
 
 namespace sp
 {

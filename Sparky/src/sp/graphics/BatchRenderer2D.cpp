@@ -7,7 +7,7 @@
 #include "buffers/Buffer.h"
 #include "buffers/BufferLayout.h"
 
-#include <sp/utils/Log.h>
+#include "sp/utils/Log.h"
 
 #include <freetype-gl/freetype-gl.h>
 

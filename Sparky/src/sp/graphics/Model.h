@@ -2,8 +2,8 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
-#include <sp/Types.h>
-#include <sp/maths/maths.h>
+#include "sp/Types.h"
+#include "sp/maths/maths.h"
 
 #include "Mesh.h"
 

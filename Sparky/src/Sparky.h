@@ -19,7 +19,7 @@
 #include <sp/events/MouseEvent.h>
 
 #include <sp/graphics/Renderer2D.h>
-#include <sp/graphics/Batchrenderer2D.h>
+#include <sp/graphics/BatchRenderer2D.h>
 #include <sp/graphics/Renderer3D.h>
 #include <sp/graphics/ForwardRenderer.h>
 

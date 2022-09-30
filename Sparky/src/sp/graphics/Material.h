@@ -3,8 +3,8 @@
 #include "sp/sp.h"
 #include "sp/Common.h"
 
-#include <sp/Types.h>
-#include <sp/graphics/shaders/Shader.h>
+#include "sp/Types.h"
+#include "sp/graphics/shaders/Shader.h"
 
 namespace sp
 {

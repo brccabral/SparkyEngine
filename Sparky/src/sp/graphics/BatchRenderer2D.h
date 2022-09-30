@@ -3,7 +3,7 @@
 #include "sp/sp.h"
 #include "sp/Common.h"
 
-#include <sp/Types.h>
+#include "sp/Types.h"
 
 #include "Renderer2D.h"
 #include "Renderable2D.h"

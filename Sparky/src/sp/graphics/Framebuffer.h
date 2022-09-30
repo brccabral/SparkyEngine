@@ -1,9 +1,9 @@
 #pragma once
 
 #include "sp/Common.h"
-#include <sp/Types.h>
-#include <sp/maths/vec4.h>
-#include <sp/maths/tvec2.h>
+#include "sp/Types.h"
+#include "sp/maths/vec4.h"
+#include "sp/maths/tvec2.h"
 #include "Texture.h"
 
 namespace sp

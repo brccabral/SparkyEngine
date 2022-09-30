@@ -2,10 +2,10 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
-#include <sp/String.h>
-#include <sp/Types.h>
-#include <sp/maths/maths.h>
-#include <sp/utils/Log.h>
+#include "sp/String.h"
+#include "sp/Types.h"
+#include "sp/maths/maths.h"
+#include "sp/utils/Log.h"
 #include "platform/opengl/SPOpenGLTypes.h"
 
 namespace sp

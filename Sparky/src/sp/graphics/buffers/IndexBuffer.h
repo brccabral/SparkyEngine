@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sp/Types.h>
+#include "sp/Types.h"
 #include "platform/opengl/SPOpenGLBuffer.h"
 
 namespace sp

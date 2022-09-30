@@ -1,7 +1,7 @@
 #pragma once
 
-#include <sp/Types.h>
-#include <sp/entity/Entity.h>
+#include "sp/Types.h"
+#include "sp/entity/Entity.h"
 
 #include "camera/Camera.h"
 

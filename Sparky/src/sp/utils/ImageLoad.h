@@ -1,7 +1,7 @@
 #pragma once
 
-#include <sp/utils/Log.h> // needs to be before GL, redefinition of APIENTRY
-#include <sp/Types.h>
+#include "sp/utils/Log.h" // needs to be before GL, redefinition of APIENTRY
+#include "sp/Types.h"
 
 namespace sp
 {

@@ -2,10 +2,10 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
-#include <sp/utils/Log.h>
-#include <sp/utils/StringUtils.h>
-#include <sp/Types.h>
-#include <sp/String.h>
+#include "sp/utils/Log.h"
+#include "sp/utils/StringUtils.h"
+#include "sp/Types.h"
+#include "sp/String.h"
 
 #ifndef SP_PLATFORM_WEB
 struct ga_Sound;

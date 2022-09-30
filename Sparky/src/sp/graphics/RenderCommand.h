@@ -1,7 +1,7 @@
 #pragma once
 
 #include "sp/Common.h"
-#include <sp/String.h>
+#include "sp/String.h"
 #include "Mesh.h"
 
 namespace sp

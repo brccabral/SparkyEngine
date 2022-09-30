@@ -1,9 +1,9 @@
 #pragma once
 
 #include "sp/Common.h"
-#include <sp/String.h>
-#include <sp/utils/Log.h>
-#include <sp/Types.h>
+#include "sp/String.h"
+#include "sp/utils/Log.h"
+#include "sp/Types.h"
 #include "../maths/maths.h"
 
 namespace ftgl

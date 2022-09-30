@@ -3,7 +3,7 @@
 #include "sp/Common.h"
 #include "Component.h"
 
-#include <sp/maths/maths.h>
+#include "sp/maths/maths.h"
 
 namespace sp
 {

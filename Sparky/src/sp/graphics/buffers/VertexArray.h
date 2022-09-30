@@ -1,7 +1,7 @@
 #pragma once
 
 #include "sp/sp.h"
-#include <sp/Types.h>
+#include "sp/Types.h"
 #include "Buffer.h"
 
 namespace sp

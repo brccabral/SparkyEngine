@@ -1,12 +1,12 @@
 #pragma once
 
 #include "sp/Common.h"
-#include <sp/Types.h>
-#include <sp/maths/maths.h>
+#include "sp/Types.h"
+#include "sp/maths/maths.h"
 
-#include <sp/graphics/buffers/VertexArray.h>
-#include <sp/graphics/Mesh.h>
-#include <sp/graphics/Material.h>
+#include "sp/graphics/buffers/VertexArray.h"
+#include "sp/graphics/Mesh.h"
+#include "sp/graphics/Material.h"
 
 namespace sp
 {
