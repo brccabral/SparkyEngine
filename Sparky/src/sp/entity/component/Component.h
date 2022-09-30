@@ -2,6 +2,7 @@
 
 #include "sp/Common.h"
 #include <sp/Types.h>
+#include <sp/String.h>
 
 namespace sp
 {

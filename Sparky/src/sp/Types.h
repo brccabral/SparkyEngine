@@ -1,7 +1,5 @@
 #pragma once
 
-#include <sp/String.h>
-
 typedef unsigned char byte;
 typedef unsigned int uint;
 

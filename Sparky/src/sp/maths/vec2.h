@@ -2,6 +2,7 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
+#include "sp/String.h"
 #include <math.h>
 #include "vec3.h"
 
