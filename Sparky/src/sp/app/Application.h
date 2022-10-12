@@ -8,12 +8,16 @@
 #include "sp/graphics/layers/Layer.h"
 #include "sp/utils/Timer.h"
 
+#include "sp/debug/DebugLayer.h"
+#include "sp/events/Events.h"
+
 namespace sp
 {
 	class SP_API Application
 	{
 	public:
 		graphics::Window *window;
+		debug::DebugLayer *m_DebugLayer;
 	private:
 		static Application *s_Instance;
 
@@ -48,10 +52,13 @@ namespace sp
 
 		inline static Application &GetApplication() { return *s_Instance; }
 	private:
+		void PlatformInit();
 		void Run();
 
 		void OnTick();
 		void OnUpdate();
 		void OnRender();
+
+		void OnEvent(events::Event &event);
 	};
 }

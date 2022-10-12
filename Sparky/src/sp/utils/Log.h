@@ -4,6 +4,7 @@
 #include "sp/Common.h"
 #include "sp/Types.h"
 #include "sp/maths/vec2.h"
+#include "sp/events/Events.h"
 
 #define SPARKY_LOG_LEVEL_FATAL 0
 #define SPARKY_LOG_LEVEL_ERROR 1
@@ -36,6 +37,7 @@ namespace sp
 	{
 
 		static char to_string_buffer[1024 * 10];
+		static char sprintf_buffer[1024 * 10];
 
 		SP_API void PlatformLogMessage(uint level, const char *message);
 

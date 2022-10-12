@@ -3,9 +3,11 @@
 // Sparky PCH header
 
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <string>
 #include <sstream>
+
 #include <vector>
 #include <list>
 #include <map>
@@ -16,3 +18,5 @@
 #include <math.h>
 
 #include <fstream>
+
+#include "sp/Common.h"

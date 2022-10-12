@@ -3,13 +3,14 @@
 #include <sp/graphics/layers/Layer2D.h>
 #include <sp/graphics/Label.h>
 #include <sp/graphics/Renderer2D.h>
-#include <sp/events/Event.h>
+#include <sp/events/Events.h>
 
 class TestLayer : public sp::graphics::Layer2D
 {
 private:
 	sp::graphics::Label *m_Fps;
 	sp::graphics::Label **debugInfo;
+	sp::graphics::Renderer2D *m_Renderer;
 public:
 	TestLayer();
 	~TestLayer();
@@ -18,6 +19,7 @@ public:
 
 	void OnTick() override;
 	void OnUpdate() override;
-	bool OnEvent(const sp::events::Event &event) override;
+	void OnEvent(sp::events::Event &event) override;
 	void OnRender(sp::graphics::Renderer2D &renderer) override;
+	bool OnKeyPressedEvent(sp::events::KeyPressedEvent &event);
 };

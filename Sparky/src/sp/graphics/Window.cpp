@@ -9,7 +9,7 @@ namespace sp
 		std::map<void *, Window *> Window::s_Handles;
 
 		Window::Window(const char *title, uint width, uint height)
-			: m_Title(title), m_Width(width), m_Height(height), m_Closed(false)
+			: m_Title(title), m_Width(width), m_Height(height), m_Closed(false), m_EventCallback(nullptr)
 		{
 			if (!Init())
 			{
@@ -27,9 +27,8 @@ namespace sp
 
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
-				m_Keys[i] = false;
 				m_KeyState[i] = false;
-				m_KeyTyped[i] = false;
+				m_LastKeyState[i] = false;
 			}
 
 			for (int i = 0; i < MAX_BUTTONS; i++)
@@ -78,14 +77,10 @@ namespace sp
 
 		void Window::UpdateInput()
 		{
-			for (int i = 0; i < MAX_KEYS; i++)
-				m_KeyTyped[i] = m_Keys[i] && !m_KeyState[i];
-
-			memcpy(m_KeyState, m_Keys, MAX_KEYS);
-
 			for (int i = 0; i < MAX_BUTTONS; i++)
 				m_MouseClicked[i] = m_MouseButtons[i] && !m_MouseState[i];
 
+			memcpy(m_LastKeyState, m_KeyState, MAX_KEYS);
 			memcpy(m_MouseState, m_MouseButtons, MAX_BUTTONS);
 		}
 
@@ -105,15 +100,7 @@ namespace sp
 			if (keycode >= MAX_KEYS)
 				return false;
 
-			return m_Keys[keycode];
-		}
-
-		bool Window::IsKeyTyped(uint keycode) const
-		{
-			if (keycode >= MAX_KEYS)
-				return false;
-
-			return m_KeyTyped[keycode];
+			return m_KeyState[keycode];
 		}
 
 		bool Window::IsMouseClicked(uint button) const
@@ -145,6 +132,11 @@ namespace sp
 		void Window::SetMouseGrabbed(bool grabbed)
 		{
 			m_MouseGrabbed = grabbed;
+		}
+
+		void Window::SetEventCallback(const WindowEventCallback &callback)
+		{
+			m_EventCallback = callback;
 		}
 
 		void Window::RegisterWindowClass(void *handle, Window *window)

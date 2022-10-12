@@ -16,10 +16,8 @@ namespace sp
 		void Layer::Init()
 		{}
 
-		bool Layer::OnEvent(const events::Event &event)
-		{
-			return false;
-		}
+		void Layer::OnEvent(events::Event &event)
+		{}
 
 		void Layer::OnTick()
 		{}

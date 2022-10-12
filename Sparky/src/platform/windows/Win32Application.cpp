@@ -8,6 +8,7 @@ namespace sp
 		: m_Name(name), m_Width(width), m_Height(height), m_FramesPerSecond(0), m_UpdatesPerSecond(0), m_Running(false), m_Suspended(true), m_Timer(nullptr), window(nullptr)
 	{
 		s_Instance = this;
+		m_DebugLayer = nullptr;
 	}
 
 	Application::~Application()
@@ -15,9 +16,10 @@ namespace sp
 		delete window;
 	}
 
-	void Application::Init()
+	void Application::PlatformInit()
 	{
 		window = new graphics::Window(m_Name, m_Width, m_Height);
+		window->SetEventCallback(METHOD(&Application::OnEvent));
 	}
 
 	void Application::Start()

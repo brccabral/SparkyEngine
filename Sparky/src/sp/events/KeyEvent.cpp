@@ -11,11 +11,11 @@ namespace sp
 		{}
 
 		KeyPressedEvent::KeyPressedEvent(int button, int repeat)
-			: KeyEvent(button, Event::Type::KEY_PRESSED), m_Repeat(0)
+			: KeyEvent(button, KeyPressedEvent::GetStaticType()), m_Repeat(repeat)
 		{}
 
 		KeyReleasedEvent::KeyReleasedEvent(int button)
-			: KeyEvent(button, Event::Type::KEY_RELEASED)
+			: KeyEvent(button, KeyReleasedEvent::GetStaticType())
 		{}
 
 	}

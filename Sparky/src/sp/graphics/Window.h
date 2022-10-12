@@ -14,6 +14,8 @@ namespace sp
 	#define MAX_KEYS 1024
 	#define MAX_BUTTONS 32
 
+		typedef std::function<void(events::Event &event)> WindowEventCallback;
+
 		class SP_API Window
 		{
 		private:
@@ -21,9 +23,9 @@ namespace sp
 			const char *m_Title;
 			bool m_Closed;
 
-			bool m_Keys[MAX_KEYS];
 			bool m_KeyState[MAX_KEYS];
-			bool m_KeyTyped[MAX_KEYS];
+			bool m_LastKeyState[MAX_KEYS];
+
 			bool m_MouseButtons[MAX_BUTTONS];
 			bool m_MouseState[MAX_BUTTONS];
 			bool m_MouseClicked[MAX_BUTTONS];
@@ -32,6 +34,8 @@ namespace sp
 
 			static std::map<void *, Window *> s_Handles;
 			bool m_Vsync;
+
+			WindowEventCallback m_EventCallback;
 
 		public:
 			Window(const char *title, uint width, uint height);
@@ -45,7 +49,7 @@ namespace sp
 			inline uint GetHeight() const { return m_Height; };
 
 			bool IsKeyPressed(uint keycode) const;
-			bool IsKeyTyped(uint keycode) const;
+
 			bool IsMousePressed(uint keycode) const;
 			bool IsMouseClicked(uint keycode) const;
 			const maths::vec2 &GetMousePosition() const;
@@ -59,6 +63,8 @@ namespace sp
 
 			void SetVsync(bool enabled);
 			bool IsVsync() const { return m_Vsync; }
+
+			void SetEventCallback(const WindowEventCallback &callback);
 		private:
 			bool Init();
 
@@ -69,7 +75,7 @@ namespace sp
 			friend void resize_callback(Window *window, int width, int height);
 
 			// key_callback is friend so it can access private members
-			friend void key_callback(Window *window, int key, uint message);
+			friend void key_callback(Window *window, int flags, int key, uint message);
 			friend void mouse_button_callback(Window *window, int button, int x, int y);
 		};
 
@@ -81,6 +87,8 @@ namespace sp
 #define SP_MOUSE_RIGHT    0x02
 
 #define SP_NO_CURSOR	  NULL
+
+#define VK_TAB			  0x09
 
 #define VK_0			  0x30
 #define VK_1			  0x31

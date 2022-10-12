@@ -278,6 +278,8 @@
     <ClCompile Include="src\sp\app\Application.cpp" />
     <ClCompile Include="src\sp\audio\Sound.cpp" />
     <ClCompile Include="src\sp\audio\SoundManager.cpp" />
+    <ClCompile Include="src\sp\debug\DebugLayer.cpp" />
+    <ClCompile Include="src\sp\debug\DebugMenu.cpp" />
     <ClCompile Include="src\sp\embedded\Embedded.cpp" />
     <ClCompile Include="src\sp\entity\component\Component.cpp" />
     <ClCompile Include="src\sp\entity\component\MeshComponent.cpp" />
@@ -351,6 +353,8 @@
     <ClInclude Include="src\sp\audio\Sound.h" />
     <ClInclude Include="src\sp\audio\SoundManager.h" />
     <ClInclude Include="src\sp\Common.h" />
+    <ClInclude Include="src\sp\debug\DebugLayer.h" />
+    <ClInclude Include="src\sp\debug\DebugMenu.h" />
     <ClInclude Include="src\sp\embedded\Embedded.h" />
     <ClInclude Include="src\sp\entity\component\Component.h" />
     <ClInclude Include="src\sp\entity\component\Components.h" />
@@ -358,6 +362,8 @@
     <ClInclude Include="src\sp\entity\component\TransformComponent.h" />
     <ClInclude Include="src\sp\entity\Entity.h" />
     <ClInclude Include="src\sp\events\Event.h" />
+    <ClInclude Include="src\sp\events\EventDispatcher.h" />
+    <ClInclude Include="src\sp\events\Events.h" />
     <ClInclude Include="src\sp\events\IEventListener.h" />
     <ClInclude Include="src\sp\events\KeyEvent.h" />
     <ClInclude Include="src\sp\events\MouseEvent.h" />
