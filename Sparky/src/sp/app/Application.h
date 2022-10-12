@@ -25,6 +25,7 @@ namespace sp
 		uint m_Width, m_Height;
 
 		std::vector<graphics::Layer *> m_LayerStack;
+		std::vector<graphics::Layer *> m_OverlayStack;
 	public:
 		Application(const char *name, uint width, uint height);
 		virtual ~Application();
@@ -41,6 +42,9 @@ namespace sp
 
 		void PushLayer(graphics::Layer *layer);
 		graphics::Layer *PopLayer();
+
+		void PushOverlay(graphics::Layer *layer);
+		graphics::Layer *PopOverlay();
 
 		inline static Application &GetApplication() { return *s_Instance; }
 	private:

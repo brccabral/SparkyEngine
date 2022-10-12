@@ -18,7 +18,7 @@ namespace sp
 
 		// need 24 for Font, with 32 Font loses quality
 		Texture::Texture(uint width, uint height, uint bits)
-			: m_Width(width), m_Height(height), m_FileName("NULL"), m_Bits(24)
+			: m_Width(width), m_Height(height), m_FileName("NULL"), m_Bits(bits)
 		{
 			m_TID = Load();
 		}

@@ -8,13 +8,13 @@ namespace sp
 	{
 
 		Framebuffer::Framebuffer(const maths::tvec2<uint> &size)
-			: m_Size(size), m_Width(m_Size.x), m_Height(m_Size.y), m_ClearColor(maths::vec4(0.0f, 0.0f, 0.0f, 1.0f))
+			: m_Size(size), m_Width(m_Size.x), m_Height(m_Size.y), m_ClearColor(maths::vec4(0.0f, 0.0f, 0.0f, 0.0f))
 		{
 			Create(m_Width, m_Height);
 		}
 
 		Framebuffer::Framebuffer(uint width, uint height)
-			: m_Size(width, height), m_Width(m_Size.x), m_Height(m_Size.y), m_ClearColor(maths::vec4(0.0f, 0.0f, 0.0f, 1.0f))
+			: m_Size(width, height), m_Width(m_Size.x), m_Height(m_Size.y), m_ClearColor(maths::vec4(0.0f, 0.0f, 0.0f, 0.0f))
 		{
 			Create(width, height);
 		}
@@ -30,7 +30,7 @@ namespace sp
 			m_Data.depthbufferID = API::CreateRenderbuffer();
 
 			Texture::SetFilter(TextureFilter::LINEAR);
-			m_Texture = new Texture(width, height);
+			m_Texture = new Texture(width, height, 32);
 
 			API::BindRenderbuffer(GL_RENDERBUFFER, m_Data.depthbufferID);
 			API::RenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);

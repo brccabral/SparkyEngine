@@ -59,7 +59,7 @@ namespace sp
 			virtual void Begin() {};
 			virtual void Submit(const Renderable2D *renderable) = 0;
 			virtual void End() {};
-			virtual void Flush() = 0;
+			virtual void Present() = 0;
 
 			virtual void DrawString(const String &text, const maths::vec3 &position, const Font &font, unsigned int color) {}
 

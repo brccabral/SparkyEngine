@@ -113,7 +113,7 @@ namespace sp
 				if (m_TextureSlots.size() >= RENDERER_MAX_TEXTURES)
 				{
 					End();
-					Flush();
+					Present();
 					Begin();
 				}
 				m_TextureSlots.push_back(textureID);
@@ -151,6 +151,7 @@ namespace sp
 
 				m_Framebuffer->Bind();
 				m_Framebuffer->Clear(); // TODO: Clear somewhere else, since this basically limits to one draw call
+				glBlendFunc(GL_ONE, GL_ZERO);
 			}
 			else
 			{
@@ -322,7 +323,7 @@ namespace sp
 			m_VertexArray->GetBuffer()->Unbind();
 		}
 
-		void BatchRenderer2D::Flush()
+		void BatchRenderer2D::Present()
 		{
 			for (uint i = 0; i < m_TextureSlots.size(); i++)
 			{
@@ -353,6 +354,7 @@ namespace sp
 				// Display Framebuffer - potentially move to Framebuffer class
 				API::BindFramebuffer(GL_FRAMEBUFFER, m_ScreenBuffer);
 				API::SetViewport(0, 0, m_ScreenSize.x, m_ScreenSize.y);
+				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 				m_SimpleShader->Bind();
 
 				API::SetActiveTexture(GL_TEXTURE0);

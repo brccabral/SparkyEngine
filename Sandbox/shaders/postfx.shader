@@ -33,7 +33,7 @@ in DATA
 	vec2 uv;
 } fs_in;
 
-float resolution = 1024.0;
+float resolution = 960.0;
 float radius = 4.0;
 vec2 dir = vec2(1.0, 0.0);
 

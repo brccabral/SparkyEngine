@@ -23,8 +23,8 @@ public:
 	void Init() override
 	{
 		Application::Init();
-		// PushLayer(new TestLayer());
 		PushLayer(new Test3D());
+		PushOverlay(new TestLayer());
 	}
 };
 
