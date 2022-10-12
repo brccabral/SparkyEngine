@@ -49,9 +49,9 @@ namespace sp
 				GLCall(glGenVertexArrays(size, arrays));
 			}
 
-			inline void CreateVertexBuffers(uint size, uint *buffers)
+			inline void CreateBuffers(uint size, uint *buffers)
 			{
-				GLCall(glGenVertexArrays(size, buffers));
+				GLCall(glGenBuffers(size, buffers));
 			}
 
 			inline void CreateFramebuffers(uint size, uint *buffers)
