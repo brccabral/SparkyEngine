@@ -7,7 +7,7 @@ namespace sp
 	{
 
 		Layer::Layer()
-			: m_Window(Window::GetWindowClass(nullptr))
+			: m_Window(Window::GetWindowClass(nullptr)), m_Visible(true)
 		{}
 
 		Layer::~Layer()

@@ -10,8 +10,8 @@ namespace sp
 			: Event(type), m_KeyCode(keyCode)
 		{}
 
-		KeyPressedEvent::KeyPressedEvent(int button, int repeat)
-			: KeyEvent(button, KeyPressedEvent::GetStaticType()), m_Repeat(repeat)
+		KeyPressedEvent::KeyPressedEvent(int button, int repeat, int modifiers)
+			: KeyEvent(button, KeyPressedEvent::GetStaticType()), m_Repeat(repeat), m_Modifiers(modifiers)
 		{}
 
 		KeyReleasedEvent::KeyReleasedEvent(int button)

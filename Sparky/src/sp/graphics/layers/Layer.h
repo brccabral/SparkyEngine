@@ -12,6 +12,7 @@ namespace sp
 		{
 		protected:
 			Window *m_Window;
+			bool m_Visible;
 		public:
 			Layer();
 			virtual ~Layer();
@@ -21,6 +22,9 @@ namespace sp
 			virtual void OnTick();
 			virtual void OnUpdate();
 			virtual void OnRender();
+
+			inline bool IsVisible() const { return m_Visible; }
+			inline void SetVisible(bool visible) { m_Visible = visible; }
 		};
 
 	}

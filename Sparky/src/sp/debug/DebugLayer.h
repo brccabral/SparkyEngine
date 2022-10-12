@@ -21,7 +21,6 @@ namespace sp
 
 			void OnInit(graphics::Renderer2D &renderer, graphics::Shader &shader) override;
 
-
 			void OnTick() override;
 			void OnUpdate() override;
 
