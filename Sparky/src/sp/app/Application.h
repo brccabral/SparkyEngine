@@ -4,19 +4,23 @@
 #include "sp/Common.h"
 #include "sp/Types.h"
 
-#include "sp/graphics/Window.h"
+#include "sp/app/Window.h"
 #include "sp/graphics/layers/Layer.h"
 #include "sp/utils/Timer.h"
 
-#include "sp/debug/DebugLayer.h"
 #include "sp/events/Events.h"
 
 namespace sp
 {
+	namespace debug
+	{
+		class DebugLayer;
+	}
+
 	class SP_API Application
 	{
 	public:
-		graphics::Window *window;
+		Window *window;
 		debug::DebugLayer *m_DebugLayer;
 	private:
 		static Application *s_Instance;
@@ -40,7 +44,7 @@ namespace sp
 		void Suspend();
 		void Resume();
 		void Stop();
-		
+
 		const uint GetFPS() const { return m_FramesPerSecond; }
 		const uint GetUPS() const { return m_UpdatesPerSecond; }
 

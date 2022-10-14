@@ -79,6 +79,6 @@ namespace sp
 }
 
 #ifdef SP_PLATFORM_WINDOWS
-#include "platform/opengl/SPOpenGLRenderAPI.inl"
-#include "platform/opengl/SPOpenGLBuffer.h"
+#include "sp/platform/opengl/SPOpenGLRenderAPI.inl"
+#include "sp/platform/opengl/SPOpenGLBuffer.h"
 #endif

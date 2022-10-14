@@ -1,12 +1,13 @@
 #include "sp/sp.h"
-#include "sp/utils/Log.h"
 
 #include <Windows.h>
+#include "sp/utils/Log.h"
 
 namespace sp
 {
 	namespace internal
 	{
+
 		void PlatformLogMessage(uint level, const char *message)
 		{
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -25,5 +26,6 @@ namespace sp
 			printf("%s", message);
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
 		}
+
 	}
 }

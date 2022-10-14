@@ -2,6 +2,8 @@
 #include "Texture.h"
 #include <FreeImage.h>
 #include "SPRenderAPI.h"
+#include <sp/utils/ImageLoad.h>
+#include <GL/glew.h>
 
 namespace sp
 {
@@ -18,9 +20,15 @@ namespace sp
 
 		// need 24 for Font, with 32 Font loses quality
 		Texture::Texture(uint width, uint height, uint bits)
-			: m_Width(width), m_Height(height), m_FileName("NULL"), m_Bits(bits)
+			: m_Width(width), m_Height(height), m_Bits(bits), m_FileName("NULL")
 		{
 			m_TID = Load();
+		}
+
+		Texture::Texture(uint glID)
+			: m_Name(std::to_string(glID)), m_FileName("NULL"), m_Width(0), m_Height(0), m_Bits(32)
+		{
+			m_TID = glID;
 		}
 
 		Texture::~Texture()
@@ -47,7 +55,7 @@ namespace sp
 
 			int internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 			uint format = m_Bits == 32 ?
-		#ifdef SPARKY_PLATFORM_WEB
+			#ifdef SPARKY_PLATFORM_WEB
 				GL_RGBA : GL_RGB;
 		#else
 				// Emscripten swaps Red and Blue

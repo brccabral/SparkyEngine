@@ -5,6 +5,8 @@
 #include "../maths/maths.h"
 #include "Mask.h"
 #include "postfx/PostEffects.h"
+#include "FontManager.h"
+#include <vector>
 
 namespace sp
 {
@@ -30,10 +32,11 @@ namespace sp
 
 		protected:
 			Renderer2D()
-				: m_Mask(nullptr), m_Target(RenderTarget::SCREEN), m_PostEffects(nullptr), m_PostEffectsEnabled(false)
+				: m_Mask(nullptr), m_PostEffects(nullptr), m_PostEffectsEnabled(true)
 			{
 				m_TransformationStack.push_back(maths::mat4::Identity());
 				m_TransformationBack = &m_TransformationStack.back();
+				m_Target = RenderTarget::SCREEN;
 			};
 
 		public:
@@ -51,6 +54,7 @@ namespace sp
 
 			void Pop()
 			{
+				// TODO: Add to log!
 				if (m_TransformationStack.size() > 1) // keep identity on stack
 					m_TransformationStack.pop_back();
 				m_TransformationBack = &m_TransformationStack.back();
@@ -60,11 +64,11 @@ namespace sp
 			virtual void Submit(const Renderable2D *renderable) = 0;
 			virtual void End() {};
 			virtual void Present() = 0;
-
-			virtual void DrawString(const String &text, const maths::vec3 &position, const Font &font, unsigned int color) {}
-
+			
+			virtual void DrawString(const String &text, const maths::vec3 &position, const Font &font = *FontManager::Get(), uint color = 0xffffffff) {}
+			
 			virtual void SetMask(const Mask *mask)
-			{
+			{ 
 				m_Mask = mask;
 			}
 
@@ -74,6 +78,9 @@ namespace sp
 			inline void SetPostEffects(bool enabled) { m_PostEffectsEnabled = enabled; }
 			inline bool GetPostEffects() const { return m_PostEffectsEnabled; }
 			inline void AddPostEffectsPass(PostEffectsPass *pass) { m_PostEffects->Push(pass); }
+
+			virtual void FillRect(float x, float y, float width, float height, uint color = 0xffffffff) {}
+
 		};
 	}
 }

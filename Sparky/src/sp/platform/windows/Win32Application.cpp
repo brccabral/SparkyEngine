@@ -5,10 +5,9 @@ namespace sp
 {
 
 	Application::Application(const char *name, uint width, uint height)
-		: m_Name(name), m_Width(width), m_Height(height), m_FramesPerSecond(0), m_UpdatesPerSecond(0), m_Running(false), m_Suspended(true), m_Timer(nullptr), window(nullptr)
+		: m_Name(name), m_Width(width), m_Height(height)
 	{
 		s_Instance = this;
-		m_DebugLayer = nullptr;
 	}
 
 	Application::~Application()
@@ -18,7 +17,7 @@ namespace sp
 
 	void Application::PlatformInit()
 	{
-		window = new graphics::Window(m_Name, m_Width, m_Height);
+		window = new Window(m_Name, m_Width, m_Height);
 		window->SetEventCallback(METHOD(&Application::OnEvent));
 	}
 
@@ -58,7 +57,6 @@ namespace sp
 			window->Clear();
 			if (m_Timer->Elapsed() - updateTimer > updateTick)
 			{
-				window->UpdateInput();
 				OnUpdate();
 				updates++;
 				updateTimer += updateTick;
@@ -79,4 +77,5 @@ namespace sp
 				m_Running = false;
 		}
 	}
+
 }

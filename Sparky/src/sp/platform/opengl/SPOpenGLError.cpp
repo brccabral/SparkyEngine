@@ -1,4 +1,5 @@
 #include "sp/sp.h"
+
 #include "sp/utils/Log.h"
 
 #include <GL/glew.h>

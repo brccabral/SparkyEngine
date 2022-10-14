@@ -1,10 +1,8 @@
 #pragma once
 
-#include "sp/Common.h"
+#include "sp/Types.h"
 #include "sp/String.h"
-#include "sp/utils/Log.h" // needs to be before GL, redefinition of APIENTRY
-#include "sp/utils/ImageLoad.h"
-#include "platform/opengl/SPOpenGLTypes.h"
+#include "sp/platform/opengl/SPOpenGLTypes.h"
 
 namespace sp
 {
@@ -37,6 +35,7 @@ namespace sp
 		public:
 			Texture(const String &name, const String &filename);
 			Texture(uint width, uint height, uint bits = 24);
+			Texture(uint glID);
 			~Texture();
 			void Bind() const;
 			void Unbind() const;
@@ -45,7 +44,7 @@ namespace sp
 			inline const uint GetHeight() const { return m_Height; };
 			inline const uint GetID() const { return m_TID; };
 			inline const String &GetName() const { return m_Name; };
-
+		
 			inline static void SetWrap(TextureWrap mode) { s_WrapMode = mode; };
 			inline static void SetFilter(TextureFilter mode) { s_FilterMode = mode; }
 		private:

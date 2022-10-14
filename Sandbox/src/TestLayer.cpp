@@ -12,7 +12,7 @@ using namespace events;
 using namespace maths;
 
 TestLayer::TestLayer()
-	: Layer2D(ShaderFactory::DefaultShader(), mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f)), debugInfo(nullptr), m_Fps(nullptr), m_Renderer(nullptr)
+	: Layer2D(ShaderFactory::DefaultShader(), mat4::Orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f)), debugInfo(nullptr), m_Renderer(nullptr)
 {
 }
 
@@ -25,17 +25,13 @@ void TestLayer::OnInit(Renderer2D &renderer, Shader &shader)
 	// m_Window->SetVsync(false);
 	m_Renderer = &renderer;
 
-	FontManager::Get()->SetScale(m_Window->GetWidth() / 32.0f, m_Window->GetHeight() / 18.0f);
 	renderer.SetRenderTarget(RenderTarget::BUFFER);
 	renderer.AddPostEffectsPass(new PostEffectsPass(Shader::FromFile("Horizontal Blur", "shaders/postfx.shader")));
 	renderer.SetPostEffects(false);
 
 	Texture::SetFilter(TextureFilter::NEAREST);
-	Add(new Sprite(0.0f, 0.0f, 8, 8, new Texture("Tex", "res/test.png")));
+	Add(new Sprite(0.0f, 0.0f, 8, 8, new Texture("Tex", "res/tb.png")));
 	Add(new Sprite(-8.0f, -8.0f, 6, 6, 0xffff00ff));
-
-	m_Fps = new Label("", -15.5f, 7.8f, 0xffffffff);
-	Add(m_Fps);
 
 	debugInfo = new Label * [10];
 	debugInfo[0] = new Label("", -15.5f, 6.8f, 0xffffffff);
@@ -52,14 +48,13 @@ void TestLayer::OnInit(Renderer2D &renderer, Shader &shader)
 void TestLayer::OnTick()
 {
 	Application &app = Application::GetApplication();
-	m_Fps->text = std::to_string(app.GetFPS()) + " fps";
 	SP_INFO(app.GetUPS(), " ups, ", app.GetFPS(), " fps");
 }
 
 void TestLayer::OnUpdate()
 {}
 
-void TestLayer::OnRender(Renderer2D & renderer)
+void TestLayer::OnRender(Renderer2D &renderer)
 {
 	debugInfo[0]->text = String("Target: ") + (renderer.GetRenderTarget() == RenderTarget::SCREEN ? "Screen" : "Buffer");
 	debugInfo[1]->text = String("PostFX: ") + (renderer.GetPostEffects() ? "On" : "Off");
@@ -75,12 +70,12 @@ bool TestLayer::OnKeyPressedEvent(KeyPressedEvent &event)
 	if (event.GetRepeat())
 		return false;
 
-	if (event.GetKeyCode() == VK_T)
+	if (event.GetKeyCode() == SP_KEY_T)
 	{
 		renderer.SetRenderTarget(renderer.GetRenderTarget() == RenderTarget::SCREEN ? RenderTarget::BUFFER : RenderTarget::SCREEN);
 		return true;
 	}
-	if (event.GetKeyCode() == VK_P)
+	if (event.GetKeyCode() == SP_KEY_P)
 	{
 		renderer.SetPostEffects(!renderer.GetPostEffects());
 		return true;

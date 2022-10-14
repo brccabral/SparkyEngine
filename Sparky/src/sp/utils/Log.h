@@ -125,6 +125,12 @@ namespace sp
 			return result;
 		}
 
+		template <>
+		static const char *to_string<bool>(const bool &t)
+		{
+			return t ? "true" : "false";
+		}
+
 		template <typename T>
 		static String format_iterators(T &begin, T &end)
 		{

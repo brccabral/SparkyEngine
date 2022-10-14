@@ -273,8 +273,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\platform\opengl\SPOpenGLError.cpp" />
-    <ClCompile Include="src\platform\windows\Win32Timer.cpp" />
+    <ClCompile Include="src\sp\app\Input.cpp" />
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLError.cpp" />
+    <ClCompile Include="src\sp\platform\windows\Win32Input.cpp" />
+    <ClCompile Include="src\sp\platform\windows\Win32Timer.cpp" />
     <ClCompile Include="src\sp\app\Application.cpp" />
     <ClCompile Include="src\sp\audio\Sound.cpp" />
     <ClCompile Include="src\sp\audio\SoundManager.cpp" />
@@ -309,7 +311,6 @@
     <ClCompile Include="src\sp\graphics\Model.cpp" />
     <ClCompile Include="src\sp\graphics\postfx\PostEffects.cpp" />
     <ClCompile Include="src\sp\graphics\postfx\PostEffectsPass.cpp" />
-    <ClCompile Include="src\sp\graphics\Renderable2D.cpp" />
     <ClCompile Include="src\sp\graphics\Scene.cpp" />
     <ClCompile Include="src\sp\graphics\shaders\Shader.cpp" />
     <ClCompile Include="src\sp\graphics\shaders\ShaderFactory.cpp" />
@@ -317,18 +318,18 @@
     <ClCompile Include="src\sp\graphics\Sprite.cpp" />
     <ClCompile Include="src\sp\graphics\Texture.cpp" />
     <ClCompile Include="src\sp\graphics\TextureManager.cpp" />
-    <ClCompile Include="src\sp\graphics\Window.cpp" />
+    <ClCompile Include="src\sp\app\Window.cpp" />
     <ClCompile Include="src\sp\maths\AABB.cpp" />
     <ClCompile Include="src\sp\maths\mat4.cpp" />
     <ClCompile Include="src\sp\maths\Quaternion.cpp" />
     <ClCompile Include="src\sp\maths\vec2.cpp" />
     <ClCompile Include="src\sp\maths\vec3.cpp" />
     <ClCompile Include="src\sp\maths\vec4.cpp" />
-    <ClCompile Include="src\platform\opengl\SPOpenGLBuffer.cpp" />
-    <ClCompile Include="src\platform\opengl\SPOpenGLRenderAPI.cpp" />
-    <ClCompile Include="src\platform\windows\Win32Application.cpp" />
-    <ClCompile Include="src\platform\windows\Win32Log.cpp" />
-    <ClCompile Include="src\platform\windows\Win32Window.cpp" />
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLBuffer.cpp" />
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLRenderAPI.cpp" />
+    <ClCompile Include="src\sp\platform\windows\Win32Application.cpp" />
+    <ClCompile Include="src\sp\platform\windows\Win32Log.cpp" />
+    <ClCompile Include="src\sp\platform\windows\Win32Window.cpp" />
     <ClCompile Include="src\sp\sp.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -347,7 +348,8 @@
     <ClInclude Include="ext\freetype\include\config\ftoption.h" />
     <ClInclude Include="ext\freetype\include\config\ftstdlib.h" />
     <ClInclude Include="ext\freetype\include\ft2build.h" />
-    <ClInclude Include="src\platform\opengl\SPOpenGLTypes.h" />
+    <ClInclude Include="src\sp\app\Input.h" />
+    <ClInclude Include="src\sp\platform\opengl\SPOpenGLTypes.h" />
     <ClInclude Include="src\Sparky.h" />
     <ClInclude Include="src\sp\app\Application.h" />
     <ClInclude Include="src\sp\audio\Sound.h" />
@@ -403,7 +405,7 @@
     <ClInclude Include="src\sp\graphics\Sprite.h" />
     <ClInclude Include="src\sp\graphics\Texture.h" />
     <ClInclude Include="src\sp\graphics\TextureManager.h" />
-    <ClInclude Include="src\sp\graphics\Window.h" />
+    <ClInclude Include="src\sp\app\Window.h" />
     <ClInclude Include="src\sp\maths\AABB.h" />
     <ClInclude Include="src\sp\maths\mat4.h" />
     <ClInclude Include="src\sp\maths\maths.h" />
@@ -413,7 +415,7 @@
     <ClInclude Include="src\sp\maths\vec2.h" />
     <ClInclude Include="src\sp\maths\vec3.h" />
     <ClInclude Include="src\sp\maths\vec4.h" />
-    <ClInclude Include="src\platform\opengl\SPOpenGLBuffer.h" />
+    <ClInclude Include="src\sp\platform\opengl\SPOpenGLBuffer.h" />
     <ClInclude Include="src\sp\sp.h" />
     <ClInclude Include="src\sp\String.h" />
     <ClInclude Include="src\sp\Types.h" />
@@ -424,7 +426,7 @@
     <ClInclude Include="src\sp\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\platform\opengl\SPOpenGLRenderAPI.inl" />
+    <None Include="src\sp\platform\opengl\SPOpenGLRenderAPI.inl" />
     <None Include="src\sp\graphics\shaders\default\BasicLight.shader" />
     <None Include="src\sp\graphics\shaders\default\Default.shader" />
     <None Include="src\sp\graphics\shaders\default\Simple.shader" />

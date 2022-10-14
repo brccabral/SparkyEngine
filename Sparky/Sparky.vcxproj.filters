@@ -144,7 +144,7 @@
     <ClCompile Include="src\sp\graphics\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\sp\graphics\Window.cpp">
+    <ClCompile Include="src\sp\app\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\maths\mat4.cpp">
@@ -159,13 +159,13 @@
     <ClCompile Include="src\sp\maths\vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\windows\Win32Log.cpp">
+    <ClCompile Include="src\sp\platform\windows\Win32Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\windows\Win32Application.cpp">
+    <ClCompile Include="src\sp\platform\windows\Win32Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\windows\Win32Window.cpp">
+    <ClCompile Include="src\sp\platform\windows\Win32Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\graphics\postfx\PostEffects.cpp">
@@ -192,10 +192,10 @@
     <ClCompile Include="src\sp\graphics\buffers\BufferLayout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\opengl\SPOpenGLBuffer.cpp">
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\opengl\SPOpenGLRenderAPI.cpp">
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLRenderAPI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\maths\AABB.cpp">
@@ -220,9 +220,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\graphics\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sp\graphics\Renderable2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\graphics\Model.cpp">
@@ -255,16 +252,22 @@
     <ClCompile Include="src\sp\sp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\opengl\SPOpenGLError.cpp">
+    <ClCompile Include="src\sp\platform\opengl\SPOpenGLError.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\platform\windows\Win32Timer.cpp">
+    <ClCompile Include="src\sp\platform\windows\Win32Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\debug\DebugLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sp\debug\DebugMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\platform\windows\Win32Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sp\app\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -353,7 +356,7 @@
     <ClInclude Include="src\sp\graphics\TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\sp\graphics\Window.h">
+    <ClInclude Include="src\sp\app\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\maths\mat4.h">
@@ -422,7 +425,7 @@
     <ClInclude Include="src\sp\graphics\buffers\BufferLayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\opengl\SPOpenGLBuffer.h">
+    <ClInclude Include="src\sp\platform\opengl\SPOpenGLBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sp\graphics\SPRenderAPI.h">
@@ -494,7 +497,7 @@
     <ClInclude Include="src\sp\sp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\opengl\SPOpenGLTypes.h">
+    <ClInclude Include="src\sp\platform\opengl\SPOpenGLTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Sparky.h">
@@ -512,9 +515,12 @@
     <ClInclude Include="src\sp\debug\DebugMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\sp\app\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\platform\opengl\SPOpenGLRenderAPI.inl">
+    <None Include="src\sp\platform\opengl\SPOpenGLRenderAPI.inl">
       <Filter>Header Files</Filter>
     </None>
     <None Include="src\sp\graphics\shaders\default\BasicLight.shader" />

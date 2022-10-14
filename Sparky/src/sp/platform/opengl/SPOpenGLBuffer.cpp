@@ -1,7 +1,7 @@
 #include "sp/sp.h"
 #include "SPOpenGLBuffer.h"
 
-#include "sp/graphics/SPRenderAPI.h"
+#include <sp/graphics/SPRenderAPI.h>
 
 namespace sp
 {
@@ -11,7 +11,7 @@ namespace sp
 		{
 
 			Buffer::Buffer(uint target, uint usage)
-				: target(target), usage(usage), size(0)
+				: target(target), usage(usage)
 			{
 				id = CreateBuffer();
 			}

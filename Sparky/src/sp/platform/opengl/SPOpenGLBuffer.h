@@ -1,7 +1,7 @@
 #pragma once
 
-#include "sp/Types.h"
-#include "sp/graphics/buffers/BufferLayout.h"
+#include <sp/Types.h>
+#include <sp/graphics/buffers/BufferLayout.h>
 
 namespace sp
 {
@@ -24,7 +24,7 @@ namespace sp
 				void SetData(uint size, const void *data);
 
 				template<typename T>
-				T *GetPointer(uint flags = GL_WRITE_ONLY)
+				T *GetPointer(uint flags = 0x88B9/*GL_WRITE_ONLY*/)
 				{
 					return (T *)API::GetBufferPointer(target, flags);
 				}

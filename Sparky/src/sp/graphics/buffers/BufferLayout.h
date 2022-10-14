@@ -2,11 +2,9 @@
 
 #include "sp/sp.h"
 #include "sp/Common.h"
-#include "sp/String.h"
 #include "sp/Types.h"
 #include "sp/maths/maths.h"
-#include "sp/utils/Log.h"
-#include "platform/opengl/SPOpenGLTypes.h"
+#include "sp/platform/opengl/SPOpenGLTypes.h"
 
 namespace sp
 {
@@ -15,11 +13,11 @@ namespace sp
 		struct SP_API BufferLayoutType
 		{
 			String name;
-			uint type;
-			uint size;
-			uint count;
-			uint offset;
-			bool normalized;
+			uint type = 0;
+			uint size = 0;
+			uint count = 0;
+			uint offset = 0;
+			bool normalized = false;
 		};
 
 		class SP_API BufferLayout
