@@ -32,8 +32,9 @@ namespace sp
 			void OnUpdate() override;
 
 			void OnEvent(events::Event &event) override;
-			bool OnMouseMovedEvent(events::MouseMovedEvent &event);
-			bool OnKeyPressedEvent(events::KeyPressedEvent &event);
+			bool OnMouseMovedEvent(events::MouseMovedEvent &e);
+			bool OnMousePressedEvent(events::MousePressedEvent &e);
+			bool OnKeyPressedEvent(events::KeyPressedEvent &e);
 
 			void OnRender(graphics::Renderer2D &renderer) override;
 		};
