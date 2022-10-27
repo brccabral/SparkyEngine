@@ -35,6 +35,7 @@ namespace sp
 			bool OnMouseMovedEvent(events::MouseMovedEvent &e);
 			bool OnMousePressedEvent(events::MousePressedEvent &e);
 			bool OnKeyPressedEvent(events::KeyPressedEvent &e);
+			bool OnMouseReleasedEvent(events::MouseReleasedEvent &e);
 
 			void OnRender(graphics::Renderer2D &renderer) override;
 		};

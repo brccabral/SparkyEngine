@@ -70,13 +70,13 @@ void *_alloca(size_t size);
 #  include <memory.h>
 #endif
 
-#ifndef min
-#  define min(x,y)  ((x)>(y)?(y):(x))
-#endif
-
-#ifndef max
-#  define max(x,y)  ((x)<(y)?(y):(x))
-#endif
+//#ifndef min
+//#  define min(x,y)  ((x)>(y)?(y):(x))
+//#endif
+//
+//#ifndef max
+//#  define max(x,y)  ((x)<(y)?(y):(x))
+//#endif
 
 
 /* Special i386 GCC implementation */

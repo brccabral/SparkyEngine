@@ -29,9 +29,6 @@ namespace sp
 			renderer.SetRenderTarget(RenderTarget::SCREEN);
 			m_FPSLabel = new Label("", 30.0f, 17.2f, FontManager::Get(24), 0xffffffff);
 			Add(m_FPSLabel);
-
-			DebugMenu::Add("Example Item");
-			DebugMenu::Add("This is another example");
 		}
 
 		void DebugLayer::OnTick()
@@ -40,7 +37,9 @@ namespace sp
 		}
 
 		void DebugLayer::OnUpdate()
-		{}
+		{
+			DebugMenu::Get()->OnUpdate();
+		}
 
 		void DebugLayer::OnEvent(Event &e)
 		{
@@ -48,6 +47,12 @@ namespace sp
 			dispatcher.Dispatch<MouseMovedEvent>(METHOD(&DebugLayer::OnMouseMovedEvent));
 			dispatcher.Dispatch<KeyPressedEvent>(METHOD(&DebugLayer::OnKeyPressedEvent));
 			dispatcher.Dispatch<MousePressedEvent>(METHOD(&DebugLayer::OnMousePressedEvent));
+			dispatcher.Dispatch<MouseReleasedEvent>(METHOD(&DebugLayer::OnMouseReleasedEvent));
+		}
+
+		bool DebugLayer::OnMouseReleasedEvent(events::MouseReleasedEvent &e)
+		{
+			return DebugMenu::IsVisible() ? DebugMenu::Get()->OnMouseReleased(e) : false;
 		}
 
 		bool DebugLayer::OnMouseMovedEvent(MouseMovedEvent &e)
@@ -76,7 +81,7 @@ namespace sp
 		void DebugLayer::OnRender(graphics::Renderer2D &renderer)
 		{
 			if (DebugMenu::IsVisible())
-				DebugMenu::OnRender(renderer);
+				DebugMenu::Get()->OnRender(renderer);
 		}
 
 	}

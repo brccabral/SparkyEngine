@@ -252,7 +252,7 @@ namespace sp
 		#endif
 		}
 
-		void BatchRenderer2D::DrawString(const String &text, const maths::vec3 &position, const Font &font, uint color)
+		void BatchRenderer2D::DrawString(const String &text, const maths::vec2 &position, const Font &font, uint color)
 		{
 			using namespace ftgl;
 
@@ -318,6 +318,79 @@ namespace sp
 			}
 		}
 
+		void BatchRenderer2D::DrawLine(float x0, float y0, float x1, float y1, float thickness, uint color)
+		{
+			const std::vector<vec2> &uv = Renderable2D::GetDefaultUVs();
+			float ts = 0.0f;
+			mat4 maskTransform = mat4::Identity();
+			uint mid = m_Mask ? m_Mask->texture->GetID() : 0;
+
+			float ms = 0.0f;
+			if (m_Mask != nullptr)
+			{
+				maskTransform = mat4::Invert(m_Mask->transform);
+				ms = SubmitTexture(m_Mask->texture);
+			}
+
+			vec2 normal = vec2(y1 - y0, -(x1 - x0)).Normalise() * thickness;
+
+			vec3 vertex = *m_TransformationBack * vec3(x0 + normal.x, y0 + normal.y, 0.0f);
+			m_Buffer->vertex = vertex;
+			m_Buffer->uv = uv[0];
+			m_Buffer->mask_uv = maskTransform * vertex;
+			m_Buffer->tid = ts;
+			m_Buffer->mid = ms;
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			vertex = *m_TransformationBack * vec3(x1 + normal.x, y1 + normal.y, 0.0f);
+			m_Buffer->vertex = vertex;
+			m_Buffer->uv = uv[1];
+			m_Buffer->mask_uv = maskTransform * vertex;
+			m_Buffer->tid = ts;
+			m_Buffer->mid = ms;
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			vertex = *m_TransformationBack * vec3(x1 - normal.x, y1 - normal.y, 0.0f);
+			m_Buffer->vertex = vertex;
+			m_Buffer->uv = uv[2];
+			m_Buffer->mask_uv = maskTransform * vertex;
+			m_Buffer->tid = ts;
+			m_Buffer->mid = ms;
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			vertex = *m_TransformationBack * vec3(x0 - normal.x, y0 - normal.y, 0.0f);
+			m_Buffer->vertex = vertex;
+			m_Buffer->uv = uv[3];
+			m_Buffer->mask_uv = maskTransform * vertex;
+			m_Buffer->tid = ts;
+			m_Buffer->mid = ms;
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			m_IndexCount += 6;
+		}
+
+		void BatchRenderer2D::DrawLine(const maths::vec2 &start, const maths::vec2 &end, float thickness, uint color)
+		{
+			DrawLine(start.x, start.y, end.x, end.y, thickness, color);
+		}
+
+		void BatchRenderer2D::DrawRect(float x, float y, float width, float height, uint color)
+		{
+			DrawLine(x, y, x + width, y);
+			DrawLine(x + width, y, x + width, y + height);
+			DrawLine(x + width, y + height, x, y + height);
+			DrawLine(x, y + height, x, y);
+		}
+
+		void BatchRenderer2D::DrawRect(const Rectangle &rectangle, uint color)
+		{
+			DrawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, color);
+		}
+
 		void BatchRenderer2D::FillRect(float x, float y, float width, float height, uint color)
 		{
 			vec3 position(x, y, 0.0f);
@@ -371,6 +444,11 @@ namespace sp
 			m_Buffer++;
 
 			m_IndexCount += 6;
+		}
+
+		void BatchRenderer2D::FillRect(const Rectangle &rectangle, uint color)
+		{
+			FillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, color);
 		}
 
 		void BatchRenderer2D::End()

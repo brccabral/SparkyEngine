@@ -12,6 +12,7 @@
 
 #include "AABB.h"
 #include "Quaternion.h"
+#include "Rectangle.h"
 
 namespace sp
 {
