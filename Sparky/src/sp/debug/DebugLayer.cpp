@@ -62,7 +62,7 @@ namespace sp
 
 		bool DebugLayer::OnMousePressedEvent(events::MousePressedEvent &e)
 		{
-			return false;
+			return DebugMenu::IsVisible() ? DebugMenu::Get()->OnMousePressed(e) : false;
 		}
 
 		bool DebugLayer::OnKeyPressedEvent(KeyPressedEvent &e)

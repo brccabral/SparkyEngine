@@ -53,7 +53,7 @@ namespace sp
 
 		bool AABB::operator!=(const AABB &other) const
 		{
-			return !((*this).min == other.min && (*this).max == other.max);
+			return !(*this == other);
 		}
 
 		bool AABB::operator<(const AABB &other) const
