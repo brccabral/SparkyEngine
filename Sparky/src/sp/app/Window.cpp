@@ -21,6 +21,7 @@ namespace sp
 			return;
 		}
 
+		FontManager::SetScale(maths::vec2(m_Width / 32.0f, m_Height / 18.0f));
 		FontManager::Add(new Font("SourceSansPro", internal::DEFAULT_FONT, internal::DEFAULT_FONT_SIZE, 32));
 
 	#ifdef SPARKY_PLATFORM_WEB
