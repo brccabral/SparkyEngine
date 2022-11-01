@@ -1,5 +1,10 @@
 # Sparky Engine
 
+I gave up following the tutorial as it stopped being a tutorial to become a live stream.  
+Aactually, it was never a tutorial, but the first videos had more in-depth content and knowledge sharing.  
+Also, for some reason not all videos are available or there are commits in between videos and it became hard to follow the series.  
+This is not to diminish the work done, Cherno seems a great developer and to build a Game Engine from scratch is a great deal, but I have decided to move to other projects.
+
 Tutorial from The Cherno https://www.youtube.com/playlist?list=PLlrATfBNZ98fqE45g3jZA_hLGUrD4bo6_  
 
 Followed by season two in another channel ChernoArchive https://www.youtube.com/watch?v=Zv4BN7PFGas&list=PL33Ub_ClzraN0RIx2dhQMVwc3bgAFU83_  
