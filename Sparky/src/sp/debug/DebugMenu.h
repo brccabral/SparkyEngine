@@ -34,6 +34,7 @@ namespace sp
 			// DebugMenuSlider* m_Slider;
 			graphics::ui::Panel *m_Panel;
 			graphics::ui::Slider *m_Slider;
+			graphics::ui::Slider *m_Slider_h;
 		public:
 			static DebugMenu *Get();
 

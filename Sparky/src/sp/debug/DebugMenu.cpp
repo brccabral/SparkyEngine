@@ -26,6 +26,7 @@ namespace sp
 			Add("Font Size", &m_Settings.fontSize, 8.0f, 48.0f);
 
 			m_Slider = nullptr;
+			m_Slider_h = nullptr;
 			m_Panel = new Panel();
 		}
 
@@ -97,6 +98,9 @@ namespace sp
 
 			m_Slider = new Slider({ width, 0.0f, 1.5f, 18.0f }, true);
 			m_Panel->Add(m_Slider)->SetActive(false);
+
+			m_Slider_h = new Slider({ height, 0.0f, 18.0f, 1.5f }, false);
+			m_Panel->Add(m_Slider_h)->SetActive(false);
 		}
 
 		void DebugMenu::OnDeactivate()
@@ -110,6 +114,10 @@ namespace sp
 			m_Slider->SetCallback(callback);
 			m_Slider->SetActive(true);
 			m_Slider->SetValue(value);
+			
+			m_Slider_h->SetCallback(callback);
+			m_Slider_h->SetActive(true);
+			m_Slider_h->SetValue(value);
 		}
 
 		void DebugMenu::OnUpdate()
@@ -117,6 +125,11 @@ namespace sp
 			if (m_Slider && m_Slider->IsActive())
 			{
 				float value = m_Slider->GetValue();
+
+			}
+			if (m_Slider_h && m_Slider_h->IsActive())
+			{
+				float value_h = m_Slider_h->GetValue();
 
 			}
 		}
